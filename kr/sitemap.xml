@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/kr/ros2_basic_foxy/</loc>
-    <lastmod>2022-12-25T12:26:00+09:00</lastmod>
-  </url><url>
     <loc>/kr/ros_basic_noetic/</loc>
     <lastmod>2022-12-25T12:23:04+09:00</lastmod>
   </url><url>
+    <loc>/kr/ros2_basic_foxy/</loc>
+    <lastmod>2022-11-25T12:26:00+09:00</lastmod>
+  </url><url>
     <loc>/kr/</loc>
-    <lastmod>2022-12-25T13:13:45+09:00</lastmod>
+    <lastmod>2022-12-25T13:36:33+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -22,7 +22,10 @@
                 />
   </url><url>
     <loc>/kr/ros_basic_noetic/lecture2/</loc>
-    <lastmod>2022-12-25T13:13:45+09:00</lastmod>
+    <lastmod>2022-12-25T13:36:33+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros_basic_noetic/lecture3/</loc>
+    <lastmod>2022-12-25T13:36:31+09:00</lastmod>
   </url><url>
     <loc>/kr/categories/</loc>
     <xhtml:link

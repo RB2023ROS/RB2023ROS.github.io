@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ros2 Basics on Documentation for Hugo Learn Theme</title>
+    <title>ROS 2 Basics on Documentation for Hugo Learn Theme</title>
     <link>/kr/ros2_basic_foxy/</link>
-    <description>Recent content in Ros2 Basics on Documentation for Hugo Learn Theme</description>
+    <description>Recent content in ROS 2 Basics on Documentation for Hugo Learn Theme</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 25 Dec 2022 12:26:00 +0900</lastBuildDate><atom:link href="/kr/ros2_basic_foxy/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Nov 2022 12:26:00 +0900</lastBuildDate><atom:link href="/kr/ros2_basic_foxy/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
