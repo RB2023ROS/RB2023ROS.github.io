@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ROS Basics on Documentation for Hugo Learn Theme</title>
+    <link>/kr/ros_basic_noetic/</link>
+    <description>Recent content in ROS Basics on Documentation for Hugo Learn Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 25 Dec 2022 12:23:04 +0900</lastBuildDate><atom:link href="/kr/ros_basic_noetic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lecture2</title>
+      <link>/kr/ros_basic_noetic/lecture2/</link>
+      <pubDate>Sun, 25 Dec 2022 13:13:45 +0900</pubDate>
+      
+      <guid>/kr/ros_basic_noetic/lecture2/</guid>
+      <description>지난 시간 개발환경 세팅을 잘 진행하였는지 확인을 해보면서 강의를 시작해보겠습니다.
+터미널 프로그램을 실행한 뒤, gazebo를 실행해 봅시다.
+gazebo 위 사진과 같은 화면이 나오지 않았다면 설치가 제대로 되지 않은 것입니다.
+다음으로, ROS 설치는 잘 되었는지도 확인해봅시다.
+# Terminal 1 roscore # Terminal 2 rosrun rospy_tutorials talker 모든 확인이 끝났다면, 예제 프로그램을 실행시켜보겠습니다.
+Husky Gazebo 예제 패키지 설치 sudo apt-get update sudo apt-get install ros-noetic-husky-desktop sudo apt-get install ros-noetic-husky-simulator 예제 프로그램 실행 # Terminal 1 roslaunch husky_gazebo husky_empty_world.</description>
+    </item>
+    
+  </channel>
+</rss>
