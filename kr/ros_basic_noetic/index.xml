@@ -8,7 +8,7 @@
     <language>en-US</language>
     <lastBuildDate>Sun, 25 Dec 2022 12:23:04 +0900</lastBuildDate><atom:link href="/kr/ros_basic_noetic/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Lecture2</title>
+      <title>Lecture2 - Core of ROS</title>
       <link>/kr/ros_basic_noetic/lecture2/</link>
       <pubDate>Sun, 25 Dec 2022 13:36:33 +0900</pubDate>
       
@@ -22,11 +22,35 @@ Husky Gazebo 예제 패키지 설치 sudo apt-get update sudo apt-get install ro
     </item>
     
     <item>
-      <title>Lecture3</title>
+      <title>Lecture3 - ROS Launch, RViz</title>
       <link>/kr/ros_basic_noetic/lecture3/</link>
       <pubDate>Sun, 25 Dec 2022 13:36:31 +0900</pubDate>
       
       <guid>/kr/ros_basic_noetic/lecture3/</guid>
+      <description>ROS Launch 일전 예시 실행에서 다음과 같은 커멘드 라인을 사용했었습니다.
+roslaunch smb_gazebo smb_gazebo.launch roslaunch란, 다수의 ROS Node들을 한번에 실행할 수 있도록 해주는 툴 입니다.
+roslaunch를 사용하기 위해서는 xml이라는 포멧을 사용하는 launch file이 있어야 하며, 이는 보통 패키지의 launch 폴더에 위치하고 있습니다.
+launch file의 구조를 파악해봅시다.
+launch파일은 xml이라는 문법을 사용합니다. html을 사용해보셨다면 아시겠지만, &amp;lt;&amp;gt;를 이용하여 라인을 구분하는 포멧입니다. 한 라인에서 끝나는 경우 /&amp;gt;로 맺을 수 있지만, 여러 라인이 필요한 경우에는 여는 태그와 닫는 태그를 사용하여 구분합니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture4 - Node Programming, Topic Pub,Sub and Message</title>
+      <link>/kr/ros_basic_noetic/lecture4/</link>
+      <pubDate>Sun, 25 Dec 2022 13:36:28 +0900</pubDate>
+      
+      <guid>/kr/ros_basic_noetic/lecture4/</guid>
+      <description>이번 강의부터, 본격적인 프로그래밍이 시작됩니다. 첫번째로 Node의 프로그래밍을 살펴보고자 하며, 시작 전 간단한 복습을 진행하고 시작하겠습니다.
+image from : clearpathrobotics
+Workspace와 패키지 # WS 생성 mkdir -p catkin_ws/src cd catkin_ws catkin config --init # Package 생성 catkin_create_pkg &amp;lt;pkg-name&amp;gt; &amp;lt;depend1&amp;gt; &amp;lt;depend2&amp;gt; ... ROS Node Programming C++ 코드는 src 폴더 안에, 파이썬 코드는 scripts라는 폴더 안에 위치시키는 것이 일반적입니다. cd &amp;lt;pkg-name&amp;gt; mkdir scripts 지금부터, 직접 명령어를 한줄씩 따라치면서 실습하셔도 좋고, 제가 미리 준비해둔 Package를 사용하셔도 좋습니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture5 - </title>
+      <link>/kr/ros_basic_noetic/lecture5/</link>
+      <pubDate>Sun, 25 Dec 2022 13:36:26 +0900</pubDate>
+      
+      <guid>/kr/ros_basic_noetic/lecture5/</guid>
       <description></description>
     </item>
     

@@ -9,25 +9,25 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Lecture3 - Documentation for Hugo Learn Theme</title>
+    <title>Lecture3 - ROS Launch, RViz - Documentation for Hugo Learn Theme</title>
 
     
-    <link href="/css/nucleus.css?1671943753" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1671943753" rel="stylesheet">
-    <link href="/css/hybrid.css?1671943753" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1671943753" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1671943753" rel="stylesheet">
-    <link href="/css/auto-complete.css?1671943753" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1671943753" rel="stylesheet">
-    <link href="/css/theme.css?1671943753" rel="stylesheet">
-    <link href="/css/tabs.css?1671943753" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1671943753" rel="stylesheet">
+    <link href="/css/nucleus.css?1672013899" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1672013899" rel="stylesheet">
+    <link href="/css/hybrid.css?1672013899" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1672013899" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1672013899" rel="stylesheet">
+    <link href="/css/auto-complete.css?1672013899" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1672013899" rel="stylesheet">
+    <link href="/css/theme.css?1672013899" rel="stylesheet">
+    <link href="/css/tabs.css?1672013899" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1672013899" rel="stylesheet">
     
-    <link href="/css/theme-green.css?1671943753" rel="stylesheet">
+    <link href="/css/theme-green.css?1672013899" rel="stylesheet">
     
-    <link href="/css/foo.css?1671943753" rel="stylesheet"><link href="/css/bar.css?1671943753" rel="stylesheet">
+    <link href="/css/foo.css?1672013899" rel="stylesheet"><link href="/css/bar.css?1672013899" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1671943753"></script>
+    <script src="/js/jquery-3.3.1.min.js?1672013899"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -137,14 +137,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1671943753"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1671943753"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1672013899"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1672013899"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/kr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1671943753"></script>
+<script type="text/javascript" src="/js/search.js?1672013899"></script>
 
     
   </div>
@@ -198,9 +198,9 @@
  
   
     
-      <li data-nav-id="/kr/ros_basic_noetic/lecture2/" title="Lecture2" class="dd-item ">
+      <li data-nav-id="/kr/ros_basic_noetic/lecture2/" title="Lecture2 - Core of ROS" class="dd-item ">
         <a href="/kr/ros_basic_noetic/lecture2/">
-        Lecture2
+        Lecture2 - Core of ROS
         
         </a>
     </li>
@@ -219,9 +219,51 @@
  
   
     
-      <li data-nav-id="/kr/ros_basic_noetic/lecture3/" title="Lecture3" class="dd-item active">
+      <li data-nav-id="/kr/ros_basic_noetic/lecture3/" title="Lecture3 - ROS Launch, RViz" class="dd-item active">
         <a href="/kr/ros_basic_noetic/lecture3/">
-        Lecture3
+        Lecture3 - ROS Launch, RViz
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture4/" title="Lecture4 - Node Programming, Topic Pub,Sub and Message" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture4/">
+        Lecture4 - Node Programming, Topic Pub,Sub and Message
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture5/" title="Lecture5 - " class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture5/">
+        Lecture5 - 
         
         </a>
     </li>
@@ -372,14 +414,20 @@
                   <span class="links">
                  
                  
-                   Lecture3
+                   Lecture3 - ROS Launch, RViz
                  
                   </span>
                 </div>
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#ros-launch">ROS Launch</a></li>
+    <li><a href="#rqt와-rviz">Rqt와 RViz</a></li>
+    <li><a href="#rqt-tools">Rqt Tools</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -395,13 +443,219 @@
           
             <h1>
               
-              Lecture3
+              Lecture3 - ROS Launch, RViz
             </h1>
           
 
         
 
 
+<h2 id="ros-launch">ROS Launch</h2>
+<blockquote>
+<p>일전 예시 실행에서 다음과 같은 커멘드 라인을 사용했었습니다.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>roslaunch smb_gazebo smb_gazebo.launch
+</span></span></code></pre></div><p><strong>roslaunch</strong>란, 다수의 ROS Node들을 한번에 실행할 수 있도록 해주는 툴 입니다.</p>
+<p>roslaunch를 사용하기 위해서는 <strong>xml</strong>이라는 포멧을 사용하는 <strong>launch file</strong>이 있어야 하며, 이는 보통 패키지의 launch 폴더에 위치하고 있습니다.</p>
+<p><img src="/kr/ros_basic_noetic/images3/lec3_0.png?height=200px" alt="lec3_0.png"></p>
+<blockquote>
+<p>launch file의 구조를 파악해봅시다.</p>
+</blockquote>
+<ul>
+<li>launch파일은 <code>xml</code>이라는 문법을 사용합니다. html을 사용해보셨다면 아시겠지만, &lt;&gt;를 이용하여 라인을 구분하는 포멧입니다.</li>
+<li>한 라인에서 끝나는 경우 /&gt;로 맺을 수 있지만, 여러 라인이 필요한 경우에는 여는 태그와 닫는 태그를 사용하여 구분합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;tag</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>or
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;tag</span> <span style="color:#960050;background-color:#1e0010">(value)</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/tag&gt;</span>
+</span></span></code></pre></div><p>launch file은 시작과 끝, <strong><!-- raw HTML omitted --> <!-- raw HTML omitted --></strong> 태그로 감싸집니다.</p>
+<ul>
+<li><strong>node</strong> 태그는 실행되는 ROS Node를 지칭합니다.</li>
+<li><strong>name</strong> 태그는 node를 실행할 때의 이름을 설정하는 부분으로 자유롭게 지정 가능합니다.</li>
+<li><strong>pkg</strong> 태그에는 해당 node가 속해있는 package를 적습니다.</li>
+<li><strong>type</strong> 태그에는 실행가능한 파일, 혹은 프로그램을 적게 되며, c++의 경우 빌드된 프로그램, 파이썬의 경우 파이썬 파일이 됩니다.</li>
+<li><strong>output</strong> 태그는 로그가 출력되는 위치를 지정하며 screen일 시 터미널에 출력됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;launch&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;node</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;listener&#34;</span> <span style="color:#a6e22e">pkg=</span><span style="color:#e6db74">&#34;rospy_tutorials&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;listener.py&#34;</span> <span style="color:#a6e22e">output=</span><span style="color:#e6db74">&#34;screen&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;node</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;talker&#34;</span> <span style="color:#a6e22e">pkg=</span><span style="color:#e6db74">&#34;rospy_tutorials&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;talker.py&#34;</span> <span style="color:#a6e22e">output=</span><span style="color:#e6db74">&#34;screen&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/launch&gt;</span>
+</span></span></code></pre></div><p>이번에는 <code>smb_gazebo.launch</code>를 살펴봅시다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;launch&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- GAZEBO ARGUMENTS --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- Run Gazebo headless --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;headless&#34;</span>                              <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;false&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;model_path&#34;</span>                            <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;$(find smb_gazebo)/&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;robot_namespace&#34;</span>                       <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;robot_model_name&#34;</span>                      <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;smb&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;enable_ekf&#34;</span>                            <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- Load Gazebo world --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;include</span> <span style="color:#a6e22e">file=</span><span style="color:#e6db74">&#34;$(find gazebo_ros)/launch/empty_world.launch&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;env</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;GAZEBO_MODEL_PATH&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(arg model_path)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;world_name&#34;</span>        <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(arg world_file)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;paused&#34;</span>            <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(arg paused)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;use_sim_time&#34;</span>      <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(arg use_sim_time)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;gui&#34;</span>               <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(arg run_gui)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;headless&#34;</span>          <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(arg headless)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;debug&#34;</span>             <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(arg debug)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;verbose&#34;</span>           <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(arg verbose)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/include&gt;</span>
+</span></span></code></pre></div><p><strong>arg</strong>란, argument의 약자이며 launch 파일에서 인자로 작용하는 일종의 변수입니다.</p>
+<ul>
+<li>arg 태그를 통해 argument를 선언하고 <strong>default</strong>를 통해 초기값을 정할 수 있습니다.</li>
+<li>argument의 선언 후 사용은 **<em>$(arg <!-- raw HTML omitted -->)</em>**입니다.</li>
+<li>roslaunch 시 argument를 바꿔 실행이 가능합니다.</li>
+</ul>
+<p>예를 들어, smb_gazebo.launch 실행 시. world를 바꾸어 아래와 같이 사용이 가능합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>roslaunch smb_gazebo smb_gazebo.launch world:=big_map_summer_school
+</span></span></code></pre></div><p><img src="/kr/ros_basic_noetic/images3/lec3_1.png?height=400px" alt="lec3_1.png"></p>
+
+<div class="notices note" ><p>초기 실행 시 시간이 다소 걸릴 수 있습니다.</p>
+</div>
+
+<p>현재 예시에서 제공되는 world는 다음 3가지 입니다.</p>
+<p><img src="/kr/ros_basic_noetic/images3/lec3_2.png?height=200px" alt="lec3_2.png"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>roslaunch smb_gazebo smb_gazebo.launch
+</span></span></code></pre></div><p><img src="/kr/ros_basic_noetic/images3/lec3_3.png?height=400px" alt="lec3_3.png"></p>
+<p>제작한 launch file을 다시 다른 launch file에서 불러오는 경우가 더러 있습니다.</p>
+<p>이때, <strong>include</strong> 태그를 사용하며, 패키지 단위를 기반으로 파일의 경로를 가져오게 됩니다.</p>
+<p>include하는 launch file의 내부에도 여러 argument들이 있을 것입니다. 이들은 arg 태그를 통해 접근할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;include</span> <span style="color:#a6e22e">file=</span><span style="color:#e6db74">&#34;$(find gazebo_ros)/launch/empty_world.launch&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;env</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;GAZEBO_MODEL_PATH&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(arg model_path)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;world_name&#34;</span>        <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(arg world_file)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;paused&#34;</span>            <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(arg paused)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;use_sim_time&#34;</span>      <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(arg use_sim_time)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;gui&#34;</span>               <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(arg run_gui)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;headless&#34;</span>          <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(arg headless)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;debug&#34;</span>             <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(arg debug)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;verbose&#34;</span>           <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(arg verbose)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/include&gt;</span>
+</span></span></code></pre></div><p>html과 마찬가지로 <code>&lt;!--  --&gt;</code> 사이에 오는 코드는 주석으로 무시됩니다.</p>
+<p>단, 주의사항 하나 있습니다. launch 파일을 사용하다보면 <code>--</code>가 종종 쓰이곤 하는데요. 이 경우 주석에 오류가 나니 주의하시기 바랍니다.</p>
+<p><img src="/kr/ros_basic_noetic/images3/lec3_4.png?height=400px" alt="lec3_4.png"></p>
+<blockquote>
+<p>Launch File을 다루는 연습을 해봅시다.</p>
+</blockquote>
+<p><strong>smb_gazebo.launch를 다음과 같이 수정합니다.</strong></p>
+<ol>
+<li>world를 big_map_summer_school로 수정합니다.</li>
+<li>로봇이 등장하는 위치를 다음과 같이 수정합니다.
+<ul>
+<li>xyz : (-0.5, -1.0, 0.4)</li>
+<li>yaw angle : 90도 (3.1415를 1 radian으로 잡습니다.)</li>
+</ul>
+</li>
+<li>launch file에 rospy_tutorials Package에 있는 talker Node를 추가합니다.</li>
+</ol>
+<p><img src="/kr/ros_basic_noetic/images3/lec3_5.png?height=400px" alt="lec3_5.png"></p>
+<hr>
+<h2 id="rqt와-rviz">Rqt와 RViz</h2>
+<p>ROS에는 로봇의 다양한 센서 데이터들을 시각화해주는 3D 툴이 있으며, 이는 RViz라고 불립니다.</p>
+<p>Rviz의 사용법을 알아봅시다.</p>
+<ul>
+<li>예제 실행</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span># Terminal 1
+</span></span><span style="display:flex;"><span>roslaunch smb_gazebo smb_gazebo.launch world:=big_map_summer_school
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Terminal 2
+</span></span><span style="display:flex;"><span>rviz
+</span></span></code></pre></div><p>사진과 같이 Gazebo와 RViz가 잘 실행된 상황에서 강의를 따라합니다.</p>
+<p><img src="/kr/ros_basic_noetic/images3/lec3_6.png?height=400px" alt="lec3_6.png"></p>
+<p>rviz에서 센서 데이터를 시각화하기 전, 우선 어떤 좌표계를 기준으로 시각화할지 설정해주어야 합니다.</p>
+<p>같은 센서라도 원점 좌표계에서 본 모습과, 센서 좌표계에서 본 모습이 다르기 때문입니다.</p>
+<p><img src="/kr/ros_basic_noetic/images3/lec3_7.png?height=300px" alt="lec3_7.png"></p>
+<ul>
+<li>img from : <a href="https://kr.mathworks.com/help/ros/ug/access-the-tf-transformation-tree-in-ros.html">mathworks</a></li>
+</ul>
+<p>이는 RViz의 Fixed Frame에서 설정 가능합니다. (odom으로 설정해보겠습니다.)</p>
+<p><img src="/kr/ros_basic_noetic/images3/frame_rviz.gif?height=400px" alt="frame_rviz.gif"></p>
+<p>이제 다양한 시각화 기능들을 사용해보려 합니다.</p>
+<ul>
+<li>기본적으로 데이터의 추가는 왼쪽 하단 Add 버튼으로 실행합니다.</li>
+</ul>
+<p><img src="/kr/ros_basic_noetic/images3/lec3_8.png?height=300px" alt="lec3_8.png"></p>
+<ul>
+<li>tf 시각화</li>
+</ul>
+<p><img src="/kr/ros_basic_noetic/images3/rviz_tf.gif?height=300px" alt="rviz_tf.gif"></p>
+<ul>
+<li>odometry 시각화</li>
+</ul>
+<p><img src="/kr/ros_basic_noetic/images3/rviz_odom.gif?height=300px" alt="rviz_odom.gif"></p>
+<ul>
+<li>point cloud 시각화</li>
+</ul>
+<p><img src="/kr/ros_basic_noetic/images3/rviz_point_cloud.gif?height=300px" alt="rviz_point_cloud.gif"></p>
+<blockquote>
+<p>이렇게 잘 설정해둔 RViz는 config 포멧으로 추출하여 이후에 다시 사용할 수 있습니다.</p>
+</blockquote>
+<p><strong>File ⇒ Save Config</strong>를 통해 config를 저장하고, Open Config를 통해 저장한 config를 불러올 수 있습니다.</p>
+<p><img src="/kr/ros_basic_noetic/images3/rviz_config.gif?height=300px" alt="rviz_config.gif"></p>
+<p>아래와 같이 다양한 Plugin을 통해 여러 센서, 로봇 데이터를 시각화할 수 있으며, 자신만의 Plugin을 제작할 수도 있습니다.</p>
+<p><img src="/kr/ros_basic_noetic/images3/lec3_9.png?height=300px" alt="lec3_9.png"></p>
+<p>지금까지 여러분들이 만든 RViz 설정을 저장해보고, launch file에 통합해봅시다.</p>
+<ul>
+<li>RViz의 좌측 상단 File 옵션을 사용하여 config file을 저장합니다.</li>
+</ul>
+<p><img src="/kr/ros_basic_noetic/images3/lec3_10.png?height=200px" alt="lec3_10.png"></p>
+<ul>
+<li>저장 위치는 smb_gazebo/rviz로 지정하겠습니다. (새롭게 폴더를 만들어주었습니다.)</li>
+</ul>
+<p><img src="/kr/ros_basic_noetic/images3/lec3_11.png?height=200px" alt="lec3_11.png"></p>
+<ul>
+<li>이제, launch file을 수정합시다. 파일 하단 launch 태그가 닫히기 전 부분에 아래와 같은 라인을 추가합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>	<span style="color:#f92672">&lt;node</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;rviz&#34;</span> <span style="color:#a6e22e">pkg=</span><span style="color:#e6db74">&#34;rviz&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;rviz&#34;</span> <span style="color:#a6e22e">args=</span><span style="color:#e6db74">&#34;-d $(find smb_gazebo)/rviz/my_config.rviz&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/launch&gt;</span>
+</span></span></code></pre></div><p>이제, 다시 Gazebo launch를 해봅시다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>roslaunch smb_gazebo smb_gazebo.launch world:=big_map_summer_school
+</span></span></code></pre></div><hr>
+<h2 id="rqt-tools">Rqt Tools</h2>
+<p>지금까지 사용한 ROS 툴은 rqt_graph와 RViz가 있었습니다.</p>
+<p>사실 ROS에는 수많은 추가 툴들이 존재하며 이들을 묶어 rqt tools라고 부릅니다.</p>
+<ul>
+<li>rqt image view</li>
+</ul>
+<p><img src="/kr/ros_basic_noetic/images3/lec3_12.png?height=400px" alt="lec3_12.png"></p>
+<p>image from : <a href="http://wiki.ros.org/rqt_image_view">wiki.ros.org</a></p>
+<ul>
+<li>rqt multiplot</li>
+</ul>
+<p><img src="/kr/ros_basic_noetic/images3/lec3_13.png?height=400px" alt="lec3_13.png"></p>
+<p>image from : <a href="https://docs.projectmarch.nl/doc/using_the_march_exoskeleton/how_to_view_live_data.html">project march</a></p>
+<ul>
+<li>rqt console</li>
+</ul>
+<p><img src="/kr/ros_basic_noetic/images3/lec3_14.png?height=400px" alt="lec3_14.png"></p>
+<p>image from : <a href="http://wiki.ros.org/rqt_console">wiki.ros.org</a></p>
+<ul>
+<li>rqt robot steering</li>
+</ul>
+<p><img src="/kr/ros_basic_noetic/images3/lec3_15.png?height=400px" alt="lec3_15.png"></p>
+<ul>
+<li>rqt tf tree</li>
+</ul>
+<p><img src="/kr/ros_basic_noetic/images3/lec3_16.png?height=400px" alt="lec3_16.png"></p>
+<p>image from : <a href="http://wiki.ros.org/rqt_tf_tree">rqt tf tree</a></p>
+<blockquote>
+<p>이러한 수많은 툴들이 있어 ROS 개발을 편리하게 해주고 있으며, 함께 ROS를 공부하면서 하나씩 같이 살펴보고 사용해보려 합니다.</p>
+</blockquote>
+<hr>
+<p><strong>참고자료</strong></p>
+<ul>
+<li><a href="http://wiki.ros.org/roslaunch">http://wiki.ros.org/roslaunch</a></li>
+<li><a href="https://www.clearpathrobotics.com/assets/guides/noetic/ros/Drive%20a%20Husky.html">https://www.clearpathrobotics.com/assets/guides/noetic/ros/Drive a Husky.html</a></li>
+<li><a href="https://rsl.ethz.ch/education-students/lectures/ros.html">https://rsl.ethz.ch/education-students/lectures/ros.html</a></li>
+</ul>
 
 
 <footer class="footline">
@@ -484,6 +738,22 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
             
         
                     
@@ -492,8 +762,24 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
                         
-                        
+            
+            
+                
                     
                 
                 
@@ -515,10 +801,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/kr/ros_basic_noetic/lecture2/" title="Lecture2"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/kr/ros_basic_noetic/lecture2/" title="Lecture2 - Core of ROS"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/kr/ros2_basic_foxy/" title="ROS 2 Basics" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/kr/ros_basic_noetic/lecture4/" title="Lecture4 - Node Programming, Topic Pub,Sub and Message" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -528,16 +814,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1671943753"></script>
-    <script src="/js/perfect-scrollbar.min.js?1671943753"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1671943753"></script>
-    <script src="/js/jquery.sticky.js?1671943753"></script>
-    <script src="/js/featherlight.min.js?1671943753"></script>
-    <script src="/js/highlight.pack.js?1671943753"></script>
+    <script src="/js/clipboard.min.js?1672013899"></script>
+    <script src="/js/perfect-scrollbar.min.js?1672013899"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1672013899"></script>
+    <script src="/js/jquery.sticky.js?1672013899"></script>
+    <script src="/js/featherlight.min.js?1672013899"></script>
+    <script src="/js/highlight.pack.js?1672013899"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1671943753"></script>
-    <script src="/js/learn.js?1671943753"></script>
-    <script src="/js/hugo-learn.js?1671943753"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1672013899"></script>
+    <script src="/js/learn.js?1672013899"></script>
+    <script src="/js/hugo-learn.js?1672013899"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
