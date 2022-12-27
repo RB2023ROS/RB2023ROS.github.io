@@ -74,5 +74,16 @@ Workspace와 패키지 # WS 생성 mkdir -p catkin_ws/src cd catkin_ws catkin co
       <description></description>
     </item>
     
+    <item>
+      <title>Lecture8 - </title>
+      <link>/kr/ros_basic_noetic/lecture8/</link>
+      <pubDate>Sun, 25 Dec 2022 13:36:21 +0900</pubDate>
+      
+      <guid>/kr/ros_basic_noetic/lecture8/</guid>
+      <description>대부분의 로보틱스 과정들에서 가장 먼저 다루는 것이 바로 **좌표계 변환(Transformation)**입니다. 로봇은 수많은 joint와 link로 이루어져 있기 때문에 좌표계를 다루는 일이 매우 빈번합니다.
+ROS에서는 TF라는 특수한 형태로 이 좌표계와 시간을 함께 다루고 있습니다. 예시와 설명을 통해 ROS의 TF에 대해 배워봅시다 😊
+image from : eth robot dynamics lecture notes ROS는 오픈소스이니만큼 사용자들이 원하는 기능들에 맞추어 변화가 빠릅니다. 하지만 이것이 단점이 되는 경우도 있는데, 이전 버전과 최신 버전의 호환성 문제가 종종 발생합니다.</description>
+    </item>
+    
   </channel>
 </rss>
