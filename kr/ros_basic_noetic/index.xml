@@ -8,6 +8,15 @@
     <language>en-US</language>
     <lastBuildDate>Sun, 25 Dec 2022 12:23:04 +0900</lastBuildDate><atom:link href="/kr/ros_basic_noetic/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Lecture1</title>
+      <link>/kr/ros_basic_noetic/lecture1/</link>
+      <pubDate>Sun, 25 Dec 2022 13:36:35 +0900</pubDate>
+      
+      <guid>/kr/ros_basic_noetic/lecture1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Lecture2 - Core of ROS</title>
       <link>/kr/ros_basic_noetic/lecture2/</link>
       <pubDate>Sun, 25 Dec 2022 13:36:33 +0900</pubDate>
@@ -46,11 +55,22 @@ Workspace와 패키지 # WS 생성 mkdir -p catkin_ws/src cd catkin_ws catkin co
     </item>
     
     <item>
-      <title>Lecture5 - </title>
+      <title>Lecture5 - ROS Service, Parameter</title>
       <link>/kr/ros_basic_noetic/lecture5/</link>
       <pubDate>Sun, 25 Dec 2022 13:36:26 +0900</pubDate>
       
       <guid>/kr/ros_basic_noetic/lecture5/</guid>
+      <description>지난 시간 마지막 예시였던 장애물 회피 코드부터 간단하게 리뷰해보고자 합니다.
+제가 작성한 로직은 다음과 같습니다.
+과제를 해보셨다면 아시겠지만, 측정 범위를 벗어나게 되면 data.ranges는 inf 값을 갖게 됩니다. 이를 걸러내는 코드가 아래 부분입니다. for i, point in enumerate(data.ranges): if not math.isinf(point) and point &amp;lt; 1.0: 저의 로직은, 정면을 기점으로 왼쪽과 오른쪽 각각 inf가 아닌 데이터의 개수를 카운팅합니다. 전체 데이터가 362개이고 마지막 데이터는 사용하기 않는 값이기 때문에, 180을 기점으로 잡았습니다. left_side_count = 0 right_side_count = 0 for i, point in enumerate(data.</description>
+    </item>
+    
+    <item>
+      <title>Lecture6 - </title>
+      <link>/kr/ros_basic_noetic/lecture6/</link>
+      <pubDate>Sun, 25 Dec 2022 13:36:25 +0900</pubDate>
+      
+      <guid>/kr/ros_basic_noetic/lecture6/</guid>
       <description></description>
     </item>
     
