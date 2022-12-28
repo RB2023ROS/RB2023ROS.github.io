@@ -8,20 +8,33 @@
     <language>en-US</language>
     <lastBuildDate>Sun, 25 Dec 2022 12:23:04 +0900</lastBuildDate><atom:link href="/kr/ros_basic_noetic/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Lecture1</title>
+      <title>Lecture1 - Introduction to ROS</title>
       <link>/kr/ros_basic_noetic/lecture1/</link>
       <pubDate>Sun, 25 Dec 2022 13:36:35 +0900</pubDate>
       
       <guid>/kr/ros_basic_noetic/lecture1/</guid>
-      <description></description>
+      <description>What is ROS? ROS란, 로봇 소프트웨어 개발에 사용되는 일종의 프레임워크입니다.
+프레임워크라는 말은, ROS 나름대로의 실행 시나리오를 갖고 있다는 뜻입니다.
+사용자인 우리들은, 이 시나리오를 사용하여 로봇을 다루는 우리만의 Application을 만들게 됩니다.
+image from : wikimedia 그런데 왜 OS라는 이름이 붙게 되었을까요?
+로봇을 실행하기 위해서, 수많은 프로그램들이 실행되며, ROS는 이들 사이의 우선순위와, 프로그램 사이의 데이터 흐름을 책임집니다. 이 작업은 스케쥴링이라고 불리며, 이러한 동작을 수행하는 시스템을 Operating System이라고 부르기 때문에 ROS라는 이름을 갖게 되었습니다.</description>
     </item>
     
     <item>
-      <title>Lecture2 - Core of ROS</title>
+      <title>Lecture2 - Dev Env Setup</title>
       <link>/kr/ros_basic_noetic/lecture2/</link>
       <pubDate>Sun, 25 Dec 2022 13:36:33 +0900</pubDate>
       
       <guid>/kr/ros_basic_noetic/lecture2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lecture3 - Core of ROS</title>
+      <link>/kr/ros_basic_noetic/lecture3/</link>
+      <pubDate>Sun, 25 Dec 2022 13:36:31 +0900</pubDate>
+      
+      <guid>/kr/ros_basic_noetic/lecture3/</guid>
       <description>지난 시간 개발환경 세팅을 잘 진행하였는지 확인을 해보면서 강의를 시작해보겠습니다.
 터미널 프로그램을 실행한 뒤, gazebo를 실행해 봅시다.
 gazebo 위 사진과 같은 화면이 나오지 않았다면 설치가 제대로 되지 않은 것입니다.
@@ -31,11 +44,11 @@ Husky Gazebo 예제 패키지 설치 sudo apt-get update sudo apt-get install ro
     </item>
     
     <item>
-      <title>Lecture3 - ROS Launch, RViz</title>
-      <link>/kr/ros_basic_noetic/lecture3/</link>
-      <pubDate>Sun, 25 Dec 2022 13:36:31 +0900</pubDate>
+      <title>Lecture4 - ROS Launch, RViz</title>
+      <link>/kr/ros_basic_noetic/lecture4/</link>
+      <pubDate>Sun, 25 Dec 2022 13:36:28 +0900</pubDate>
       
-      <guid>/kr/ros_basic_noetic/lecture3/</guid>
+      <guid>/kr/ros_basic_noetic/lecture4/</guid>
       <description>ROS Launch 일전 예시 실행에서 다음과 같은 커멘드 라인을 사용했었습니다.
 roslaunch smb_gazebo smb_gazebo.launch roslaunch란, 다수의 ROS Node들을 한번에 실행할 수 있도록 해주는 툴 입니다.
 roslaunch를 사용하기 위해서는 xml이라는 포멧을 사용하는 launch file이 있어야 하며, 이는 보통 패키지의 launch 폴더에 위치하고 있습니다.
@@ -44,45 +57,68 @@ launch파일은 xml이라는 문법을 사용합니다. html을 사용해보셨�
     </item>
     
     <item>
-      <title>Lecture4 - Node Programming, Topic Pub,Sub and Message</title>
-      <link>/kr/ros_basic_noetic/lecture4/</link>
-      <pubDate>Sun, 25 Dec 2022 13:36:28 +0900</pubDate>
+      <title>Lecture5 - First Programming, ROS Topic</title>
+      <link>/kr/ros_basic_noetic/lecture5/</link>
+      <pubDate>Sun, 25 Dec 2022 13:36:26 +0900</pubDate>
       
-      <guid>/kr/ros_basic_noetic/lecture4/</guid>
+      <guid>/kr/ros_basic_noetic/lecture5/</guid>
       <description>이번 강의부터, 본격적인 프로그래밍이 시작됩니다. 첫번째로 Node의 프로그래밍을 살펴보고자 하며, 시작 전 간단한 복습을 진행하고 시작하겠습니다.
 image from : clearpathrobotics
 Workspace와 패키지 # WS 생성 mkdir -p catkin_ws/src cd catkin_ws catkin config --init # Package 생성 catkin_create_pkg &amp;lt;pkg-name&amp;gt; &amp;lt;depend1&amp;gt; &amp;lt;depend2&amp;gt; ... ROS Node Programming C++ 코드는 src 폴더 안에, 파이썬 코드는 scripts라는 폴더 안에 위치시키는 것이 일반적입니다. cd &amp;lt;pkg-name&amp;gt; mkdir scripts 지금부터, 직접 명령어를 한줄씩 따라치면서 실습하셔도 좋고, 제가 미리 준비해둔 Package를 사용하셔도 좋습니다.</description>
     </item>
     
     <item>
-      <title>Lecture5 - ROS Service, Parameter</title>
-      <link>/kr/ros_basic_noetic/lecture5/</link>
-      <pubDate>Sun, 25 Dec 2022 13:36:26 +0900</pubDate>
+      <title>Lecture6 - ROS Service, Parameter</title>
+      <link>/kr/ros_basic_noetic/lecture6/</link>
+      <pubDate>Sun, 25 Dec 2022 13:36:25 +0900</pubDate>
       
-      <guid>/kr/ros_basic_noetic/lecture5/</guid>
+      <guid>/kr/ros_basic_noetic/lecture6/</guid>
       <description>지난 시간 마지막 예시였던 장애물 회피 코드부터 간단하게 리뷰해보고자 합니다.
 제가 작성한 로직은 다음과 같습니다.
 과제를 해보셨다면 아시겠지만, 측정 범위를 벗어나게 되면 data.ranges는 inf 값을 갖게 됩니다. 이를 걸러내는 코드가 아래 부분입니다. for i, point in enumerate(data.ranges): if not math.isinf(point) and point &amp;lt; 1.0: 저의 로직은, 정면을 기점으로 왼쪽과 오른쪽 각각 inf가 아닌 데이터의 개수를 카운팅합니다. 전체 데이터가 362개이고 마지막 데이터는 사용하기 않는 값이기 때문에, 180을 기점으로 잡았습니다. left_side_count = 0 right_side_count = 0 for i, point in enumerate(data.</description>
     </item>
     
     <item>
-      <title>Lecture6 - </title>
-      <link>/kr/ros_basic_noetic/lecture6/</link>
-      <pubDate>Sun, 25 Dec 2022 13:36:25 +0900</pubDate>
+      <title>Lecture7 - Rqt Tools and rosbag, ROS Time</title>
+      <link>/kr/ros_basic_noetic/lecture7/</link>
+      <pubDate>Sun, 25 Dec 2022 13:36:23 +0900</pubDate>
       
-      <guid>/kr/ros_basic_noetic/lecture6/</guid>
-      <description></description>
+      <guid>/kr/ros_basic_noetic/lecture7/</guid>
+      <description>강의 초반, 다양한 rqt tool들을 살펴본 바 있습니다. 이제는 Topic과 Service에 모두 익숙해졌기 때문에, rqt의 많은 기능들을 사용할 수 있습니다. 다시 한 번 rqt를 살펴보면서 편리한 툴들의 사용법을 익혀봅시다.
+Message Publisher &amp;amp; Topic Monitor 강의자를 따라 다음과 같이 화면을 구성합니다.
+plugins ⇒ topics ⇒ Message Publisher pulgins ⇒ topics ⇒ Topic Monitor message publisher를 사용하면 코딩 없이 cmd_vel을 publish가 가능합니다. Topic Msg에 원하는 데이터를 채워넣은 뒤, 주기를 선택한 후 체크박스를 클릭하면 로봇이 움직이기 시작합니다.</description>
     </item>
     
     <item>
-      <title>Lecture8 - </title>
+      <title>Lecture8 - Deal with Open Source Projects, Custom Interfaces</title>
       <link>/kr/ros_basic_noetic/lecture8/</link>
       <pubDate>Sun, 25 Dec 2022 13:36:21 +0900</pubDate>
       
       <guid>/kr/ros_basic_noetic/lecture8/</guid>
-      <description>대부분의 로보틱스 과정들에서 가장 먼저 다루는 것이 바로 **좌표계 변환(Transformation)**입니다. 로봇은 수많은 joint와 link로 이루어져 있기 때문에 좌표계를 다루는 일이 매우 빈번합니다.
+      <description>Deal with Open Source Projects 이번 시간에는 오픈 소스 프로젝트를 사용하는 방법에 대해 배워보겠습니다. 보다 실질적인 사용 방법을 보여드리기 위해 저 또한 여러분들과 같은 상황에서 처음부터 하나씩 같이 해보겠습니다.
+오늘 데모하고자 하는 로봇 소프트웨어는 드론 시뮬레이션입니다. 지금까지 지상을 움직이는 바퀴 로봇만을 다루었기 때문에 새로운 플렛폼을 동작시켜보고자 합니다.
+항상 시작은 구글링부터!! 검색 결과 원하는 패키지를 찾은 것 같습니다. &amp;gt; https://github.com/RAFALAMAO/hector-quadrotor-noetic 목적에 부합하는 오픈소스를 찾기 위해서 아래와 같은 기본적인 내용을 고려해야 합니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture9 - ROS TF and Examples</title>
+      <link>/kr/ros_basic_noetic/lecture9/</link>
+      <pubDate>Sun, 25 Dec 2022 13:36:19 +0900</pubDate>
+      
+      <guid>/kr/ros_basic_noetic/lecture9/</guid>
+      <description>대부분의 로보틱스 과정들에서 가장 먼저 다루는 것이 바로 좌표계 변환(Transformation) 입니다. 로봇은 수많은 joint와 link로 이루어져 있기 때문에 좌표계를 다루는 일이 매우 빈번합니다.
 ROS에서는 TF라는 특수한 형태로 이 좌표계와 시간을 함께 다루고 있습니다. 예시와 설명을 통해 ROS의 TF에 대해 배워봅시다 😊
 image from : eth robot dynamics lecture notes ROS는 오픈소스이니만큼 사용자들이 원하는 기능들에 맞추어 변화가 빠릅니다. 하지만 이것이 단점이 되는 경우도 있는데, 이전 버전과 최신 버전의 호환성 문제가 종종 발생합니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture10 - TF2 Examples, Outro</title>
+      <link>/kr/ros_basic_noetic/lecture10/</link>
+      <pubDate>Sat, 24 Dec 2022 13:48:05 +0900</pubDate>
+      
+      <guid>/kr/ros_basic_noetic/lecture10/</guid>
+      <description>tf2 사례 제가 강조해서 자꾸 좌표계가 tf가 중요하다고 말하고 있는데, 그 이유를 예시와 함께 좀 더 자세히 살펴보고자 합니다.
+husky slam # 예시 종속성 설치 sudo apt install ros-noetic-slam-gmapping # Terminal 1 roslaunch smb_gazebo smb_gazebo.launch world:=big_map_summer_school # Terminal 2 roslaunch py_tf2_tutorial slam_gmapping.launch # Terminal 3 rosrun teleop_twist_keyboard teleop_twist_keyboard.py # [option] rviz (이전 예시에서 rviz를 추가하였다면 넘어가셔도 좋습니다.) rviz rviz를 다음과 같이 세팅합니다. 이제 teleop을 통해 로봇을 이동시키면서, rviz 화면의 변화를 확인해봅시다.</description>
     </item>
     
   </channel>
