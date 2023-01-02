@@ -9,7 +9,7 @@
     <lastmod>2022-11-25T12:26:00+09:00</lastmod>
   </url><url>
     <loc>/kr/</loc>
-    <lastmod>2022-12-25T13:36:35+09:00</lastmod>
+    <lastmod>2023-01-02T12:39:15+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -20,6 +20,24 @@
                 hreflang="kr"
                 href="/kr/"
                 />
+  </url><url>
+    <loc>/kr/ros2_basic_foxy/lecture1/</loc>
+    <lastmod>2023-01-02T12:39:15+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_basic_foxy/lecture2/</loc>
+    <lastmod>2023-01-02T12:39:13+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_basic_foxy/lecture4/</loc>
+    <lastmod>2023-01-02T12:39:10+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_basic_foxy/lecture5/</loc>
+    <lastmod>2023-01-02T12:39:05+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_basic_foxy/lecture6/</loc>
+    <lastmod>2023-01-02T12:39:03+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_basic_foxy/lecture8/</loc>
+    <lastmod>2023-01-02T12:39:00+09:00</lastmod>
   </url><url>
     <loc>/kr/ros_basic_noetic/lecture1/</loc>
     <lastmod>2022-12-25T13:36:35+09:00</lastmod>

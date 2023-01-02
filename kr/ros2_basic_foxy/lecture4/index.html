@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="kr" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.104.1" />
+    <meta name="description" content="COM2018 OOP Class Lecture Note">
+<meta name="author" content="Soo Young Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Lecture4 - ROS 2 Node C&#43;&#43; Programming - Documentation for Hugo Learn Theme</title>
+
+    
+    <link href="/css/nucleus.css?1672679604" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1672679604" rel="stylesheet">
+    <link href="/css/hybrid.css?1672679604" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1672679604" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1672679604" rel="stylesheet">
+    <link href="/css/auto-complete.css?1672679604" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1672679604" rel="stylesheet">
+    <link href="/css/theme.css?1672679604" rel="stylesheet">
+    <link href="/css/tabs.css?1672679604" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1672679604" rel="stylesheet">
+    
+    <link href="/css/theme-green.css?1672679604" rel="stylesheet">
+    
+    <link href="/css/foo.css?1672679604" rel="stylesheet"><link href="/css/bar.css?1672679604" rel="stylesheet">
+
+    <script src="/js/jquery-3.3.1.min.js?1672679604"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/kr/ros2_basic_foxy/lecture4/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img width="1097" alt="image" src="https://user-images.githubusercontent.com/12381733/209764275-05dcbdbf-cef7-47ad-94a6-6d61febad01e.png">
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1672679604"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1672679604"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/kr";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1672679604"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/kr'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_basic_noetic/" title="ROS Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_basic_noetic/">
+          <b>ROS Noetic. </b>ROS Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture1/" title="Lecture1 - Introduction to ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture1/">
+        Lecture1 - Introduction to ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture2/" title="Lecture2 - Dev Env Setup" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture2/">
+        Lecture2 - Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture3/" title="Lecture3 - Core of ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture3/">
+        Lecture3 - Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture4/" title="Lecture4 - ROS Launch, RViz" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture4/">
+        Lecture4 - ROS Launch, RViz
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture5/" title="Lecture5 - First Programming, ROS Topic" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture5/">
+        Lecture5 - First Programming, ROS Topic
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture6/" title="Lecture6 - ROS Service, Parameter" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture6/">
+        Lecture6 - ROS Service, Parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture7/" title="Lecture7 - Rqt Tools and rosbag, ROS Time" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture7/">
+        Lecture7 - Rqt Tools and rosbag, ROS Time
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture8/" title="Lecture8 - Deal with Open Source Projects, Custom Interfaces" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture8/">
+        Lecture8 - Deal with Open Source Projects, Custom Interfaces
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture9/" title="Lecture9 - ROS TF and Examples" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture9/">
+        Lecture9 - ROS TF and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture10/" title="Lecture10 - TF2 Examples, Outro" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture10/">
+        Lecture10 - TF2 Examples, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_basic_foxy/" title="ROS 2 Basics" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/kr/ros2_basic_foxy/">
+          <b>ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture1/" title="Lecture1 - Introduction to ROS 2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture1/">
+        Lecture1 - Introduction to ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture2/" title="Lecture2 - ROS 2 Node, Package" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture2/">
+        Lecture2 - ROS 2 Node, Package
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture4/" title="Lecture4 - ROS 2 Node C&#43;&#43; Programming" class="dd-item active">
+        <a href="/kr/ros2_basic_foxy/lecture4/">
+        Lecture4 - ROS 2 Node C&#43;&#43; Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture5/" title="Lecture5 - ROS 2 Topic and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture5/">
+        Lecture5 - ROS 2 Topic and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture6/" title="Lecture6 - ROS 2 Service and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture6/">
+        Lecture6 - ROS 2 Service and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture8/" title="Lecture8 - ROS 2 Action and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture8/">
+        Lecture8 - ROS 2 Action and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros1"><i class='fab fa-fw fa-github'></i> GitHub repo</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="kr" value="/kr/ros2_basic_foxy/lecture4/" selected>Korean</option>
+                    
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='' href="https://github.com/com2018-fa22/hugo-blog/tree/main/content/ros2_basic_foxy/lecture4.kr.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text"></span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                   Lecture4 - ROS 2 Node C&#43;&#43; Programming
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#clion-설치와-ros-2-개발환경-설정">CLion 설치와 ROS 2 개발환경 설정</a></li>
+        <li><a href="#example-1---hello-ros-2">example 1 - <strong>Hello ROS 2</strong></a></li>
+        <li><a href="#example-2---timer">example 2 - Timer</a></li>
+        <li><a href="#example-3---oop-node">example 3 - OOP Node</a></li>
+        <li><a href="#example-4---oop-timer-node">example 4 - OOP Timer Node</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Lecture4 - ROS 2 Node C&#43;&#43; Programming
+            </h1>
+          
+
+        
+
+
+<blockquote>
+<p>실제 로봇 개발에서 Python만 사용되지는 않습니다. tensorflow, pytorch와 같은 딥러닝 프레임워크들이 모두 Python을 사용하고 있고, 상대적으로 개발 과정이 쉬워 많은 사람들이 Python을 사용하고 있지만, 제어, 센싱을 위해서는 C++를 대부분 사용한다고 보시면 됩니다.</p>
+</blockquote>
+<p><img src="/kr/ros2_basic_foxy/images4/lec4_0.png?height=300px" alt="lec4_0.png"></p>
+<ul>
+<li>image from : <a href="https://ko.m.wikipedia.org/wiki/%ED%8C%8C%EC%9D%BC:ISO_C%2B%2B_Logo.svg">wikipedia</a></li>
+</ul>
+<p>따라서 앞선 node 프로그래밍 예시들을 모두 C++로 구현해 볼 예정입니다. 아래와 같은 C++ 지식이 필요하지만 필수는 아닙니다.</p>
+<ul>
+<li><strong>클래스 생성 (OOP)</strong></li>
+<li><strong>스마트 포인터</strong></li>
+<li><strong>헤더 분리</strong></li>
+<li><strong>람다 함수</strong></li>
+<li><strong>std::bind와 placeholders</strong></li>
+<li><strong>C++ 빌드 시스템 (CMake)</strong></li>
+</ul>
+<p>코드 설명에 앞서 ROS 2 C++ 패키지를 개발하는 절차에 대해 빠르게 훑어보겠습니다.</p>
+<ul>
+<li>패키지 생성 후 src &amp; include 폴더에서 코드 작성</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>ros2 pkg create <span style="color:#f92672">--</span>build<span style="color:#f92672">-</span>type ament_cmake <span style="color:#f92672">&lt;</span>package_name<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><ul>
+<li>CMakeLists.txt &amp; package.xml 수정</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>add_executable(example_node_1 src<span style="color:#f92672">/</span>node_example_1<span style="color:#f92672">.</span>cpp)
+</span></span><span style="display:flex;"><span>ament_target_dependencies(example_node_1 rclcpp)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>install(
+</span></span><span style="display:flex;"><span>  TARGETS
+</span></span><span style="display:flex;"><span>    example_node_1
+</span></span><span style="display:flex;"><span>  DESTINATION
+</span></span><span style="display:flex;"><span>    lib<span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">$</span>{PROJECT_NAME}
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><ul>
+<li>코드 빌드와 디버깅</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>colcon build --packages-select &lt;package_name&gt;
+</span></span><span style="display:flex;"><span>source install/local_setup.bash
+</span></span></code></pre></div><ul>
+<li>코드 실행</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ros2 run &lt;pkg-name&gt; &lt;executable-name&gt;
+</span></span></code></pre></div><p>개발 과정 자체는 파이썬 package와 크게 다르지 않습니다.</p>
+<p>하지만, C++ 개발은 코드를 빌드하는 과정에서 각종 <strong>컴파일 에러와 링크 에러, 런타임 에러</strong>까지 발생하기 때문에 개발에 여러움이 생길 수 있습니다.</p>
+<p>⇒ 이를 해결하기 위해서, 학생 라이센스로 무료 사용 가능한 IDE를 소개하고, 함께 셋업해보고자 합니다.</p>
+<h3 id="clion-설치와-ros-2-개발환경-설정">CLion 설치와 ROS 2 개발환경 설정</h3>
+<blockquote>
+<p>CLion은 IDE의 명가 Jetbrains에서 만든 C/C++용 통합 개발 환경입니다. C++ 개발자를 힘들게 하는 각종 에러들의 디버깅을 편리하게 해줄 뿐더러 ROS 2 개발을 위한 솔루션도 제공하고 있습니다.</p>
+</blockquote>
+<p><img src="/kr/ros2_basic_foxy/images4/lec4_1.png?height=300px" alt="lec4_1.png"></p>
+<ul>
+<li>image from : <a href="https://ru.wikipedia.org/wiki/CLion">wikipedia</a></li>
+</ul>
+<p>CLion은 오픈소스가 아닌 판매되고 있는 소프트웨어입니다.</p>
+<p>하지만 학생에게는 무료 라이센스를 제공하고 있습니다. 아래 링크를 통해서 회원가입과 학생인증을 진행한 다음, CLion을 설치합시다.</p>
+<ul>
+<li>
+<p><a href="https://www.jetbrains.com/clion/">https://www.jetbrains.com/clion/</a></p>
+</li>
+<li>
+<p><a href="https://www.jetbrains.com/community/education/#students">https://www.jetbrains.com/community/education/#students</a></p>
+</li>
+</ul>
+
+<div class="notices note" ><p>이메일 인증을 거치면 어렵지 않게 학생인증이 완료됩니다. 이 과정은 생략하겠습니다.</p>
+</div>
+
+<p><img src="/kr/ros2_basic_foxy/images4/lec4_2.png?height=300px" alt="lec4_2.png"></p>
+<ul>
+<li>학생 라이센스를 통해 CLion을 비롯하여 <a href="https://www.jetbrains.com/ko-kr/idea/download/">IntelliJ</a>, <a href="https://www.jetbrains.com/ko-kr/pycharm/">PyCharm</a>, <a href="https://www.jetbrains.com/ko-kr/webstorm/">WebStorm</a>과 같은 다양한 언어의 IDE를 무료로 사용 가능합니다.</li>
+</ul>
+<p><img src="/kr/ros2_basic_foxy/images4/lec4_3.png?height=300px" alt="lec4_3.png"></p>
+<ul>
+<li>snapcraft를 통해 CLion을 설치하고 실행 해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo snap install clion --classic
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>sudo<span style="color:#f92672">]</span> password <span style="color:#66d9ef">for</span> kimsooyoung:
+</span></span><span style="display:flex;"><span>clion 2022.3.1 from jetbrains✓ installed
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ clion
+</span></span></code></pre></div><ul>
+<li>약관 동의 및 로그인을 통한 학생 인증을 거치면 모든 설치 절차가 완료됩니다.</li>
+</ul>
+<p><img src="/kr/ros2_basic_foxy/images4/lec4_4.png?height=300px" alt="lec4_4.png"></p>
+<ul>
+<li>colcon build를 통해 빌드했던 <strong>cpp_node_tutorial</strong> <strong>package</strong>를 clion 프로젝트로 열어보겠습니다. clion에서 <strong>File ⇒ Open</strong>을 실행한 뒤 cpp_node_tutorial의 <strong>CMakeLists.txt</strong>를 선택합니다.</li>
+</ul>
+<p><img src="/kr/ros2_basic_foxy/images4/lec4_5.png?height=300px" alt="lec4_5.png"></p>
+<ul>
+<li>build target를 지정하고 실행하면 CLion상에서 ROS 2 프로그램을 실행시킬 수 있습니다.</li>
+</ul>
+<p><img src="/kr/ros2_basic_foxy/images4/clion.gif?height=300px" alt="clion.gif"></p>
+<ul>
+<li>CLion에서의 장점을 직접 살펴보기 위해 프로그램 개발을 함께 해보겠습니다.</li>
+</ul>
+
+<div class="notices note" ><p><strong>라이브 코딩 Time!!</strong></p>
+</div>
+
+<p>모든 설정이 완료되었다면, 이제 본격적으로 C++ 예제 코드를 살펴봅시다.</p>
+<h3 id="example-1---hello-ros-2">example 1 - <strong>Hello ROS 2</strong></h3>
+<blockquote>
+<p>파이썬에서 한차례 살펴본 바 있기에 자세한 로직들은 생략합니다.</p>
+</blockquote>
+<ul>
+<li>예제 실행</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ros2 run cpp_node_tutorial example_node_1
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1666431282.586519100<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>example_node_1<span style="color:#f92672">]</span>: <span style="color:#f92672">====</span> Hello ROS 2 <span style="color:#f92672">====</span>
+</span></span></code></pre></div><ul>
+<li>코드 분석</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;rclcpp/rclcpp.hpp&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv) {
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>init(argc, argv);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">auto</span> node <span style="color:#f92672">=</span> rclcpp<span style="color:#f92672">::</span>Node<span style="color:#f92672">::</span>make_shared(<span style="color:#e6db74">&#34;example_node_1&#34;</span>);
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO(node<span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;==== Hello ROS 2 ====&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>shutdown();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>rclcpp</strong>은 ROS 2를 C++에서 사용하기 위해 필요한 코드의 집합입니다.</p>
+<ul>
+<li>
+<p>Node 생성 시 주의하셔야 할 점은 “모든 Node가 <strong>포인터</strong>의 형식을 갖는다”는 것입니다. <strong>shared_ptr</strong>를 사용하여 메모리 누수를 막기 위해 파생된 모든 데이터들을 추적하고 있습니다.</p>
+</li>
+<li>
+<p>rclcpp에서 로그의 실행은 <strong>RCLCPP_INFO와 get_logger()</strong> 메소드를 통해 실행할 수 있으며, 로그는 Node에서 실행된다는 점을 기억합시다.</p>
+</li>
+<li>
+<p>CMakeLists.txt 수정</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># find_package를 통해 종속성들을 추가합니다.</span>
+</span></span><span style="display:flex;"><span>find_package(<span style="color:#f92672">&lt;</span>depends<span style="color:#f92672">&gt;</span> REQUIRED)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 실행 프로그램 빌드 설정</span>
+</span></span><span style="display:flex;"><span>add_executable(<span style="color:#f92672">&lt;</span>program_name<span style="color:#f92672">&gt;</span> include<span style="color:#f92672">/&lt;</span>header<span style="color:#f92672">&gt;.</span>hpp src<span style="color:#f92672">/&lt;</span>code<span style="color:#f92672">&gt;.</span>cpp <span style="color:#f92672">...</span>)
+</span></span><span style="display:flex;"><span>ament_target_dependencies(<span style="color:#f92672">&lt;</span>program_name<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span>dependency1<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span>dependency2<span style="color:#f92672">&gt;</span> <span style="color:#f92672">...</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>install(
+</span></span><span style="display:flex;"><span>  TARGETS
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>program_name<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  DESTINATION
+</span></span><span style="display:flex;"><span>    lib<span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">$</span>{PROJECT_NAME}
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><ul>
+<li>패키지 빌드 &amp; 실행</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>colcon build --packages-select cpp_node_tutorial
+</span></span><span style="display:flex;"><span>source install/local_setup.bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ros2 run cpp_node_tutorial example_node_1
+</span></span></code></pre></div>
+<div class="notices note" ><p>예제 소스 코드를 조금이라도 수정하여 여러분들만의 코드를 작성해보고 CLion을 통한 빌드까지 스스로 한 번 해봅시다.</p>
+</div>
+
+<h3 id="example-2---timer">example 2 - Timer</h3>
+<ul>
+<li>예제 실행</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ros2 run cpp_node_tutorial example_node_2
+</span></span><span style="display:flex;"><span><span style="color:#f92672">====</span> Hello ROS <span style="color:#ae81ff">2</span> : 0 <span style="color:#f92672">====</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">====</span> Hello ROS <span style="color:#ae81ff">2</span> : 1 <span style="color:#f92672">====</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">====</span> Hello ROS <span style="color:#ae81ff">2</span> : 2 <span style="color:#f92672">====</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">====</span> Hello ROS <span style="color:#ae81ff">2</span> : 3 <span style="color:#f92672">====</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">====</span> Hello ROS <span style="color:#ae81ff">2</span> : 4 <span style="color:#f92672">====</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><ul>
+<li>rclcpp에서 timer는 <code>create_wall_timer</code>를 사용합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;memory&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;rclcpp/rclcpp.hpp&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">timer_callback</span>(){
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;==== Hello ROS 2 : &#34;</span> <span style="color:#f92672">&lt;&lt;</span> count <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; ====&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>  count<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv) {
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>init(argc, argv);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">auto</span> node <span style="color:#f92672">=</span> rclcpp<span style="color:#f92672">::</span>Node<span style="color:#f92672">::</span>make_shared(<span style="color:#e6db74">&#34;example_node_2&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">auto</span> timer <span style="color:#f92672">=</span> node<span style="color:#f92672">-&gt;</span>create_wall_timer(std<span style="color:#f92672">::</span>chrono<span style="color:#f92672">::</span>milliseconds(<span style="color:#ae81ff">200</span>), timer_callback);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>spin(node);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>shutdown();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="example-3---oop-node">example 3 - OOP Node</h3>
+<ul>
+<li>기능 자체는 큰 의미가 없으므로 코드를 위주로 설명하겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;memory&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;rclcpp/rclcpp.hpp&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NodeClass</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> rclcpp<span style="color:#f92672">::</span>Node {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  NodeClass()<span style="color:#f92672">:</span> Node(<span style="color:#e6db74">&#34;example_node_4&#34;</span>) {}
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv) {
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>init(argc, argv);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">auto</span> node <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>NodeClass<span style="color:#f92672">&gt;</span>();
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO(node<span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;==== Hello ROS 2 ====&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>shutdown();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>모든 Node는 <strong>rclcpp::Node</strong>로부터 상속을 받습니다. 상속 후 생성자에서 Node의 이름을 지정해줘야 하며, topic pub/sub, logger와 같은 기능들은 모두 rclcpp::Node에 구현되어 있습니다.</p>
+<p>더불어, Node 자체는 포인터로 취급된다는 점도 다시 한 번 강조드립니다.</p>
+<h3 id="example-4---oop-timer-node">example 4 - OOP Timer Node</h3>
+<ul>
+<li>callback 함수를 binding하는 부분에 집중하세요. timer_callback는 클래스 메소드이기 때문에 binding 시 <strong>NodeClass::timer_callback</strong>와 같이 명시해주어야 합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;memory&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;rclcpp/rclcpp.hpp&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NodeClass</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> rclcpp<span style="color:#f92672">::</span>Node {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  size_t count;
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>TimerBase<span style="color:#f92672">::</span>SharedPtr timer;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">timer_callback</span>() {
+</span></span><span style="display:flex;"><span>    RCLCPP_INFO(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;==== Hello ROS 2 : %d&#34;</span>, count);
+</span></span><span style="display:flex;"><span>    count<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  NodeClass() <span style="color:#f92672">:</span> Node(<span style="color:#e6db74">&#34;example_node_5&#34;</span>) {
+</span></span><span style="display:flex;"><span>    timer <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_wall_timer(
+</span></span><span style="display:flex;"><span>      std<span style="color:#f92672">::</span>chrono<span style="color:#f92672">::</span>milliseconds(<span style="color:#ae81ff">200</span>),
+</span></span><span style="display:flex;"><span>      std<span style="color:#f92672">::</span>bind(<span style="color:#f92672">&amp;</span>NodeClass<span style="color:#f92672">::</span>timer_callback, <span style="color:#66d9ef">this</span>)
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv) {
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>init(argc, argv);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">auto</span> node <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>NodeClass<span style="color:#f92672">&gt;</span>();
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>spin(node);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>shutdown();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>마지막으로 <strong>rclcpp logger level</strong>을 간단히 살펴보고 마무리짓겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">timer_callback</span>() {
+</span></span><span style="display:flex;"><span>  RCLCPP_DEBUG(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;==== Hello ROS 2 : %d ====&#34;</span>, count);
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;==== Hello ROS 2 : %d ====&#34;</span>, count);
+</span></span><span style="display:flex;"><span>  RCLCPP_WARN(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;==== Hello ROS 2 : %d ====&#34;</span>, count);
+</span></span><span style="display:flex;"><span>  RCLCPP_ERROR(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;==== Hello ROS 2 : %d ====&#34;</span>, count);
+</span></span><span style="display:flex;"><span>  RCLCPP_FATAL(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;==== Hello ROS 2 : %d ====&#34;</span>, count);
+</span></span><span style="display:flex;"><span>  count<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<p><strong>참고자료</strong></p>
+<ul>
+<li><a href="https://roboticsbackend.com/ros2-yaml-params/">https://roboticsbackend.com/ros2-yaml-params/</a></li>
+<li><a href="https://roboticsbackend.com/rclpy-params-tutorial-get-set-ros2-params-with-python/">https://roboticsbackend.com/rclpy-params-tutorial-get-set-ros2-params-with-python/</a></li>
+<li><a href="https://www.jetbrains.com/help/clion/ros2-tutorial.html#change-prj-root">https://www.jetbrains.com/help/clion/ros2-tutorial.html#change-prj-root</a></li>
+</ul>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/kr/ros2_basic_foxy/lecture2/" title="Lecture2 - ROS 2 Node, Package"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kr/ros2_basic_foxy/lecture5/" title="Lecture5 - ROS 2 Topic and Examples" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1672679604"></script>
+    <script src="/js/perfect-scrollbar.min.js?1672679604"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1672679604"></script>
+    <script src="/js/jquery.sticky.js?1672679604"></script>
+    <script src="/js/featherlight.min.js?1672679604"></script>
+    <script src="/js/highlight.pack.js?1672679604"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1672679604"></script>
+    <script src="/js/learn.js?1672679604"></script>
+    <script src="/js/hugo-learn.js?1672679604"></script>
+    
+        
+            <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

@@ -6,7 +6,74 @@
     <description>Recent content in 2023 Road Balance ROS Lecture Note on Documentation for Hugo Learn Theme</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 25 Dec 2022 13:36:35 +0900</lastBuildDate><atom:link href="/kr/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Jan 2023 12:39:15 +0900</lastBuildDate><atom:link href="/kr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lecture1 - Introduction to ROS 2</title>
+      <link>/kr/ros2_basic_foxy/lecture1/</link>
+      <pubDate>Mon, 02 Jan 2023 12:39:15 +0900</pubDate>
+      
+      <guid>/kr/ros2_basic_foxy/lecture1/</guid>
+      <description>About ROS 2 image from : foxglove.dev ROS의 시작은 연구실이었습니다. 구글의 핵심 개발자였던 Scott Hassan은 2006년 Willow Garage를 설립하였고, 여기서 처음으로 ROS가 탄생하였습니다. 이후 Willow Garage는 여러 Spin-off를 거친 뒤 OSRF와 OSRC등으로 나뉘게 되었고, 현재 Gazebo와 ROS는 이들에 의해 관리되고 있습니다.
+2022년 12월 기준 구글의 자회사인 Alphabet의 Intrinsic이 OSRF를 품게 되었으며, Ubuntu Linux를 관리하는 Canonical에서 ROS의 공식 서포트를 약속하고, Jetson 보드와 Issac Sim들을 개발하고 있는 Nvidia에서도 ROS를 공식 지원하고 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture2 - ROS 2 Node, Package</title>
+      <link>/kr/ros2_basic_foxy/lecture2/</link>
+      <pubDate>Mon, 02 Jan 2023 12:39:13 +0900</pubDate>
+      
+      <guid>/kr/ros2_basic_foxy/lecture2/</guid>
+      <description>ROS Noetic 강의를 이미 학습하였기 때문에, Node, Package, launch file, Topic, Message, Service와 같은 개념은 이미 알고 계실 것이라 생각합니다. (맞죠?)
+혹시나 잊어버리셨을 수 있으니 강의 중간중간 제가 간단히 리뷰를 하면서 진행하겠습니다.
+ROS 2 Node image from : docs.rog.org ROS에서의 Node는 하나의 실행 가능한 프로그램을 이야기하며, 각각의 Node는 본인 고유의 기능을 담당합니다.
+서로 다른 역할을 담당하는 Node들이 각자의 동작을 수행하고 서로 간의 데이터를 주고받게 됨으로 시스템을 형성하게 되고, 따라서, ROS를 통한 로봇 개발은 곧, 적절한 Node들의 개발이라고도 말할 수 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture4 - ROS 2 Node C&#43;&#43; Programming</title>
+      <link>/kr/ros2_basic_foxy/lecture4/</link>
+      <pubDate>Mon, 02 Jan 2023 12:39:10 +0900</pubDate>
+      
+      <guid>/kr/ros2_basic_foxy/lecture4/</guid>
+      <description>실제 로봇 개발에서 Python만 사용되지는 않습니다. tensorflow, pytorch와 같은 딥러닝 프레임워크들이 모두 Python을 사용하고 있고, 상대적으로 개발 과정이 쉬워 많은 사람들이 Python을 사용하고 있지만, 제어, 센싱을 위해서는 C++를 대부분 사용한다고 보시면 됩니다.
+image from : wikipedia 따라서 앞선 node 프로그래밍 예시들을 모두 C++로 구현해 볼 예정입니다. 아래와 같은 C++ 지식이 필요하지만 필수는 아닙니다.
+클래스 생성 (OOP) 스마트 포인터 헤더 분리 람다 함수 std::bind와 placeholders C++ 빌드 시스템 (CMake) 코드 설명에 앞서 ROS 2 C++ 패키지를 개발하는 절차에 대해 빠르게 훑어보겠습니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture5 - ROS 2 Topic and Examples</title>
+      <link>/kr/ros2_basic_foxy/lecture5/</link>
+      <pubDate>Mon, 02 Jan 2023 12:39:05 +0900</pubDate>
+      
+      <guid>/kr/ros2_basic_foxy/lecture5/</guid>
+      <description>Topic에 대해 배워보기 전에, 실습 시스템을 구축해봅시다.
+SRC Gazebo 이번 ROS 2 강의의 실습들은 Road Balance의 차량형 로봇 SRC를 통해 진행하고자 합니다. 실습을 진행하기 전 Gazebo 환경을 함께 세팅해보겠습니다.
+src_gazebo 실행 세팅 - 다소 번거로운 작업이므로 gif를 보시면서 차근차근 잘 따라와주세요! cd ~/ros2_ws/src/du2023-ros2 ./setup_scripts.sh # CMakeLists.txt 수정 (주석) colcon build --packages-select src_gazebo source install/local_setup.bash # CMakeLists.txt 수정 (주석 해제) colcon build --packages-select src_gazebo colcon build --packages-select src_controller source install/local_setup.bash empty world 실행 ros2 launch src_gazebo empty_world.</description>
+    </item>
+    
+    <item>
+      <title>Lecture6 - ROS 2 Service and Examples</title>
+      <link>/kr/ros2_basic_foxy/lecture6/</link>
+      <pubDate>Mon, 02 Jan 2023 12:39:03 +0900</pubDate>
+      
+      <guid>/kr/ros2_basic_foxy/lecture6/</guid>
+      <description>ROS 2 Service ROS Service의 개념을 다시 복습해봅시다.
+image from : docs.ros.org Service 개념 정리
+Service를 요청하는 주체를 Service Client라고 하며, Service 요청 자체를 Request, 혹은 Call이라고 합니다. Service를 요청받는 주체를 Service Server라고 하며, Service Server는 Request에 대한 응답, 즉 Service Response를 다시 Service Client에게 회답합니다. Request와 Response를 위해 사용되는 데이터 타입은 srv라고 하며 Request와 Response로 나뉩니다. Service의 중요한 특징 한 가지 추가하자면, 하나의 Service Server에 여러 Client가 request 할 수 있지만, Server는 동시에 여러 request를 처리하지 못합니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture8 - ROS 2 Action and Examples</title>
+      <link>/kr/ros2_basic_foxy/lecture8/</link>
+      <pubDate>Mon, 02 Jan 2023 12:39:00 +0900</pubDate>
+      
+      <guid>/kr/ros2_basic_foxy/lecture8/</guid>
+      <description>지금까지 Topic, Service에 대해 모두 배워보았습니다. 마지막 통신 메커니즘인 Action에 대해서 배워봅시다.
+ROS2 Action 개념 Action은 Service와 Topic의 특성을 모두 갖고 있으며, 실제로 가장 늦게 탄생한 통신 메커니즘입니다. 일전 Service의 단점을 상기시켜보면서 Action의 필요성에 대해 체감해봅시다.
+Service의 중요한 특징 한 가지 추가하자면, 하나의 Service Server에 여러 Client가 request 할 수 있지만, Server는 동시에 여러 request를 처리하지 못합니다.
+image from : docs.ros.org Action은 바로 이러한 Service의 단점을 극복하기 위해 탄생한 통신 메커니즘입니다.</description>
+    </item>
+    
     <item>
       <title>Lecture1 - Introduction to ROS</title>
       <link>/kr/ros_basic_noetic/lecture1/</link>

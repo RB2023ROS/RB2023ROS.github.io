@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="kr" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.104.1" />
+    <meta name="description" content="COM2018 OOP Class Lecture Note">
+<meta name="author" content="Soo Young Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Lecture2 - ROS 2 Node, Package - Documentation for Hugo Learn Theme</title>
+
+    
+    <link href="/css/nucleus.css?1672679604" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1672679604" rel="stylesheet">
+    <link href="/css/hybrid.css?1672679604" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1672679604" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1672679604" rel="stylesheet">
+    <link href="/css/auto-complete.css?1672679604" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1672679604" rel="stylesheet">
+    <link href="/css/theme.css?1672679604" rel="stylesheet">
+    <link href="/css/tabs.css?1672679604" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1672679604" rel="stylesheet">
+    
+    <link href="/css/theme-green.css?1672679604" rel="stylesheet">
+    
+    <link href="/css/foo.css?1672679604" rel="stylesheet"><link href="/css/bar.css?1672679604" rel="stylesheet">
+
+    <script src="/js/jquery-3.3.1.min.js?1672679604"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/kr/ros2_basic_foxy/lecture2/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img width="1097" alt="image" src="https://user-images.githubusercontent.com/12381733/209764275-05dcbdbf-cef7-47ad-94a6-6d61febad01e.png">
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1672679604"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1672679604"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/kr";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1672679604"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/kr'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_basic_noetic/" title="ROS Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_basic_noetic/">
+          <b>ROS Noetic. </b>ROS Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture1/" title="Lecture1 - Introduction to ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture1/">
+        Lecture1 - Introduction to ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture2/" title="Lecture2 - Dev Env Setup" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture2/">
+        Lecture2 - Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture3/" title="Lecture3 - Core of ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture3/">
+        Lecture3 - Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture4/" title="Lecture4 - ROS Launch, RViz" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture4/">
+        Lecture4 - ROS Launch, RViz
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture5/" title="Lecture5 - First Programming, ROS Topic" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture5/">
+        Lecture5 - First Programming, ROS Topic
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture6/" title="Lecture6 - ROS Service, Parameter" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture6/">
+        Lecture6 - ROS Service, Parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture7/" title="Lecture7 - Rqt Tools and rosbag, ROS Time" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture7/">
+        Lecture7 - Rqt Tools and rosbag, ROS Time
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture8/" title="Lecture8 - Deal with Open Source Projects, Custom Interfaces" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture8/">
+        Lecture8 - Deal with Open Source Projects, Custom Interfaces
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture9/" title="Lecture9 - ROS TF and Examples" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture9/">
+        Lecture9 - ROS TF and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture10/" title="Lecture10 - TF2 Examples, Outro" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture10/">
+        Lecture10 - TF2 Examples, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_basic_foxy/" title="ROS 2 Basics" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/kr/ros2_basic_foxy/">
+          <b>ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture1/" title="Lecture1 - Introduction to ROS 2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture1/">
+        Lecture1 - Introduction to ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture2/" title="Lecture2 - ROS 2 Node, Package" class="dd-item active">
+        <a href="/kr/ros2_basic_foxy/lecture2/">
+        Lecture2 - ROS 2 Node, Package
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture4/" title="Lecture4 - ROS 2 Node C&#43;&#43; Programming" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture4/">
+        Lecture4 - ROS 2 Node C&#43;&#43; Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture5/" title="Lecture5 - ROS 2 Topic and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture5/">
+        Lecture5 - ROS 2 Topic and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture6/" title="Lecture6 - ROS 2 Service and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture6/">
+        Lecture6 - ROS 2 Service and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture8/" title="Lecture8 - ROS 2 Action and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture8/">
+        Lecture8 - ROS 2 Action and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros1"><i class='fab fa-fw fa-github'></i> GitHub repo</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="kr" value="/kr/ros2_basic_foxy/lecture2/" selected>Korean</option>
+                    
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='' href="https://github.com/com2018-fa22/hugo-blog/tree/main/content/ros2_basic_foxy/lecture2.kr.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text"></span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                   Lecture2 - ROS 2 Node, Package
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#ros-2-node">ROS 2 Node</a></li>
+        <li><a href="#ros-2-package">ROS 2 Package</a></li>
+        <li><a href="#ros-2-python-package">ROS 2 Python Package</a></li>
+        <li><a href="#ros-2-c-package">ROS 2 C++ Package</a></li>
+        <li><a href="#ros-2-launch">ROS 2 Launch</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Lecture2 - ROS 2 Node, Package
+            </h1>
+          
+
+        
+
+
+<blockquote>
+<p>ROS Noetic 강의를 이미 학습하였기 때문에, Node, Package, launch file, Topic, Message, Service와 같은 개념은 이미 알고 계실 것이라 생각합니다. (맞죠?)</p>
+</blockquote>
+<p>혹시나 잊어버리셨을 수 있으니 강의 중간중간 제가 간단히 리뷰를 하면서 진행하겠습니다.</p>
+<h3 id="ros-2-node">ROS 2 Node</h3>
+<p><img src="/kr/ros2_basic_foxy/images2/lec2_0.png?height=300px" alt="lec2_0.png"></p>
+<ul>
+<li>image from : <a href="https://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.html">docs.rog.org</a></li>
+</ul>
+<blockquote>
+<p>ROS에서의 Node는 하나의 <strong>실행 가능한 프로그램</strong>을 이야기하며, 각각의 Node는 본인 고유의 기능을 담당합니다.</p>
+</blockquote>
+<p>서로 다른 역할을 담당하는 Node들이 각자의 동작을 수행하고 서로 간의 데이터를 주고받게 됨으로 시스템을 형성하게 되고, 따라서, ROS를 통한 로봇 개발은 곧, 적절한 Node들의 개발이라고도 말할 수 있습니다.</p>
+<ul>
+<li>ROS 2 Node 실행 - ROS 2에서 Node의 실행은 <code>ros2 run &lt;pkg-name&gt; &lt;executable-name&gt;</code>입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install ros-foxy-turtlesim -y
+</span></span><span style="display:flex;"><span>ros2 run turtlesim turtlesim_node
+</span></span></code></pre></div><p><img src="/kr/ros2_basic_foxy/images2/lec2_1.png?height=300px" alt="lec2_1.png"></p>
+<ul>
+<li>ROS 2의 Node를 다루는 명령어는 ROS 1과 크게 다르지 않습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ros2 node list
+</span></span><span style="display:flex;"><span>/teleop_turtle
+</span></span><span style="display:flex;"><span>/turtlesim
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ ros2 node info /turtlesim
+</span></span><span style="display:flex;"><span>/turtlesim
+</span></span><span style="display:flex;"><span>  Subscribers:
+</span></span><span style="display:flex;"><span>    /parameter_events: rcl_interfaces/msg/ParameterEvent
+</span></span><span style="display:flex;"><span>    /turtle1/cmd_vel: geometry_msgs/msg/Twist
+</span></span><span style="display:flex;"><span>  Publishers:
+</span></span><span style="display:flex;"><span>    /parameter_events: rcl_interfaces/msg/ParameterEvent
+</span></span><span style="display:flex;"><span>    /rosout: rcl_interfaces/msg/Log
+</span></span><span style="display:flex;"><span>    /turtle1/color_sensor: turtlesim/msg/Color
+</span></span><span style="display:flex;"><span>    /turtle1/pose: turtlesim/msg/Pose
+</span></span><span style="display:flex;"><span>  Service Servers:
+</span></span><span style="display:flex;"><span>    /clear: std_srvs/srv/Empty
+</span></span><span style="display:flex;"><span>  …
+</span></span></code></pre></div><ul>
+<li>rqt_graph도 동일하게 사용 가능합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rqt_graph
+</span></span></code></pre></div><p><img src="/kr/ros2_basic_foxy/images2/lec2_2.png?height=200px" alt="lec2_2.png"></p>
+<h3 id="ros-2-package">ROS 2 Package</h3>
+<blockquote>
+<p>ROS의 Package는 파일 관점에서 관련된 소스코드, 라이브러리, 모델링 파일들, 설정 파일들을 한데 모아둔 폴더로 생각할 수 있으며, 기능 관점에서 시뮬레이션, 하드웨어 제어, 센서 다루기 등으로 분리시킨 모듈로 생각할 수 있습니다.</p>
+</blockquote>
+<p><img src="/kr/ros2_basic_foxy/images2/lec2_3.png?height=300px" alt="lec2_3.png"></p>
+<ul>
+<li>image from : <a href="https://subscription.packtpub.com/book/hardware+and+creative/9781783551798/1/ch01lvl1sec11/understanding-the-ros-file-system-level">packthub</a></li>
+</ul>
+<p>새로운 패키지를 생성하는 과정에서, ROS 2는 ROS 1과 차이점이 있습니다.</p>
+<p>ROS 1에서 <strong>catkin_create_package</strong>를 사용했던 것처럼, ROS 2에서는 <strong>colcon</strong>을 사용하여 새로운 package를 생성합니다. 하지만, ROS 2에서는 사용하는 프로그래밍 언어(python/c++)에 따라 다른 build type을 지정할 수 있습니다.</p>
+<h3 id="ros-2-python-package">ROS 2 Python Package</h3>
+<ul>
+<li>파이썬 패키지의 생성은 다음과 같습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ros2 pkg create --build-type ament_python &lt;package_name&gt;
+</span></span><span style="display:flex;"><span>$ ros2 pkg create --build-type ament_python my_first_pkg
+</span></span><span style="display:flex;"><span>going to create a new package
+</span></span><span style="display:flex;"><span>package name: my_first_pkg
+</span></span><span style="display:flex;"><span>destination directory: /home/kimsooyoung/ros2_ws/src
+</span></span><span style="display:flex;"><span>package format: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>version: 0.0.0
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><ul>
+<li>그리고, 다음과 같은 폴더 구조가 자동 생성됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>my_first_pkg/
+</span></span><span style="display:flex;"><span>├── my_first_pkg
+</span></span><span style="display:flex;"><span>│   └── __init__.py
+</span></span><span style="display:flex;"><span>├── package.xml
+</span></span><span style="display:flex;"><span>├── resource
+</span></span><span style="display:flex;"><span>│   └── my_first_pkg
+</span></span><span style="display:flex;"><span>├── setup.cfg
+</span></span><span style="display:flex;"><span>├── setup.py
+</span></span><span style="display:flex;"><span>└── test
+</span></span><span style="display:flex;"><span>    ├── test_copyright.py
+</span></span><span style="display:flex;"><span>    ├── test_flake8.py
+</span></span><span style="display:flex;"><span>    └── test_pep257.py
+</span></span></code></pre></div><ul>
+<li>새롭게 만든 패키지를 빌드해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cd ~/ros2_ws
+</span></span><span style="display:flex;"><span>$ colcon build --packages-select my_first_pkg
+</span></span><span style="display:flex;"><span>Starting &gt;&gt;&gt; my_first_pkg
+</span></span><span style="display:flex;"><span>Finished <span style="color:#f92672">&lt;&lt;&lt;</span> my_first_pkg <span style="color:#f92672">[</span>1.56s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Summary: <span style="color:#ae81ff">1</span> package finished <span style="color:#f92672">[</span>1.96s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ source install/local_setup.bash
+</span></span></code></pre></div><p><img src="/kr/ros2_basic_foxy/images2/colcon_build.gif?height=300px" alt="colcon_build.gif"></p>
+<p>생성한 파이썬 코드 패키지에서, 실제 파이썬 코드는 어디에 위치할까요?</p>
+<ul>
+<li>새로운 패키지를 생성하면 해당 패키지 폴더 안에 패키지 이름과 동일한 폴더가 하나 위치하게 됩니다. 이 폴더 안에는 <strong>init.py</strong> 파일이 기본적으로 위치합니다.</li>
+</ul>
+<p><img src="/kr/ros2_basic_foxy/images2/lec2_4.png?height=300px" alt="lec2_4.png"></p>
+<p>참고로, wsl에서 파일 탐색기를 열기 위해서는 <code>explorer.exe .</code> 를 입력하시면 됩니다.</p>
+<p><img src="/kr/ros2_basic_foxy/images2/lec2_5.png?height=200px" alt="lec2_5.png"></p>
+<ul>
+<li>강의 예시 소스코드를 하나 끌어와 빌드해보겠습니다. 아주 간단한 파이썬 예시가 실행될 것입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cd ~/ros2_sw
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ colcon build --packages-select py_node_tutorial
+</span></span><span style="display:flex;"><span>Starting &gt;&gt;&gt; py_node_tutorial
+</span></span><span style="display:flex;"><span>Finished <span style="color:#f92672">&lt;&lt;&lt;</span> py_node_tutorial <span style="color:#f92672">[</span>1.85s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Summary: <span style="color:#ae81ff">1</span> package finished <span style="color:#f92672">[</span>2.14s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ source install/local_setup.bash
+</span></span><span style="display:flex;"><span>$ ros2 run py_node_tutorial example_node_1
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1672462290.252773294<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>example_node_1<span style="color:#f92672">]</span>: <span style="color:#f92672">====</span> Hello ROS 2 <span style="color:#f92672">====</span>
+</span></span></code></pre></div><p><img src="/kr/ros2_basic_foxy/images2/ros2_build_ex.gif?height=300px" alt="ros2_build_ex.gif"></p>
+
+<div class="notices note" ><p>여기서 주목할 점은, node의 실행 시 <strong>roscore가 없어도 된다</strong>는 점입니다. DDS를 사용함으로 각각의 node가 분산 처리가 가능하기 때문에 가능한 것입니다.</p>
+</div>
+
+<p><img src="/kr/ros2_basic_foxy/images2/lec2_6.png?height=300px" alt="lec2_6.png"></p>
+<ul>
+<li>image from : <a href="https://design.ros2.org/articles/ros_on_dds.html">design.ros2.org</a></li>
+</ul>
+<h3 id="ros-2-c-package">ROS 2 C++ Package</h3>
+<blockquote>
+<p>대부분의 오픈소스 패키지들은 C++로 개발되어 있는 경우가 많습니다. turtlesim의 소스코드를 확인해봅시다.</p>
+</blockquote>
+<p><a href="https://github.com/ros/ros_tutorials">https://github.com/ros/ros_tutorials</a></p>
+<p>모두 C++로 개발되어 있습니다. 따라서, 실제 작업 시 파이썬을 위주로 사용하더라도 <strong>적어도 C++ 패키지의 구조는 파악하고 있어야</strong> 오류 상황에 대처할 수 있습니다.</p>
+<ul>
+<li>C++ 패키지의 생성은 다음과 같습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 pkg create <span style="color:#f92672">--</span>build<span style="color:#f92672">-</span>type ament_cmake <span style="color:#f92672">&lt;</span>package_name<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 pkg create <span style="color:#f92672">--</span>build<span style="color:#f92672">-</span>type ament_cmake my_first_cpp_pkg
+</span></span><span style="display:flex;"><span>going to create a new package
+</span></span><span style="display:flex;"><span>package name: my_first_cpp_pkg
+</span></span><span style="display:flex;"><span>destination directory: <span style="color:#f92672">/</span>home<span style="color:#f92672">/</span>kimsooyoung<span style="color:#f92672">/</span>ros2_ws<span style="color:#f92672">/</span>src
+</span></span><span style="display:flex;"><span>package format: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>version: <span style="color:#ae81ff">0.0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span></code></pre></div><ul>
+<li>C++ 패키지는 다음과 같은 구조를 갖습니다. 파이썬과 달리, C++는 컴파일 언어이기 때문에 CMake를 위한 <strong>CMakeLists.txt</strong> 파일이 추가되어 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>my_first_cpp_pkg
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">├──</span> CMakeLists<span style="color:#f92672">.</span>txt
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">├──</span> include
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">│</span>   <span style="color:#960050;background-color:#1e0010">└──</span> my_first_cpp_pkg
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">├──</span> package<span style="color:#f92672">.</span>xml
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">└──</span> src
+</span></span></code></pre></div><p>일반적으로 C++ 개발을 하다보면 header와 source의 분리를 시키곤 합니다.</p>
+<p>이를 위해 보통 <strong>include 폴더</strong> 안에 헤더 파일을 위치시키고, <strong>src 폴더</strong> 안에 소스 코드를 위치시킵니다.</p>
+<ul>
+<li>빌드와 실행은 C++ 패키지도 동일한 커멘드 라인을 사용합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ colcon build --packages-select cpp_node_tutorial
+</span></span><span style="display:flex;"><span>$ source install/local_setup.bash
+</span></span><span style="display:flex;"><span>Starting &gt;&gt;&gt; cpp_node_tutorial
+</span></span><span style="display:flex;"><span>Finished <span style="color:#f92672">&lt;&lt;&lt;</span> cpp_node_tutorial <span style="color:#f92672">[</span>0.42s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Summary: <span style="color:#ae81ff">1</span> package finished <span style="color:#f92672">[</span>0.64s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ ros2 run cpp_node_tutorial example_node_1
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1672462275.581606122<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>example_node_1<span style="color:#f92672">]</span>: <span style="color:#f92672">====</span> Hello ROS 2 <span style="color:#f92672">====</span>
+</span></span></code></pre></div><h4 id="apt를-통한-패키지-사용하기">apt를 통한 패키지 사용하기</h4>
+<blockquote>
+<p>널리 사용되고 검증된 패키지들은 소스 코드 빌드 없이 명령어 하나만으로 사용할 수 있습니다. 다만, ROS 1과 ROS 2, 그리고 같은 ROS 2일지라도 버전에 따라 재설치를 해줘야 합니다.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> sudo apt install ros<span style="color:#f92672">-&lt;</span>DISTRO<span style="color:#f92672">&gt;-&lt;</span>pkg<span style="color:#f92672">-</span>name<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> sudo apt install ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>turtlesim
+</span></span></code></pre></div><p>지금까지 우리가 사용했던 <strong>turtlesim</strong>, <strong>turtle_teleop_key</strong>는 모두 <code>apt install turtlesim</code>을 통해 설치가 가능하였기에 코드에 대한 고려 없이 바로 실행할 수 있던 것입니다.</p>
+<p>이를 사용하여 ROS 개발 초기에는 바로 설치 가능한 패키지들을 조합하여 빠르게 검증을 하고, 이후 직접 Customizing해야 하는 부분은 별도 소스코드 빌드를 통해 업그레이드를 하곤 합니다.</p>
+<h3 id="ros-2-launch">ROS 2 Launch</h3>
+<blockquote>
+<p>ROS 2의 launch파일은 기본적으로 <strong>Python</strong> 문법을 사용합니다. 기존 ROS 1에서 xml 문법을 사용하던 것에서 비교하면, 보다 손쉽게 접근할 수 있어졌습니다.</p>
+</blockquote>
+<ul>
+<li>예제를 통해 기본 구조에 대해 짚고 넘어가겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cd ~/ros2_ws
+</span></span><span style="display:flex;"><span>$ colcon build --packages-select src_description
+</span></span><span style="display:flex;"><span>$ source install/local_setup.bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ ros2 launch src_description src_description.launch.py
+</span></span></code></pre></div><p>사진과 같이 RViz2와 joint state publisher gui가 등장할 것입니다. joint state publisher gui의 슬라이드바를 이리저리 옮겨보세요.</p>
+<p>ROS 1 강의에서 배워보았던 tf에 대해서도 복습할 수 있는 기회입니다.</p>
+<p><img src="/kr/ros2_basic_foxy/images2/lec2_7.png?height=300px" alt="lec2_7.png"></p>
+<ul>
+<li>ros2의 launch 명령어는 다음과 같이 구성되어 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ros2 launch &lt;package-name&gt; &lt;launch-file-name&gt;
+</span></span></code></pre></div><p>패키지 내에 존재하는 특정 launch 파일을 실행해라, 라는 뜻이 됩니다.</p>
+<p>예제 launch file을 살펴봅시다. ros2의 launch file은 python과 xml을 지원합니다. python 파일의 경우 <strong><!-- raw HTML omitted -->.launch.py</strong>로 이름짓는 것이 일반적입니다.</p>
+<ul>
+<li>항상 launch file의 분석은 가장 하단부터 시작합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">return</span> LaunchDescription([
+</span></span><span style="display:flex;"><span>        TimerAction(
+</span></span><span style="display:flex;"><span>            period<span style="color:#f92672">=</span><span style="color:#ae81ff">3.0</span>,
+</span></span><span style="display:flex;"><span>            actions<span style="color:#f92672">=</span>[rviz2]
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        robot_state_publisher,
+</span></span><span style="display:flex;"><span>        joint_state_publisher_gui,
+</span></span><span style="display:flex;"><span>    ])
+</span></span></code></pre></div><p><strong>LaunchDescription[]</strong> 안에 위치한 프로그램들을 동시에 실행하는 것이 launch file을 작성하는 이유입니다.</p>
+<ul>
+<li>상단 옵션을 하나씩 살피겠습니다. launch file에서 특정 폴더, 파일에 접근하기 위해 package에 기반하여 경로를 탐색합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate_launch_description</span>():
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    pkg_path <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(get_package_share_directory(<span style="color:#e6db74">&#34;src_description&#34;</span>))
+</span></span><span style="display:flex;"><span>    rviz_config_file <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(pkg_path, <span style="color:#e6db74">&#34;rviz&#34;</span>, <span style="color:#e6db74">&#34;description.rviz&#34;</span>)
+</span></span><span style="display:flex;"><span>    urdf_file <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(pkg_path, <span style="color:#e6db74">&#34;urdf&#34;</span>, <span style="color:#e6db74">&#34;src_body.urdf&#34;</span>)
+</span></span></code></pre></div><ul>
+<li><strong>urdf - Unified Robotics Description Format</strong>란 로봇의 형상을 파일로 표현하는 일종의 포멧입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; ?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- =================================================================================== --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- |    This document was autogenerated by xacro from /home/kimsooyoung/ros2_ws/src/du2023-ros2/src_gazebo/urdf/src_body.urdf.xacro | --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                                 | --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- =================================================================================== --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;robot</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;src_body&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;material</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;silver&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;color</span> <span style="color:#a6e22e">rgba=</span><span style="color:#e6db74">&#34;0.700 0.700 0.700 1.000&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/material&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;material</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;black&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;color</span> <span style="color:#a6e22e">rgba=</span><span style="color:#e6db74">&#34;1.000 1.000 1.000 1.000&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/material&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;material</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;blue&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;color</span> <span style="color:#a6e22e">rgba=</span><span style="color:#e6db74">&#34;0.0 0.0 0.8 1.0&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/material&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;material</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;green&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;color</span> <span style="color:#a6e22e">rgba=</span><span style="color:#e6db74">&#34;0.0 0.8 0.0 1.0&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/material&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;material</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;grey&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;color</span> <span style="color:#a6e22e">rgba=</span><span style="color:#e6db74">&#34;0.2 0.2 0.2 1.0&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/material&gt;</span>
+</span></span><span style="display:flex;"><span>	...
+</span></span></code></pre></div><p><img src="/kr/ros2_basic_foxy/images2/lec2_8.png?height=300px" alt="lec2_8.png"></p>
+<ul>
+<li>image from : <a href="http://library.isr.ist.utl.pt/docs/roswiki/urdf(2f)XML(2f)Link.html">http://library.isr.ist.utl.pt/</a></li>
+</ul>
+
+<div class="notices note" ><p>src의 urdf와 description 결과를 함께 살펴보면서 urdf에 대한 개념을 익혀봅시다.</p>
+</div>
+
+<blockquote>
+<p>urdf를 생성하는 여러 방법들이 있습니다.</p>
+</blockquote>
+<ul>
+<li>xacro와 함께 직접 텍스트를 작성하기</li>
+<li>CAD 프로그램을 사용하기
+<ul>
+<li><a href="https://www.solidworks.com/ko">SOLIDWORKS</a></li>
+<li><a href="https://www.autodesk.co.kr/products/fusion-360/overview">Fusion 360</a></li>
+<li><a href="https://www.blender.org/">blender</a></li>
+</ul>
+</li>
+<li>시뮬레이션 프로그램 내 model builder 사용하기
+<ul>
+<li>Gazebo</li>
+<li><a href="https://www.coppeliarobotics.com/">Colleliasim</a></li>
+</ul>
+</li>
+</ul>
+<p>저의 경우, <strong>Fusion 360</strong>에서 사용할 수 있는 오픈소스 urdf exporter를 통해 시뮬레이션을 개발하였습니다.</p>
+<p><a href="https://github.com/syuntoku14/fusion2urdf">https://github.com/syuntoku14/fusion2urdf</a></p>
+<ul>
+<li>urdf를 사용하여 ROS에게 로봇에 대한 정보를 전달하고 지속 주시하는 것이 아래 두 Node의 역할입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>joint_state_publisher_gui <span style="color:#f92672">=</span> Node(
+</span></span><span style="display:flex;"><span>    package<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;joint_state_publisher_gui&#34;</span>,
+</span></span><span style="display:flex;"><span>    executable<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;joint_state_publisher_gui&#34;</span>,
+</span></span><span style="display:flex;"><span>    name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;joint_state_publisher_gui&#34;</span>,
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>robot_state_publisher <span style="color:#f92672">=</span> Node(
+</span></span><span style="display:flex;"><span>    package<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;robot_state_publisher&#39;</span>,
+</span></span><span style="display:flex;"><span>    node_executable<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;robot_state_publisher&#39;</span>,
+</span></span><span style="display:flex;"><span>    node_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;robot_state_publisher&#39;</span>,
+</span></span><span style="display:flex;"><span>    output<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;screen&#39;</span>,
+</span></span><span style="display:flex;"><span>    parameters<span style="color:#f92672">=</span>[{<span style="color:#e6db74">&#39;use_sim_time&#39;</span>: <span style="color:#66d9ef">True</span>}],
+</span></span><span style="display:flex;"><span>    arguments<span style="color:#f92672">=</span>[urdf_file],
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><ul>
+<li>launch file 분석의 마지막으로 Rviz2 실행입니다. Rviz와 동일하게 launch file에서 <strong>config option</strong>을 줄 수 있으며, <strong>TimerAction</strong>을 통해 3초의 여유를 갖고 실행하도록 하였습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Launch RViz</span>
+</span></span><span style="display:flex;"><span>rviz2 <span style="color:#f92672">=</span> Node(
+</span></span><span style="display:flex;"><span>    package<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rviz2&#34;</span>,
+</span></span><span style="display:flex;"><span>    executable<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rviz2&#34;</span>,
+</span></span><span style="display:flex;"><span>    name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rviz2&#34;</span>,
+</span></span><span style="display:flex;"><span>    output<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;screen&#34;</span>,
+</span></span><span style="display:flex;"><span>    arguments<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;-d&#34;</span>, rviz_config_file],
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> LaunchDescription([
+</span></span><span style="display:flex;"><span>    TimerAction(
+</span></span><span style="display:flex;"><span>        period<span style="color:#f92672">=</span><span style="color:#ae81ff">3.0</span>,
+</span></span><span style="display:flex;"><span>        actions<span style="color:#f92672">=</span>[rviz2]
+</span></span><span style="display:flex;"><span>    ),
+</span></span></code></pre></div><ul>
+<li>ROS 2의 launch file 작성법을 간단하게 설명하고 넘어가겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>robot_state_publisher <span style="color:#f92672">=</span> Node(
+</span></span><span style="display:flex;"><span>    package<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;robot_state_publisher&#39;</span>,
+</span></span><span style="display:flex;"><span>    executable<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;robot_state_publisher&#39;</span>,
+</span></span><span style="display:flex;"><span>    output<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;screen&#39;</span>,
+</span></span><span style="display:flex;"><span>    parameters<span style="color:#f92672">=</span>[robot_description]
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><ul>
+<li><strong>Node</strong> : Node 하나를 실행시킬 수 있는 옵션입니다.</li>
+<li><strong>package</strong> : 실행시킬 Node가 포함된 package를 선택해줍니다.</li>
+<li><strong>executable</strong> : c++ Node의 경우, colcon build를 하면 실행 가능한 프로그램이 생성됩니다. python의 경우도 스크립트를 실행 시키게 되며, 추후 코딩 실습을 거치면 완벽히 이해하실 수 있을 것입니다.</li>
+<li><strong>parameters</strong> : 실행시킬 Node의 추가 매개변수가 있다면 이 부분에 추가됩니다.</li>
+</ul>
+<hr>
+<blockquote>
+<p>이렇게 <strong>launch file 하나를 분석해 보았습니다.</strong> 하지만, 제가 보여드린 것은 하나의 예시일 뿐이며, launch file은 여러 형식으로 사용되고 있습니다.</p>
+</blockquote>
+<p>일례로, 자율 주행 시 사용되는 nav2 패키지의 lanuch file은 다음과 같은 형태를 갖습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>declare_namespace_cmd <span style="color:#f92672">=</span> DeclareLaunchArgument(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;namespace&#39;</span>,
+</span></span><span style="display:flex;"><span>        default_value<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>        description<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Top-level namespace&#39;</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e"># Create the launch description and populate</span>
+</span></span><span style="display:flex;"><span>		ld <span style="color:#f92672">=</span> LaunchDescription()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e"># Set environment variables</span>
+</span></span><span style="display:flex;"><span>		ld<span style="color:#f92672">.</span>add_action(stdout_linebuf_envvar)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e"># Declare the launch options</span>
+</span></span><span style="display:flex;"><span>		ld<span style="color:#f92672">.</span>add_action(declare_namespace_cmd)
+</span></span><span style="display:flex;"><span>		ld<span style="color:#f92672">.</span>add_action(declare_use_namespace_cmd)
+</span></span><span style="display:flex;"><span>		ld<span style="color:#f92672">.</span>add_action(declare_slam_cmd)
+</span></span><span style="display:flex;"><span>		ld<span style="color:#f92672">.</span>add_action(declare_map_yaml_cmd)
+</span></span><span style="display:flex;"><span>		ld<span style="color:#f92672">.</span>add_action(declare_use_sim_time_cmd)
+</span></span><span style="display:flex;"><span>		ld<span style="color:#f92672">.</span>add_action(declare_params_file_cmd)
+</span></span><span style="display:flex;"><span>		ld<span style="color:#f92672">.</span>add_action(declare_autostart_cmd)
+</span></span><span style="display:flex;"><span>		ld<span style="color:#f92672">.</span>add_action(declare_bt_xml_cmd)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e"># Add the actions to launch all of the navigation nodes</span>
+</span></span><span style="display:flex;"><span>		ld<span style="color:#f92672">.</span>add_action(bringup_cmd_group)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> ld
+</span></span></code></pre></div><p>아직 프로그래밍을 시작하지도 않았기 때문에, launch file에 대해서 모두 이해하려 하지는 않으셔도 됩니다. 남은 강의들에서 계속해서 살펴보겠습니다.</p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/kr/ros2_basic_foxy/lecture1/" title="Lecture1 - Introduction to ROS 2"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kr/ros2_basic_foxy/lecture4/" title="Lecture4 - ROS 2 Node C&#43;&#43; Programming" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1672679604"></script>
+    <script src="/js/perfect-scrollbar.min.js?1672679604"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1672679604"></script>
+    <script src="/js/jquery.sticky.js?1672679604"></script>
+    <script src="/js/featherlight.min.js?1672679604"></script>
+    <script src="/js/highlight.pack.js?1672679604"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1672679604"></script>
+    <script src="/js/learn.js?1672679604"></script>
+    <script src="/js/hugo-learn.js?1672679604"></script>
+    
+        
+            <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

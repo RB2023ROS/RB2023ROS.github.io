@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="kr" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.104.1" />
+    <meta name="description" content="COM2018 OOP Class Lecture Note">
+<meta name="author" content="Soo Young Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Lecture1 - Introduction to ROS 2 - Documentation for Hugo Learn Theme</title>
+
+    
+    <link href="/css/nucleus.css?1672679604" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1672679604" rel="stylesheet">
+    <link href="/css/hybrid.css?1672679604" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1672679604" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1672679604" rel="stylesheet">
+    <link href="/css/auto-complete.css?1672679604" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1672679604" rel="stylesheet">
+    <link href="/css/theme.css?1672679604" rel="stylesheet">
+    <link href="/css/tabs.css?1672679604" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1672679604" rel="stylesheet">
+    
+    <link href="/css/theme-green.css?1672679604" rel="stylesheet">
+    
+    <link href="/css/foo.css?1672679604" rel="stylesheet"><link href="/css/bar.css?1672679604" rel="stylesheet">
+
+    <script src="/js/jquery-3.3.1.min.js?1672679604"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/kr/ros2_basic_foxy/lecture1/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img width="1097" alt="image" src="https://user-images.githubusercontent.com/12381733/209764275-05dcbdbf-cef7-47ad-94a6-6d61febad01e.png">
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1672679604"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1672679604"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/kr";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1672679604"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/kr'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_basic_noetic/" title="ROS Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_basic_noetic/">
+          <b>ROS Noetic. </b>ROS Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture1/" title="Lecture1 - Introduction to ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture1/">
+        Lecture1 - Introduction to ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture2/" title="Lecture2 - Dev Env Setup" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture2/">
+        Lecture2 - Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture3/" title="Lecture3 - Core of ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture3/">
+        Lecture3 - Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture4/" title="Lecture4 - ROS Launch, RViz" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture4/">
+        Lecture4 - ROS Launch, RViz
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture5/" title="Lecture5 - First Programming, ROS Topic" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture5/">
+        Lecture5 - First Programming, ROS Topic
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture6/" title="Lecture6 - ROS Service, Parameter" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture6/">
+        Lecture6 - ROS Service, Parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture7/" title="Lecture7 - Rqt Tools and rosbag, ROS Time" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture7/">
+        Lecture7 - Rqt Tools and rosbag, ROS Time
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture8/" title="Lecture8 - Deal with Open Source Projects, Custom Interfaces" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture8/">
+        Lecture8 - Deal with Open Source Projects, Custom Interfaces
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture9/" title="Lecture9 - ROS TF and Examples" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture9/">
+        Lecture9 - ROS TF and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture10/" title="Lecture10 - TF2 Examples, Outro" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture10/">
+        Lecture10 - TF2 Examples, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_basic_foxy/" title="ROS 2 Basics" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/kr/ros2_basic_foxy/">
+          <b>ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture1/" title="Lecture1 - Introduction to ROS 2" class="dd-item active">
+        <a href="/kr/ros2_basic_foxy/lecture1/">
+        Lecture1 - Introduction to ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture2/" title="Lecture2 - ROS 2 Node, Package" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture2/">
+        Lecture2 - ROS 2 Node, Package
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture4/" title="Lecture4 - ROS 2 Node C&#43;&#43; Programming" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture4/">
+        Lecture4 - ROS 2 Node C&#43;&#43; Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture5/" title="Lecture5 - ROS 2 Topic and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture5/">
+        Lecture5 - ROS 2 Topic and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture6/" title="Lecture6 - ROS 2 Service and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture6/">
+        Lecture6 - ROS 2 Service and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture8/" title="Lecture8 - ROS 2 Action and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture8/">
+        Lecture8 - ROS 2 Action and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros1"><i class='fab fa-fw fa-github'></i> GitHub repo</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="kr" value="/kr/ros2_basic_foxy/lecture1/" selected>Korean</option>
+                    
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='' href="https://github.com/com2018-fa22/hugo-blog/tree/main/content/ros2_basic_foxy/lecture1.kr.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text"></span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                   Lecture1 - Introduction to ROS 2
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#about-ros-2">About ROS 2</a>
+      <ul>
+        <li><a href="#ros-1-vs-ros-2">ROS 1 vs ROS 2</a></li>
+      </ul>
+    </li>
+    <li><a href="#about-this-lecture">About this lecture</a>
+      <ul>
+        <li><a href="#강의를-수강하기-위해-필요한-선수지식">강의를 수강하기 위해 필요한 선수지식</a></li>
+        <li><a href="#ros-2-workspace-생성">ROS 2 Workspace 생성</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Lecture1 - Introduction to ROS 2
+            </h1>
+          
+
+        
+
+
+<h2 id="about-ros-2">About ROS 2</h2>
+<p><img src="/kr/ros2_basic_foxy/images1/lec1_0.png?height=150px" alt="lec1_0.png"></p>
+<ul>
+<li>image from : <a href="https://foxglove.dev/blog/the-building-blocks-of-ros2">foxglove.dev</a></li>
+</ul>
+<blockquote>
+<p><strong>ROS의 시작은 연구실</strong>이었습니다. 구글의 핵심 개발자였던 <strong>Scott Hassan</strong>은 2006년 <strong>Willow Garage</strong>를 설립하였고, 여기서 처음으로 ROS가 탄생하였습니다. 이후 Willow Garage는 여러 Spin-off를 거친 뒤 OSRF와 OSRC등으로 나뉘게 되었고, 현재 Gazebo와 ROS는 이들에 의해 관리되고 있습니다.</p>
+</blockquote>
+<p>2022년 12월 기준 구글의 자회사인 Alphabet의 Intrinsic이 OSRF를 품게 되었으며, Ubuntu Linux를 관리하는 Canonical에서 ROS의 공식 서포트를 약속하고, Jetson 보드와 Issac Sim들을 개발하고 있는 Nvidia에서도 ROS를 공식 지원하고 있습니다.</p>
+<p>이렇게 많은 기업들이 ROS에 거는 기대가 큰 만큼 로봇 시장의 성장성도 기대가 됩니다. 하지만, 로봇이 상용화되기 위해서는 여러 난관이 있습니다.</p>
+<ul>
+<li><strong>보안</strong></li>
+<li><strong>안정성</strong></li>
+<li><strong>실시간성</strong></li>
+<li><strong>개발 용이성</strong></li>
+<li><strong>기술 지원</strong></li>
+<li><strong>하드웨어 연동</strong></li>
+<li><strong>etc…</strong></li>
+</ul>
+<p>연구용으로 설계된 기존 ROS를 통해서는 이러한 모든 조건을 충족할 수 없다는 결론을 내렸고, Open Robotics는 <strong>ROS 2</strong>를 새롭게 선보이게 됩니다.</p>
+<h3 id="ros-1-vs-ros-2">ROS 1 vs ROS 2</h3>
+<p>기존 언급되었던 ROS 1의 모든 문제들이 ROS 2에서 해결되었다고 할 수는 없지만 적어도 해결을 고려하여 설계되었다고 말하고 싶습니다.</p>
+<p>ROS 1과 비교하여 ROS 2의 장점들을 간단히 살펴봅시다.</p>
+<p><img src="/kr/ros2_basic_foxy/images1/lec1_1.png?height=400px" alt="lec1_1.png"></p>
+<ul>
+<li>image from : <a href="https://maker.pro/ros/tutorial/robot-operating-system-2-ros-2-introduction-and-getting-started">maker.pro</a></li>
+</ul>
+<p>상용화를 고려한 가장 큰 변화로 패킷 통신에 TCPROS/UPDROS가 아닌 DDS(Data Distribution Service)를 도입하였다는 것입니다.</p>
+<p><img src="/kr/ros2_basic_foxy/images1/lec1_2.png?height=200px" alt="lec1_2.png"></p>
+<ul>
+<li>image from : <a href="https://www.omg.org/dds-directory/">omg.org</a></li>
+</ul>
+<p>뿐만 아니라, 임베디드 시스템을 위한 micro-ros와 같은 멋진 프로젝트들도 ROS 2에서 새롭게 등장하였습니다.</p>
+<p><img src="/kr/ros2_basic_foxy/images1/lec1_3.png?height=300px" alt="lec1_3.png"></p>
+<ul>
+<li>image from : <a href="https://www.freertos.org/2020/09/micro-ros-on-freertos.html">freertos</a></li>
+</ul>
+<p>이렇게 멋진 ROS 2를 지금부터 함께 배워보겠습니다.</p>
+<h2 id="about-this-lecture">About this lecture</h2>
+<p>ROS 1 강의에서는 <strong>ROS Noetic</strong> 버전을 사용하였으며, 동일한 Ubuntu 20.04 버전에서 구동되는 <strong>ROS 2 Foxy</strong>를 사용할 예정입니다.</p>
+<p>ROS 설정을 잘 따라오셨다면 별도의 설치 과정은 필요 없으며, 리눅스 커멘드 사용법, 패키지 설치 등 기본적인 내용은 알고 있다는 가정 하에 강의를 진행해보겠습니다.</p>
+<p><img src="/kr/ros2_basic_foxy/images1/lec1_4.png?height=300px" alt="lec1_4.png"></p>
+<ul>
+<li>image from : <a href="https://docs.ros.org/en/foxy/index.html">docs.ros.org</a></li>
+</ul>
+<p>ROS 1강의를 통해 탄탄하게 다진 기본기를 바탕으로 아래와 같은 내용들을 다뤄봅니다.</p>
+<ul>
+<li><strong>ROS 2 기본 커멘드</strong></li>
+<li><strong>C++ ROS 프로그래밍</strong></li>
+<li><strong>Nav 2를 사용한 자율주행</strong></li>
+<li><strong>실제 로봇 데이터 활용해보기</strong></li>
+<li><strong>과제를 통한 ROS 2 응용 프로그래밍</strong></li>
+</ul>
+<p>더불어, 이번 강의를 통해 실제 로봇이 어떻게 개발되는지 바닥부터 살펴보고자 합니다.</p>
+<ul>
+<li><strong>로봇 설계</strong></li>
+<li><strong>시뮬레이션 제작과 실습</strong></li>
+<li><strong>실제 로봇을 만들기 위해 필요한 요소들</strong></li>
+<li><strong>유지 보수와 로봇 제품 개발</strong></li>
+</ul>
+<p>Road Balance의 차량형 교육 로봇, <strong>SRC</strong>를 통해 실습해보겠습니다.</p>
+<p><img src="/kr/ros2_basic_foxy/images1/lec1_5.png?height=300px" alt="lec1_5.png"></p>
+<h3 id="강의를-수강하기-위해-필요한-선수지식">강의를 수강하기 위해 필요한 선수지식</h3>
+<p>ROS 2는 Python 3와 C++ 11이상의 버전을 지원합니다. 따라서 최소한의 프로그래밍 지식이 있다는 가정 하에 강의가 진행되며, 환경 설정, ROS 개념 등 <strong>ROS 1 강의를 모두 수강했다</strong>는 전제 하에 진행됩니다.</p>
+<p><img src="/kr/ros2_basic_foxy/images1/lec1_6.png?height=350px" alt="lec1_6.png"></p>
+<ul>
+<li>image from : <a href="https://docs.ros.org/en/foxy/Concepts/About-Internal-Interfaces.html">docs.ros.org</a></li>
+</ul>
+<p>이번 강의에서는 좀 더 실질적인 ROS 2 개발을 맛보고자 C++를 활용한 프로그래밍도 준비해 보았으니 이번 기회에 C++를 공부해 보는 것도 좋은 기회가 되실 겁니다.</p>
+<h3 id="ros-2-workspace-생성">ROS 2 Workspace 생성</h3>
+<p>ROS 1에서 catkin build system을 사용한 것과 유사하게, ROS 2에서는 <strong>colcon</strong>이라는 빌드 시스템을 사용하고 있습니다. colcon을 사용하기 위해서 Workspace가 필요하며, ROS 1과 ROS 2를 모두 사용하는 현재 시스템 같은 경우, 혼란스럽지 않도록 이름을 달리 설정하겠습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~/
+</span></span><span style="display:flex;"><span>mkdir -p ros2_ws/src
+</span></span><span style="display:flex;"><span>cd ros2_ws
+</span></span><span style="display:flex;"><span>colcon build
+</span></span></code></pre></div><ul>
+<li>아래와 같은 폴더 구조가 생성되었을 것입니다.</li>
+</ul>
+<p><img src="/kr/ros2_basic_foxy/images1/lec1_7.png?height=150px" alt="lec1_7.png"></p>
+<ul>
+<li><strong>build</strong> : 컴파일 된 C++ 프로그램, custom interface 등이 위치하게 됩니다.</li>
+<li><strong>install</strong> : ros2 launch와 ros2 run 등의 명령어는 프로그램의 실행 시 이 install 폴더 내 파일들을 조회합니다. 일종의 바로가기들의 모임이라고 생각하면 됩니다.</li>
+<li><strong>log</strong> : colcon build 시 발생하는 로드들이 위치하게 됩니다.</li>
+<li><strong>src</strong> : 모든 소스 코드들이 위치하게 됩니다.</li>
+</ul>
+
+<div class="notices note" ><p>Package를 지우고 싶은 경우 ⇒ build와 install 폴더에서 해당 package에 해당하는 내용들을 삭제합니다.</p>
+</div>
+
+<p>colcon을 사용하여 package를 빌드하는 방법들을 간단히 소개합니다.</p>
+<ul>
+<li><strong>colcon build</strong> : src 폴더 내부에 존재하는 모든 package들을 빌드합니다.</li>
+<li><strong>colcon build &ndash;packages-up-to <!-- raw HTML omitted --></strong> : 해당 package의 종속성이 존재할 시, 이들을 먼저 빌드하고 pkg-name을 빌드합니다.</li>
+<li><strong>colcon build &ndash;packages-select <!-- raw HTML omitted --></strong> : 해당 package만을 빌드합니다.</li>
+</ul>
+<p>새로운 Package를 빌드한 다음 ROS 2에서도 setup.bash를 source 해주어야 합니다. 이 작업에는 크게 두가지가 존재합니다.</p>
+<ul>
+<li><code>source install/setup.bash</code> ⇒ workspace를 source하고 ROS 2시스템 전체를 갱신합니다.</li>
+<li><code>source install/local_setup.bash</code> ⇒ workspace만을 sources합니다. (여러 ROS 2 workspace가 있는 경우 local_setup.bash를 사용합시다.)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># source chained prefixes</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># setting COLCON_CURRENT_PREFIX avoids determining the prefix in the sourced script</span>
+</span></span><span style="display:flex;"><span>COLCON_CURRENT_PREFIX<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/opt/ros/foxy&#34;</span>
+</span></span><span style="display:flex;"><span>_colcon_prefix_chain_bash_source_script <span style="color:#e6db74">&#34;$COLCON_CURRENT_PREFIX/local_setup.bash&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># source this prefix</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># setting COLCON_CURRENT_PREFIX avoids determining the prefix in the sourced script</span>
+</span></span><span style="display:flex;"><span>COLCON_CURRENT_PREFIX<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$(builtin cd &#34;</span><span style="color:#960050;background-color:#1e0010">`</span>dirname <span style="color:#e6db74">&#34;$</span><span style="color:#e6db74">{BASH_SOURCE[0]}</span><span style="color:#e6db74">&#34;</span><span style="color:#960050;background-color:#1e0010">`</span><span style="color:#e6db74">&#34; &gt; /dev/null &amp;&amp; pwd)&#34;</span>
+</span></span><span style="display:flex;"><span>_colcon_prefix_chain_bash_source_script <span style="color:#e6db74">&#34;$COLCON_CURRENT_PREFIX/local_setup.bash&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>unset COLCON_CURRENT_PREFIX
+</span></span><span style="display:flex;"><span>unset _colcon_prefix_chain_bash_source_script
+</span></span></code></pre></div><p>마지막으로, 이번 실습에 필요한 소스 코드를 clone 하고, apt 패키지를 설치하면서, 강의를 마치겠습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>cd <span style="color:#f92672">~/</span>ros2_ws<span style="color:#f92672">/</span>src
+</span></span><span style="display:flex;"><span>git clone https:<span style="color:#f92672">//</span>github<span style="color:#f92672">.</span>com<span style="color:#f92672">/</span>RB2023ROS<span style="color:#f92672">/</span>du2023<span style="color:#f92672">-</span>ros2<span style="color:#f92672">.</span>git
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cd du2023<span style="color:#f92672">-</span>ros2
+</span></span><span style="display:flex;"><span><span style="color:#f92672">./</span>setup_scripts<span style="color:#f92672">.</span>sh
+</span></span></code></pre></div><p><strong>참고자료</strong></p>
+<ul>
+<li><a href="https://www.theconstructsim.com/infographic-ros-1-vs-ros-2-one-better-2/">https://www.theconstructsim.com/infographic-ros-1-vs-ros-2-one-better-2/</a></li>
+<li><a href="https://rsl.ethz.ch/education-students/lectures/ros.html">https://rsl.ethz.ch/education-students/lectures/ros.html</a></li>
+<li><a href="https://velog.io/@hwang-chaewon/ROS2006">https://velog.io/@hwang-chaewon/ROS2006</a></li>
+</ul>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/kr/ros2_basic_foxy/" title="ROS 2 Basics"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kr/ros2_basic_foxy/lecture2/" title="Lecture2 - ROS 2 Node, Package" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1672679604"></script>
+    <script src="/js/perfect-scrollbar.min.js?1672679604"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1672679604"></script>
+    <script src="/js/jquery.sticky.js?1672679604"></script>
+    <script src="/js/featherlight.min.js?1672679604"></script>
+    <script src="/js/highlight.pack.js?1672679604"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1672679604"></script>
+    <script src="/js/learn.js?1672679604"></script>
+    <script src="/js/hugo-learn.js?1672679604"></script>
+    
+        
+            <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+
