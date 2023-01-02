@@ -12,22 +12,22 @@
     <title>Lecture6 - ROS 2 Service and Examples - Documentation for Hugo Learn Theme</title>
 
     
-    <link href="/css/nucleus.css?1672679604" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1672679604" rel="stylesheet">
-    <link href="/css/hybrid.css?1672679604" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1672679604" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1672679604" rel="stylesheet">
-    <link href="/css/auto-complete.css?1672679604" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1672679604" rel="stylesheet">
-    <link href="/css/theme.css?1672679604" rel="stylesheet">
-    <link href="/css/tabs.css?1672679604" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1672679604" rel="stylesheet">
+    <link href="/css/nucleus.css?1672680536" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1672680536" rel="stylesheet">
+    <link href="/css/hybrid.css?1672680536" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1672680536" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1672680536" rel="stylesheet">
+    <link href="/css/auto-complete.css?1672680536" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1672680536" rel="stylesheet">
+    <link href="/css/theme.css?1672680536" rel="stylesheet">
+    <link href="/css/tabs.css?1672680536" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1672680536" rel="stylesheet">
     
-    <link href="/css/theme-green.css?1672679604" rel="stylesheet">
+    <link href="/css/theme-green.css?1672680536" rel="stylesheet">
     
-    <link href="/css/foo.css?1672679604" rel="stylesheet"><link href="/css/bar.css?1672679604" rel="stylesheet">
+    <link href="/css/foo.css?1672680536" rel="stylesheet"><link href="/css/bar.css?1672680536" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1672679604"></script>
+    <script src="/js/jquery-3.3.1.min.js?1672680536"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1672679604"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1672679604"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1672680536"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1672680536"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/kr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1672679604"></script>
+<script type="text/javascript" src="/js/search.js?1672680536"></script>
 
     
   </div>
@@ -627,8 +627,10 @@
 
 
 <h3 id="ros-2-service">ROS 2 Service</h3>
+<blockquote>
 <p>ROS Service의 개념을 다시 복습해봅시다.</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d297a106-65b6-4d10-9ed3-aff85c05791a/service1.gif" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d297a106-65b6-4d10-9ed3-aff85c05791a/service1.gif"></p>
+</blockquote>
+<p><img src="/kr/ros2_basic_foxy/images6/service1.gif?height=300px" alt="service1.gif"></p>
 <ul>
 <li>image from : <a href="https://docs.ros.org/en/foxy/Tutorials/Services/Understanding-ROS2-Services.html">docs.ros.org</a></li>
 </ul>
@@ -639,7 +641,7 @@
 <li>Request와 Response를 위해 사용되는 데이터 타입은 <strong>srv</strong>라고 하며 Request와 Response로 나뉩니다.</li>
 </ul>
 <p>Service의 중요한 특징 한 가지 추가하자면, 하나의 Service Server에 여러 Client가 request 할 수 있지만, <strong>Server는 동시에 여러 request를 처리하지 못합니다.</strong></p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/40d5add4-7b6a-4bd5-a5ea-a357222d7e6b/service2.gif" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/40d5add4-7b6a-4bd5-a5ea-a357222d7e6b/service2.gif"></p>
+<p><img src="/kr/ros2_basic_foxy/images6/service2.gif?height=300px" alt="service2.gif"></p>
 <ul>
 <li>image from : <a href="https://docs.ros.org/en/foxy/Tutorials/Services/Understanding-ROS2-Services.html">docs.ros.org</a></li>
 </ul>
@@ -686,7 +688,7 @@
 </span></span></code></pre></div><ul>
 <li>Service Caller의 사용법과 결과는 다음과 같습니다.</li>
 </ul>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7af0c0d2-4e50-4b4a-9f75-ae755a97da24/picture_srv.gif" alt="picture_srv.gif"></p>
+<p><img src="/kr/ros2_basic_foxy/images6/picture_srv.gif?height=300px" alt="picture_srv.gif"></p>
 <p>코드를 살펴보기 전에, 이를 어떻게 구현할 수 있을지 같이 생각해봅시다.</p>
 <ul>
 <li>사진 촬영을 포함하는 <strong>Service Server</strong> 필요</li>
@@ -737,20 +739,20 @@
 </span></span></code></pre></div><ul>
 <li>정답은 subscription callback에서 찾을 수 있습니다. subscribe된 이미지 데이터는 is_request가 True인 순간에만 사용됩니다. CV Bridge를 통해 ROS topic을 OpenCV 포맷으로 바꿀 수 있으며, <strong>imwrite</strong>를 통해 이미지를 저장할 수 있습니다.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>		<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sub_callback</span>(self, data):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sub_callback</span>(self, data):
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>is_request:
-</span></span><span style="display:flex;"><span>            current_frame <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>br<span style="color:#f92672">.</span>imgmsg_to_cv2(data, <span style="color:#e6db74">&#34;bgr8&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>is_request:
+</span></span><span style="display:flex;"><span>        current_frame <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>br<span style="color:#f92672">.</span>imgmsg_to_cv2(data, <span style="color:#e6db74">&#34;bgr8&#34;</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            file_name <span style="color:#f92672">=</span> str(self<span style="color:#f92672">.</span>get_clock()<span style="color:#f92672">.</span>now()<span style="color:#f92672">.</span>to_msg()<span style="color:#f92672">.</span>sec) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.png&#39;</span>
-</span></span><span style="display:flex;"><span>            cv2<span style="color:#f92672">.</span>imwrite(file_name, current_frame)
-</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Image saved in </span><span style="color:#e6db74">{</span>file_name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>        file_name <span style="color:#f92672">=</span> str(self<span style="color:#f92672">.</span>get_clock()<span style="color:#f92672">.</span>now()<span style="color:#f92672">.</span>to_msg()<span style="color:#f92672">.</span>sec) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.png&#39;</span>
+</span></span><span style="display:flex;"><span>        cv2<span style="color:#f92672">.</span>imwrite(file_name, current_frame)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Image saved in </span><span style="color:#e6db74">{</span>file_name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>is_request <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
-</span></span></code></pre></div><ul>
-<li>Gazebo에 다양한 물체를 배치시킨 뒤 사진을 찍어보는 것도 좋은 실습이 될 것입니다. 제가 준비한 dataset을 사용하여 여러분들만의 실습도 해보세요.</li>
-</ul>
-<p>📂 <a href="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0c308c38-663f-4103-ae61-b286e1e068ef/3DGEMS.zip">3DGEMS.zip</a></p>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>is_request <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</span></span></code></pre></div><blockquote>
+<p>Gazebo에 다양한 물체를 배치시킨 뒤 사진을 찍어보는 것도 좋은 실습이 될 것입니다. 제가 준비한 dataset을 사용하여 여러분들만의 실습도 해보세요.</p>
+</blockquote>
+<p>📁 <a href="https://drive.google.com/file/d/14P83HSgLmN5iC4Yx6TMl7XvbIKuFr7as/view?usp=sharing">3DGEMS.zip</a></p>
 <ul>
 <li>제공되는 3DGEMS 폴더를 압축해제한 뒤, <strong>~/.gazebo/models</strong> 폴더에 위치시킵니다.</li>
 </ul>
@@ -765,7 +767,7 @@
 <ul>
 <li>다시 한 번 Gazebo를 실행시킨 뒤 새로 추가된 모델들을 사용해봅시다.</li>
 </ul>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6ed41d84-e01a-49e7-b5c9-572642af59ab/Untitled.png" alt="Untitled"></p>
+<p><img src="/kr/ros2_basic_foxy/images6/lec6_0.png?height=300px" alt="lec6_0.png"></p>
 <h3 id="custom-interface와-코딩-과제---turtle-jail">Custom Interface와 코딩 과제 - Turtle Jail</h3>
 <blockquote>
 <p>ROS 2에서 custom interface를 만들기 위해서는 <strong>C++ Package</strong>에서 작업이 이루어져야 합니다. C++ package는 build type ament_cmake를 사용하는 package였습니다.</p>
@@ -775,7 +777,7 @@
 </span></span></code></pre></div><ul>
 <li>해당 패키지 내 action, msg, srv 라는 폴더를 만들고 해당 폴더 안에 나만의 인터페이스를 작성합니다.</li>
 </ul>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/65c35a06-5c07-4c09-9b35-458418cc1653/Untitled.png" alt="Untitled"></p>
+<p><img src="/kr/ros2_basic_foxy/images6/lec6_1.png?height=300px" alt="lec6_1.png"></p>
 
 <div class="notices note" ><p>사용할 수 있는 기본 데이터 형식들은 <a href="https://design.ros2.org/articles/interface_definition.html">이 링크</a>를 참고합니다.</p>
 </div>
@@ -831,7 +833,7 @@
 <blockquote>
 <p>topic과 service에 대해서 모두 살펴본 지금 상황에서 여러분들께 <strong>코딩 과제</strong>를 제시해보고자 합니다. 이번 코딩 과제에서 구현해야 하는 최종 결과는 다음과 같습니다.</p>
 </blockquote>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0dbcb75c-2db1-4c7c-be08-0ee38a7135b0/turtle_jail.gif" alt="turtle_jail.gif"></p>
+<p><img src="/kr/ros2_basic_foxy/images6/turtle_jail.gif?height=300px" alt="turtle_jail.gif"></p>
 <p>rqt를 통해 turtle_jail_size service call을 하며, 감옥의 사이즈를 설정합니다.</p>
 <p>거북이는 감옥을 벗어날 수 없으며, 감옥을 벗어나는 순간 원점으로 순간이동합니다.</p>
 <ul>
@@ -860,7 +862,7 @@
 <ul>
 <li>힌트1 : turtlesim의 좌표계</li>
 </ul>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/44f6a4c9-8389-49ea-9e8e-dd2367d34ef1/Untitled.png" alt="Untitled"></p>
+<p><img src="/kr/ros2_basic_foxy/images6/lec6_2.png?height=300px" alt="lec6_2.png"></p>
 <ul>
 <li>힌트 2 : 거북이를 순간이동시키기 위해 <strong>/turtle1/teleport_absolute</strong> service를 사용하세요.</li>
 </ul>
@@ -1217,16 +1219,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1672679604"></script>
-    <script src="/js/perfect-scrollbar.min.js?1672679604"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1672679604"></script>
-    <script src="/js/jquery.sticky.js?1672679604"></script>
-    <script src="/js/featherlight.min.js?1672679604"></script>
-    <script src="/js/highlight.pack.js?1672679604"></script>
+    <script src="/js/clipboard.min.js?1672680536"></script>
+    <script src="/js/perfect-scrollbar.min.js?1672680536"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1672680536"></script>
+    <script src="/js/jquery.sticky.js?1672680536"></script>
+    <script src="/js/featherlight.min.js?1672680536"></script>
+    <script src="/js/highlight.pack.js?1672680536"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1672679604"></script>
-    <script src="/js/learn.js?1672679604"></script>
-    <script src="/js/hugo-learn.js?1672679604"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1672680536"></script>
+    <script src="/js/learn.js?1672680536"></script>
+    <script src="/js/hugo-learn.js?1672680536"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>

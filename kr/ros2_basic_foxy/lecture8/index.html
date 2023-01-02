@@ -12,22 +12,22 @@
     <title>Lecture8 - ROS 2 Action and Examples - Documentation for Hugo Learn Theme</title>
 
     
-    <link href="/css/nucleus.css?1672679604" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1672679604" rel="stylesheet">
-    <link href="/css/hybrid.css?1672679604" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1672679604" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1672679604" rel="stylesheet">
-    <link href="/css/auto-complete.css?1672679604" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1672679604" rel="stylesheet">
-    <link href="/css/theme.css?1672679604" rel="stylesheet">
-    <link href="/css/tabs.css?1672679604" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1672679604" rel="stylesheet">
+    <link href="/css/nucleus.css?1672680536" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1672680536" rel="stylesheet">
+    <link href="/css/hybrid.css?1672680536" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1672680536" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1672680536" rel="stylesheet">
+    <link href="/css/auto-complete.css?1672680536" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1672680536" rel="stylesheet">
+    <link href="/css/theme.css?1672680536" rel="stylesheet">
+    <link href="/css/tabs.css?1672680536" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1672680536" rel="stylesheet">
     
-    <link href="/css/theme-green.css?1672679604" rel="stylesheet">
+    <link href="/css/theme-green.css?1672680536" rel="stylesheet">
     
-    <link href="/css/foo.css?1672679604" rel="stylesheet"><link href="/css/bar.css?1672679604" rel="stylesheet">
+    <link href="/css/foo.css?1672680536" rel="stylesheet"><link href="/css/bar.css?1672680536" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1672679604"></script>
+    <script src="/js/jquery-3.3.1.min.js?1672680536"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1672679604"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1672679604"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1672680536"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1672680536"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/kr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1672679604"></script>
+<script type="text/javascript" src="/js/search.js?1672680536"></script>
 
     
   </div>
@@ -636,39 +636,29 @@
 <h3 id="ros2-action-개념"><strong>ROS2 Action 개념</strong></h3>
 <p>Action은 Service와 Topic의 특성을 모두 갖고 있으며, 실제로 가장 늦게 탄생한 통신 메커니즘입니다. 일전 Service의 단점을 상기시켜보면서 Action의 필요성에 대해 체감해봅시다.</p>
 <p>Service의 중요한 특징 한 가지 추가하자면, 하나의 Service Server에 여러 Client가 request 할 수 있지만, <strong>Server는 동시에 여러 request를 처리하지 못합니다.</strong></p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/40d5add4-7b6a-4bd5-a5ea-a357222d7e6b/service2.gif" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/40d5add4-7b6a-4bd5-a5ea-a357222d7e6b/service2.gif"></p>
+<p><img src="/kr/ros2_basic_foxy/images8/service2.gif?height=300px" alt="service2.gif"></p>
 <ul>
 <li>image from : <a href="https://docs.ros.org/en/foxy/Tutorials/Services/Understanding-ROS2-Services.html">docs.ros.org</a></li>
 </ul>
 <p>Action은 바로 이러한 Service의 단점을 극복하기 위해 탄생한 통신 메커니즘입니다.</p>
-<p><strong>Action의 특징</strong></p>
+<h4 id="action의-특징">Action의 특징</h4>
 <ol>
 <li><strong>action client</strong>는 action server가 Result를 보내기 전까지 마냥 기다리지 않고, 다른 일을 할 수 있습니다.</li>
 <li><strong>action client</strong>는 Result Response를 받기 전에도 지속적으로 Feedback을 받을 수 있습니다.</li>
 <li>따라서, Feedback을 받고 있다가, 뭔가 잘못 돌아가고 있다는 것을 감지한 경우 cancel을 할 수도 있습니다.</li>
 </ol>
 <p>⇒ 하지만, 여러 request를 동시에 작업하는 것이나, Feedback 중에 topic subscribe와 같은 작업은 본질적으로 불가합니다. 이에 대한 해결 방법도 후에 살펴보겠습니다.</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/583e145d-cfd1-4d08-96ad-c3d459a79172/action.gif" alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/583e145d-cfd1-4d08-96ad-c3d459a79172/action.gif"></p>
+<p><img src="/kr/ros2_basic_foxy/images8/action.gif?height=300px" alt="action.gif"></p>
 <p>image from : <a href="https://docs.ros.org/en/foxy/Tutorials/Understanding-ROS2-Actions.html">https://docs.ros.org/en/foxy/Tutorials/Understanding-ROS2-Actions.html</a></p>
 <p>사진과 같이 Action Client와 Server가 주고받는 내용은 크게 5가지가 있습니다.</p>
 <ol>
-<li>
-<p>Client ⇒ Server, Goal Request (service request와 유사합니다.)</p>
-</li>
-<li>
-<p>server ⇒ client, Goal Response</p>
-</li>
-<li>
-<p>client ⇒ server, Result Request</p>
-</li>
-<li>
-<p>server ⇒ client, Feedback (topic과 유사합니다.)</p>
-</li>
-<li>
-<p>server ⇒ client, Result Response</p>
-<p>만약 4번 도중 cancel이 발생하면 Action은 종료됩니다.</p>
-</li>
+<li>Client ⇒ Server, Goal Request (service request와 유사합니다.)</li>
+<li>server ⇒ client, Goal Response</li>
+<li>client ⇒ server, Result Request</li>
+<li>server ⇒ client, Feedback (topic과 유사합니다.)</li>
+<li>server ⇒ client, Result Response</li>
 </ol>
+<p>만약 4번 도중 cancel이 발생하면 Action은 종료됩니다.</p>
 <p>이렇게 Action은 Topic, Service의 특징을 모두 갖고 있으며 Cancel이라는 추가 기능까지 갖추고 있는 복잡한 통신 메커니즘입니다.</p>
 <h3 id="action-커멘드-라인-툴">Action 커멘드 라인 툴</h3>
 <ul>
@@ -716,7 +706,7 @@
 </span></span><span style="display:flex;"><span>    delta: -0.7839995622634888
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Goal finished with status: SUCCEEDED
-</span></span></code></pre></div><p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6dd03c7a-1bfd-4b5e-99df-6d1b9e909bb1/action_turn_turtle.gif" alt="action_turn_turtle.gif"></p>
+</span></span></code></pre></div><p><img src="/kr/ros2_basic_foxy/images8/action_turn_turtle.gif?height=300px" alt="action_turn_turtle.gif"></p>
 <h2 id="action-프로그래밍">Action 프로그래밍</h2>
 <h3 id="action-client-작성하기">Action Client 작성하기</h3>
 <ul>
@@ -731,9 +721,9 @@
 </span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1672647549.097662572<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>turtle_rotate_client<span style="color:#f92672">]</span>: Goal accepted
 </span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1672647549.193173672<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>turtle_rotate_client<span style="color:#f92672">]</span>: Received feedback: 0.051996707916259766
 </span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>WARN<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1672647549.226111271<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>turtle_rotate_client<span style="color:#f92672">]</span>: Action Done !! Result: -0.12800025939941406
-</span></span></code></pre></div><p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ee2f4b2d-50d9-4aba-a359-70c66af18a7a/actoin_client.gif" alt="actoin_client.gif"></p>
+</span></span></code></pre></div><p><img src="/kr/ros2_basic_foxy/images8/actoin_client.gif?height=300px" alt="actoin_client.gif"></p>
 <ul>
-<li>Action Client를 생성하기 위해서는 <strong>ActionClient</strong> 패키지를 ****추가해야 합니다.</li>
+<li>Action Client를 생성하기 위해서는 <strong>ActionClient</strong> 패키지를 추가해야 합니다.</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>import rclpy
 </span></span><span style="display:flex;"><span>from rclpy.action import ActionClient
@@ -755,15 +745,9 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Create Action Client</span>
 </span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>action_client <span style="color:#f92672">=</span> ActionClient(self, RotateAbsolute, <span style="color:#e6db74">&#39;turtle1/rotate_absolute&#39;</span>)
 </span></span></code></pre></div><ul>
-<li>
-<p><strong>action type</strong> : Client가 사용할 action 데이터 타입</p>
-</li>
-<li>
-<p><strong>action name</strong> : Action Server 이름</p>
-</li>
-<li>
-<p><strong>wait_for_server</strong>를 통해 Action Server의 존재 여부를 우선 확인합니다.</p>
-</li>
+<li><strong>action type</strong> : Client가 사용할 action 데이터 타입</li>
+<li><strong>action name</strong> : Action Server 이름</li>
+<li><strong>wait_for_server</strong>를 통해 Action Server의 존재 여부를 우선 확인합니다.</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Wait for server first</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>action_client<span style="color:#f92672">.</span>wait_for_server(<span style="color:#ae81ff">10</span>) <span style="color:#f92672">is</span> <span style="color:#66d9ef">False</span>:
@@ -778,10 +762,12 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Done callback Add</span>
 </span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>_send_goal_future<span style="color:#f92672">.</span>add_done_callback(self<span style="color:#f92672">.</span>goal_response_callback)
-</span></span></code></pre></div><p><strong>send_goal</strong> : main 함수에서 호출되며, Goal request를 진행합니다.</p>
-<p><strong>feedback_callback</strong> : Server로부터의 Feedback이 들어올 때마다 실행되는 Callback 입니다.</p>
-<p><strong>goal_response_callback</strong> : Goal Accpet와 Reject 여부를 확인합니다.</p>
-<p><strong>get_result_callback</strong> : 최종 result에 대한 Callback으로, Action의 제일 마지막에 실행됩니다.</p>
+</span></span></code></pre></div><ul>
+<li><strong>send_goal</strong> : main 함수에서 호출되며, Goal request를 진행합니다.</li>
+<li><strong>feedback_callback</strong> : Server로부터의 Feedback이 들어올 때마다 실행되는 Callback 입니다.</li>
+<li><strong>goal_response_callback</strong> : Goal Accpet와 Reject 여부를 확인합니다.</li>
+<li><strong>get_result_callback</strong> : 최종 result에 대한 Callback으로, Action의 제일 마지막에 실행됩니다.</li>
+</ul>
 <p>Action은 메커니즘 자체가 어렵기 때문에 일부러 쉬운 예제를 가져왔습니다. 코드의 로직은 간단하며, <strong>Action Client API 자체에 집중하며 따라와주세요.</strong></p>
 <ul>
 <li><strong>goal_response_callback</strong> : goal은 그 자체로 Service라고 말할 수 있습니다. 따라서, goal 완료까지 대기한 뒤 get_result_callback을 연동합니다.</li>
@@ -812,7 +798,7 @@
 </span></span></code></pre></div><ul>
 <li>이번 예시에 구현되어 있지는 않지만, goal_handle로부터 <strong>cancel handler</strong>를 생성할 수도 있습니다. 아래 코드를 예시에 적용한 다음, cancel도 실습해보세요.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>		<span style="color:#75715e"># Cancel the goal</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#75715e"># Cancel the goal</span>
 </span></span><span style="display:flex;"><span>    future <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>goal_handle<span style="color:#f92672">.</span>cancel_goal_async()
 </span></span><span style="display:flex;"><span>    future<span style="color:#f92672">.</span>add_done_callback(self<span style="color:#f92672">.</span>cancel_done)
 </span></span><span style="display:flex;"><span>
@@ -828,7 +814,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    rclpy<span style="color:#f92672">.</span>shutdown()
 </span></span></code></pre></div><h3 id="action-server-example---parking-master">Action Server Example - Parking Master</h3>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c3fa31a3-5fee-4f05-9205-77ea3717f177/Untitled.png" alt="Untitled"></p>
+<p><img src="/kr/ros2_basic_foxy/images8/lec8_0.png?height=300px" alt="lec8_0.png"></p>
 <p>image from : <a href="https://www.kihoilbo.co.kr/news/articleView.html?idxno=1006073">기호일보</a></p>
 <ul>
 <li>이번에는 재미있는 예시를 준비해 보았습니다. 아래 명령어을 입력해 주세요</li>
@@ -857,16 +843,20 @@
 </span></span><span style="display:flex;"><span>Feedback:
 </span></span><span style="display:flex;"><span>    distance: <span style="color:#ae81ff">1.7898634672164917</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
-</span></span></code></pre></div><p>벽에 인접하여 흰색 상자들이 주차 공간을 배정해줄 것입니다. rqt_robot_steering으로 로봇을 잘 제어하여 주어진 주차 공간에 알맞게 주차를 해보세요!</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b0e06746-3c24-4cd8-afbb-0d5c39df2170/Untitled.png" alt="Untitled"></p>
+</span></span></code></pre></div><blockquote>
+<p>벽에 인접하여 흰색 상자들이 주차 공간을 배정해줄 것입니다. rqt_robot_steering으로 로봇을 잘 제어하여 주어진 주차 공간에 알맞게 주차를 해보세요!</p>
+</blockquote>
+<p><img src="/kr/ros2_basic_foxy/images8/lec8_1.png?height=300px" alt="lec8_1.png"></p>
 <p>Feedback을 통해 벽과의 거리를 확인할 수 있으며, 이 거리가 <strong>0.5m 이내</strong>가 되면 주차가 완료됩니다. 이 시점에서 좌우 공간이 얼마가 균형이 맞는지에 따라 다른 Result를 얻게 됩니다.</p>
 <ul>
 <li>올바른 주차 시 ⇒ Success!</li>
 <li>잘못된 주차 시 ⇒ Fail</li>
 </ul>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4181d7bb-25c1-4bf1-a079-6f53c0d75169/src_parking.gif" alt="src_parking.gif"></p>
+<p><img src="/kr/ros2_basic_foxy/images8/src_parking.gif?height=300px" alt="src_parking.gif"></p>
 <h3 id="action-server-프로그래밍">Action Server 프로그래밍</h3>
+<blockquote>
 <p>프로그래밍을 시작하기 전, 필요한 통신 메커니즘들을 살펴봅시다.</p>
+</blockquote>
 <ul>
 <li><strong>Action Server</strong> : Goal을 받으면, 정면 벽과의 거리를 feedback으로 전달합니다. 최종 Result는 String으로 성공 여부를 알려줍니다.</li>
 <li><strong>LaserScan Sub</strong> : 주변 물체와의 스캔된 거리를 알 수 있습니다.</li>
@@ -922,7 +912,7 @@
 </span></span></code></pre></div><ul>
 <li>while loop를 벗어나게 되면 <strong>goal succed</strong>를 수행하고, Result를 리턴합니다. 현재의 로직은 좌우 물체와의 거리가 균일할 때 성공으로 판정짓습니다.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>		goal_handle<span style="color:#f92672">.</span>succeed()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    goal_handle<span style="color:#f92672">.</span>succeed()
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    result <span style="color:#f92672">=</span> Parking<span style="color:#f92672">.</span>Result()
 </span></span><span style="display:flex;"><span>    lr_diff <span style="color:#f92672">=</span> abs(self<span style="color:#f92672">.</span>r_obs_distance <span style="color:#f92672">-</span> self<span style="color:#f92672">.</span>l_obs_distance)
@@ -953,24 +943,28 @@
 </span></span></code></pre></div><ul>
 <li>main 문의 주석을 토글하고, <strong>sub_callback</strong>에 디버깅 메세지를 심은 다음, 다시 예제를 실행 시켜봅니다. 어떠한 결과를 얻으셨나요?</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>	<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sub_callback</span>(self, data):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sub_callback</span>(self, data):
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>is_sub:
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>f_obs_distance <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>ranges[<span style="color:#ae81ff">60</span>]
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>r_obs_distance <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>ranges[<span style="color:#ae81ff">30</span>]
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>l_obs_distance <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>ranges[<span style="color:#ae81ff">90</span>]
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#34;sub success&#34;</span>)
-</span></span><span style="display:flex;"><span>				<span style="color:#f92672">...</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#75715e"># parking_action_server = ParkingActionServer()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># parking_action_server = ParkingActionServer()</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># rclpy.spin(parking_action_server)</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># parking_action_server.destroy_node()</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># rclpy.shutdown()</span>
 </span></span></code></pre></div><p>현재의 시스템은 두 종류의 callback을 갖고 있습니다. <strong>execute_callback</strong>이 실행되면서 while loop로 진입하면, 자원을 점유하여 sub_callback이 동작할 수 없는 구조가 됩니다. 이를 해결하기 위해 ROS 2에서는 rclpy단에서 멀티 스레딩을 구현해 두었습니다.</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/be904395-f1a5-44cb-bbbe-c52a2dfb5776/Untitled.png" alt="Untitled"></p>
+<p><img src="/kr/ros2_basic_foxy/images8/lec8_2.png?height=300px" alt="lec8_2.png"></p>
 <ul>
 <li>image from : <a href="https://docs.ros.org/en/foxy/Concepts/About-Executors.html">docs.ros.org</a></li>
 </ul>
+<blockquote>
 <p>이후 여러가지 구현을 하다 보면 지금처럼 다중 Subscribe를 해야하는 경우가 반드시 생깁니다. 혹은 하나의 프로세스에서 여러개의 Node를 실행시켜야 하는 경우가 발생합니다. 이때, <strong>Node Composition</strong>과 <strong>MultiThreadedExecutor</strong>를 적극 사용해보세요!</p>
+</blockquote>
+<hr>
 <p><strong>참고자료</strong></p>
 <ul>
 <li><a href="https://docs.ros.org/en/foxy/Concepts/About-Executors.html">https://docs.ros.org/en/foxy/Concepts/About-Executors.html</a></li>
@@ -1325,16 +1319,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1672679604"></script>
-    <script src="/js/perfect-scrollbar.min.js?1672679604"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1672679604"></script>
-    <script src="/js/jquery.sticky.js?1672679604"></script>
-    <script src="/js/featherlight.min.js?1672679604"></script>
-    <script src="/js/highlight.pack.js?1672679604"></script>
+    <script src="/js/clipboard.min.js?1672680536"></script>
+    <script src="/js/perfect-scrollbar.min.js?1672680536"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1672680536"></script>
+    <script src="/js/jquery.sticky.js?1672680536"></script>
+    <script src="/js/featherlight.min.js?1672680536"></script>
+    <script src="/js/highlight.pack.js?1672680536"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1672679604"></script>
-    <script src="/js/learn.js?1672679604"></script>
-    <script src="/js/hugo-learn.js?1672679604"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1672680536"></script>
+    <script src="/js/learn.js?1672680536"></script>
+    <script src="/js/hugo-learn.js?1672680536"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
