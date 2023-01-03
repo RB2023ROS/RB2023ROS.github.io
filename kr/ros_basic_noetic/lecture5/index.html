@@ -12,22 +12,22 @@
     <title>Lecture5 - First Programming, ROS Topic - Documentation for Hugo Learn Theme</title>
 
     
-    <link href="/css/nucleus.css?1672680536" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1672680536" rel="stylesheet">
-    <link href="/css/hybrid.css?1672680536" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1672680536" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1672680536" rel="stylesheet">
-    <link href="/css/auto-complete.css?1672680536" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1672680536" rel="stylesheet">
-    <link href="/css/theme.css?1672680536" rel="stylesheet">
-    <link href="/css/tabs.css?1672680536" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1672680536" rel="stylesheet">
+    <link href="/css/nucleus.css?1672711725" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1672711725" rel="stylesheet">
+    <link href="/css/hybrid.css?1672711725" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1672711725" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1672711725" rel="stylesheet">
+    <link href="/css/auto-complete.css?1672711725" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1672711725" rel="stylesheet">
+    <link href="/css/theme.css?1672711725" rel="stylesheet">
+    <link href="/css/tabs.css?1672711725" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1672711725" rel="stylesheet">
     
-    <link href="/css/theme-green.css?1672680536" rel="stylesheet">
+    <link href="/css/theme-green.css?1672711725" rel="stylesheet">
     
-    <link href="/css/foo.css?1672680536" rel="stylesheet"><link href="/css/bar.css?1672680536" rel="stylesheet">
+    <link href="/css/foo.css?1672711725" rel="stylesheet"><link href="/css/bar.css?1672711725" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1672680536"></script>
+    <script src="/js/jquery-3.3.1.min.js?1672711725"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1672680536"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1672680536"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1672711725"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1672711725"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/kr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1672680536"></script>
+<script type="text/javascript" src="/js/search.js?1672711725"></script>
 
     
   </div>
@@ -756,14 +756,14 @@
 </span></span></code></pre></div><ul>
 <li>ROS 시스템은 기본적으로 <strong>무한 Loop</strong>입니다. 이 Loop가 한차례 반복되는 주기를 설정하는 부분입니다. ROS의 시간 체계에 대해서는 이후 한번 더 다루겠습니다.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>		<span style="color:#75715e"># ROS safe timer</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#75715e"># ROS safe timer</span>
 </span></span><span style="display:flex;"><span>    rate <span style="color:#f92672">=</span> rospy<span style="color:#f92672">.</span>Rate(<span style="color:#ae81ff">10</span>) <span style="color:#75715e"># 10hz</span>
 </span></span></code></pre></div><ul>
 <li>rospy를 통해 실행 중인 Node의 상태를 확인할 수 있으며, <code>is_shutdown()</code>은 예기치 못한 에러가 발생하거나 사용자의 종료를 인지할 수 있습니다. 10Hz를 맞추기 위해 Loop마다 sleep을 걸어주고 있습니다.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>		<span style="color:#75715e"># Loop control Example</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#75715e"># Loop control Example</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">not</span> rospy<span style="color:#f92672">.</span>is_shutdown():
-</span></span><span style="display:flex;"><span>				<span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">...</span>
 </span></span><span style="display:flex;"><span>        rate<span style="color:#f92672">.</span>sleep()
 </span></span></code></pre></div><ul>
 <li>ROS에서 콘솔 로그를 얻는 방법으로 print 보다 <code>rospy.log</code>를 사용하기를 추천합니다.</li>
@@ -810,7 +810,7 @@
 </span></span></code></pre></div><ul>
 <li>앞으로 여러분들은 직접 while loop를 구현하기보다 <code>rospy.spin()</code>을 더 많이 사용하시게 될 겁니다. Timer를 선언한 이후, 하나의 Thread에서 막혀버리는 것을 방지하는 역할을 수행합니다.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>		rospy<span style="color:#f92672">.</span>Timer(rospy<span style="color:#f92672">.</span>Duration(<span style="color:#ae81ff">1.0</span><span style="color:#f92672">/</span><span style="color:#ae81ff">100.0</span>), hello_du)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    rospy<span style="color:#f92672">.</span>Timer(rospy<span style="color:#f92672">.</span>Duration(<span style="color:#ae81ff">1.0</span><span style="color:#f92672">/</span><span style="color:#ae81ff">100.0</span>), hello_du)
 </span></span><span style="display:flex;"><span>    rospy<span style="color:#f92672">.</span>spin()
 </span></span></code></pre></div><p><img src="/kr/ros_basic_noetic/images5/lec4_2.png?height=200px" alt="lec4_2.png"></p>
 <p>image from : <a href="https://www.pythontutorial.net/python-concurrency/python-threading/">python tutorial</a></p>
@@ -818,53 +818,53 @@
 <ul>
 <li>my_first_oop_node.py</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> rospy
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> rospy
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>class OOPNode<span style="color:#960050;background-color:#1e0010">:</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OOPNode</span>:
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    def __init__<span style="color:#960050;background-color:#1e0010">(</span>self<span style="color:#960050;background-color:#1e0010">):</span>
-</span></span><span style="display:flex;"><span>        self<span style="color:#960050;background-color:#1e0010">.</span>counter_ <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#960050;background-color:#1e0010">0</span>
-</span></span><span style="display:flex;"><span>        self<span style="color:#960050;background-color:#1e0010">.</span>timer_ <span style="color:#960050;background-color:#1e0010">=</span> rospy<span style="color:#960050;background-color:#1e0010">.</span>Timer<span style="color:#960050;background-color:#1e0010">(</span>rospy<span style="color:#960050;background-color:#1e0010">.</span>Duration<span style="color:#960050;background-color:#1e0010">(1.0/100.0)</span>, self<span style="color:#960050;background-color:#1e0010">.</span>hello_du<span style="color:#960050;background-color:#1e0010">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>counter_ <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>timer_ <span style="color:#f92672">=</span> rospy<span style="color:#f92672">.</span>Timer(rospy<span style="color:#f92672">.</span>Duration(<span style="color:#ae81ff">1.0</span><span style="color:#f92672">/</span><span style="color:#ae81ff">100.0</span>), self<span style="color:#f92672">.</span>hello_du)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    def hello_du<span style="color:#960050;background-color:#1e0010">(</span>self, event<span style="color:#960050;background-color:#1e0010">=</span>None<span style="color:#960050;background-color:#1e0010">):</span>
-</span></span><span style="display:flex;"><span>        hello_du <span style="color:#960050;background-color:#1e0010">=</span> f<span style="color:#e6db74">&#34;hello du {rospy.get_time()}, counter: {self.counter_}&#34;</span>
-</span></span><span style="display:flex;"><span>        rospy<span style="color:#960050;background-color:#1e0010">.</span>loginfo<span style="color:#960050;background-color:#1e0010">(</span>hello_du<span style="color:#960050;background-color:#1e0010">)</span>
-</span></span><span style="display:flex;"><span>        self<span style="color:#960050;background-color:#1e0010">.</span>counter_ <span style="color:#960050;background-color:#1e0010">+=</span> <span style="color:#960050;background-color:#1e0010">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello_du</span>(self, event<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>        hello_du <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;hello du </span><span style="color:#e6db74">{</span>rospy<span style="color:#f92672">.</span>get_time()<span style="color:#e6db74">}</span><span style="color:#e6db74">, counter: </span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>counter_<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        rospy<span style="color:#f92672">.</span>loginfo(hello_du)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>counter_ <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>def my_first_oop_node<span style="color:#960050;background-color:#1e0010">():</span>
-</span></span><span style="display:flex;"><span>    rospy<span style="color:#960050;background-color:#1e0010">.</span>init_node<span style="color:#960050;background-color:#1e0010">(</span><span style="color:#e6db74">&#39;my_first_oop_node&#39;</span>, anonymous<span style="color:#960050;background-color:#1e0010">=</span>True<span style="color:#960050;background-color:#1e0010">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">my_first_oop_node</span>():
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#f92672">.</span>init_node(<span style="color:#e6db74">&#39;my_first_oop_node&#39;</span>, anonymous<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    oop_node <span style="color:#960050;background-color:#1e0010">=</span> OOPNode<span style="color:#960050;background-color:#1e0010">()</span>
+</span></span><span style="display:flex;"><span>    oop_node <span style="color:#f92672">=</span> OOPNode()
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    rospy<span style="color:#960050;background-color:#1e0010">.</span>spin<span style="color:#960050;background-color:#1e0010">()</span>
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#f92672">.</span>spin()
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>if __name__ <span style="color:#960050;background-color:#1e0010">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span><span style="color:#960050;background-color:#1e0010">:</span>
-</span></span><span style="display:flex;"><span>    try<span style="color:#960050;background-color:#1e0010">:</span>
-</span></span><span style="display:flex;"><span>        my_first_oop_node<span style="color:#960050;background-color:#1e0010">()</span>
-</span></span><span style="display:flex;"><span>    except rospy<span style="color:#960050;background-color:#1e0010">.</span>ROSInterruptException<span style="color:#960050;background-color:#1e0010">:</span>
-</span></span><span style="display:flex;"><span>        pass
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        my_first_oop_node()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> rospy<span style="color:#f92672">.</span>ROSInterruptException:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">pass</span>
 </span></span></code></pre></div><p>이후의 실습들을 위해 한가지 예시만 더 살펴보고자 합니다. <strong>객체 지향을 사용한 ROS Node 작성</strong>방법입니다. 파이썬에서 OOP를 사용하기 위해 Class 키워드를 사용하며, self등 OOP와 관련된 내용은 모두 알고 있다는 상태에서 진행하겠습니다.</p>
 <ul>
 <li>OOP를 사용하면 main 메소드가 매우 간편해진다는 장점이 있습니다. 클래스를 생성하고, spin을 하기만 하면 됩니다.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span>def my_first_oop_node()<span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>    rospy.init_node(<span style="color:#e6db74">&#39;my_first_oop_node&#39;</span>, anonymous<span style="color:#f92672">=</span>True)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">my_first_oop_node</span>():
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#f92672">.</span>init_node(<span style="color:#e6db74">&#39;my_first_oop_node&#39;</span>, anonymous<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
 </span></span><span style="display:flex;"><span>    oop_node <span style="color:#f92672">=</span> OOPNode()
-</span></span><span style="display:flex;"><span>    rospy.spin()
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#f92672">.</span>spin()
 </span></span></code></pre></div><ul>
 <li>OOP로 전환되면서 변경된 구현에 주목합시다. Timer의 Callback 함수로 클래스 메소드가 사용되었으며, 클래스 변수인 counter를 사용하여 구현한 점에 주목합니다.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OOPNode</span><span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>    def __init__(self)<span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>        self.counter_ <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>        self.timer_ <span style="color:#f92672">=</span> rospy.Timer(rospy.Duration(<span style="color:#ae81ff">1.0</span><span style="color:#f92672">/</span><span style="color:#ae81ff">100.0</span>), self.hello_du)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OOPNode</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>counter_ <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>timer_ <span style="color:#f92672">=</span> rospy<span style="color:#f92672">.</span>Timer(rospy<span style="color:#f92672">.</span>Duration(<span style="color:#ae81ff">1.0</span><span style="color:#f92672">/</span><span style="color:#ae81ff">100.0</span>), self<span style="color:#f92672">.</span>hello_du)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    def hello_du(self, event<span style="color:#f92672">=</span>None)<span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>        hello_du <span style="color:#f92672">=</span> f<span style="color:#e6db74">&#34;hello du {rospy.get_time()}, counter: {self.counter_}&#34;</span>
-</span></span><span style="display:flex;"><span>        rospy.loginfo(hello_du)
-</span></span><span style="display:flex;"><span>        self.counter_ <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello_du</span>(self, event<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>        hello_du <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;hello du </span><span style="color:#e6db74">{</span>rospy<span style="color:#f92672">.</span>get_time()<span style="color:#e6db74">}</span><span style="color:#e6db74">, counter: </span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>counter_<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        rospy<span style="color:#f92672">.</span>loginfo(hello_du)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>counter_ <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
 </span></span></code></pre></div><p>앞으로, 대부분의 코드는 OOP 기반으로 작성됩니다. 파이썬의 클래스에 대해 숙지가 되어있지 않다면 꼭 복습하고 다음 강의를 청취하세요!</p>
 <hr>
 <h2 id="ros-topic">ROS Topic</h2>
@@ -988,7 +988,7 @@
 <ul>
 <li>rostopic list 결과</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rostopicist
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rostopic list
 </span></span><span style="display:flex;"><span>/clicked_point
 </span></span><span style="display:flex;"><span>/clock
 </span></span><span style="display:flex;"><span>/cmd_vel
@@ -1672,16 +1672,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1672680536"></script>
-    <script src="/js/perfect-scrollbar.min.js?1672680536"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1672680536"></script>
-    <script src="/js/jquery.sticky.js?1672680536"></script>
-    <script src="/js/featherlight.min.js?1672680536"></script>
-    <script src="/js/highlight.pack.js?1672680536"></script>
+    <script src="/js/clipboard.min.js?1672711725"></script>
+    <script src="/js/perfect-scrollbar.min.js?1672711725"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1672711725"></script>
+    <script src="/js/jquery.sticky.js?1672711725"></script>
+    <script src="/js/featherlight.min.js?1672711725"></script>
+    <script src="/js/highlight.pack.js?1672711725"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1672680536"></script>
-    <script src="/js/learn.js?1672680536"></script>
-    <script src="/js/hugo-learn.js?1672680536"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1672711725"></script>
+    <script src="/js/learn.js?1672711725"></script>
+    <script src="/js/hugo-learn.js?1672711725"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
