@@ -12,22 +12,22 @@
     <title>Lecture9 - ROS TF and Examples - Documentation for Hugo Learn Theme</title>
 
     
-    <link href="/css/nucleus.css?1672765627" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1672765627" rel="stylesheet">
-    <link href="/css/hybrid.css?1672765627" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1672765627" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1672765627" rel="stylesheet">
-    <link href="/css/auto-complete.css?1672765627" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1672765627" rel="stylesheet">
-    <link href="/css/theme.css?1672765627" rel="stylesheet">
-    <link href="/css/tabs.css?1672765627" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1672765627" rel="stylesheet">
+    <link href="/css/nucleus.css?1672769747" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1672769747" rel="stylesheet">
+    <link href="/css/hybrid.css?1672769747" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1672769747" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1672769747" rel="stylesheet">
+    <link href="/css/auto-complete.css?1672769747" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1672769747" rel="stylesheet">
+    <link href="/css/theme.css?1672769747" rel="stylesheet">
+    <link href="/css/tabs.css?1672769747" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1672769747" rel="stylesheet">
     
-    <link href="/css/theme-green.css?1672765627" rel="stylesheet">
+    <link href="/css/theme-green.css?1672769747" rel="stylesheet">
     
-    <link href="/css/foo.css?1672765627" rel="stylesheet"><link href="/css/bar.css?1672765627" rel="stylesheet">
+    <link href="/css/foo.css?1672769747" rel="stylesheet"><link href="/css/bar.css?1672769747" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1672765627"></script>
+    <script src="/js/jquery-3.3.1.min.js?1672769747"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1672765627"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1672765627"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1672769747"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1672769747"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/kr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1672765627"></script>
+<script type="text/javascript" src="/js/search.js?1672769747"></script>
 
     
   </div>
@@ -855,7 +855,7 @@
 <ul>
 <li>두번째 거북이를 등장시키는 <strong>service client</strong></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>		<span style="color:#75715e"># Spawn second turtle</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#75715e"># Spawn second turtle</span>
 </span></span><span style="display:flex;"><span>    rospy<span style="color:#f92672">.</span>wait_for_service(<span style="color:#e6db74">&#39;spawn&#39;</span>)
 </span></span><span style="display:flex;"><span>    spawner <span style="color:#f92672">=</span> rospy<span style="color:#f92672">.</span>ServiceProxy(<span style="color:#e6db74">&#39;spawn&#39;</span>, turtlesim<span style="color:#f92672">.</span>srv<span style="color:#f92672">.</span>Spawn)
 </span></span><span style="display:flex;"><span>    turtle_name <span style="color:#f92672">=</span> rospy<span style="color:#f92672">.</span>get_param(<span style="color:#e6db74">&#39;turtle&#39;</span>, <span style="color:#e6db74">&#39;turtle2&#39;</span>)
@@ -863,7 +863,7 @@
 </span></span></code></pre></div><ul>
 <li>거북이를 제어하기 위한 <strong>Twist msg topic publisher</strong></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>		<span style="color:#75715e"># turtle2 controller</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#75715e"># turtle2 controller</span>
 </span></span><span style="display:flex;"><span>    turtle_vel <span style="color:#f92672">=</span> rospy<span style="color:#f92672">.</span>Publisher(<span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">/cmd_vel&#39;</span> <span style="color:#f92672">%</span> turtle_name, geometry_msgs<span style="color:#f92672">.</span>msg<span style="color:#f92672">.</span>Twist, queue_size<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    rate <span style="color:#f92672">=</span> rospy<span style="color:#f92672">.</span>Rate(<span style="color:#ae81ff">50.0</span>)
@@ -1227,16 +1227,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1672765627"></script>
-    <script src="/js/perfect-scrollbar.min.js?1672765627"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1672765627"></script>
-    <script src="/js/jquery.sticky.js?1672765627"></script>
-    <script src="/js/featherlight.min.js?1672765627"></script>
-    <script src="/js/highlight.pack.js?1672765627"></script>
+    <script src="/js/clipboard.min.js?1672769747"></script>
+    <script src="/js/perfect-scrollbar.min.js?1672769747"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1672769747"></script>
+    <script src="/js/jquery.sticky.js?1672769747"></script>
+    <script src="/js/featherlight.min.js?1672769747"></script>
+    <script src="/js/highlight.pack.js?1672769747"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1672765627"></script>
-    <script src="/js/learn.js?1672765627"></script>
-    <script src="/js/hugo-learn.js?1672765627"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1672769747"></script>
+    <script src="/js/learn.js?1672769747"></script>
+    <script src="/js/hugo-learn.js?1672769747"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
