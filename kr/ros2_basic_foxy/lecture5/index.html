@@ -12,22 +12,22 @@
     <title>Lecture5 - ROS 2 Topic and Examples - Documentation for Hugo Learn Theme</title>
 
     
-    <link href="/css/nucleus.css?1672829709" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1672829709" rel="stylesheet">
-    <link href="/css/hybrid.css?1672829709" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1672829709" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1672829709" rel="stylesheet">
-    <link href="/css/auto-complete.css?1672829709" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1672829709" rel="stylesheet">
-    <link href="/css/theme.css?1672829709" rel="stylesheet">
-    <link href="/css/tabs.css?1672829709" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1672829709" rel="stylesheet">
+    <link href="/css/nucleus.css?1672835294" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1672835294" rel="stylesheet">
+    <link href="/css/hybrid.css?1672835294" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1672835294" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1672835294" rel="stylesheet">
+    <link href="/css/auto-complete.css?1672835294" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1672835294" rel="stylesheet">
+    <link href="/css/theme.css?1672835294" rel="stylesheet">
+    <link href="/css/tabs.css?1672835294" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1672835294" rel="stylesheet">
     
-    <link href="/css/theme-green.css?1672829709" rel="stylesheet">
+    <link href="/css/theme-green.css?1672835294" rel="stylesheet">
     
-    <link href="/css/foo.css?1672829709" rel="stylesheet"><link href="/css/bar.css?1672829709" rel="stylesheet">
+    <link href="/css/foo.css?1672835294" rel="stylesheet"><link href="/css/bar.css?1672835294" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1672829709"></script>
+    <script src="/js/jquery-3.3.1.min.js?1672835294"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1672829709"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1672829709"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1672835294"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1672835294"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/kr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1672829709"></script>
+<script type="text/javascript" src="/js/search.js?1672835294"></script>
 
     
   </div>
@@ -699,6 +699,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># CMakeLists.txt 수정 (주석 해제)</span>
 </span></span><span style="display:flex;"><span>colcon build --packages-select src_gazebo
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>colcon build --packages-select src_odometry
 </span></span><span style="display:flex;"><span>colcon build --packages-select src_controller
 </span></span><span style="display:flex;"><span>source install/local_setup.bash
 </span></span></code></pre></div><p><img src="/kr/ros2_basic_foxy/images5/src_urdf.gif?height=500px" alt="src_urdf.gif"></p>
@@ -743,7 +744,7 @@
 <p>topic을 통해 데이터가 전달되는 과정은 다음과 같습니다.</p>
 </blockquote>
 <ul>
-<li>데이터를 보내는 주체인 <strong>publisher</strong>는 데이터를 받는 주체, <strong>subscriber</strong>를 지정한 뒤, topic을 통해 원하는 정보를 전달합니다. 이것을 <strong>topic publish</strong>라고 부르지요.</li>
+<li>데이터를 보내는 주체인 <strong>publisher</strong>는 topic을 통해 원하는 정보를 <strong>subscriber</strong>에게 전달합니다. 이것을 <strong>topic publish</strong>라고 부르지요.</li>
 <li>반대로, 데이터를 받는 주체인 <strong>subscriber</strong> 입장에선 topic을 통해 데이터를 받게 되며 이것은 <strong>topic subscribe</strong>라고 불립니다.</li>
 </ul>
 <h3 id="ros-2-topic-msg">ROS 2 Topic msg</h3>
@@ -791,9 +792,9 @@
 <li>실습을 위해 gazebo와 rqt를 실행합니다.</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1</span>
-</span></span><span style="display:flex;"><span>$ ros2 launch src_gazebo empty_world.launch.py
+</span></span><span style="display:flex;"><span>ros2 launch src_gazebo empty_world.launch.py
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
-</span></span><span style="display:flex;"><span>$ rqt
+</span></span><span style="display:flex;"><span>rqt
 </span></span></code></pre></div><ul>
 <li>
 <p>rqt 상단의 메뉴바에서 <strong>Plugins ⇒ Topics ⇒ Topic Monitor</strong>를 클릭합니다.
@@ -919,19 +920,19 @@
 </li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate_launch_description</span>():
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># gazebo</span>
 </span></span><span style="display:flex;"><span>    pkg_gazebo_ros <span style="color:#f92672">=</span> FindPackageShare(package<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;gazebo_ros&#39;</span>)<span style="color:#f92672">.</span>find(<span style="color:#e6db74">&#39;gazebo_ros&#39;</span>)
 </span></span><span style="display:flex;"><span>    pkg_path <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(get_package_share_directory(<span style="color:#e6db74">&#39;src_gazebo&#39;</span>))
 </span></span><span style="display:flex;"><span>    world_path <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(pkg_path, <span style="color:#e6db74">&#39;worlds&#39;</span>, <span style="color:#e6db74">&#39;여러분의-world-file.world&#39;</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#75715e"># Start Gazebo server</span>
-</span></span><span style="display:flex;"><span>		start_gazebo_server_cmd <span style="color:#f92672">=</span> IncludeLaunchDescription(
-</span></span><span style="display:flex;"><span>		    PythonLaunchDescriptionSource(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(pkg_gazebo_ros, <span style="color:#e6db74">&#39;launch&#39;</span>, <span style="color:#e6db74">&#39;gzserver.launch.py&#39;</span>)),
-</span></span><span style="display:flex;"><span>		    launch_arguments<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;world&#39;</span>: world_path}<span style="color:#f92672">.</span>items()
-</span></span><span style="display:flex;"><span>		)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Start Gazebo server</span>
+</span></span><span style="display:flex;"><span>    start_gazebo_server_cmd <span style="color:#f92672">=</span> IncludeLaunchDescription(
+</span></span><span style="display:flex;"><span>        PythonLaunchDescriptionSource(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(pkg_gazebo_ros, <span style="color:#e6db74">&#39;launch&#39;</span>, <span style="color:#e6db74">&#39;gzserver.launch.py&#39;</span>)),
+</span></span><span style="display:flex;"><span>        launch_arguments<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;world&#39;</span>: world_path}<span style="color:#f92672">.</span>items()
+</span></span><span style="display:flex;"><span>    )
 </span></span></code></pre></div><ul>
 <li>package를 빌드하고, gazebo를 다시 실행해봅시다.</li>
 </ul>
@@ -1602,16 +1603,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1672829709"></script>
-    <script src="/js/perfect-scrollbar.min.js?1672829709"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1672829709"></script>
-    <script src="/js/jquery.sticky.js?1672829709"></script>
-    <script src="/js/featherlight.min.js?1672829709"></script>
-    <script src="/js/highlight.pack.js?1672829709"></script>
+    <script src="/js/clipboard.min.js?1672835294"></script>
+    <script src="/js/perfect-scrollbar.min.js?1672835294"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1672835294"></script>
+    <script src="/js/jquery.sticky.js?1672835294"></script>
+    <script src="/js/featherlight.min.js?1672835294"></script>
+    <script src="/js/highlight.pack.js?1672835294"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1672829709"></script>
-    <script src="/js/learn.js?1672829709"></script>
-    <script src="/js/hugo-learn.js?1672829709"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1672835294"></script>
+    <script src="/js/learn.js?1672835294"></script>
+    <script src="/js/hugo-learn.js?1672835294"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>

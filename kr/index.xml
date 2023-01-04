@@ -61,7 +61,7 @@ image from : wikipedia 따라서 앞선 node 프로그래밍 예시들을 모두
       <guid>/kr/ros2_basic_foxy/lecture5/</guid>
       <description>Topic에 대해 배워보기 전에, 실습 시스템을 구축해봅시다.
 SRC Gazebo 이번 ROS 2 강의의 실습들은 Road Balance의 차량형 로봇 SRC를 통해 진행하고자 합니다. 실습을 진행하기 전 Gazebo 환경을 함께 세팅해보겠습니다.
-src_gazebo 실행 세팅 - 다소 번거로운 작업이므로 gif를 보시면서 차근차근 잘 따라와주세요! cd ~/ros2_ws/src/du2023-ros2 ./setup_scripts.sh # CMakeLists.txt 수정 (주석) colcon build --packages-select src_gazebo source install/local_setup.bash # CMakeLists.txt 수정 (주석 해제) colcon build --packages-select src_gazebo colcon build --packages-select src_controller source install/local_setup.bash empty world 실행 ros2 launch src_gazebo empty_world.</description>
+src_gazebo 실행 세팅 - 다소 번거로운 작업이므로 gif를 보시면서 차근차근 잘 따라와주세요! cd ~/ros2_ws/src/du2023-ros2 ./setup_scripts.sh # CMakeLists.txt 수정 (주석) colcon build --packages-select src_gazebo source install/local_setup.bash # CMakeLists.txt 수정 (주석 해제) colcon build --packages-select src_gazebo colcon build --packages-select src_odometry colcon build --packages-select src_controller source install/local_setup.</description>
     </item>
     
     <item>
