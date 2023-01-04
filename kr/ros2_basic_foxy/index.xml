@@ -30,6 +30,19 @@ ROS 2 Node image from : docs.rog.org ROS에서의 Node는 하나의 실행 가�
     </item>
     
     <item>
+      <title>Lecture3 - ROS 2 Node Programming, ROS 2 parameter</title>
+      <link>/kr/ros2_basic_foxy/lecture3/</link>
+      <pubDate>Mon, 02 Jan 2023 12:39:11 +0900</pubDate>
+      
+      <guid>/kr/ros2_basic_foxy/lecture3/</guid>
+      <description>Python을 사용하여 Node Programming을 실습해봅시다. 강의 마지막에는 간단히 C++ 코딩에 대해서도 다뤄보겠습니다.
+example 1 - Hello ROS 2 강의를 위해 준비된 예제 코드 패키지를 실습하고 분석하겠습니다.
+$ colcon build --packages-select cbp py_node_tutorial $ source install/local_setup.bash $ ros2 run py_node_tutorial example_node_1 [INFO] [1672463872.778216198] [example_node_1]: ==== Hello ROS 2 ==== 모든 예제 코드는 아래 링크에서 확인할 수 있습니다. https://github.com/RB2023ROS/du2023-ros2/tree/main/py_node_tutorial/py_node_tutorial
+코드 분석을 차근차근 함께 해보겠습니다.
+rcl은 ROS Client Libraries의 약자로 ROS 2에서는 rclc, rclcpp, rclpy, rcljs와 같은 다양한 언어를 지원하고 있습니다.</description>
+    </item>
+    
+    <item>
       <title>Lecture4 - ROS 2 Node C&#43;&#43; Programming</title>
       <link>/kr/ros2_basic_foxy/lecture4/</link>
       <pubDate>Mon, 02 Jan 2023 12:39:10 +0900</pubDate>
