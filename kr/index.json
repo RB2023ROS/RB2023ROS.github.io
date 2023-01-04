@@ -11,7 +11,7 @@
 	"title": "ROS 2 Basics",
 	"tags": [],
 	"description": "",
-	"content": "\nLecture1. Lecture1 - Introduction to ROS 2 Lecture2. ROS 2 Node, Package Lecture3. ROS 2 NODE PROGRAMMING, ROS 2 PARAMETER Lecture4. ROS 2 NODE C++ PROGRAMMING Lecture5. ROS 2 TOPIC AND EXAMPLES Lecture6. ROS 2 SERVICE AND EXAMPLES Lecture7. USEFUL ROS 2 EXAMPLE, NAVIGATION2 Lecture8. ROS 2 ACTION AND EXAMPLES Lecture9. About Real Robot, Outro "
+	"content": "\nLecture1. Lecture1 - Introduction to ROS 2 Lecture2. ROS 2 Node, Package Lecture3. ROS 2 Node Programming, ROS 2 Parameter Lecture4. ROS 2 Node C++ Programming Lecture5. ROS 2 Topic and Examples Lecture6. ROS 2 Service and Examples Lecture7. Useful ROS 2 Examples, Nav2 Lecture8. ROS 2 Action and Examples Lecture9. C++ Programming Again, Outro "
 },
 {
 	"uri": "/kr/",
