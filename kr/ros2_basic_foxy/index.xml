@@ -63,6 +63,17 @@ Service를 요청하는 주체를 Service Client라고 하며, Service 요청 �
     </item>
     
     <item>
+      <title>Lecture7 - Useful ROS 2 Example, Navigation2</title>
+      <link>/kr/ros2_basic_foxy/lecture7/</link>
+      <pubDate>Mon, 02 Jan 2023 12:39:02 +0900</pubDate>
+      
+      <guid>/kr/ros2_basic_foxy/lecture7/</guid>
+      <description>코딩을 시작하기 전에 구현해야 하는 기능들과 Topic, Service 기준 input, output을 정리해봅시다.
+Part 1 - 감옥 구현 거북이가 일정 범위를 벗어나게 되면 다시 원위치로 돌아오게 한다.
+거북이의 위치는 /turtle1/pose topic subscribe을 통해 얻을 수 있습니다. 거북이가 일정 위치를 벗어나는 순간, 원위치로 돌아오게 하는 /turtle1/teleport_absolute service call을 해야 합니다. 이를 위한 service client가 필요합니다. Part 2 - 감옥 크기 변경 사용자로부터 감옥의 크기를 변경해달라는 service request가 오면 기존 감옥의 크기를 변경하는 작업이 필요하다.</description>
+    </item>
+    
+    <item>
       <title>Lecture8 - ROS 2 Action and Examples</title>
       <link>/kr/ros2_basic_foxy/lecture8/</link>
       <pubDate>Mon, 02 Jan 2023 12:39:00 +0900</pubDate>

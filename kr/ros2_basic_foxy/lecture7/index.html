@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="kr" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.104.1" />
+    <meta name="description" content="COM2018 OOP Class Lecture Note">
+<meta name="author" content="Soo Young Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Lecture7 - Useful ROS 2 Example, Navigation2 - Documentation for Hugo Learn Theme</title>
+
+    
+    <link href="/css/nucleus.css?1672802139" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1672802139" rel="stylesheet">
+    <link href="/css/hybrid.css?1672802139" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1672802139" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1672802139" rel="stylesheet">
+    <link href="/css/auto-complete.css?1672802139" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1672802139" rel="stylesheet">
+    <link href="/css/theme.css?1672802139" rel="stylesheet">
+    <link href="/css/tabs.css?1672802139" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1672802139" rel="stylesheet">
+    
+    <link href="/css/theme-green.css?1672802139" rel="stylesheet">
+    
+    <link href="/css/foo.css?1672802139" rel="stylesheet"><link href="/css/bar.css?1672802139" rel="stylesheet">
+
+    <script src="/js/jquery-3.3.1.min.js?1672802139"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/kr/ros2_basic_foxy/lecture7/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img width="1097" alt="image" src="https://user-images.githubusercontent.com/12381733/209764275-05dcbdbf-cef7-47ad-94a6-6d61febad01e.png">
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1672802139"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1672802139"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/kr";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1672802139"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/kr'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_basic_noetic/" title="ROS Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_basic_noetic/">
+          <b>ROS Noetic. </b>ROS Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture1/" title="Lecture1 - Introduction to ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture1/">
+        Lecture1 - Introduction to ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture2/" title="Lecture2 - Dev Env Setup" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture2/">
+        Lecture2 - Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture3/" title="Lecture3 - Core of ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture3/">
+        Lecture3 - Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture4/" title="Lecture4 - ROS Launch, RViz" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture4/">
+        Lecture4 - ROS Launch, RViz
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture5/" title="Lecture5 - First Programming, ROS Topic" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture5/">
+        Lecture5 - First Programming, ROS Topic
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture6/" title="Lecture6 - ROS Service, Parameter" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture6/">
+        Lecture6 - ROS Service, Parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture7/" title="Lecture7 - Rqt Tools and rosbag, ROS Time" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture7/">
+        Lecture7 - Rqt Tools and rosbag, ROS Time
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture8/" title="Lecture8 - Deal with Open Source Projects, Custom Interfaces" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture8/">
+        Lecture8 - Deal with Open Source Projects, Custom Interfaces
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture9/" title="Lecture9 - ROS TF and Examples" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture9/">
+        Lecture9 - ROS TF and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture10/" title="Lecture10 - TF2 Examples, Outro" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture10/">
+        Lecture10 - TF2 Examples, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_basic_foxy/" title="ROS 2 Basics" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/kr/ros2_basic_foxy/">
+          <b>ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture1/" title="Lecture1 - Introduction to ROS 2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture1/">
+        Lecture1 - Introduction to ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture2/" title="Lecture2 - ROS 2 Node, Package" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture2/">
+        Lecture2 - ROS 2 Node, Package
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture4/" title="Lecture4 - ROS 2 Node C&#43;&#43; Programming" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture4/">
+        Lecture4 - ROS 2 Node C&#43;&#43; Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture5/" title="Lecture5 - ROS 2 Topic and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture5/">
+        Lecture5 - ROS 2 Topic and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture6/" title="Lecture6 - ROS 2 Service and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture6/">
+        Lecture6 - ROS 2 Service and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture7/" title="Lecture7 - Useful ROS 2 Example, Navigation2" class="dd-item active">
+        <a href="/kr/ros2_basic_foxy/lecture7/">
+        Lecture7 - Useful ROS 2 Example, Navigation2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture8/" title="Lecture8 - ROS 2 Action and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture8/">
+        Lecture8 - ROS 2 Action and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros1"><i class='fab fa-fw fa-github'></i> GitHub repo</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="kr" value="/kr/ros2_basic_foxy/lecture7/" selected>Korean</option>
+                    
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='' href="https://github.com/com2018-fa22/hugo-blog/tree/main/content/ros2_basic_foxy/lecture7.kr.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text"></span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                   Lecture7 - Useful ROS 2 Example, Navigation2
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#navigation-2">Navigation 2</a>
+      <ul>
+        <li><a href="#nav-2-example-1---slam_toolbox">Nav 2 Example 1 - SLAM_ToolBox</a></li>
+        <li><a href="#localization">Localization</a></li>
+        <li><a href="#nav2-lifecycle-manager">Nav2 Lifecycle Manager</a></li>
+        <li><a href="#costmap-2d">Costmap 2D</a></li>
+        <li><a href="#local-path와-global-path">Local Path와 Global Path</a></li>
+        <li><a href="#controller">Controller</a></li>
+        <li><a href="#nav2-behavior-tree">Nav2 Behavior Tree</a></li>
+        <li><a href="#nav2-core">Nav2 Core</a></li>
+        <li><a href="#nav2-실행-예시">Nav2 실행 예시</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Lecture7 - Useful ROS 2 Example, Navigation2
+            </h1>
+          
+
+        
+
+
+<p>코딩을 시작하기 전에 구현해야 하는 기능들과 Topic, Service 기준 input, output을 정리해봅시다.</p>
+<ul>
+<li><strong>Part 1 - 감옥 구현</strong></li>
+</ul>
+<p>거북이가 일정 범위를 벗어나게 되면 다시 원위치로 돌아오게 한다.</p>
+<ol>
+<li>거북이의 위치는 <strong>/turtle1/pose topic subscribe</strong>을 통해 얻을 수 있습니다.</li>
+<li>거북이가 일정 위치를 벗어나는 순간, 원위치로 돌아오게 하는 <strong>/turtle1/teleport_absolute</strong> service call을 해야 합니다. 이를 위한 <strong>service client</strong>가 필요합니다.</li>
+</ol>
+<ul>
+<li><strong>Part 2 - 감옥 크기 변경</strong></li>
+</ul>
+<p>사용자로부터 감옥의 크기를 변경해달라는 service request가 오면 기존 감옥의 크기를 변경하는 작업이 필요하다.</p>
+<ol>
+<li><strong>/turtle_jail_size service server</strong>를 구현해야 합니다.</li>
+<li>감옥의 크기가 변경되면 topic 로직에도 반영되어야 하므로 <strong>OOP</strong>의 형태로 구현이 필요할 듯 합니다.</li>
+</ol>
+<p>코드를 구현하기 위해 필요한 topic, service interface들을 조회합시다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ros2 interface show custom_interfaces/srv/TurtleJail
+</span></span><span style="display:flex;"><span>float32 width
+</span></span><span style="display:flex;"><span>float32 height
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>bool success
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ ros2 interface show turtlesim/
+</span></span><span style="display:flex;"><span>srv/TeleportAbsolute
+</span></span><span style="display:flex;"><span>float32 x
+</span></span><span style="display:flex;"><span>float32 y
+</span></span><span style="display:flex;"><span>float32 theta
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ ros2 interface show turtlesim/msg/Pose
+</span></span><span style="display:flex;"><span>float32 x
+</span></span><span style="display:flex;"><span>float32 y
+</span></span><span style="display:flex;"><span>float32 theta
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>float32 linear_velocity
+</span></span><span style="display:flex;"><span>float32 angular_velocity
+</span></span></code></pre></div><p>모든 필요조건들을 알게 되었습니다. 이제 프로그래밍을 해보겠습니다.</p>
+<ul>
+<li>필요 파이썬 패키지 import</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> rclpy
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.node <span style="color:#f92672">import</span> Node
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> turtlesim.msg <span style="color:#f92672">import</span> Pose
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> turtlesim.srv <span style="color:#f92672">import</span> TeleportAbsolute
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> custom_interfaces.srv <span style="color:#f92672">import</span> TurtleJail
+</span></span></code></pre></div><ul>
+<li><strong>Service Server, Service Client, Topic Subscriber</strong> 생성</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Create Turtle teleport client</span>
+</span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>client <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_client(TeleportAbsolute, <span style="color:#e6db74">&#39;turtle1/teleport_absolute&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">not</span> self<span style="color:#f92672">.</span>client<span style="color:#f92672">.</span>wait_for_service(timeout_sec<span style="color:#f92672">=</span><span style="color:#ae81ff">1.0</span>):
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#39;Service not available, Waiting again...&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>request_srv <span style="color:#f92672">=</span> TeleportAbsolute<span style="color:#f92672">.</span>Request()
+</span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#39;=== [Service Client : Ready to Call Service Request] ===&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create Subscriber for turtle1/pose</span>
+</span></span><span style="display:flex;"><span>queue_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>  <span style="color:#75715e"># Queue Size</span>
+</span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>pose_subscriber <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_subscription(
+</span></span><span style="display:flex;"><span>    Pose, <span style="color:#e6db74">&#39;turtle1/pose&#39;</span>, self<span style="color:#f92672">.</span>sub_callback, queue_size
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create Service Server for User Interfaces</span>
+</span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>srv <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_service(
+</span></span><span style="display:flex;"><span>    TurtleJail, <span style="color:#e6db74">&#39;turtle_jail_size&#39;</span>, self<span style="color:#f92672">.</span>turtle_jail_callback
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#39;==== [Service Server : Ready to receive Service Request] ====&#39;</span>)
+</span></span></code></pre></div><ul>
+<li>클래스 변수 선언 (감옥 사이즈, 벽에 도달하기 전 거북이의 각도)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Preserve its rotation before teleport</span>
+</span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>cur_theta <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># jail size in rectangular form</span>
+</span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>jail_width <span style="color:#f92672">=</span> <span style="color:#ae81ff">6.0</span>
+</span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>jail_height <span style="color:#f92672">=</span> <span style="color:#ae81ff">6.0</span>
+</span></span></code></pre></div><p>topic subscribe와 service server에 대한 <strong>callback이 두 개 필요</strong>합니다.</p>
+<ul>
+<li>거북이의 Pose Topic Subscribe Callback</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sub_callback</span>(self, msg):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Turtle Pose Subscriber Callback&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> abs(msg<span style="color:#f92672">.</span>x <span style="color:#f92672">-</span> <span style="color:#ae81ff">6.0</span>) <span style="color:#f92672">&gt;</span> self<span style="color:#f92672">.</span>jail_width <span style="color:#f92672">or</span> abs(msg<span style="color:#f92672">.</span>y <span style="color:#f92672">-</span> <span style="color:#ae81ff">6.0</span>) <span style="color:#f92672">&gt;</span> self<span style="color:#f92672">.</span>jail_height:
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>cur_theta <span style="color:#f92672">=</span> msg<span style="color:#f92672">.</span>theta
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>warn(<span style="color:#e6db74">&#34;You can&#39;t go out Turtle! :(&#34;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>send_request()
+</span></span></code></pre></div><ul>
+<li>감옥 사이즈 변경 요청 시 발생하는 Service Server Callback</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">turtle_jail_callback</span>(self, request, response):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Service Server for jail resizing client request&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>jail_width <span style="color:#f92672">=</span> request<span style="color:#f92672">.</span>width
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>jail_height <span style="color:#f92672">=</span> request<span style="color:#f92672">.</span>height
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;Jail Size Update to </span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>jail_width<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>jail_height<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    response<span style="color:#f92672">.</span>success <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> response
+</span></span></code></pre></div><ul>
+<li>마지막으로, 거북이를 원점으로 이동시켜달라는 service request를 구현합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">send_request</span>(self):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Service Clinet request fuction&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>request_srv<span style="color:#f92672">.</span>x <span style="color:#f92672">=</span> <span style="color:#ae81ff">6.0</span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>request_srv<span style="color:#f92672">.</span>y <span style="color:#f92672">=</span> <span style="color:#ae81ff">6.0</span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>request_srv<span style="color:#f92672">.</span>theta <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>cur_theta
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>future <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>client<span style="color:#f92672">.</span>call_async(self<span style="color:#f92672">.</span>request_srv)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>future
+</span></span></code></pre></div><p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e29ba10f-9aca-4fde-aa34-49871c16fec7/turtle_jail.gif" alt="turtle_jail.gif"></p>
+<p>바로 코딩을 시작하지 말고, 무엇을 구현해야 하는지 적어보는 것, 조금씩 조금씩 구현한 뒤, 확인하면서 개발하는 것, ROS 뿐만 아니라 앞으로의 프로그래밍에서 반드시 잊지 마시기 바랍니다.</p>
+<h2 id="navigation-2">Navigation 2</h2>
+<p>이번 시간에는 유용한 ROS 2 프로젝트를 소개하고, 관련된 내용을 함께 살펴보고자 합니다. ROS 2의 자율 주행 메타페키지인 Navigation 2, <strong>Nav2</strong> 입니다.</p>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/018774a4-dd1f-4dda-a869-ec5101e69ef8/Untitled.png" alt="Untitled"></p>
+<p>image from : <a href="https://navigation.ros.org/">https://navigation.ros.org</a></p>
+<p>Nav 2는 삼성 리서치 아메리카의 <strong>Steven Macenski</strong>의 주도 하에 개발되고 있으며, 아래와 같은 자율주행을 위해 필요한 거의 모든 기능들을 집합해둔 프로젝트입니다.</p>
+<ul>
+<li>지도 저장, 전송, 관리 <strong>(Map Server)</strong></li>
+<li>지도 상에서 로봇의 위치 파악하기 <strong>(AMCL)</strong></li>
+<li>A to B 주행을 위한 경로 생성 <strong>(Nav2 Planner)</strong></li>
+<li>경로를 따라 로봇을 이동시키기 위한 컨트롤 시스템 <strong>(Nav2 Controller)</strong></li>
+<li>주행 경로의 최적화 <strong>(Nav2 Smoother)</strong></li>
+<li>Costmap 생성과 센서 데이터 반영 <strong>(Nav2 Costmap 2D)</strong></li>
+<li>Behavior Tree를 통한 복잡한 주행 시나리오 핸들링 <strong>(Nav2 Behavior Trees and BT Navigator)</strong></li>
+<li>주행 실패를 방지하기 위한 <strong>recovery behaviors (Nav2 Recoveries)</strong></li>
+<li>Waypoints 주행 <strong>(Nav2 Waypoint Follower)</strong></li>
+<li>Nav2 Node들의 모니터링과 관리 <strong>(Nav2 Lifecycle Manager)</strong></li>
+<li>커스텀 알고리즘 개발을 위한 Plugins <strong>(Nav2 Core)</strong></li>
+</ul>
+<p>일반 개발자나 기업이 자율주행을 구현하기 위해서는 이렇게 많은 것들이 필요합니다. 하지만, ROS 2를 사용한다면 Nav 2를 통해 많은 시간을 단축할 수 있지요!</p>
+<p>이 강의에서 모든 내용을 다루고 싶지만, 시간적 한계가 있기 때문에 예시를 통해 로봇 자율주행에 대한 개념을 체감해보도록 하겠습니다.</p>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5501c097-587f-4927-b27f-1e32f078b7b8/Untitled.png" alt="Untitled"></p>
+<h3 id="nav-2-example-1---slam_toolbox">Nav 2 Example 1 - SLAM_ToolBox</h3>
+<p>처음 가보는 환경을 맞닥뜨리면, 우리는 주변 상황을 탐색하고 내 위치를 파악하려 할 것입니다. 이것을 로보틱스에서는 **SLAM(Simultaneous localization and mapping)**이라고 이야기합니다.</p>
+<ul>
+<li><strong>SLAM Toolbox</strong>는 Steven Macenski에 의해 제작된 ROS 2 패키지이며 backend와 frontend SLAM 알고리즘 뿐만 아니라, ROS 2와 호환되는 관리 도구, 최적화까지 담고 있습니다.</li>
+</ul>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f5e24f7c-8378-46dc-960f-d09694e133ab/Untitled.png" alt="Untitled"></p>
+<ul>
+<li>예시를 통해 SRC 로봇으로 SLAM을 실습해봅시다. 로봇을 이동시키면서 rviz에 갱신되는 지도를 확인합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>colcon build --packages-select src_slam
+</span></span><span style="display:flex;"><span>colcon build --packages-select src_odometry
+</span></span><span style="display:flex;"><span>source install/local_setup.bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1</span>
+</span></span><span style="display:flex;"><span>ros2 launch src_gazebo racecourse.launch.py use_rviz:<span style="color:#f92672">=</span>false
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
+</span></span><span style="display:flex;"><span>ros2 launch src_slam src_slam_gazebo_slam_toolbox.launch.py
+</span></span></code></pre></div><p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/29fd311a-803f-4050-a9ef-69b9bf1f9c12/slam.gif" alt="slam.gif"></p>
+<p>지도를 저장하는 두 가지 방법이 있습니다.</p>
+<ul>
+<li>rviz plugin 사용 - RViz상의 공란에 지도를 저장할 위치를 포함한 절대경로를 기입하고 왼쪽 <strong>“Save Map”</strong> 버튼을 눌러 최종 지도를 추출합니다.</li>
+</ul>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fee13a84-ceee-4628-a55b-ea9fe0970267/Untitled.png" alt="Untitled"></p>
+<ul>
+<li>커멘드 라인 사용 - 저장 위치가 존재하는지 확인 후 실행하세요.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ros2 run nav2_map_server map_saver_cli -f &lt;map_dir&gt;/&lt;map_name&gt;
+</span></span></code></pre></div><ul>
+<li>저장 결과로 두 가지 파일이 생성되며, 이러한 지도 데이터를 관리해주는 것이 Nav 2의 Map Server 입니다.</li>
+</ul>
+<ol>
+<li>지도 이미지 파일</li>
+<li>지도 정보를 담은 yaml 파일</li>
+</ol>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3224dce5-3c7d-4113-9b3f-1bd805ae63c6/Untitled.png" alt="Untitled"></p>
+<h3 id="localization">Localization</h3>
+<p>로봇의 현재 위치와 방향을 파악하는 것을 <strong>localization</strong>이라고 부릅니다.</p>
+<p>Nav2의 <strong>AMCL</strong> 패키지는 주어진 맵을 기반으로 Adaptive Monte Carlo Localization 방식을 사용하여 로봇의 위치를 파악합니다.</p>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5e877a54-e4ab-443b-b17f-3b2baadd2621/Particle_filters.gif" alt="Particle_filters.gif"></p>
+<p>image from : <a href="https://commons.wikimedia.org/wiki/File:Particle_filters.gif">wikipedia</a></p>
+<p>이 Adaptive Monte Carlo Localization은 입자(Particle)를 사용하여 로봇의 위치를 파악하는 방식이며, 이 입자들은 실제 로봇처럼 주어진 가중치와 함께 그들만의 좌표와 방향 값을 가지고 있게 됩니다.</p>
+<p>로봇이 주어진 환경에서 이동하여 새 센서 데이터를 제공할 때마다 입자가 다시 샘플링되며, 각 샘플링에서 가중치가 작은 입자는 소멸되고 가중치가 큰 입자는 더 커지면서 생존합니다.</p>
+<p>AMCL 알고리즘을 여러 번 반복하게 되면 입자들의 위치가 수렴하여 로봇 포즈의 근사치를 평가할 수 있고, 결국 이 로봇의 최종 방향과 위치를 추정하게 됩니다.</p>
+<h3 id="nav2-lifecycle-manager">Nav2 Lifecycle Manager</h3>
+<p>Map Server, AMCL과 같은 Nav2의 stack은 <strong>Nav2 Lifecycle Manager</strong>에 의해 관리됩니다.</p>
+<ul>
+<li>Lifecycle이라는 것은 생성과 실행, 일시정지와 최종 종료와 같이 Node의 상태를 지칭합니다.</li>
+</ul>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/72f374ff-1eee-4b4d-a8ff-c0a3331ee29d/Untitled.png" alt="Untitled"></p>
+<p>image from : <a href="https://roscon.ros.org/2019/talks/roscon2019_navigation2_overview_final.pdf">roscon2019</a></p>
+<ul>
+<li>기존 ROS 2도 lifecycle을 갖고 있지만, Nav 2는 전용 lifecycle_manager를 사용함으로 다른 node과 별도로 자율주행과 관련된 최적화된 시스템 설계가 가능해졌습니다.</li>
+</ul>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7380d624-db8f-4cac-aaf6-4376b5e719d0/Untitled.png" alt="Untitled"></p>
+<p>image from : <a href="https://github.com/ros-planning/navigation2">navigation2</a></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>하지만, ROS 2의 lifecycle이 아닌 독자적인 방식을 사용하게 됨으로 디버깅 툴 사용이 불가하다는 점이 문제점으로 대두됩니다. 이러한 이유로, nav2 개발 시에는 <strong>rqt console</strong>의 사용을 권장합니다.</p>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bf3f18d7-e0e4-4d14-ac80-ebc0a4032d63/Untitled.png" alt="Untitled"></p>
+<h3 id="costmap-2d">Costmap 2D</h3>
+<p>자율주행의 경로를 계산할 시, 일반적으로 구역을 나누고 장애물 여부, 충돌 가능 여부등을 점수화하여 구역별 <strong>costmap</strong>을 만듭니다.</p>
+<p>Nav2에서도 로봇의 크기와 사용자의 정의에 따라 inflation을 적용한 costmap을 생성합니다.</p>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/890a13a0-69aa-4fa3-a816-72e565fdabdc/Untitled.png" alt="Untitled"></p>
+<p>Nav2의 costmap에서 각 셀의 cost는 unknown, free, occupied, inflated로 정의되고, controller, planner, recovery plugin등이 이를 사용하여 안전하고 효율적인 경로를 계산하게 됩니다. 이 costmap에는 두가지 종류가 있는데</p>
+<ol>
+<li><strong>Global Costmap</strong>은 SLAM을 통해 얻은 정적 지도를 기반으로 생성되며, 벽, 가구와 같이 SLAM 당시 존재했던 장애물들에 대한 costmap입니다.</li>
+<li><strong>Local Costmap</strong>은 로봇 주위 일정 범위에 로봇에 부착된 센서들을 기반으로 생성되며, 동적 장애물을 감지할 수 있습니다. 로봇이 이동함에 따라 매번 갱신되는 데이터입니다.</li>
+</ol>
+<p>아래 사진에서 왼쪽은 Global costmap을, 오른쪽은 Local costmap을 보이고 있습니다.</p>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/44f97d60-d29b-4969-b5d4-4dfc084ef485/Untitled.png" alt="Untitled"></p>
+<p>inflation의 변경에 따른 costmap의 차이는 아래와 같이 rviz 화면에서 확인할 수 있습니다. inflation을 줄이게 되면 경로 상 갈 수 있는 영역이 많아졌지만, 충돌 측면에서는 좀 더 위험해졌다고 말할 수 있습니다. 따라서, 로봇의 크기와 최대 속도, 제동거리를 고려하여 적절한 inflation radius를 설정해야 합니다.</p>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dbd4efd9-0c33-40d4-ae3b-aa0b64b70996/Untitled.png" alt="Untitled"></p>
+<h3 id="local-path와-global-path">Local Path와 Global Path</h3>
+<p>센서 데이터에서 장애물이 검출되었다면, local planner는 이를 회피하기 위해 기존 global planner와는 다른 별도의 경로를 따르도록 로봇에게 지시할 것입니다.</p>
+<p>Nav2에서 물체 회피를 위해 수행되는 동작들은 다음과 같습니다.</p>
+<ul>
+<li><strong>global planner</strong>가 지도를 기반으로 거시적인 경로를 계산하면 이 경로의 일부가 local planner에게 전달됩니다.</li>
+<li><strong>local planner</strong>는 기본적으로 global Planner의 파편이지만, 현재 주행중인 환경과 센서 데이터를 입력으로 받아, 경로를 최신화합니다.</li>
+</ul>
+<p>global plan과 local plan은 엄연히 다른 알고리즘이 사용되는 분야입니다.</p>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fb98c14b-e5bf-4244-a4e4-5d80e5c757e7/Untitled.png" alt="Untitled"></p>
+<p>image from : <strong><a href="https://www.researchgate.net/publication/320744124_Autonomous_Wheeled_Mobile_Robot_Control">Autonomous Wheeled Mobile Robot Control</a></strong></p>
+<h3 id="controller">Controller</h3>
+<p>local Path가 계산되었다면, 이제 로봇이 실제로 해당 경로를 주행할 차례입니다.</p>
+<p>로봇의 최대 선속도, 각속도와 후진 여부 등 매개변수에 따라 경로를 최적화해야 합니다. Nav2에서는 <strong>Controller</strong>가 이를 담당하고 있습니다.</p>
+<p>Controller는 그 이름과 같이 주어진 경로를 따르기 위해 로봇에게 실제 제어 신호를 전달하게 되며, 따라서 사용하는 로봇의 모델과 밀접한 관련이 있습니다. (제자리 회전, y축 이동 등)</p>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9b9707aa-b7ee-4b7e-b631-9fcd1e7b2e62/Untitled.png" alt="Untitled"></p>
+<p>image from : <a href="http://library.isr.ist.utl.pt/docs/roswiki/dwa_local_planner.html">dwa_local_planner</a></p>
+<h3 id="nav2-behavior-tree">Nav2 Behavior Tree</h3>
+<p>로봇의 일련의 행동들은 Tree 자료 구조로 표현될 수 있으며, Tree의 Node에 해당하는 작업을 구현해두고 이들을 조합하여 시나리오를 구성할 수 있습니다.</p>
+<ul>
+<li>ex) A 위치에 도착한 뒤, 물건을 싣고, 다시 B 위치로 이동하여 새로운 물건을 싣고, 최종적으로 C지점으로 돌아와라. 만약 C 지점에 물건이 가득 차있다면 D 지점으로 이동하여 물건을 최종 이송해라&hellip;</li>
+</ul>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0ee13333-7be5-424d-8bb5-99d2e90fc5d2/Untitled.png" alt="Untitled"></p>
+<p>image from : <a href="https://en.wikipedia.org/wiki/Behavior_tree_(artificial_intelligence,_robotics_and_control)">wikipedia</a></p>
+<ul>
+<li>Nav2는 **<a href="https://www.behaviortree.dev/">BehaviorTree.CPP</a>**를 사용하여 로봇의 자율주행 시나리오 기능을 제공합니다. Behavior Tree는 Nav2와는 별도의 오픈소스 프로그램인데, 시각화를 포함한 높은 완성도를 갖추고 있어 게임 및 로봇 도메인에서 많이 사용됩니다.</li>
+</ul>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f5693393-7853-473f-abe0-98c1a015dbe8/Untitled.png" alt="Untitled"></p>
+<p><a href="https://robohub.org/introduction-to-behavior-trees/">https://robohub.org/introduction-to-behavior-trees/</a></p>
+<h3 id="nav2-core">Nav2 Core</h3>
+<p>nav2_core 패키지는 custom 알고리즘을 적용한 플러그인을 구현할 수 있도록 인터페이스를 제공합니다. 연구실이나 기업에서는 자신만의 로직을 Plugin으로 구현해서 Nav2 시스템에 적용할 수 있으며, 이러한 방식으로 구현의 시간을 단축시킬 수 있습니다.</p>
+<ul>
+<li><strong>Global Planner</strong> – global_planner.hpp</li>
+<li><strong>Local Planner</strong> – local_planner.hpp</li>
+<li><strong>Recovery behaviors</strong> – recovery.hpp</li>
+<li><strong>Goal checker</strong> – goal_checker.hpp</li>
+<li><strong>Exceptions</strong> – exceptions.hpp</li>
+</ul>
+<p>여러분만의 plugin을 만들어보고 싶다면, 아래 링크를 참고하세요.</p>
+<ul>
+<li><a href="https://navigation.ros.org/plugin_tutorials/index.html">https://navigation.ros.org/plugin_tutorials/index.html</a></li>
+</ul>
+<h3 id="nav2-실행-예시">Nav2 실행 예시</h3>
+<ul>
+<li>지루한 이론을 듣느라 고생하셨습니다. 이제 src를 통해 자율 주행 예시를 함께 실행해보겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>colcon build --packages-select src_nav
+</span></span><span style="display:flex;"><span>source install/local_setup.bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1</span>
+</span></span><span style="display:flex;"><span>ros2 launch src_gazebo racecourse.launch.py use_rviz:<span style="color:#f92672">=</span>false
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
+</span></span><span style="display:flex;"><span>ros2 launch src_nav bringup_launch.py
+</span></span></code></pre></div><p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9ac78f64-7f71-4dcb-98f8-965a7ff2b05f/src_nav.gif" alt="src_nav.gif"></p>
+<ul>
+<li><strong>rqt_graph</strong>를 확인해봅시다.</li>
+</ul>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b9067d46-5f11-48a9-8dea-7af0936283e0/rosgraph.png" alt="rosgraph.png"></p>
+<p>방금 우리가 실행한 launch file을 같이 살펴볼까요?</p>
+<ul>
+<li>LaunchDescription부터 살펴봅시다. 대부분 launch arguement의 선언이고 결국 실행과 관련된 것은 <strong>bringup_cmd_group</strong> 뿐입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>		<span style="color:#75715e"># Set environment variables</span>
+</span></span><span style="display:flex;"><span>    ld<span style="color:#f92672">.</span>add_action(stdout_linebuf_envvar)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Declare the launch options</span>
+</span></span><span style="display:flex;"><span>    ld<span style="color:#f92672">.</span>add_action(declare_namespace_cmd)
+</span></span><span style="display:flex;"><span>    ld<span style="color:#f92672">.</span>add_action(declare_use_namespace_cmd)
+</span></span><span style="display:flex;"><span>    ld<span style="color:#f92672">.</span>add_action(declare_map_yaml_cmd)
+</span></span><span style="display:flex;"><span>    ld<span style="color:#f92672">.</span>add_action(declare_use_sim_time_cmd)
+</span></span><span style="display:flex;"><span>    ld<span style="color:#f92672">.</span>add_action(declare_slam_cmd)
+</span></span><span style="display:flex;"><span>    ld<span style="color:#f92672">.</span>add_action(declare_params_file_cmd)
+</span></span><span style="display:flex;"><span>    ld<span style="color:#f92672">.</span>add_action(declare_autostart_cmd)
+</span></span><span style="display:flex;"><span>    ld<span style="color:#f92672">.</span>add_action(declare_bt_xml_cmd)
+</span></span><span style="display:flex;"><span>    ld<span style="color:#f92672">.</span>add_action(declare_open_rviz_cmd)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Add the actions to launch all of the navigation nodes</span>
+</span></span><span style="display:flex;"><span>    ld<span style="color:#f92672">.</span>add_action(bringup_cmd_group)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ld
+</span></span></code></pre></div><ul>
+<li>Launch file의 실행 시 GroupAction을 통해 관련된 실행 프로그램들을 한데 묶을 수 있습니다. 이렇게 하는 이유는, 여러 로봇의 실행을 대비한 것입니다.</li>
+<li>IncludeLaunchDescription을 통해 4개의 launch file들을 다시 추가하고 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    <span style="color:#75715e"># Specify the actions</span>
+</span></span><span style="display:flex;"><span>    bringup_cmd_group <span style="color:#f92672">=</span> GroupAction<span style="color:#f92672">([</span>
+</span></span><span style="display:flex;"><span>        PushRosNamespace<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>            condition<span style="color:#f92672">=</span>IfCondition<span style="color:#f92672">(</span>use_namespace<span style="color:#f92672">)</span>,
+</span></span><span style="display:flex;"><span>            namespace<span style="color:#f92672">=</span>namespace<span style="color:#f92672">)</span>,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        IncludeLaunchDescription<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>            PythonLaunchDescriptionSource<span style="color:#f92672">(</span>os.path.join<span style="color:#f92672">(</span>my_launch_dir, <span style="color:#e6db74">&#39;slam_launch.py&#39;</span><span style="color:#f92672">))</span>,
+</span></span><span style="display:flex;"><span>                   ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        IncludeLaunchDescription<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Run Localization only when we don&#39;t use SLAM</span>
+</span></span><span style="display:flex;"><span>            PythonLaunchDescriptionSource<span style="color:#f92672">(</span>os.path.join<span style="color:#f92672">(</span>my_launch_dir, <span style="color:#e6db74">&#39;localization_launch.py&#39;</span><span style="color:#f92672">))</span>,
+</span></span><span style="display:flex;"><span>                   ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        IncludeLaunchDescription<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>            PythonLaunchDescriptionSource<span style="color:#f92672">(</span>os.path.join<span style="color:#f92672">(</span>my_launch_dir, <span style="color:#e6db74">&#39;navigation_launch.py&#39;</span><span style="color:#f92672">))</span>,
+</span></span><span style="display:flex;"><span>						       ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        IncludeLaunchDescription<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>            PythonLaunchDescriptionSource<span style="color:#f92672">(</span>os.path.join<span style="color:#f92672">(</span>my_launch_dir, <span style="color:#e6db74">&#39;rviz_view_foxy_launch.py&#39;</span><span style="color:#f92672">))</span>,
+</span></span><span style="display:flex;"><span>                   ...
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">])</span>
+</span></span></code></pre></div><ul>
+<li>각각의 하위 launch file은 개별 실행될 수 있도록 구성되었습니다. <strong>nav2_lifecycle_manager</strong>가 위치하고 있는 점도 확인 가능하고 node를 전달하는 방법도 알 수 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>        Node(
+</span></span><span style="display:flex;"><span>            package<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;nav2_lifecycle_manager&#39;</span>,
+</span></span><span style="display:flex;"><span>            executable<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lifecycle_manager&#39;</span>,
+</span></span><span style="display:flex;"><span>            name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lifecycle_manager_localization&#39;</span>,
+</span></span><span style="display:flex;"><span>            output<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;screen&#39;</span>,
+</span></span><span style="display:flex;"><span>            parameters<span style="color:#f92672">=</span>[{<span style="color:#e6db74">&#39;use_sim_time&#39;</span>: use_sim_time},
+</span></span><span style="display:flex;"><span>                        {<span style="color:#e6db74">&#39;autostart&#39;</span>: autostart},
+</span></span><span style="display:flex;"><span>                        {<span style="color:#e6db74">&#39;node_names&#39;</span>: lifecycle_nodes}])
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>lifecycle_nodes <span style="color:#f92672">=</span> [nav2, related, nodes]
+</span></span></code></pre></div><ul>
+<li>Nav2의 최적화를 위해서는 수많은 매개변수들과 씨름해야 합니다. <strong>yaml</strong> 파일을 통해 관리되며 지금까지 살펴본 내용들이 모두 녹아들어 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">amcl</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ros__parameters</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">bt_navigator</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ros__parameters</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">controller_server</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ros__parameters</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">controller_server_rclcpp_node</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ros__parameters</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">use_sim_time</span>: <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">local_costmap</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">local_costmap</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">global_costmap</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">global_costmap</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">map_server</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ros__parameters</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">use_sim_time</span>: <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">yaml_filename</span>: <span style="color:#e6db74">&#34;turtlebot3_world.yaml&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">map_saver</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ros__parameters</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">planner_server</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ros__parameters</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">planner_server_rclcpp_node</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ros__parameters</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">use_sim_time</span>: <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">recoveries_server</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ros__parameters</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">robot_state_publisher</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ros__parameters</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">use_sim_time</span>: <span style="color:#66d9ef">False</span>
+</span></span></code></pre></div><ul>
+<li>자율 주행 시 발생하는 상황들에 대처하기 위해 기본적으로 Behavior Tree 예시를 제공합니다. 구체적인 내용보다 Node를 작성하고 시나리오를 구성할 수 있다는 점에 집중합시다.</li>
+</ul>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/kr/ros2_basic_foxy/lecture6/" title="Lecture6 - ROS 2 Service and Examples"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kr/ros2_basic_foxy/lecture8/" title="Lecture8 - ROS 2 Action and Examples" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1672802139"></script>
+    <script src="/js/perfect-scrollbar.min.js?1672802139"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1672802139"></script>
+    <script src="/js/jquery.sticky.js?1672802139"></script>
+    <script src="/js/featherlight.min.js?1672802139"></script>
+    <script src="/js/highlight.pack.js?1672802139"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1672802139"></script>
+    <script src="/js/learn.js?1672802139"></script>
+    <script src="/js/hugo-learn.js?1672802139"></script>
+    
+        
+            <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+
