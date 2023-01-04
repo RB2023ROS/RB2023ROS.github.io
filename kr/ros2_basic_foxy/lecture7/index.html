@@ -12,22 +12,22 @@
     <title>Lecture7 - Useful ROS 2 Example, Navigation2 - Documentation for Hugo Learn Theme</title>
 
     
-    <link href="/css/nucleus.css?1672802139" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1672802139" rel="stylesheet">
-    <link href="/css/hybrid.css?1672802139" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1672802139" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1672802139" rel="stylesheet">
-    <link href="/css/auto-complete.css?1672802139" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1672802139" rel="stylesheet">
-    <link href="/css/theme.css?1672802139" rel="stylesheet">
-    <link href="/css/tabs.css?1672802139" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1672802139" rel="stylesheet">
+    <link href="/css/nucleus.css?1672804417" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1672804417" rel="stylesheet">
+    <link href="/css/hybrid.css?1672804417" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1672804417" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1672804417" rel="stylesheet">
+    <link href="/css/auto-complete.css?1672804417" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1672804417" rel="stylesheet">
+    <link href="/css/theme.css?1672804417" rel="stylesheet">
+    <link href="/css/tabs.css?1672804417" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1672804417" rel="stylesheet">
     
-    <link href="/css/theme-green.css?1672802139" rel="stylesheet">
+    <link href="/css/theme-green.css?1672804417" rel="stylesheet">
     
-    <link href="/css/foo.css?1672802139" rel="stylesheet"><link href="/css/bar.css?1672802139" rel="stylesheet">
+    <link href="/css/foo.css?1672804417" rel="stylesheet"><link href="/css/bar.css?1672804417" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1672802139"></script>
+    <script src="/js/jquery-3.3.1.min.js?1672804417"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1672802139"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1672802139"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1672804417"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1672804417"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/kr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1672802139"></script>
+<script type="text/javascript" src="/js/search.js?1672804417"></script>
 
     
   </div>
@@ -651,7 +651,9 @@
         
 
 
+<blockquote>
 <p>코딩을 시작하기 전에 구현해야 하는 기능들과 Topic, Service 기준 input, output을 정리해봅시다.</p>
+</blockquote>
 <ul>
 <li><strong>Part 1 - 감옥 구현</strong></li>
 </ul>
@@ -730,7 +732,9 @@
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># jail size in rectangular form</span>
 </span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>jail_width <span style="color:#f92672">=</span> <span style="color:#ae81ff">6.0</span>
 </span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>jail_height <span style="color:#f92672">=</span> <span style="color:#ae81ff">6.0</span>
-</span></span></code></pre></div><p>topic subscribe와 service server에 대한 <strong>callback이 두 개 필요</strong>합니다.</p>
+</span></span></code></pre></div><blockquote>
+<p>topic subscribe와 service server에 대한 <strong>callback이 두 개 필요</strong>합니다.</p>
+</blockquote>
 <ul>
 <li>거북이의 Pose Topic Subscribe Callback</li>
 </ul>
@@ -766,11 +770,15 @@
 </span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>future <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>client<span style="color:#f92672">.</span>call_async(self<span style="color:#f92672">.</span>request_srv)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>future
-</span></span></code></pre></div><p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e29ba10f-9aca-4fde-aa34-49871c16fec7/turtle_jail.gif" alt="turtle_jail.gif"></p>
+</span></span></code></pre></div><p><img src="/kr/ros2_basic_foxy/images7/turtle_jail.gif?height=300px" alt="turtle_jail.gif"></p>
+<blockquote>
 <p>바로 코딩을 시작하지 말고, 무엇을 구현해야 하는지 적어보는 것, 조금씩 조금씩 구현한 뒤, 확인하면서 개발하는 것, ROS 뿐만 아니라 앞으로의 프로그래밍에서 반드시 잊지 마시기 바랍니다.</p>
+</blockquote>
 <h2 id="navigation-2">Navigation 2</h2>
+<blockquote>
 <p>이번 시간에는 유용한 ROS 2 프로젝트를 소개하고, 관련된 내용을 함께 살펴보고자 합니다. ROS 2의 자율 주행 메타페키지인 Navigation 2, <strong>Nav2</strong> 입니다.</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/018774a4-dd1f-4dda-a869-ec5101e69ef8/Untitled.png" alt="Untitled"></p>
+</blockquote>
+<p><img src="/kr/ros2_basic_foxy/images7/lec7_0.png?height=300px" alt="lec7_0.png"></p>
 <p>image from : <a href="https://navigation.ros.org/">https://navigation.ros.org</a></p>
 <p>Nav 2는 삼성 리서치 아메리카의 <strong>Steven Macenski</strong>의 주도 하에 개발되고 있으며, 아래와 같은 자율주행을 위해 필요한 거의 모든 기능들을 집합해둔 프로젝트입니다.</p>
 <ul>
@@ -788,13 +796,15 @@
 </ul>
 <p>일반 개발자나 기업이 자율주행을 구현하기 위해서는 이렇게 많은 것들이 필요합니다. 하지만, ROS 2를 사용한다면 Nav 2를 통해 많은 시간을 단축할 수 있지요!</p>
 <p>이 강의에서 모든 내용을 다루고 싶지만, 시간적 한계가 있기 때문에 예시를 통해 로봇 자율주행에 대한 개념을 체감해보도록 하겠습니다.</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5501c097-587f-4927-b27f-1e32f078b7b8/Untitled.png" alt="Untitled"></p>
+<p><img src="/kr/ros2_basic_foxy/images7/lec7_1.png?height=300px" alt="lec7_1.png"></p>
 <h3 id="nav-2-example-1---slam_toolbox">Nav 2 Example 1 - SLAM_ToolBox</h3>
-<p>처음 가보는 환경을 맞닥뜨리면, 우리는 주변 상황을 탐색하고 내 위치를 파악하려 할 것입니다. 이것을 로보틱스에서는 **SLAM(Simultaneous localization and mapping)**이라고 이야기합니다.</p>
+<blockquote>
+<p>처음 가보는 환경을 맞닥뜨리면, 우리는 주변 상황을 탐색하고 내 위치를 파악하려 할 것입니다. 이것을 로보틱스에서는 <strong>SLAM - Simultaneous localization and mapping</strong>이라고 이야기합니다.</p>
+</blockquote>
 <ul>
 <li><strong>SLAM Toolbox</strong>는 Steven Macenski에 의해 제작된 ROS 2 패키지이며 backend와 frontend SLAM 알고리즘 뿐만 아니라, ROS 2와 호환되는 관리 도구, 최적화까지 담고 있습니다.</li>
 </ul>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f5e24f7c-8378-46dc-960f-d09694e133ab/Untitled.png" alt="Untitled"></p>
+<p><img src="/kr/ros2_basic_foxy/images7/lec7_2.png?height=300px" alt="lec7_2.png"></p>
 <ul>
 <li>예시를 통해 SRC 로봇으로 SLAM을 실습해봅시다. 로봇을 이동시키면서 rviz에 갱신되는 지도를 확인합니다.</li>
 </ul>
@@ -806,12 +816,12 @@
 </span></span><span style="display:flex;"><span>ros2 launch src_gazebo racecourse.launch.py use_rviz:<span style="color:#f92672">=</span>false
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
 </span></span><span style="display:flex;"><span>ros2 launch src_slam src_slam_gazebo_slam_toolbox.launch.py
-</span></span></code></pre></div><p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/29fd311a-803f-4050-a9ef-69b9bf1f9c12/slam.gif" alt="slam.gif"></p>
-<p>지도를 저장하는 두 가지 방법이 있습니다.</p>
+</span></span></code></pre></div><p><img src="/kr/ros2_basic_foxy/images7/slam.gif?height=300px" alt="slam.gif"></p>
+<p><strong>지도를 저장하는 두 가지 방법이 있습니다.</strong></p>
 <ul>
 <li>rviz plugin 사용 - RViz상의 공란에 지도를 저장할 위치를 포함한 절대경로를 기입하고 왼쪽 <strong>“Save Map”</strong> 버튼을 눌러 최종 지도를 추출합니다.</li>
 </ul>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fee13a84-ceee-4628-a55b-ea9fe0970267/Untitled.png" alt="Untitled"></p>
+<p><img src="/kr/ros2_basic_foxy/images7/lec7_3.png?height=300px" alt="lec7_3.png"></p>
 <ul>
 <li>커멘드 라인 사용 - 저장 위치가 존재하는지 확인 후 실행하세요.</li>
 </ul>
@@ -823,74 +833,89 @@
 <li>지도 이미지 파일</li>
 <li>지도 정보를 담은 yaml 파일</li>
 </ol>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3224dce5-3c7d-4113-9b3f-1bd805ae63c6/Untitled.png" alt="Untitled"></p>
+<p><img src="/kr/ros2_basic_foxy/images7/lec7_4.png?height=200px" alt="lec7_4.png"></p>
 <h3 id="localization">Localization</h3>
+<blockquote>
 <p>로봇의 현재 위치와 방향을 파악하는 것을 <strong>localization</strong>이라고 부릅니다.</p>
+</blockquote>
 <p>Nav2의 <strong>AMCL</strong> 패키지는 주어진 맵을 기반으로 Adaptive Monte Carlo Localization 방식을 사용하여 로봇의 위치를 파악합니다.</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5e877a54-e4ab-443b-b17f-3b2baadd2621/Particle_filters.gif" alt="Particle_filters.gif"></p>
+<p><img src="/kr/ros2_basic_foxy/images7/Particle_filters.gif?height=300px" alt="Particle_filters.gif"></p>
 <p>image from : <a href="https://commons.wikimedia.org/wiki/File:Particle_filters.gif">wikipedia</a></p>
 <p>이 Adaptive Monte Carlo Localization은 입자(Particle)를 사용하여 로봇의 위치를 파악하는 방식이며, 이 입자들은 실제 로봇처럼 주어진 가중치와 함께 그들만의 좌표와 방향 값을 가지고 있게 됩니다.</p>
 <p>로봇이 주어진 환경에서 이동하여 새 센서 데이터를 제공할 때마다 입자가 다시 샘플링되며, 각 샘플링에서 가중치가 작은 입자는 소멸되고 가중치가 큰 입자는 더 커지면서 생존합니다.</p>
 <p>AMCL 알고리즘을 여러 번 반복하게 되면 입자들의 위치가 수렴하여 로봇 포즈의 근사치를 평가할 수 있고, 결국 이 로봇의 최종 방향과 위치를 추정하게 됩니다.</p>
 <h3 id="nav2-lifecycle-manager">Nav2 Lifecycle Manager</h3>
+<blockquote>
 <p>Map Server, AMCL과 같은 Nav2의 stack은 <strong>Nav2 Lifecycle Manager</strong>에 의해 관리됩니다.</p>
+</blockquote>
 <ul>
 <li>Lifecycle이라는 것은 생성과 실행, 일시정지와 최종 종료와 같이 Node의 상태를 지칭합니다.</li>
 </ul>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/72f374ff-1eee-4b4d-a8ff-c0a3331ee29d/Untitled.png" alt="Untitled"></p>
+<p><img src="/kr/ros2_basic_foxy/images7/lec7_5.png?height=300px" alt="lec7_5.png"></p>
 <p>image from : <a href="https://roscon.ros.org/2019/talks/roscon2019_navigation2_overview_final.pdf">roscon2019</a></p>
 <ul>
 <li>기존 ROS 2도 lifecycle을 갖고 있지만, Nav 2는 전용 lifecycle_manager를 사용함으로 다른 node과 별도로 자율주행과 관련된 최적화된 시스템 설계가 가능해졌습니다.</li>
 </ul>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7380d624-db8f-4cac-aaf6-4376b5e719d0/Untitled.png" alt="Untitled"></p>
+<p><img src="/kr/ros2_basic_foxy/images7/lec7_6.png?height=300px" alt="lec7_6.png"></p>
 <p>image from : <a href="https://github.com/ros-planning/navigation2">navigation2</a></p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>하지만, ROS 2의 lifecycle이 아닌 독자적인 방식을 사용하게 됨으로 디버깅 툴 사용이 불가하다는 점이 문제점으로 대두됩니다. 이러한 이유로, nav2 개발 시에는 <strong>rqt console</strong>의 사용을 권장합니다.</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bf3f18d7-e0e4-4d14-ac80-ebc0a4032d63/Untitled.png" alt="Untitled"></p>
+
+<div class="notices note" ><p>하지만, ROS 2의 lifecycle이 아닌 독자적인 방식을 사용하게 됨으로 디버깅 툴 사용이 불가하다는 점이 문제점으로 대두됩니다. 이러한 이유로, nav2 개발 시에는 <strong>rqt console</strong>의 사용을 권장합니다.</p>
+</div>
+
+<p><img src="/kr/ros2_basic_foxy/images7/lec7_7.png?height=300px" alt="lec7_7.png"></p>
 <h3 id="costmap-2d">Costmap 2D</h3>
+<blockquote>
 <p>자율주행의 경로를 계산할 시, 일반적으로 구역을 나누고 장애물 여부, 충돌 가능 여부등을 점수화하여 구역별 <strong>costmap</strong>을 만듭니다.</p>
+</blockquote>
 <p>Nav2에서도 로봇의 크기와 사용자의 정의에 따라 inflation을 적용한 costmap을 생성합니다.</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/890a13a0-69aa-4fa3-a816-72e565fdabdc/Untitled.png" alt="Untitled"></p>
+<p><img src="/kr/ros2_basic_foxy/images7/lec7_8.png?height=300px" alt="lec7_8.png"></p>
 <p>Nav2의 costmap에서 각 셀의 cost는 unknown, free, occupied, inflated로 정의되고, controller, planner, recovery plugin등이 이를 사용하여 안전하고 효율적인 경로를 계산하게 됩니다. 이 costmap에는 두가지 종류가 있는데</p>
 <ol>
 <li><strong>Global Costmap</strong>은 SLAM을 통해 얻은 정적 지도를 기반으로 생성되며, 벽, 가구와 같이 SLAM 당시 존재했던 장애물들에 대한 costmap입니다.</li>
 <li><strong>Local Costmap</strong>은 로봇 주위 일정 범위에 로봇에 부착된 센서들을 기반으로 생성되며, 동적 장애물을 감지할 수 있습니다. 로봇이 이동함에 따라 매번 갱신되는 데이터입니다.</li>
 </ol>
 <p>아래 사진에서 왼쪽은 Global costmap을, 오른쪽은 Local costmap을 보이고 있습니다.</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/44f97d60-d29b-4969-b5d4-4dfc084ef485/Untitled.png" alt="Untitled"></p>
+<p><img src="/kr/ros2_basic_foxy/images7/lec7_9.png?height=300px" alt="lec7_9.png"></p>
 <p>inflation의 변경에 따른 costmap의 차이는 아래와 같이 rviz 화면에서 확인할 수 있습니다. inflation을 줄이게 되면 경로 상 갈 수 있는 영역이 많아졌지만, 충돌 측면에서는 좀 더 위험해졌다고 말할 수 있습니다. 따라서, 로봇의 크기와 최대 속도, 제동거리를 고려하여 적절한 inflation radius를 설정해야 합니다.</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dbd4efd9-0c33-40d4-ae3b-aa0b64b70996/Untitled.png" alt="Untitled"></p>
+<p><img src="/kr/ros2_basic_foxy/images7/lec7_10.png?height=300px" alt="lec7_10.png"></p>
 <h3 id="local-path와-global-path">Local Path와 Global Path</h3>
+<blockquote>
 <p>센서 데이터에서 장애물이 검출되었다면, local planner는 이를 회피하기 위해 기존 global planner와는 다른 별도의 경로를 따르도록 로봇에게 지시할 것입니다.</p>
+</blockquote>
 <p>Nav2에서 물체 회피를 위해 수행되는 동작들은 다음과 같습니다.</p>
 <ul>
 <li><strong>global planner</strong>가 지도를 기반으로 거시적인 경로를 계산하면 이 경로의 일부가 local planner에게 전달됩니다.</li>
 <li><strong>local planner</strong>는 기본적으로 global Planner의 파편이지만, 현재 주행중인 환경과 센서 데이터를 입력으로 받아, 경로를 최신화합니다.</li>
 </ul>
 <p>global plan과 local plan은 엄연히 다른 알고리즘이 사용되는 분야입니다.</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fb98c14b-e5bf-4244-a4e4-5d80e5c757e7/Untitled.png" alt="Untitled"></p>
+<p><img src="/kr/ros2_basic_foxy/images7/lec7_11.png?height=300px" alt="lec7_11.png"></p>
 <p>image from : <strong><a href="https://www.researchgate.net/publication/320744124_Autonomous_Wheeled_Mobile_Robot_Control">Autonomous Wheeled Mobile Robot Control</a></strong></p>
 <h3 id="controller">Controller</h3>
+<blockquote>
 <p>local Path가 계산되었다면, 이제 로봇이 실제로 해당 경로를 주행할 차례입니다.</p>
+</blockquote>
 <p>로봇의 최대 선속도, 각속도와 후진 여부 등 매개변수에 따라 경로를 최적화해야 합니다. Nav2에서는 <strong>Controller</strong>가 이를 담당하고 있습니다.</p>
 <p>Controller는 그 이름과 같이 주어진 경로를 따르기 위해 로봇에게 실제 제어 신호를 전달하게 되며, 따라서 사용하는 로봇의 모델과 밀접한 관련이 있습니다. (제자리 회전, y축 이동 등)</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9b9707aa-b7ee-4b7e-b631-9fcd1e7b2e62/Untitled.png" alt="Untitled"></p>
+<p><img src="/kr/ros2_basic_foxy/images7/lec7_12.png?height=200px" alt="lec7_12.png"></p>
 <p>image from : <a href="http://library.isr.ist.utl.pt/docs/roswiki/dwa_local_planner.html">dwa_local_planner</a></p>
 <h3 id="nav2-behavior-tree">Nav2 Behavior Tree</h3>
+<blockquote>
 <p>로봇의 일련의 행동들은 Tree 자료 구조로 표현될 수 있으며, Tree의 Node에 해당하는 작업을 구현해두고 이들을 조합하여 시나리오를 구성할 수 있습니다.</p>
+</blockquote>
 <ul>
 <li>ex) A 위치에 도착한 뒤, 물건을 싣고, 다시 B 위치로 이동하여 새로운 물건을 싣고, 최종적으로 C지점으로 돌아와라. 만약 C 지점에 물건이 가득 차있다면 D 지점으로 이동하여 물건을 최종 이송해라&hellip;</li>
 </ul>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0ee13333-7be5-424d-8bb5-99d2e90fc5d2/Untitled.png" alt="Untitled"></p>
+<p><img src="/kr/ros2_basic_foxy/images7/lec7_13.png?height=200px" alt="lec7_13.png"></p>
 <p>image from : <a href="https://en.wikipedia.org/wiki/Behavior_tree_(artificial_intelligence,_robotics_and_control)">wikipedia</a></p>
 <ul>
 <li>Nav2는 **<a href="https://www.behaviortree.dev/">BehaviorTree.CPP</a>**를 사용하여 로봇의 자율주행 시나리오 기능을 제공합니다. Behavior Tree는 Nav2와는 별도의 오픈소스 프로그램인데, 시각화를 포함한 높은 완성도를 갖추고 있어 게임 및 로봇 도메인에서 많이 사용됩니다.</li>
 </ul>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f5693393-7853-473f-abe0-98c1a015dbe8/Untitled.png" alt="Untitled"></p>
+<p><img src="/kr/ros2_basic_foxy/images7/lec7_14.png?height=300px" alt="lec7_14.png"></p>
 <p><a href="https://robohub.org/introduction-to-behavior-trees/">https://robohub.org/introduction-to-behavior-trees/</a></p>
 <h3 id="nav2-core">Nav2 Core</h3>
+<blockquote>
 <p>nav2_core 패키지는 custom 알고리즘을 적용한 플러그인을 구현할 수 있도록 인터페이스를 제공합니다. 연구실이나 기업에서는 자신만의 로직을 Plugin으로 구현해서 Nav2 시스템에 적용할 수 있으며, 이러한 방식으로 구현의 시간을 단축시킬 수 있습니다.</p>
+</blockquote>
 <ul>
 <li><strong>Global Planner</strong> – global_planner.hpp</li>
 <li><strong>Local Planner</strong> – local_planner.hpp</li>
@@ -913,12 +938,14 @@
 </span></span><span style="display:flex;"><span>ros2 launch src_gazebo racecourse.launch.py use_rviz:<span style="color:#f92672">=</span>false
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
 </span></span><span style="display:flex;"><span>ros2 launch src_nav bringup_launch.py
-</span></span></code></pre></div><p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9ac78f64-7f71-4dcb-98f8-965a7ff2b05f/src_nav.gif" alt="src_nav.gif"></p>
+</span></span></code></pre></div><p><img src="/kr/ros2_basic_foxy/images7/src_nav.gif?height=300px" alt="src_nav.gif"></p>
 <ul>
 <li><strong>rqt_graph</strong>를 확인해봅시다.</li>
 </ul>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b9067d46-5f11-48a9-8dea-7af0936283e0/rosgraph.png" alt="rosgraph.png"></p>
+<p><img src="/kr/ros2_basic_foxy/images7/rosgraph.png?height=300px" alt="rosgraph.png"></p>
+<blockquote>
 <p>방금 우리가 실행한 launch file을 같이 살펴볼까요?</p>
+</blockquote>
 <ul>
 <li>LaunchDescription부터 살펴봅시다. 대부분 launch arguement의 선언이고 결국 실행과 관련된 것은 <strong>bringup_cmd_group</strong> 뿐입니다.</li>
 </ul>
@@ -1023,9 +1050,9 @@
 </span></span><span style="display:flex;"><span><span style="color:#f92672">robot_state_publisher</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">ros__parameters</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">use_sim_time</span>: <span style="color:#66d9ef">False</span>
-</span></span></code></pre></div><ul>
-<li>자율 주행 시 발생하는 상황들에 대처하기 위해 기본적으로 Behavior Tree 예시를 제공합니다. 구체적인 내용보다 Node를 작성하고 시나리오를 구성할 수 있다는 점에 집중합시다.</li>
-</ul>
+</span></span></code></pre></div><blockquote>
+<p>자율 주행 시 발생하는 상황들에 대처하기 위해 기본적으로 Behavior Tree 예시를 제공합니다. 구체적인 내용보다 Node를 작성하고 시나리오를 구성할 수 있다는 점에 집중합시다.</p>
+</blockquote>
 
 
 <footer class="footline">
@@ -1395,16 +1422,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1672802139"></script>
-    <script src="/js/perfect-scrollbar.min.js?1672802139"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1672802139"></script>
-    <script src="/js/jquery.sticky.js?1672802139"></script>
-    <script src="/js/featherlight.min.js?1672802139"></script>
-    <script src="/js/highlight.pack.js?1672802139"></script>
+    <script src="/js/clipboard.min.js?1672804417"></script>
+    <script src="/js/perfect-scrollbar.min.js?1672804417"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1672804417"></script>
+    <script src="/js/jquery.sticky.js?1672804417"></script>
+    <script src="/js/featherlight.min.js?1672804417"></script>
+    <script src="/js/highlight.pack.js?1672804417"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1672802139"></script>
-    <script src="/js/learn.js?1672802139"></script>
-    <script src="/js/hugo-learn.js?1672802139"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1672804417"></script>
+    <script src="/js/learn.js?1672804417"></script>
+    <script src="/js/hugo-learn.js?1672804417"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
