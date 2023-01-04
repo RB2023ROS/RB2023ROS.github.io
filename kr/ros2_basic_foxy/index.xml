@@ -98,5 +98,16 @@ Service의 중요한 특징 한 가지 추가하자면, 하나의 Service Server
 image from : docs.ros.org Action은 바로 이러한 Service의 단점을 극복하기 위해 탄생한 통신 메커니즘입니다.</description>
     </item>
     
+    <item>
+      <title>Lecture9 - C&#43;&#43; Programming Again, Outro</title>
+      <link>/kr/ros2_basic_foxy/lecture9/</link>
+      <pubDate>Mon, 02 Jan 2023 12:38:58 +0900</pubDate>
+      
+      <guid>/kr/ros2_basic_foxy/lecture9/</guid>
+      <description>C++ Programming Again 실질적으로 C++을 통해 ROS 2 개발이 많이 이루어진다 이야기하였습니다. Topic Publish와 Subscriber의 C++코드들도 turtlesim 예제와 함꼐 간단하게 정리해보았습니다.
+Topic Publish 예제 - Random Movement Turtle 예제 실행 cbp cpp_topic_tutorial source install/local_setup.bash # Terminal 1 ros2 run turtlesim turtlesim_node # Terminal 2 ros2 run cpp_topic_tutorial topic_pub_node ⇒ 거북이가 마구잡이로 움직이기 시작할 것입니다
+로봇을 움직이기 위해서는 geometry_msgs/msg/Twist 형식의 topic message type을 사용해야 함을 배운 바 있습니다. 이를 위해서 다음과 같이, 헤더를 include 하면 됩니다.</description>
+    </item>
+    
   </channel>
 </rss>
