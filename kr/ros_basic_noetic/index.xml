@@ -40,10 +40,10 @@ Ubuntu Linux 설치와 ROS 설정 Linux라고 함은 사실 OS 자체라기보�
       <guid>/kr/ros_basic_noetic/lecture3/</guid>
       <description>지난 시간 개발환경 세팅을 잘 진행하였는지 확인을 해보면서 강의를 시작해보겠습니다.
 터미널 프로그램을 실행한 뒤, gazebo를 실행해 봅시다.
-gazebo 위 사진과 같은 화면이 나오지 않았다면 설치가 제대로 되지 않은 것입니다.
-다음으로, ROS 설치는 잘 되었는지도 확인해봅시다.
-# Terminal 1 roscore # Terminal 2 rosrun rospy_tutorials talker 모든 확인이 끝났다면, 예제 프로그램을 실행시켜보겠습니다.
-Husky Gazebo 예제 패키지 설치 sudo apt-get update sudo apt-get install ros-noetic-husky-desktop sudo apt-get install ros-noetic-husky-simulator 예제 프로그램 실행 # Terminal 1 roslaunch husky_gazebo husky_empty_world.</description>
+gazebo 위 사진과 같은 화면이 나오지 않았다면 설치가 제대로 되지 않은 것입니다. (sudo apt install libgazebo11 을 통해 다시 설치해봅시다.)
+About Gazebo Gazebo의 특징과 기본적인 UI, 그리고 사용법을 짚고 넘어가고자 합니다.
+image from : Open Robotics Gazebo는 로봇공학을 위해 제작된 전용 물리 엔진 기반의 높은 3D 시뮬레이터입니다.
+ROS를 관리하는 Open Robotics에서 비롯된 시뮬레이터인만큼 ROS와 높은 호환성을 자랑합니다.</description>
     </item>
     
     <item>
