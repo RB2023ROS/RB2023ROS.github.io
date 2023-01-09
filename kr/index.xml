@@ -226,5 +226,34 @@ image from : eth robot dynamics lecture notes ROS는 오픈소스이니만큼 �
 husky slam # 예시 종속성 설치 sudo apt install ros-noetic-slam-gmapping # Terminal 1 roslaunch smb_gazebo smb_gazebo.launch world:=big_map_summer_school # Terminal 2 roslaunch py_tf2_tutorial slam_gmapping.launch # Terminal 3 rosrun teleop_twist_keyboard teleop_twist_keyboard.py # [option] rviz (이전 예시에서 rviz를 추가하였다면 넘어가셔도 좋습니다.) rviz rviz를 다음과 같이 세팅합니다. 이제 teleop을 통해 로봇을 이동시키면서, rviz 화면의 변화를 확인해봅시다.</description>
     </item>
     
+    <item>
+      <title>Lecture11 - ROSCPP</title>
+      <link>/kr/ros_basic_noetic/lecture11/</link>
+      <pubDate>Fri, 23 Dec 2022 03:00:51 +0900</pubDate>
+      
+      <guid>/kr/ros_basic_noetic/lecture11/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lecture12 - More About ROS System</title>
+      <link>/kr/ros_basic_noetic/lecture12/</link>
+      <pubDate>Thu, 22 Dec 2022 03:02:12 +0900</pubDate>
+      
+      <guid>/kr/ros_basic_noetic/lecture12/</guid>
+      <description>ROS Node가 실행되고 Topic 통신이 이루어지기 위해서 Master에게 자신을 등록하고 Master에 의한 Node간 TCPROS / UDPROS 연결이 이루어져야 합니다.
+개념 정리와 예시, 그리고 데모를 통해 ROS의 통신 시스템에 대해 배워봅시다.
+XMLRPC Extensible Markup Language - XML이란, 웹 서비스에서 데이터를 표현하기 위해 사용하는 마크업 언어입니다. (such as HTML), 모든 데이터를 구조화해서 transport하기 때문에 검색과 재사용에 유리합니다. ROS에서 사용하는 launch file도 xml을 사용하고 있으므로 ROS 개발자들에게는 익숙한 문법일 것입니다. image from : xml 파일의 비밀 RPC - remote procedure call 란, 분산 네트워크 환경에서의 프로그래밍을 용이하게 하기 위해 등장한 기술로, 원격에 정의된 함수를 로컬에서 호출하는 식으로 사용이 가능합니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture13 - SROS</title>
+      <link>/kr/ros_basic_noetic/lecture13/</link>
+      <pubDate>Wed, 21 Dec 2022 03:02:41 +0900</pubDate>
+      
+      <guid>/kr/ros_basic_noetic/lecture13/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
