@@ -152,7 +152,9 @@ XMLRPC Extensible Markup Language - XML이란, 웹 서비스에서 데이터를 
       <pubDate>Wed, 21 Dec 2022 03:02:41 +0900</pubDate>
       
       <guid>/kr/ros_basic_noetic/lecture13/</guid>
-      <description></description>
+      <description>이전 데모를 통해 ROS의 보안 취약성에 대해 살펴보았습니다. 이러한 취약점들을 개선하기 위한 방법으로 SROS에 대해 배워보겠습니다.
+sros는 마지막 commit 2018년 이후 개발이 사실상 멈춘 프로젝트입니다. ROS 개발자들이 보안을 위해 어떠한 노력을 들였는지 정도만 살펴보고, 데모와 자세한 내용은 ROS 2 강의에서 이어나가도록 하겠습니다.
+UDPROS가 roscpp만 지원했던 것처럼, sros도 rospy와 사용할 시 제한이 있습니다. TCPROS UDPROS rospy X O roscpp O O rosjava O O sros는 ROS의 client 라이브러리 소스 코드에 보안을 적용하여 새롭게 개발한 ROS Client Library입니다.</description>
     </item>
     
   </channel>
