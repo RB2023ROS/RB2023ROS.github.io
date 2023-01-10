@@ -232,7 +232,9 @@ husky slam # 예시 종속성 설치 sudo apt install ros-noetic-slam-gmapping #
       <pubDate>Fri, 23 Dec 2022 03:00:51 +0900</pubDate>
       
       <guid>/kr/ros_basic_noetic/lecture11/</guid>
-      <description></description>
+      <description>roscpp Programming ros는 다양한 언어를 지원하고 있습니다. 지금까지 살펴보았던 rospy는 가장 쉽고 빠르게 배울 수 있어서 사용하였지만, UDPROS, Nodelet, Plugin과 같은 Advanced ROS 개발을 위해서는 C++ 프로그래밍을 통한 Node 개발이 필요합니다.
+image from : wikipedia rospy를 통해 개념을 모두 익혔기 때문에 이번 강의에서는 개발 API를 위주로 roscpp을 배워보겠습니다.
+가장 기초가 되는 Node 프로그래밍부터 차이점을 살펴봅시다. rospy roscpp #!/usr/bin/env python3 import rospy from std_msgs.msg import String def my_first_node(): # ROS nodes require initialization # It contains master registration, uploading parameters rospy.</description>
     </item>
     
     <item>
