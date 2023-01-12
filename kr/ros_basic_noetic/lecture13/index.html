@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.109.0">
+    <meta name="generator" content="Hugo 0.104.1" />
     <meta name="description" content="COM2018 OOP Class Lecture Note">
 <meta name="author" content="Soo Young Kim">
 
@@ -12,22 +12,22 @@
     <title>Lecture13 - SROS - Documentation for Hugo Learn Theme</title>
 
     
-    <link href="/css/nucleus.css?1673422622" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1673422622" rel="stylesheet">
-    <link href="/css/hybrid.css?1673422622" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1673422622" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1673422622" rel="stylesheet">
-    <link href="/css/auto-complete.css?1673422622" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1673422622" rel="stylesheet">
-    <link href="/css/theme.css?1673422622" rel="stylesheet">
-    <link href="/css/tabs.css?1673422622" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1673422622" rel="stylesheet">
+    <link href="/css/nucleus.css?1673539806" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1673539806" rel="stylesheet">
+    <link href="/css/hybrid.css?1673539806" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1673539806" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1673539806" rel="stylesheet">
+    <link href="/css/auto-complete.css?1673539806" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1673539806" rel="stylesheet">
+    <link href="/css/theme.css?1673539806" rel="stylesheet">
+    <link href="/css/tabs.css?1673539806" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1673539806" rel="stylesheet">
     
-    <link href="/css/theme-green.css?1673422622" rel="stylesheet">
+    <link href="/css/theme-green.css?1673539806" rel="stylesheet">
     
-    <link href="/css/foo.css?1673422622" rel="stylesheet"><link href="/css/bar.css?1673422622" rel="stylesheet">
+    <link href="/css/foo.css?1673539806" rel="stylesheet"><link href="/css/bar.css?1673539806" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1673422622"></script>
+    <script src="/js/jquery-3.3.1.min.js?1673539806"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1673422622"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1673422622"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1673539806"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1673539806"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/kr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1673422622"></script>
+<script type="text/javascript" src="/js/search.js?1673539806"></script>
 
     
   </div>
@@ -871,7 +871,7 @@
 </span></span><span style="display:flex;"><span>              <span style="color:#960050;background-color:#1e0010">├──</span> keyserver.cert
 </span></span><span style="display:flex;"><span>              <span style="color:#960050;background-color:#1e0010">└──</span> keyserver.pem
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">8</span> directories, <span style="color:#ae81ff">10</span> files
+</span></span><span style="display:flex;"><span>  8 directories, 10 files
 </span></span></code></pre></div><ol>
 <li>초기 실행 시 로딩된 configuration 파일은 keyserver에 CA를 로드하도록 지시하고, keystore에 존재하지 않는 경우 방법을 지시합니다.</li>
 <li>root와 중간 Master CA가 초기화되면 keyserver는 자체 transport 인증서와 keypair 로딩을 요청받습니다.</li>
@@ -944,11 +944,11 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$ tree apparmor_profiles/profiles/
 </span></span><span style="display:flex;"><span>apparmor_profiles/profiles/
 </span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">├──</span> ros <span style="color:#75715e"># root profile library folder</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">│  </span> <span style="color:#960050;background-color:#1e0010">├──</span> base <span style="color:#75715e"># base networking and signal abstractions for ROS</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">│  </span> <span style="color:#960050;background-color:#1e0010">├──</span> node <span style="color:#75715e"># node abstractions executables needed for ros nodes</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">│  </span> <span style="color:#960050;background-color:#1e0010">├──</span> nodes <span style="color:#75715e"># additional node specific abstractions</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">│  </span> <span style="color:#960050;background-color:#1e0010">│  </span> <span style="color:#960050;background-color:#1e0010">└──</span> roslaunch <span style="color:#75715e"># additional file and signal abstractions for roslaunch</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">│  </span> <span style="color:#960050;background-color:#1e0010">└──</span> python <span style="color:#75715e"># node abstractions needed for python nodes</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">│</span>   <span style="color:#960050;background-color:#1e0010">├──</span> base <span style="color:#75715e"># base networking and signal abstractions for ROS</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">│</span>   <span style="color:#960050;background-color:#1e0010">├──</span> node <span style="color:#75715e"># node abstractions executables needed for ros nodes</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">│</span>   <span style="color:#960050;background-color:#1e0010">├──</span> nodes <span style="color:#75715e"># additional node specific abstractions</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">│</span>   <span style="color:#960050;background-color:#1e0010">│</span>   <span style="color:#960050;background-color:#1e0010">└──</span> roslaunch <span style="color:#75715e"># additional file and signal abstractions for roslaunch</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">│</span>   <span style="color:#960050;background-color:#1e0010">└──</span> python <span style="color:#75715e"># node abstractions needed for python nodes</span>
 </span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">└──</span> tunables <span style="color:#75715e"># root tunables folder for AppArmor profile variables</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">├──</span> ros <span style="color:#75715e"># path abstractions executables needed for ros nodes</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">└──</span> ros.d <span style="color:#75715e"># additional distro specific abstractions</span>
@@ -1414,16 +1414,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1673422622"></script>
-    <script src="/js/perfect-scrollbar.min.js?1673422622"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1673422622"></script>
-    <script src="/js/jquery.sticky.js?1673422622"></script>
-    <script src="/js/featherlight.min.js?1673422622"></script>
-    <script src="/js/highlight.pack.js?1673422622"></script>
+    <script src="/js/clipboard.min.js?1673539806"></script>
+    <script src="/js/perfect-scrollbar.min.js?1673539806"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1673539806"></script>
+    <script src="/js/jquery.sticky.js?1673539806"></script>
+    <script src="/js/featherlight.min.js?1673539806"></script>
+    <script src="/js/highlight.pack.js?1673539806"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1673422622"></script>
-    <script src="/js/learn.js?1673422622"></script>
-    <script src="/js/hugo-learn.js?1673422622"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1673539806"></script>
+    <script src="/js/learn.js?1673539806"></script>
+    <script src="/js/hugo-learn.js?1673539806"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>

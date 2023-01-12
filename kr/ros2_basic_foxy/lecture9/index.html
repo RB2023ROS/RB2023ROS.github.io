@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.109.0">
+    <meta name="generator" content="Hugo 0.104.1" />
     <meta name="description" content="COM2018 OOP Class Lecture Note">
 <meta name="author" content="Soo Young Kim">
 
@@ -12,22 +12,22 @@
     <title>Lecture9 - C&#43;&#43; Programming Again, Outro - Documentation for Hugo Learn Theme</title>
 
     
-    <link href="/css/nucleus.css?1673422622" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1673422622" rel="stylesheet">
-    <link href="/css/hybrid.css?1673422622" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1673422622" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1673422622" rel="stylesheet">
-    <link href="/css/auto-complete.css?1673422622" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1673422622" rel="stylesheet">
-    <link href="/css/theme.css?1673422622" rel="stylesheet">
-    <link href="/css/tabs.css?1673422622" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1673422622" rel="stylesheet">
+    <link href="/css/nucleus.css?1673539806" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1673539806" rel="stylesheet">
+    <link href="/css/hybrid.css?1673539806" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1673539806" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1673539806" rel="stylesheet">
+    <link href="/css/auto-complete.css?1673539806" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1673539806" rel="stylesheet">
+    <link href="/css/theme.css?1673539806" rel="stylesheet">
+    <link href="/css/tabs.css?1673539806" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1673539806" rel="stylesheet">
     
-    <link href="/css/theme-green.css?1673422622" rel="stylesheet">
+    <link href="/css/theme-green.css?1673539806" rel="stylesheet">
     
-    <link href="/css/foo.css?1673422622" rel="stylesheet"><link href="/css/bar.css?1673422622" rel="stylesheet">
+    <link href="/css/foo.css?1673539806" rel="stylesheet"><link href="/css/bar.css?1673539806" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1673422622"></script>
+    <script src="/js/jquery-3.3.1.min.js?1673539806"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1673422622"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1673422622"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1673539806"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1673539806"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/kr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1673422622"></script>
+<script type="text/javascript" src="/js/search.js?1673539806"></script>
 
     
   </div>
@@ -815,12 +815,12 @@
 <li>로직 자체는 어렵지 않기에 API에 집중하여 분석해보겠습니다.</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>TwistPubNode() <span style="color:#f92672">:</span> Node(<span style="color:#e6db74">&#34;twist_pub_node&#34;</span>) {
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"> </span> <span style="color:#960050;background-color:#1e0010"> </span> twist_publisher <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_publisher<span style="color:#f92672">&lt;</span>geometry_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>Twist<span style="color:#f92672">&gt;</span>(<span style="color:#e6db74">&#34;turtle1/cmd_vel&#34;</span>, <span style="color:#ae81ff">10</span>);
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"> </span> <span style="color:#960050;background-color:#1e0010"> </span> timer <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_wall_timer(
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"> </span> <span style="color:#960050;background-color:#1e0010"> </span> <span style="color:#960050;background-color:#1e0010"> </span> <span style="color:#960050;background-color:#1e0010"> </span> std<span style="color:#f92672">::</span>chrono<span style="color:#f92672">::</span>milliseconds(<span style="color:#ae81ff">500</span>),
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"> </span> <span style="color:#960050;background-color:#1e0010"> </span> <span style="color:#960050;background-color:#1e0010"> </span> <span style="color:#960050;background-color:#1e0010"> </span> std<span style="color:#f92672">::</span>bind(<span style="color:#f92672">&amp;</span>TwistPubNode<span style="color:#f92672">::</span>timer_callback, <span style="color:#66d9ef">this</span>)
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"> </span> <span style="color:#960050;background-color:#1e0010"> </span> );
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"> </span> }
+</span></span><span style="display:flex;"><span>    twist_publisher <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_publisher<span style="color:#f92672">&lt;</span>geometry_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>Twist<span style="color:#f92672">&gt;</span>(<span style="color:#e6db74">&#34;turtle1/cmd_vel&#34;</span>, <span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span>    timer <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_wall_timer(
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>chrono<span style="color:#f92672">::</span>milliseconds(<span style="color:#ae81ff">500</span>),
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>bind(<span style="color:#f92672">&amp;</span>TwistPubNode<span style="color:#f92672">::</span>timer_callback, <span style="color:#66d9ef">this</span>)
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
 </span></span></code></pre></div><p>subscriber는 create_subscription 함수를 통해 생성할 수 있습니다.</p>
 <ul>
 <li>&lt;&gt; 안에는 <strong>message type</strong>을 적어주고</li>
@@ -1478,16 +1478,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1673422622"></script>
-    <script src="/js/perfect-scrollbar.min.js?1673422622"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1673422622"></script>
-    <script src="/js/jquery.sticky.js?1673422622"></script>
-    <script src="/js/featherlight.min.js?1673422622"></script>
-    <script src="/js/highlight.pack.js?1673422622"></script>
+    <script src="/js/clipboard.min.js?1673539806"></script>
+    <script src="/js/perfect-scrollbar.min.js?1673539806"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1673539806"></script>
+    <script src="/js/jquery.sticky.js?1673539806"></script>
+    <script src="/js/featherlight.min.js?1673539806"></script>
+    <script src="/js/highlight.pack.js?1673539806"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1673422622"></script>
-    <script src="/js/learn.js?1673422622"></script>
-    <script src="/js/hugo-learn.js?1673422622"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1673539806"></script>
+    <script src="/js/learn.js?1673539806"></script>
+    <script src="/js/hugo-learn.js?1673539806"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
