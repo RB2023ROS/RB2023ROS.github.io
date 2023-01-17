@@ -12,22 +12,22 @@
     <title>Lecture11 - About DDS (2) - Documentation for Hugo Learn Theme</title>
 
     
-    <link href="/css/nucleus.css?1673940098" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1673940098" rel="stylesheet">
-    <link href="/css/hybrid.css?1673940098" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1673940098" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1673940098" rel="stylesheet">
-    <link href="/css/auto-complete.css?1673940098" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1673940098" rel="stylesheet">
-    <link href="/css/theme.css?1673940098" rel="stylesheet">
-    <link href="/css/tabs.css?1673940098" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1673940098" rel="stylesheet">
+    <link href="/css/nucleus.css?1673946746" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1673946746" rel="stylesheet">
+    <link href="/css/hybrid.css?1673946746" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1673946746" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1673946746" rel="stylesheet">
+    <link href="/css/auto-complete.css?1673946746" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1673946746" rel="stylesheet">
+    <link href="/css/theme.css?1673946746" rel="stylesheet">
+    <link href="/css/tabs.css?1673946746" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1673946746" rel="stylesheet">
     
-    <link href="/css/theme-green.css?1673940098" rel="stylesheet">
+    <link href="/css/theme-green.css?1673946746" rel="stylesheet">
     
-    <link href="/css/foo.css?1673940098" rel="stylesheet"><link href="/css/bar.css?1673940098" rel="stylesheet">
+    <link href="/css/foo.css?1673946746" rel="stylesheet"><link href="/css/bar.css?1673946746" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1673940098"></script>
+    <script src="/js/jquery-3.3.1.min.js?1673946746"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1673940098"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1673940098"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1673946746"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1673946746"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/kr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1673940098"></script>
+<script type="text/javascript" src="/js/search.js?1673946746"></script>
 
     
   </div>
@@ -769,6 +769,7 @@
     <li><a href="#ddsrtps패킷-확인해보기-wireshark">DDS RTPS 패킷 확인해보기 (wireshark)</a>
       <ul>
         <li><a href="#ros-2-domain-id">ROS 2 Domain ID</a></li>
+        <li><a href="#ros-rmw와-다양한-dds-벤더들">ROS RMW와 다양한 DDS 벤더들</a></li>
       </ul>
     </li>
   </ul>
@@ -997,6 +998,146 @@
 <blockquote>
 <p>이러한 이유로 ROS 2 공식 문서에서는 0-101 사이의 Domain ID를 사용하기를 권장하고 있습니다.</p>
 </blockquote>
+<h3 id="ros-rmw와-다양한-dds-벤더들">ROS RMW와 다양한 DDS 벤더들</h3>
+<blockquote>
+<p>DDS 자체는 산업 표준이다보니 다양한 벤더들에서 제공되고 있습니다. ROS 2 설치 시 자동으로 Fast DDS가 사용되지만, 아래 표와 같이 다양한 DDS 벤더들이 존재하고 있습니다.</p>
+</blockquote>
+<p>이렇게 다양한 DDS 벤더들에 맞추기 위해 ROS 2는 <strong>RMW</strong>(“<strong>R</strong>OS <strong>M</strong>iddle<strong>W</strong>are interface”)라는 패키지들을 제공합니다. 다른 벤더의 DDS를 사용하게 되면, 이 RMW를 바꿔줘야 하는 것입니다.</p>
+<table>
+<thead>
+<tr>
+<th>Product name</th>
+<th>License</th>
+<th>RMW implementation</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eProsima Fast DDS</td>
+<td>Apache 2</td>
+<td>rmw_fastrtps_cpp</td>
+<td>Full support. Default RMW. Packaged with binary releases.</td>
+</tr>
+<tr>
+<td>Eclipse Cyclone DDS</td>
+<td>Eclipse Public License v2.0</td>
+<td>rmw_cyclonedds_cpp</td>
+<td>Full support. Packaged with binary releases.</td>
+</tr>
+<tr>
+<td>RTI Connext</td>
+<td>commercial, research</td>
+<td>rmw_connext_cpp</td>
+<td>Full support. Support included in binaries, but Connext installed separately.</td>
+</tr>
+<tr>
+<td>GurumNetworks GurumDDS</td>
+<td>commercial</td>
+<td>rmw_gurumdds_cpp</td>
+<td>Community support. Support included in binaries, but GurumDDS installed separately.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="notices note" ><p>오픈소스인 Fast DDS, Cyclone DDS는 무료이지만, 더 좋은 성능을 위해서는 rti와 같은 유료 서비스를 사용하시기 바랍니다.</p>
+</div>
+
+<ul>
+<li>apt를 통해 손쉽게 rmw를 설치할 수 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> sudo apt install ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw
+</span></span><span style="display:flex;"><span>ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw                              ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>fastrtps<span style="color:#f92672">-</span>dynamic<span style="color:#f92672">-</span>cpp
+</span></span><span style="display:flex;"><span>ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>connext<span style="color:#f92672">-</span>cpp                  ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>fastrtps<span style="color:#f92672">-</span>dynamic<span style="color:#f92672">-</span>cpp<span style="color:#f92672">-</span>dbgsym
+</span></span><span style="display:flex;"><span>ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>connext<span style="color:#f92672">-</span>cpp<span style="color:#f92672">-</span>dbgsym           ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>fastrtps<span style="color:#f92672">-</span>shared<span style="color:#f92672">-</span>cpp
+</span></span><span style="display:flex;"><span>ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>connext<span style="color:#f92672">-</span>shared<span style="color:#f92672">-</span>cpp           ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>fastrtps<span style="color:#f92672">-</span>shared<span style="color:#f92672">-</span>cpp<span style="color:#f92672">-</span>dbgsym
+</span></span><span style="display:flex;"><span>ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>connext<span style="color:#f92672">-</span>shared<span style="color:#f92672">-</span>cpp<span style="color:#f92672">-</span>dbgsym    ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>gurumdds<span style="color:#f92672">-</span>cpp
+</span></span><span style="display:flex;"><span>ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>cyclonedds<span style="color:#f92672">-</span>cpp               ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>gurumdds<span style="color:#f92672">-</span>cpp<span style="color:#f92672">-</span>dbgsym
+</span></span><span style="display:flex;"><span>ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>cyclonedds<span style="color:#f92672">-</span>cpp<span style="color:#f92672">-</span>dbgsym        ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>gurumdds<span style="color:#f92672">-</span>shared<span style="color:#f92672">-</span>cpp
+</span></span><span style="display:flex;"><span>ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>dbgsym                       ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>gurumdds<span style="color:#f92672">-</span>shared<span style="color:#f92672">-</span>cpp<span style="color:#f92672">-</span>dbgsym
+</span></span><span style="display:flex;"><span>ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>dds<span style="color:#f92672">-</span>common                   ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>implementation
+</span></span><span style="display:flex;"><span>ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>dds<span style="color:#f92672">-</span>common<span style="color:#f92672">-</span>dbgsym            ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>implementation<span style="color:#f92672">-</span>cmake
+</span></span><span style="display:flex;"><span>ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>fastrtps<span style="color:#f92672">-</span>cpp                 ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>implementation<span style="color:#f92672">-</span>dbgsym
+</span></span><span style="display:flex;"><span>ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rmw<span style="color:#f92672">-</span>fastrtps<span style="color:#f92672">-</span>cpp<span style="color:#f92672">-</span>dbgsym
+</span></span></code></pre></div><p>ROS 2 시스템 상에서 사용하는 DDS 벤더를 바꾸는 것은 환경변수를 설정하는 것으로 손쉽게 진행할 수 있습니다. (해당 DDS와 RMW가 설치되어 있다는 가정 하에) 더불어, 서로 다른 벤더의 DDS를 사용하고 있더라도 DDS 표준(SPDP와 SEDP)을 따르고 있다면 상호 통신이 가능합니다.</p>
+<ul>
+<li><strong>Example</strong> - Fast DDS &lt;&gt; Cyclone DDS 상호간 Topic 통신</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> <span style="color:#66d9ef">export</span> RMW_IMPLEMENTATION<span style="color:#f92672">=</span>rmw_cyclonedds_cpp
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run demo_nodes_cpp listener
+</span></span><span style="display:flex;"><span>[INFO]<span style="color:#f92672">:</span> I heard: [Hello World: <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>[INFO]<span style="color:#f92672">:</span> I heard: [Hello World: <span style="color:#ae81ff">2</span>]
+</span></span><span style="display:flex;"><span>[INFO]<span style="color:#f92672">:</span> I heard: [Hello World: <span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> <span style="color:#66d9ef">export</span> RMW_IMPLEMENTATION<span style="color:#f92672">=</span>rmw_fastrtps_cpp
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run demo_nodes_cpp talker
+</span></span><span style="display:flex;"><span>[INFO]<span style="color:#f92672">:</span> Publishing: <span style="color:#960050;background-color:#1e0010">&#39;</span>Hello World: <span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+</span></span><span style="display:flex;"><span>[INFO]<span style="color:#f92672">:</span> Publishing: <span style="color:#960050;background-color:#1e0010">&#39;</span>Hello World: <span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+</span></span><span style="display:flex;"><span>[INFO]<span style="color:#f92672">:</span> Publishing: <span style="color:#960050;background-color:#1e0010">&#39;</span>Hello World: <span style="color:#ae81ff">3</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+</span></span></code></pre></div>
+<div class="notices tip" ><p>예시의 실행에서 지연이 발생함으로 알 수 있듯이, 실제 제품을 제작할 때는 사용하는 RMW를 통일시켜주는 것을 추천합니다.</p>
+</div>
+
+<ul>
+<li>강의 개발환경에서 제공하는 설치 튜토리얼을 따라오셨다면 <strong>config.yaml</strong> 파일을 수정함으로 손쉽게 DDS Vendor를 변경하실 수 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ gedit ~/ros_menu/config.yaml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ROS <span style="color:#ae81ff">2</span> foxy:
+</span></span><span style="display:flex;"><span>    option_num: <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    ROS_version: <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    distro_name: foxy
+</span></span><span style="display:flex;"><span>    ros2_path: /opt/ros/foxy
+</span></span><span style="display:flex;"><span>    domain_id: <span style="color:#75715e"># set if you don&#39;t want to use default domain id</span>
+</span></span><span style="display:flex;"><span>    cmds:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># - source ${HOME}/ros2_ws/install/local_setup.${shell}</span>
+</span></span><span style="display:flex;"><span>      - source_plugin dds_bashrc <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># - source_plugin openvino_bashrc</span>
+</span></span></code></pre></div><p>제공되는 기본 DDS Vendor들은 아래와 같습니다.</p>
+<table>
+<thead>
+<tr>
+<th>Number</th>
+<th>DDS Vendor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Show Menu</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Eclipse Cyclone DDS</td>
+</tr>
+<tr>
+<td>2</td>
+<td>OpenSplice</td>
+</tr>
+<tr>
+<td>3</td>
+<td>FastRTPS</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>dds_bashrc를 0으로 수정한 다음 새로운 터미널을 실행시키면, 아래와 같이 DDS를 선택하는 옵션이 등장합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>0<span style="color:#f92672">)</span> Do nothing
+</span></span><span style="display:flex;"><span>1<span style="color:#f92672">)</span> ROS <span style="color:#ae81ff">1</span> noetic
+</span></span><span style="display:flex;"><span>2<span style="color:#f92672">)</span> ROS <span style="color:#ae81ff">2</span> foxy
+</span></span><span style="display:flex;"><span>3<span style="color:#f92672">)</span> ROS2/ROS1_bridge
+</span></span><span style="display:flex;"><span>Please choose an option: <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>------------------------------------------------------
+</span></span><span style="display:flex;"><span>* ROS_DOMAIN_ID <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>------------------------------------------------------
+</span></span><span style="display:flex;"><span>source /home/kimsooyoung/.ros_menu/plugins_bashrc/dds_bashrc <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>**** Choose DDS you want to use ****
+</span></span><span style="display:flex;"><span>1<span style="color:#f92672">)</span> Eclipse Cyclone DDS
+</span></span><span style="display:flex;"><span>2<span style="color:#f92672">)</span> OpenSplice CE
+</span></span><span style="display:flex;"><span>3<span style="color:#f92672">)</span> FastRTPS
+</span></span><span style="display:flex;"><span>Please choose an option 1-3:
+</span></span></code></pre></div><hr>
 <p><strong>참고자료</strong></p>
 <ul>
 <li><a href="https://blog.naver.com/neos_rtos">MDS테크</a></li>
@@ -1483,16 +1624,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1673940098"></script>
-    <script src="/js/perfect-scrollbar.min.js?1673940098"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1673940098"></script>
-    <script src="/js/jquery.sticky.js?1673940098"></script>
-    <script src="/js/featherlight.min.js?1673940098"></script>
-    <script src="/js/highlight.pack.js?1673940098"></script>
+    <script src="/js/clipboard.min.js?1673946746"></script>
+    <script src="/js/perfect-scrollbar.min.js?1673946746"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1673946746"></script>
+    <script src="/js/jquery.sticky.js?1673946746"></script>
+    <script src="/js/featherlight.min.js?1673946746"></script>
+    <script src="/js/highlight.pack.js?1673946746"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1673940098"></script>
-    <script src="/js/learn.js?1673940098"></script>
-    <script src="/js/hugo-learn.js?1673940098"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1673946746"></script>
+    <script src="/js/learn.js?1673946746"></script>
+    <script src="/js/hugo-learn.js?1673946746"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>

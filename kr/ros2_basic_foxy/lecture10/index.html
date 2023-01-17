@@ -12,22 +12,22 @@
     <title>Lecture10 - About DDS - Documentation for Hugo Learn Theme</title>
 
     
-    <link href="/css/nucleus.css?1673940098" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1673940098" rel="stylesheet">
-    <link href="/css/hybrid.css?1673940098" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1673940098" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1673940098" rel="stylesheet">
-    <link href="/css/auto-complete.css?1673940098" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1673940098" rel="stylesheet">
-    <link href="/css/theme.css?1673940098" rel="stylesheet">
-    <link href="/css/tabs.css?1673940098" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1673940098" rel="stylesheet">
+    <link href="/css/nucleus.css?1673946746" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1673946746" rel="stylesheet">
+    <link href="/css/hybrid.css?1673946746" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1673946746" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1673946746" rel="stylesheet">
+    <link href="/css/auto-complete.css?1673946746" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1673946746" rel="stylesheet">
+    <link href="/css/theme.css?1673946746" rel="stylesheet">
+    <link href="/css/tabs.css?1673946746" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1673946746" rel="stylesheet">
     
-    <link href="/css/theme-green.css?1673940098" rel="stylesheet">
+    <link href="/css/theme-green.css?1673946746" rel="stylesheet">
     
-    <link href="/css/foo.css?1673940098" rel="stylesheet"><link href="/css/bar.css?1673940098" rel="stylesheet">
+    <link href="/css/foo.css?1673946746" rel="stylesheet"><link href="/css/bar.css?1673946746" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1673940098"></script>
+    <script src="/js/jquery-3.3.1.min.js?1673946746"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1673940098"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1673940098"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1673946746"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1673946746"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/kr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1673940098"></script>
+<script type="text/javascript" src="/js/search.js?1673946746"></script>
 
     
   </div>
@@ -1035,58 +1035,146 @@
 </ul>
 <p><img src="/kr/ros2_basic_foxy/images10/qos7.png?height=100px" alt="qos7.png"></p>
 <blockquote>
-<p>ROS 2에서는 자주 사용되는 QoS 조합을 묶어 제공하고 있습니다. 지금까지 우리가 queue_size만을 전달하고 있었지만, 사실은 아래 사진의 Default에서 Depth만 바꿔주고 있었던 것입니다.</p>
+<p>ROS 2에서는 자주 사용되는 QoS 조합을 묶어 RMW QoS Profile이라는 이름으로 제공하고 있습니다. 지금까지 우리가 queue_size만을 전달하고 있었지만, 사실은 아래 사진의 Default에서 Depth만 바꿔주고 있었던 것입니다.</p>
 </blockquote>
 <p><img src="/kr/ros2_basic_foxy/images10/qos8.png?height=300px" alt="qos8.png"></p>
 <ul>
 <li>image from : <a href="https://cafe.naver.com/openrt/24319">오로카</a></li>
 </ul>
+<blockquote>
 <p>ros2에서 QoS 설정하는 방법은 매우 간단합니다. Publisher, Subscriber 클래스를 생성하면서 QoS 옵션을 매개변수로 전달하면 됩니다.</p>
+</blockquote>
 <ul>
-<li>example - History 옵션</li>
+<li>python example - RMW QoS Profile 사용 시</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>[RCLCPP]
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> qos_profile <span style="color:#f92672">=</span> rclcpp<span style="color:#f92672">::</span>QoS(rclcpp<span style="color:#f92672">::</span>KeepLast(<span style="color:#ae81ff">10</span>)).reliable().durability_volatile();
-</span></span><span style="display:flex;"><span>publisher_ <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_publisher<span style="color:#f92672">&lt;</span>std_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>String<span style="color:#f92672">&gt;</span>(
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;topic_name&#34;</span>, qos_profile);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.qos <span style="color:#f92672">import</span> qos_profile_sensor_data
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>[RCLPY]
-</span></span><span style="display:flex;"><span>qos_profile <span style="color:#f92672">=</span> QoSProfile(history<span style="color:#f92672">=</span>QoSHistoryPolicy.KEEP_LAST, depth<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
-</span></span><span style="display:flex;"><span>self.sensor_publisher <span style="color:#f92672">=</span> self.create_publisher(
-</span></span><span style="display:flex;"><span>    Int8MultiArray, <span style="color:#960050;background-color:#1e0010">&#39;</span>sensor<span style="color:#960050;background-color:#1e0010">&#39;</span>, qos_profile
-</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>string_publisher <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_publisher(String, <span style="color:#e6db74">&#39;qos_test_topic&#39;</span>, qos_profile_sensor_data)
 </span></span></code></pre></div><ul>
-<li>topic을 실행한 뒤, 이러한 QoS 옵션을 보고 싶다면 Topic 커멘드에 verbose 옵션을 추가하면 됩니다.</li>
+<li>python example - 직접 Profile 설정 시</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1</span>
-</span></span><span style="display:flex;"><span>$ ros2 run examples_rclcpp_minimal_publisher publisher_lambda
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1673500641.181287635<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>minimal_publisher<span style="color:#f92672">]</span>: Publishing: <span style="color:#e6db74">&#39;Hello, world! 0&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1673500641.681303678<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>minimal_publisher<span style="color:#f92672">]</span>: Publishing: <span style="color:#e6db74">&#39;Hello, world! 1&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1673500642.181304949<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>minimal_publisher<span style="color:#f92672">]</span>: Publishing: <span style="color:#e6db74">&#39;Hello, world! 2&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.qos <span style="color:#f92672">import</span> QoSDurabilityPolicy
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.qos <span style="color:#f92672">import</span> QoSHistoryPolicy
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.qos <span style="color:#f92672">import</span> QoSProfile
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.qos <span style="color:#f92672">import</span> QoSReliabilityPolicy
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
-</span></span><span style="display:flex;"><span>$ ros2 topic info /topic --verbose
+</span></span><span style="display:flex;"><span>my_profile <span style="color:#f92672">=</span> QoSProfile(
+</span></span><span style="display:flex;"><span>    reliability<span style="color:#f92672">=</span>QoSReliabilityPolicy<span style="color:#f92672">.</span>BEST_EFFORT,
+</span></span><span style="display:flex;"><span>    history<span style="color:#f92672">=</span>QoSHistoryPolicy<span style="color:#f92672">.</span>KEEP_LAST,
+</span></span><span style="display:flex;"><span>    depth<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>    durability<span style="color:#f92672">=</span>QoSDurabilityPolicy<span style="color:#f92672">.</span>VOLATILE
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>string_publisher <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_publisher(String, <span style="color:#e6db74">&#39;qos_test_topic&#39;</span>, my_profile)
+</span></span></code></pre></div><p>=&gt; 참고 링크 : <a href="https://github.com/ros2/rclpy/blob/4e1654eca2758c42e7c22f3d6c518d6ec26ad9de/rclpy/rclpy/qos.py#L390">rclpy/qos.py</a></p>
+<ul>
+<li>topic 통신이 이루어지고 있는 상황에서, QoS 옵션을 보고 싶다면 Topic 커멘드에 verbose 옵션을 추가하면 됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1 - publisher</span>
+</span></span><span style="display:flex;"><span>$ ros2 run py_topic_tutorial qos_example_publisher
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2 - subscriber</span>
+</span></span><span style="display:flex;"><span>$ ros2 run py_topic_tutorial qos_example_subscriber
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 3 - topic info</span>
+</span></span><span style="display:flex;"><span>$ ros2 topic info /qos_test_topic --verbose
 </span></span><span style="display:flex;"><span>Type: std_msgs/msg/String
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Publisher count: <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Node name: minimal_publisher
+</span></span><span style="display:flex;"><span>Node name: twist_pub_node
 </span></span><span style="display:flex;"><span>Node namespace: /
 </span></span><span style="display:flex;"><span>Topic type: std_msgs/msg/String
 </span></span><span style="display:flex;"><span>Endpoint type: PUBLISHER
-</span></span><span style="display:flex;"><span>GID: a6.cc.10.01.34.e0.36.86.25.1a.b6.3b.00.00.15.03.00.00.00.00.00.00.00.00
+</span></span><span style="display:flex;"><span>GID: 60.77.10.01.f3.67.78.3d.6b.0c.cc.7b.00.00.14.03.00.00.00.00.00.00.00.00
 </span></span><span style="display:flex;"><span>QoS profile:
-</span></span><span style="display:flex;"><span>  Reliability: RMW_QOS_POLICY_RELIABILITY_RELIABLE
+</span></span><span style="display:flex;"><span>  Reliability: RMW_QOS_POLICY_RELIABILITY_BEST_EFFORT
 </span></span><span style="display:flex;"><span>  Durability: RMW_QOS_POLICY_DURABILITY_VOLATILE
 </span></span><span style="display:flex;"><span>  Lifespan: <span style="color:#ae81ff">9223372036854775807</span> nanoseconds
 </span></span><span style="display:flex;"><span>  Deadline: <span style="color:#ae81ff">9223372036854775807</span> nanoseconds
 </span></span><span style="display:flex;"><span>  Liveliness: RMW_QOS_POLICY_LIVELINESS_AUTOMATIC
 </span></span><span style="display:flex;"><span>  Liveliness lease duration: <span style="color:#ae81ff">9223372036854775807</span> nanoseconds
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Subscription count: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Subscription count: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Node name: string_sub_node
+</span></span><span style="display:flex;"><span>Node namespace: /
+</span></span><span style="display:flex;"><span>Topic type: std_msgs/msg/String
+</span></span><span style="display:flex;"><span>Endpoint type: SUBSCRIPTION
+</span></span><span style="display:flex;"><span>GID: d2.03.10.01.d5.6b.69.e0.be.3f.b5.a2.00.00.14.04.00.00.00.00.00.00.00.00
+</span></span><span style="display:flex;"><span>QoS profile:
+</span></span><span style="display:flex;"><span>  Reliability: RMW_QOS_POLICY_RELIABILITY_BEST_EFFORT
+</span></span><span style="display:flex;"><span>  Durability: RMW_QOS_POLICY_DURABILITY_VOLATILE
+</span></span><span style="display:flex;"><span>  Lifespan: <span style="color:#ae81ff">9223372036854775807</span> nanoseconds
+</span></span><span style="display:flex;"><span>  Deadline: <span style="color:#ae81ff">9223372036854775807</span> nanoseconds
+</span></span><span style="display:flex;"><span>  Liveliness: RMW_QOS_POLICY_LIVELINESS_AUTOMATIC
+</span></span><span style="display:flex;"><span>  Liveliness lease duration: <span style="color:#ae81ff">9223372036854775807</span> nanoseconds
 </span></span></code></pre></div><blockquote>
-<p>다음 페이지에 계속됩니다.</p>
+<p>DDS QoS는 <strong>RxO - requested by offered</strong> 특성을 갖고 있어 서로 양립할 수 없는 조합이 존재합니다. 예를 들어, Publish의 Reliability가 BEST_EFFORT일때, Subscriber의 Reliability가 RELIABLE라면, Topic 통신이 발생할 수 없습니다.</p>
 </blockquote>
+<ul>
+<li>코드를 수정하여 직접 실습해봅시다.</li>
+</ul>
+
+
+<div class="tab-panel">
+    <div class="tab-nav">
+    
+        <button
+          data-tab-item="qos_example_publisher.py"
+          data-tab-group="default"
+          class="tab-nav-button btn active"
+          onclick="switchTab('default','qos_example_publisher.py')"
+         >qos_example_publisher.py</button>
+    
+        <button
+          data-tab-item="qos_example_subscriber.py"
+          data-tab-group="default"
+          class="tab-nav-button btn "
+          onclick="switchTab('default','qos_example_subscriber.py')"
+         >qos_example_subscriber.py</button>
+    
+    </div>
+    <div class="tab-content">
+        
+        <div data-tab-item="qos_example_publisher.py" data-tab-group="default" class="tab-item active">
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>my_profile <span style="color:#f92672">=</span> QoSProfile(
+</span></span><span style="display:flex;"><span>    reliability<span style="color:#f92672">=</span>QoSReliabilityPolicy<span style="color:#f92672">.</span>BEST_EFFORT,
+</span></span><span style="display:flex;"><span>    history<span style="color:#f92672">=</span>QoSHistoryPolicy<span style="color:#f92672">.</span>KEEP_LAST,
+</span></span><span style="display:flex;"><span>    depth<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>    durability<span style="color:#f92672">=</span>QoSDurabilityPolicy<span style="color:#f92672">.</span>VOLATILE
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>string_publisher <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_publisher(String, <span style="color:#e6db74">&#39;qos_test_topic&#39;</span>, qos_profile_sensor_data)
+</span></span></code></pre></div>
+        </div>
+        
+        <div data-tab-item="qos_example_subscriber.py" data-tab-group="default" class="tab-item ">
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>my_profile <span style="color:#f92672">=</span> QoSProfile(
+</span></span><span style="display:flex;"><span>    reliability<span style="color:#f92672">=</span>QoSReliabilityPolicy<span style="color:#f92672">.</span>RELIABLE,
+</span></span><span style="display:flex;"><span>    history<span style="color:#f92672">=</span>QoSHistoryPolicy<span style="color:#f92672">.</span>KEEP_LAST,
+</span></span><span style="display:flex;"><span>    depth<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>    durability<span style="color:#f92672">=</span>QoSDurabilityPolicy<span style="color:#f92672">.</span>VOLATILE
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>pose_subscriber <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_subscription(
+</span></span><span style="display:flex;"><span>    String, <span style="color:#e6db74">&#39;qos_test_topic&#39;</span>, self<span style="color:#f92672">.</span>sub_callback, my_profile
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div>
+        </div>
+        
+    </div>
+</div>
+
+<ul>
+<li>코드 변경 후 실행 - Warning과 함께 Subscriber가 동작하지 않음을 알 수 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run py_topic_tutorial qos_example_publisher
+</span></span><span style="display:flex;"><span>[WARN] [<span style="color:#ae81ff">1673945160.449603592</span>] [twist_pub_node]: New subscription discovered on this topic, requesting incompatible QoS<span style="color:#f92672">.</span> No messages will be sent to it<span style="color:#f92672">.</span> Last incompatible policy: RELIABILITY_QOS_POLICY
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run py_topic_tutorial qos_example_subscriber
+</span></span><span style="display:flex;"><span>[WARN] [<span style="color:#ae81ff">1673945160.455319911</span>] [string_sub_node]: New publisher discovered on this topic, offering incompatible QoS<span style="color:#f92672">.</span> No messages will be received <span style="color:#f92672">from</span> it. Last incompatible policy: RELIABILITY_QOS_POLICY
+</span></span></code></pre></div><blockquote>
+<p>QoS를 통해 원하는 도메인에서의 성능을 끌어올리고 안정성을 갖춘 시스템을 구축합시다.</p>
+</blockquote>
+<p>⇒ 다음 페이지에서 계속됩니다.</p>
 
 
 <footer class="footline">
@@ -1568,16 +1656,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1673940098"></script>
-    <script src="/js/perfect-scrollbar.min.js?1673940098"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1673940098"></script>
-    <script src="/js/jquery.sticky.js?1673940098"></script>
-    <script src="/js/featherlight.min.js?1673940098"></script>
-    <script src="/js/highlight.pack.js?1673940098"></script>
+    <script src="/js/clipboard.min.js?1673946746"></script>
+    <script src="/js/perfect-scrollbar.min.js?1673946746"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1673946746"></script>
+    <script src="/js/jquery.sticky.js?1673946746"></script>
+    <script src="/js/featherlight.min.js?1673946746"></script>
+    <script src="/js/highlight.pack.js?1673946746"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1673940098"></script>
-    <script src="/js/learn.js?1673940098"></script>
-    <script src="/js/hugo-learn.js?1673940098"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1673946746"></script>
+    <script src="/js/learn.js?1673946746"></script>
+    <script src="/js/hugo-learn.js?1673946746"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
