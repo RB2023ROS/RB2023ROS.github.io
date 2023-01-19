@@ -1,0 +1,2299 @@
+<!DOCTYPE html>
+<html lang="kr" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.104.1" />
+    <meta name="description" content="COM2018 OOP Class Lecture Note">
+<meta name="author" content="Soo Young Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Lecture14 - Gazebo and Robot(2) - Documentation for Hugo Learn Theme</title>
+
+    
+    <link href="/css/nucleus.css?1674162733" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1674162733" rel="stylesheet">
+    <link href="/css/hybrid.css?1674162733" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1674162733" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1674162733" rel="stylesheet">
+    <link href="/css/auto-complete.css?1674162733" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1674162733" rel="stylesheet">
+    <link href="/css/theme.css?1674162733" rel="stylesheet">
+    <link href="/css/tabs.css?1674162733" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1674162733" rel="stylesheet">
+    
+    <link href="/css/theme-green.css?1674162733" rel="stylesheet">
+    
+    <link href="/css/foo.css?1674162733" rel="stylesheet"><link href="/css/bar.css?1674162733" rel="stylesheet">
+
+    <script src="/js/jquery-3.3.1.min.js?1674162733"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/kr/ros2_basic_foxy/lecture14/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img width="1097" alt="image" src="https://user-images.githubusercontent.com/12381733/209764275-05dcbdbf-cef7-47ad-94a6-6d61febad01e.png">
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1674162733"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1674162733"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/kr";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1674162733"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/kr'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_basic_noetic/" title="ROS Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_basic_noetic/">
+          <b>ROS Noetic. </b>ROS Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture1/" title="Lecture1 - Introduction to ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture1/">
+        Lecture1 - Introduction to ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture2/" title="Lecture2 - Dev Env Setup" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture2/">
+        Lecture2 - Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture3/" title="Lecture3 - Core of ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture3/">
+        Lecture3 - Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture4/" title="Lecture4 - ROS Launch, RViz" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture4/">
+        Lecture4 - ROS Launch, RViz
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture5/" title="Lecture5 - First Programming, ROS Topic" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture5/">
+        Lecture5 - First Programming, ROS Topic
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture6/" title="Lecture6 - ROS Service, Parameter" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture6/">
+        Lecture6 - ROS Service, Parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture7/" title="Lecture7 - Rqt Tools and rosbag, ROS Time" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture7/">
+        Lecture7 - Rqt Tools and rosbag, ROS Time
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture8/" title="Lecture8 - Deal with Open Source Projects, Custom Interfaces" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture8/">
+        Lecture8 - Deal with Open Source Projects, Custom Interfaces
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture9/" title="Lecture9 - ROS TF and Examples" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture9/">
+        Lecture9 - ROS TF and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture10/" title="Lecture10 - TF2 Examples, Outro" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture10/">
+        Lecture10 - TF2 Examples, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture11/" title="Lecture11 - ROSCPP" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture11/">
+        Lecture11 - ROSCPP
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture12/" title="Lecture12 - More About ROS System" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture12/">
+        Lecture12 - More About ROS System
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture13/" title="Lecture13 - SROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture13/">
+        Lecture13 - SROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_basic_foxy/" title="ROS 2 Basics" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/kr/ros2_basic_foxy/">
+          <b>ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture1/" title="Lecture1 - Introduction to ROS 2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture1/">
+        Lecture1 - Introduction to ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture2/" title="Lecture2 - ROS 2 Node, Package" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture2/">
+        Lecture2 - ROS 2 Node, Package
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture3/" title="Lecture3 - ROS 2 Node Programming, ROS 2 parameter" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture3/">
+        Lecture3 - ROS 2 Node Programming, ROS 2 parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture4/" title="Lecture4 - ROS 2 Node C&#43;&#43; Programming" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture4/">
+        Lecture4 - ROS 2 Node C&#43;&#43; Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture5/" title="Lecture5 - ROS 2 Topic and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture5/">
+        Lecture5 - ROS 2 Topic and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture6/" title="Lecture6 - ROS 2 Service and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture6/">
+        Lecture6 - ROS 2 Service and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture7/" title="Lecture7 - Useful ROS 2 Example, Navigation2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture7/">
+        Lecture7 - Useful ROS 2 Example, Navigation2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture8/" title="Lecture8 - ROS 2 Action and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture8/">
+        Lecture8 - ROS 2 Action and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture9/" title="Lecture9 - C&#43;&#43; Programming Again, Outro" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture9/">
+        Lecture9 - C&#43;&#43; Programming Again, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture10/" title="Lecture10 - About DDS" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture10/">
+        Lecture10 - About DDS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture11/" title="Lecture11 - About DDS (2)" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture11/">
+        Lecture11 - About DDS (2)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture12/" title="Lecture12 - SROS2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture12/">
+        Lecture12 - SROS2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture13/" title="Lecture13 - Gazebo and Robot(1)" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture13/">
+        Lecture13 - Gazebo and Robot(1)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture14/" title="Lecture14 - Gazebo and Robot(2)" class="dd-item active">
+        <a href="/kr/ros2_basic_foxy/lecture14/">
+        Lecture14 - Gazebo and Robot(2)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros1"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 1</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros2"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 2</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="kr" value="/kr/ros2_basic_foxy/lecture14/" selected>Korean</option>
+                    
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='' href="https://github.com/com2018-fa22/hugo-blog/tree/main/content/ros2_basic_foxy/lecture14.kr.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text"></span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                   Lecture14 - Gazebo and Robot(2)
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#fusionbot과-gazebo">FusionBot과 Gazebo</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#gazebo-plugins">Gazebo Plugins</a>
+      <ul>
+        <li></li>
+        <li><a href="#diff-drive-controller">Diff Drive Controller</a></li>
+      </ul>
+    </li>
+    <li><a href="#ros-1-gazebo-package">ROS 1 Gazebo Package</a>
+      <ul>
+        <li><a href="#world-extensive">World Extensive</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Lecture14 - Gazebo and Robot(2)
+            </h1>
+          
+
+        
+
+
+<h2 id="fusionbot과-gazebo">FusionBot과 Gazebo</h2>
+<blockquote>
+<p>Description 예시를 통해 URDF에 대해 습득하였다면, 이제 Gazebo에 로봇을 등장시키고, 이동, 센싱을 구현할 차례입니다. FusionBot을 통해 실습을 진행해보고, 이전 예시에서의 로봇들도 함께 분석해 보겠습니다.</p>
+</blockquote>
+<p><img src="/kr/ros2_basic_foxy/images13/gz0.png?height=300px" alt="gz0.png"></p>
+<p>강의에서는, Gazebo에서 로봇을 등장시키는 2가지 방법을 제시하고자 합니다.</p>
+<ol>
+<li><strong>Xacro 파일을 통한 로봇 Spawn</strong></li>
+<li><strong>URDF 파일을 통한 로봇 Spawn</strong></li>
+</ol>
+<p>두 방식 모두 launch file에서 실행되는 Node들은 동일합니다.</p>
+<ul>
+<li><strong>gazebo_ros</strong>를 통해 gazebo <strong>server</strong>와 <strong>client</strong>를 실행하고</li>
+<li><strong>robot_state_publisher</strong>와 <strong>joint_state_publisher</strong>를 통해 <strong>robot_description</strong> topic을 준비합니다.</li>
+<li>마지막으로, gazebo_ros에서 제공하는 <strong>spawn_entity</strong>라는 Node를 통해 로봇을 Gazebo 상에 등장시킵니다.</li>
+</ul>
+<p>저는 새로운 예시를 위해 패키지를 분리하고, launch file의 이름을 empty_gazebo.launch.py로 설정하였습니다. LaunchDescription은 아래와 같습니다. (여러분은 패키지를 분리하지 않으셔도 좋습니다.)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">return</span> LaunchDescription([
+</span></span><span style="display:flex;"><span>    start_gazebo_server_cmd,
+</span></span><span style="display:flex;"><span>    start_gazebo_client_cmd,
+</span></span><span style="display:flex;"><span>    robot_state_publisher,
+</span></span><span style="display:flex;"><span>    joint_state_publisher,
+</span></span><span style="display:flex;"><span>    spawn_entity,
+</span></span><span style="display:flex;"><span>])
+</span></span></code></pre></div><h4 id="xacro-파일을-통한-로봇-spawn"><strong>Xacro 파일을 통한 로봇 Spawn</strong></h4>
+<ul>
+<li>Gazebo는 package://를 통한 파일 접근을 인식할 수 없습니다. 따라서, fusionbot.urdf.xacro 파일 안의 관련된 부분을 모두 $(find pkg) 형태로 변형해줍니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span># From
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;link</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;base_link&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;inertial&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;origin</span> <span style="color:#a6e22e">rpy=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0.0038631391370923516 -1.6603718341471133e-17 0.05277089743549162&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;mass</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;2.3225264704023765&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;inertia</span> <span style="color:#a6e22e">ixx=</span><span style="color:#e6db74">&#34;0.00792&#34;</span> <span style="color:#a6e22e">ixy=</span><span style="color:#e6db74">&#34;-0.0&#34;</span> <span style="color:#a6e22e">ixz=</span><span style="color:#e6db74">&#34;-0.000339&#34;</span> <span style="color:#a6e22e">iyy=</span><span style="color:#e6db74">&#34;0.008432&#34;</span> <span style="color:#a6e22e">iyz=</span><span style="color:#e6db74">&#34;-0.0&#34;</span> <span style="color:#a6e22e">izz=</span><span style="color:#e6db74">&#34;0.014814&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/inertial&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;visual&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;origin</span> <span style="color:#a6e22e">rpy=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;geometry&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;mesh</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;package://temp_description/meshes/base_link.stl&#34;</span> <span style="color:#a6e22e">scale=</span><span style="color:#e6db74">&#34;0.001 0.001 0.001&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/geometry&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># To
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;link</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;base_link&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;inertial&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;origin</span> <span style="color:#a6e22e">rpy=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0.0038631391370923516 -1.6603718341471133e-17 0.05277089743549162&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;mass</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;2.3225264704023765&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;inertia</span> <span style="color:#a6e22e">ixx=</span><span style="color:#e6db74">&#34;0.00792&#34;</span> <span style="color:#a6e22e">ixy=</span><span style="color:#e6db74">&#34;-0.0&#34;</span> <span style="color:#a6e22e">ixz=</span><span style="color:#e6db74">&#34;-0.000339&#34;</span> <span style="color:#a6e22e">iyy=</span><span style="color:#e6db74">&#34;0.008432&#34;</span> <span style="color:#a6e22e">iyz=</span><span style="color:#e6db74">&#34;-0.0&#34;</span> <span style="color:#a6e22e">izz=</span><span style="color:#e6db74">&#34;0.014814&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/inertial&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;visual&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;origin</span> <span style="color:#a6e22e">rpy=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;geometry&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;mesh</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;$(find temp_description)/meshes/base_link.stl&#34;</span> <span style="color:#a6e22e">scale=</span><span style="color:#e6db74">&#34;0.001 0.001 0.001&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/geometry&gt;</span>
+</span></span></code></pre></div><ul>
+<li>xacro 파일의 경로를 탐색한 뒤, robot_description과 호환을 위한 몇가지 변경을 적용하여 argument를 준비합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>xacro_file <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(description_pkg_path, <span style="color:#e6db74">&#39;urdf&#39;</span>, <span style="color:#e6db74">&#39;fusionbot.urdf.xacro&#39;</span>)
+</span></span><span style="display:flex;"><span>robot_description_content <span style="color:#f92672">=</span> Command(
+</span></span><span style="display:flex;"><span>    [
+</span></span><span style="display:flex;"><span>        PathJoinSubstitution([FindExecutable(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xacro&#34;</span>)]),
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34; &#34;</span>,
+</span></span><span style="display:flex;"><span>        xacro_file,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34; &#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;name:=fusionbot&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34; &#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;prefix:=&#39;&#39;&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34; &#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;is_sim:=true&#34;</span>,
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>robot_description <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;robot_description&#34;</span>: robot_description_content}
+</span></span></code></pre></div>
+<div class="notices tip" ><p>항상 정적 파일이 수정된 다음에는 colcon build를 잊지 맙시다!</p>
+</div>
+
+<h4 id="urdf-파일을-통한-로봇-spawn"><strong>URDF 파일을 통한 로봇 Spawn</strong></h4>
+<ul>
+<li>urdf를 생성하고, 이를 통해 gazebo에서 로봇을 등장시킬 수 있습니다. xacro file ⇒ URDF로의 변환을 진행합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>cd <span style="color:#f92672">~/</span>ros2_ws<span style="color:#f92672">/</span>src<span style="color:#f92672">/</span>du2023<span style="color:#f92672">-</span>gz<span style="color:#f92672">/&lt;</span>your<span style="color:#f92672">-</span>pkg<span style="color:#f92672">&gt;/</span>urdf
+</span></span><span style="display:flex;"><span>xacro fusionbot<span style="color:#f92672">.</span>urdf<span style="color:#f92672">.</span>xacro <span style="color:#f92672">&gt;</span> fusionbot<span style="color:#f92672">.</span>urdf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 혹은 colcon build를 사용해도 됩니다.</span>
+</span></span><span style="display:flex;"><span>colcon build <span style="color:#f92672">--</span>packages<span style="color:#f92672">-</span>select temp_description
+</span></span></code></pre></div><ul>
+<li>이렇게 만들어진 URDF 파일은 아래와 같이 절대 경로가 삽입되기 때문에 여러분의 환경에서만 사용 가능함에 유의합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>    <span style="color:#f92672">&lt;collision&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;origin</span> <span style="color:#a6e22e">rpy=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;-0.05 -0.0 -0.11&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;geometry&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;mesh</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;/home/kimsooyoung/ros2_ws/install/test_description/share/test_description/meshes/lidar_1.stl&#34;</span> <span style="color:#a6e22e">scale=</span><span style="color:#e6db74">&#34;0.001 0.001 0.001&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/geometry&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/collision&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/link&gt;</span>
+</span></span></code></pre></div><ul>
+<li>URDF 파일을 robot_state_publisher에게 전달하는 방법은 아래와 같습니다. xacro 패키지의 내장 함수를 통해 손쉬운 변환이 가능합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>urdf_file <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(description_pkg_path, <span style="color:#e6db74">&#39;urdf&#39;</span>, <span style="color:#e6db74">&#39;fusionbot.urdf&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>doc <span style="color:#f92672">=</span> xacro<span style="color:#f92672">.</span>parse(open(urdf_file))
+</span></span><span style="display:flex;"><span>xacro<span style="color:#f92672">.</span>process_doc(doc)
+</span></span><span style="display:flex;"><span>robot_description <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;robot_description&#39;</span>: doc<span style="color:#f92672">.</span>toxml()}
+</span></span></code></pre></div>
+<div class="notices note" ><p>이렇게 두가지 방법을 배우는 까닭은 실제 오픈소스를 사용하다보면 xacro와 urdf를 혼용하여 배포하기 때문입니다.</p>
+</div>
+
+<ul>
+<li>이제, 완성된 launch 파일을 통해 gazebo상에 로봇을 등장시켜봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>ros2 launch temp_description empty_gazebo<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span></code></pre></div><p><img src="/kr/ros2_basic_foxy/images13/gz1.png?height=300px" alt="gz1.png"></p>
+<blockquote>
+<p>지금 등장시킨 로봇은 색도 없고 제어기, 센서도 없기 때문에 단순 질량 덩어리에 불과합니다. 이제부터 로봇에 여러 요소들을 추가하여 실제 로봇과 유사하게 변신시켜보겠습니다.</p>
+</blockquote>
+<h2 id="gazebo-plugins">Gazebo Plugins</h2>
+<blockquote>
+<p>Gazebo에서 인식할 수 있는 색상을 지정하고, 센서와 제어기를 연동하여 실제 로봇 시뮬레이션을 완성해보고자 합니다. 지금부터 <strong>fusionbot.gazebo</strong> 파일을 수정하여 이를 구현해봅시다.</p>
+</blockquote>
+<p>우선, 비교적 쉬운 색상 변경부터 진행해봅시다.</p>
+<ul>
+<li>파일 최상단 여러 색상을 변수로 지정합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span>xml version<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1.0&#34;</span> <span style="color:#f92672">?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>robot name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fusionbot&#34;</span> xmlns:xacro<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://www.ros.org/wiki/xacro&#34;</span> <span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>xacro:property name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;body_color&#34;</span> value<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Gazebo/Silver&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>xacro:property name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lidar_color&#34;</span> value<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Gazebo/Blue&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>xacro:property name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wheel_color&#34;</span> value<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Gazebo/Black&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span></code></pre></div><ul>
+<li>각 Link 내 material 태그 속성으로 선언한 변수를 할당합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;gazebo</span> <span style="color:#a6e22e">reference=</span><span style="color:#e6db74">&#34;base_link&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;material&gt;</span>${body_color}<span style="color:#f92672">&lt;/material&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;mu1&gt;</span>0.1<span style="color:#f92672">&lt;/mu1&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;mu2&gt;</span>0.1<span style="color:#f92672">&lt;/mu2&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;selfCollide&gt;</span>true<span style="color:#f92672">&lt;/selfCollide&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;gravity&gt;</span>true<span style="color:#f92672">&lt;/gravity&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/gazebo&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;gazebo</span> <span style="color:#a6e22e">reference=</span><span style="color:#e6db74">&#34;lidar_1&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;material&gt;</span>${lidar_color}<span style="color:#f92672">&lt;/material&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;mu1&gt;</span>0.2<span style="color:#f92672">&lt;/mu1&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;mu2&gt;</span>0.2<span style="color:#f92672">&lt;/mu2&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;selfCollide&gt;</span>true<span style="color:#f92672">&lt;/selfCollide&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/gazebo&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;gazebo</span> <span style="color:#a6e22e">reference=</span><span style="color:#e6db74">&#34;right_wheel_1&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;material&gt;</span>${wheel_color}<span style="color:#f92672">&lt;/material&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;mu1&gt;</span>100000.0<span style="color:#f92672">&lt;/mu1&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;mu2&gt;</span>100000.0<span style="color:#f92672">&lt;/mu2&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;selfCollide&gt;</span>true<span style="color:#f92672">&lt;/selfCollide&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/gazebo&gt;</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><ul>
+<li>패키지를 빌드한 후 다시 Gazebo launch file을 실행시켜봅시다.</li>
+</ul>
+<p><img src="/kr/ros2_basic_foxy/images13/gz0.png?height=300px" alt="gz0.png"></p>
+<blockquote>
+<p>지금부터 다양한 Gazebo Plugin들을 사용하여 로봇과 ROS 사이의 실질적인 연동을 해보겠습니다. 이를 위해 xacro 파일에 새로운 link들을 추가할 예정입니다.</p>
+</blockquote>
+<h4 id="mono-camera"><strong>Mono Camera</strong></h4>
+<ul>
+<li>fusionbot.urdf.xacro 수정 - camera_link와 camera_joint 추가</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;link</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;camera_link&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;pose&gt;</span>0 0 0 0 0 0<span style="color:#f92672">&lt;/pose&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/link&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;joint</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;camera_joint&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;fixed&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;origin</span> <span style="color:#a6e22e">rpy=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0.1 0.0 0.05&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;parent</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;base_link&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;child</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;camera_link&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;axis</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0.0 0.0 0.0&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/joint&gt;</span>
+</span></span></code></pre></div><ul>
+<li>urdf 폴더 안에 sensors라는 폴더를 추가한 뒤, <strong>mono_cam.gazebo</strong>를 추가합니다.</li>
+</ul>
+<p><img src="/kr/ros2_basic_foxy/images13/gz2.png?height=300px" alt="gz2.png"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; ?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;robot</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;fusionbot&#34;</span> <span style="color:#a6e22e">xmlns:xacro=</span><span style="color:#e6db74">&#34;http://www.ros.org/wiki/xacro&#34;</span> <span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;gazebo</span> <span style="color:#a6e22e">reference=</span><span style="color:#e6db74">&#34;camera_link&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;sensor</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;front_camera&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;camera&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;update_rate&gt;</span>30.0<span style="color:#f92672">&lt;/update_rate&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;visualize&gt;</span>false<span style="color:#f92672">&lt;/visualize&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;always_on&gt;</span>1<span style="color:#f92672">&lt;/always_on&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camera</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;front_camera&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">&lt;!-- math.atan(320 / 687.8065795898438) * 2 --&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;horizontal_fov&gt;</span>0.8709216071359963<span style="color:#f92672">&lt;/horizontal_fov&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;image&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;width&gt;</span>1280<span style="color:#f92672">&lt;/width&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;height&gt;</span>720<span style="color:#f92672">&lt;/height&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;format&gt;</span>R8G8B8<span style="color:#f92672">&lt;/format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- &lt;format&gt;B8G8R8&lt;/format&gt; --&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/image&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;clip&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;near&gt;</span>0.02<span style="color:#f92672">&lt;/near&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;far&gt;</span>300<span style="color:#f92672">&lt;/far&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/clip&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;noise&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;type&gt;</span>gaussian<span style="color:#f92672">&lt;/type&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;mean&gt;</span>0.0<span style="color:#f92672">&lt;/mean&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;stddev&gt;</span>0.00007<span style="color:#f92672">&lt;/stddev&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/noise&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/camera&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;plugin</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;libgazebo_ros_camera.so&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;camera_controller&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;ros&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- &lt;namespace&gt;custom_ns&lt;/namespace&gt; --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;remapping&gt;</span>image_raw:=image_raw<span style="color:#f92672">&lt;/remapping&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;remapping&gt;</span>camera_info:=camera_info<span style="color:#f92672">&lt;/remapping&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/ros&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camera_name&gt;</span>front_camera<span style="color:#f92672">&lt;/camera_name&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;frame_name&gt;</span>camera_link<span style="color:#f92672">&lt;/frame_name&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;hack_baseline&gt;</span>0.07<span style="color:#f92672">&lt;/hack_baseline&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/plugin&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/sensor&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/gazebo&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/robot&gt;</span>
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th>update_rate</th>
+<th>data publish rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>visualize</td>
+<td>시각화 옵션</td>
+</tr>
+<tr>
+<td>horizontal_fov</td>
+<td>카메라의 화각</td>
+</tr>
+<tr>
+<td>image</td>
+<td>화질 옵션</td>
+</tr>
+<tr>
+<td>noise</td>
+<td>센서 노이즈</td>
+</tr>
+<tr>
+<td>remapping</td>
+<td>topic 이름 재설정</td>
+</tr>
+<tr>
+<td>camera_name</td>
+<td>topic의 namespace가 됩니다.</td>
+</tr>
+<tr>
+<td>frame_name</td>
+<td>camera가 장착되는 link</td>
+</tr>
+<tr>
+<td>hack_baseline</td>
+<td>stereo camera 사용 시 카메라 사이 거리</td>
+</tr>
+</tbody>
+</table>
+<p>⇒ 이렇게 xml 형태의 스크립트를 추가하여 gazebo plugin을 사용할 수 있습니다.</p>
+<ul>
+<li>fusionbot.gazebo 수정</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; ?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;robot</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;fusionbot&#34;</span> <span style="color:#a6e22e">xmlns:xacro=</span><span style="color:#e6db74">&#34;http://www.ros.org/wiki/xacro&#34;</span> <span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;body_color&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Gazebo/Silver&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;lidar_color&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Gazebo/Blue&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;wheel_color&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Gazebo/Black&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:include</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;$(find temp_description)/urdf/sensors/mono_cam.gazebo&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;gazebo&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;plugin</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;libgazebo_ros_control.so&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;control&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/gazebo&gt;</span>
+</span></span></code></pre></div><ul>
+<li>예제 재실행</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>colcon build --symlink-install --packages-select temp_description
+</span></span><span style="display:flex;"><span>source install/local_setup.bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ros2 launch temp_description empty_gazebo.launch.py
+</span></span></code></pre></div><p><img src="/kr/ros2_basic_foxy/images13/gz3.png?height=300px" alt="gz3.png"></p>
+<blockquote>
+<p>rviz를 통해 카메라 데이터를 확인해봅시다.</p>
+</blockquote>
+<h4 id="depth-camera"><strong>Depth Camera</strong></h4>
+<ul>
+<li>fusionbot.urdf.xacro 수정 - <strong>depth_camera_link와 depth_camera_optical_joint 추가</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;link</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;depth_camera_link&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;pose&gt;</span>0 0 0 0 0 0<span style="color:#f92672">&lt;/pose&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/link&gt;</span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;joint</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;depth_camera_optical_joint&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;fixed&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;origin</span> <span style="color:#a6e22e">rpy=</span><span style="color:#e6db74">&#34;-1.57079632679 0 -1.57079632679&#34;</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;parent</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;depth_camera_link&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;child</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;depth_camera_optical_link&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;axis</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0.0 0.0 0.0&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/joint&gt;</span>
+</span></span></code></pre></div><ul>
+<li>urdf 폴더 안에 sensors라는 폴더를 추가한 뒤, <strong>depth_cam.gazebo</strong>를 추가합니다.</li>
+</ul>
+<p><img src="/kr/ros2_basic_foxy/images13/gz4.png?height=200px" alt="gz4.png"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; ?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;robot</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;fusionbot&#34;</span> <span style="color:#a6e22e">xmlns:xacro=</span><span style="color:#e6db74">&#34;http://www.ros.org/wiki/xacro&#34;</span> <span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;gazebo</span> <span style="color:#a6e22e">reference=</span><span style="color:#e6db74">&#34;depth_camera_link&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;sensor</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;front_depth_camera&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;depth&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;update_rate&gt;</span>30.0<span style="color:#f92672">&lt;/update_rate&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;visualize&gt;</span>false<span style="color:#f92672">&lt;/visualize&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;always_on&gt;</span>1<span style="color:#f92672">&lt;/always_on&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;camera</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;front_depth_camera&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">&lt;!-- math.atan(320 / 687.8065795898438) * 2 --&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;horizontal_fov&gt;</span>0.8709216071359963<span style="color:#f92672">&lt;/horizontal_fov&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;image&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;width&gt;</span>1280<span style="color:#f92672">&lt;/width&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;height&gt;</span>720<span style="color:#f92672">&lt;/height&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;format&gt;</span>R8G8B8<span style="color:#f92672">&lt;/format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- &lt;format&gt;B8G8R8&lt;/format&gt; --&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/image&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;clip&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;near&gt;</span>0.02<span style="color:#f92672">&lt;/near&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;far&gt;</span>300<span style="color:#f92672">&lt;/far&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/clip&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;noise&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;type&gt;</span>gaussian<span style="color:#f92672">&lt;/type&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;mean&gt;</span>0.0<span style="color:#f92672">&lt;/mean&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;stddev&gt;</span>0.00007<span style="color:#f92672">&lt;/stddev&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/noise&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/camera&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;plugin</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;libgazebo_ros_camera.so&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;camera_controller&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;ros&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- &lt;namespace&gt;custom_ns&lt;/namespace&gt; --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;remapping&gt;</span>front_depth_camera/image_raw:=front_depth_camera/image_raw<span style="color:#f92672">&lt;/remapping&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;remapping&gt;</span>front_depth_camera/image_depth:=front_depth_camera/image_depth<span style="color:#f92672">&lt;/remapping&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;remapping&gt;</span>front_depth_camera/camera_info:=front_depth_camera/camera_info<span style="color:#f92672">&lt;/remapping&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;remapping&gt;</span>front_depth_camera/camera_info_depth:=front_depth_camera/camera_info_depth<span style="color:#f92672">&lt;/remapping&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;remapping&gt;</span>front_depth_camera/points:=front_depth_camera/points<span style="color:#f92672">&lt;/remapping&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/ros&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;camera_name&gt;</span>front_depth_camera<span style="color:#f92672">&lt;/camera_name&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;frame_name&gt;</span>depth_camera_optical_link<span style="color:#f92672">&lt;/frame_name&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;hack_baseline&gt;</span>0.07<span style="color:#f92672">&lt;/hack_baseline&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;min_depth&gt;</span>0.001<span style="color:#f92672">&lt;/min_depth&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;max_depth&gt;</span>300.0<span style="color:#f92672">&lt;/max_depth&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/plugin&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/sensor&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/gazebo&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/robot&gt;</span>
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th>sensor type</th>
+<th>depth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>min_depth, max_depth</td>
+<td>depth 탐지거리</td>
+</tr>
+</tbody>
+</table>
+<p>⇒ depth camera는 camera 좌표계를 사용하기 때문에 별도 joint를 지정해줘야 합니다.</p>
+<ul>
+<li>fusionbot.gazebo 수정</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; ?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;robot</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;fusionbot&#34;</span> <span style="color:#a6e22e">xmlns:xacro=</span><span style="color:#e6db74">&#34;http://www.ros.org/wiki/xacro&#34;</span> <span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;body_color&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Gazebo/Silver&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;lidar_color&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Gazebo/Blue&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;wheel_color&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Gazebo/Black&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:include</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;$(find temp_description)/urdf/sensors/mono_cam.gazebo&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:include</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;$(find fusionbot_gazebo)/urdf/sensors/depth_cam.gazebo&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;gazebo&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;plugin</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;libgazebo_ros_control.so&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;control&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/gazebo&gt;</span>
+</span></span></code></pre></div><ul>
+<li>예제 재실행</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>colcon build --symlink-install --packages-select temp_description
+</span></span><span style="display:flex;"><span>source install/local_setup.bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ros2 launch temp_description empty_gazebo.launch.py
+</span></span></code></pre></div><p><img src="/kr/ros2_basic_foxy/images13/gz5.png?height=300px" alt="gz5.png"></p>
+<p>⇒ rviz를 통해 카메라 데이터를 확인해봅시다.</p>
+<h4 id="2d-lidar"><strong>2D Lidar</strong></h4>
+<ul>
+<li>urdf sensors 폴더 안에 <strong>lidar_2d.gazebo</strong>를 추가합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; ?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;robot</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;fusionbot&#34;</span> <span style="color:#a6e22e">xmlns:xacro=</span><span style="color:#e6db74">&#34;http://www.ros.org/wiki/xacro&#34;</span> <span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;M_PI&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;3.1415926535897931&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;gazebo</span> <span style="color:#a6e22e">reference=</span><span style="color:#e6db74">&#34;lidar_1&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;sensor</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;lidar&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;ray&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;pose&gt;</span>0 0 0 0 0 0<span style="color:#f92672">&lt;/pose&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;always_on&gt;</span>true<span style="color:#f92672">&lt;/always_on&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;visualize&gt;</span>false<span style="color:#f92672">&lt;/visualize&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;update_rate&gt;</span>10<span style="color:#f92672">&lt;/update_rate&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;ray&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;scan&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;horizontal&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;samples&gt;</span>360<span style="color:#f92672">&lt;/samples&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;resolution&gt;</span>1.000000<span style="color:#f92672">&lt;/resolution&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;min_angle&gt;</span>-${M_PI}<span style="color:#f92672">&lt;/min_angle&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;max_angle&gt;</span>${M_PI}<span style="color:#f92672">&lt;/max_angle&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/horizontal&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/scan&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;range&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;min&gt;</span>0.15<span style="color:#f92672">&lt;/min&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;max&gt;</span>12.0<span style="color:#f92672">&lt;/max&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;resolution&gt;</span>0.5<span style="color:#f92672">&lt;/resolution&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/range&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;noise&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;type&gt;</span>gaussian<span style="color:#f92672">&lt;/type&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;mean&gt;</span>0.0<span style="color:#f92672">&lt;/mean&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;stddev&gt;</span>0.01<span style="color:#f92672">&lt;/stddev&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/noise&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/ray&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;plugin</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;gazebo_ros_head_hokuyo_controller&#34;</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;libgazebo_ros_ray_sensor.so&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;ros&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;remapping&gt;</span>~/out:=scan<span style="color:#f92672">&lt;/remapping&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/ros&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;output_type&gt;</span>sensor_msgs/LaserScan<span style="color:#f92672">&lt;/output_type&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;frame_name&gt;</span>lidar_1<span style="color:#f92672">&lt;/frame_name&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/plugin&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/sensor&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/gazebo&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/robot&gt;</span>
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th>horizontal</th>
+<th>라이다의 탐지 범위와 샘플 수를 지정합니다.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>range</td>
+<td>탐지거리의 범위입니다.</td>
+</tr>
+<tr>
+<td>output_type</td>
+<td>ROS 2에서 사용하는 2D 라이다 데이터입니다.</td>
+</tr>
+</tbody>
+</table>
+<p>⇒ 해당 데이터 스펙은 실제 판매중인 <a href="https://www.slamtec.com/en/Lidar/A1Spec">rplidar a1</a>을 구현하였습니다.</p>
+<ul>
+<li>fusionbot.gazebo 수정</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; ?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;robot</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;fusionbot&#34;</span> <span style="color:#a6e22e">xmlns:xacro=</span><span style="color:#e6db74">&#34;http://www.ros.org/wiki/xacro&#34;</span> <span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;body_color&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Gazebo/Silver&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;lidar_color&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Gazebo/Blue&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;wheel_color&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Gazebo/Black&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:include</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;$(find temp_description)/urdf/sensors/mono_cam.gazebo&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:include</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;$(find fusionbot_gazebo)/urdf/sensors/depth_cam.gazebo&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:include</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;$(find temp_description)/urdf/sensors/lidar_2d.gazebo&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;gazebo&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;plugin</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;libgazebo_ros_control.so&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;control&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/gazebo&gt;</span>
+</span></span></code></pre></div><ul>
+<li>예제 재실행</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>colcon build --symlink-install --packages-select temp_description
+</span></span><span style="display:flex;"><span>source install/local_setup.bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ros2 launch temp_description empty_gazebo.launch.py
+</span></span></code></pre></div><p><img src="/kr/ros2_basic_foxy/images13/gz6.png?height=300px" alt="gz6.png"></p>
+<p>⇒ rviz를 통해 라이다 데이터를 확인해봅시다.</p>
+<p>비슷한 맥락에서, 3D lidar와 GPS, IMU 등 다양한 센서를 추가할 수 있습니다.</p>
+<ul>
+<li>gps : <a href="https://github.com/RB2023ROS/du2023-gz/blob/main/fusionbot_gazebo/urdf/sensors/gps.gazebo">https://github.com/RB2023ROS/du2023-gz/blob/main/fusionbot_gazebo/urdf/sensors/gps.gazebo</a></li>
+<li>imu : <a href="https://github.com/RB2023ROS/du2023-gz/blob/main/fusionbot_gazebo/urdf/sensors/imu.gazebo">https://github.com/RB2023ROS/du2023-gz/blob/main/fusionbot_gazebo/urdf/sensors/imu.gazebo</a></li>
+<li>3d lidar : <a href="https://github.com/RB2023ROS/du2023-gz/blob/main/fusionbot_gazebo/urdf/sensors/lidar_3d.gazebo">https://github.com/RB2023ROS/du2023-gz/blob/main/fusionbot_gazebo/urdf/sensors/lidar_3d.gazebo</a></li>
+</ul>
+
+<div class="notices note" ><p>이렇게 센서를 추가하는 방법은 gazebo_ros_pkg의 wiki 페이지를 참고하였습니다. 해당 페이지에는 ROS 1과 ROS 2에서의 사용법 차이점, 그리고 예시 world까지 안내하고 있습니다. ⇒ <strong><a href="https://github.com/ros-simulation/gazebo_ros_pkgs">gazebo_ros_pkgs</a></strong></p>
+</div>
+
+<h3 id="diff-drive-controller">Diff Drive Controller</h3>
+<blockquote>
+<p>로봇 청소기와 같이 제자리 회전이 가능하며, 양쪽 바퀴 회전수 차이로 로봇을 이동시키는 타입을 DD Type이라고 부릅니다. gazebo_ros에서 제공되는 DD controller를 사용하여 Fusionbot이 이동할 수 있게 해보겠습니다.</p>
+</blockquote>
+<p><img src="/kr/ros2_basic_foxy/images13/gz7.png?height=300px" alt="gz7.png"></p>
+<ul>
+<li>urdf 폴더 내부에 diff_drive.gazebo 파일을 추가한 뒤, 아래 내용을 붙여넣기 합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; ?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;robot</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;fusionbot&#34;</span> <span style="color:#a6e22e">xmlns:xacro=</span><span style="color:#e6db74">&#34;http://www.ros.org/wiki/xacro&#34;</span> <span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;gazebo&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;plugin</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#39;fusionbot_joint_state&#39;</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#39;libgazebo_ros_joint_state_publisher.so&#39;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;ros&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;remapping&gt;</span>~/out:=joint_states<span style="color:#f92672">&lt;/remapping&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/ros&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;update_rate&gt;</span>30<span style="color:#f92672">&lt;/update_rate&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;joint_name&gt;</span>right_wheel_joint<span style="color:#f92672">&lt;/joint_name&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;joint_name&gt;</span>left_wheel_joint<span style="color:#f92672">&lt;/joint_name&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/plugin&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/gazebo&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;gazebo&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;plugin</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#39;differential_drive_controller&#39;</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#39;libgazebo_ros_diff_drive.so&#39;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;update_rate&gt;</span>30<span style="color:#f92672">&lt;/update_rate&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;left_joint&gt;</span>left_wheel_joint<span style="color:#f92672">&lt;/left_joint&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;right_joint&gt;</span>right_wheel_joint<span style="color:#f92672">&lt;/right_joint&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;wheel_separation&gt;</span>0.2<span style="color:#f92672">&lt;/wheel_separation&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;wheel_diameter&gt;</span>0.1<span style="color:#f92672">&lt;/wheel_diameter&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;max_wheel_torque&gt;</span>50<span style="color:#f92672">&lt;/max_wheel_torque&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;max_wheel_acceleration&gt;</span>1.0<span style="color:#f92672">&lt;/max_wheel_acceleration&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;command_topic&gt;</span>cmd_vel<span style="color:#f92672">&lt;/command_topic&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;publish_odom&gt;</span>1<span style="color:#f92672">&lt;/publish_odom&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;publish_odom_tf&gt;</span>1<span style="color:#f92672">&lt;/publish_odom_tf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;publish_wheel_tf&gt;</span>0<span style="color:#f92672">&lt;/publish_wheel_tf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;odometry_topic&gt;</span>odom<span style="color:#f92672">&lt;/odometry_topic&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;odometry_frame&gt;</span>odom<span style="color:#f92672">&lt;/odometry_frame&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;robot_base_frame&gt;</span>base_footprint<span style="color:#f92672">&lt;/robot_base_frame&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/plugin&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/gazebo&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/robot&gt;</span>
+</span></span></code></pre></div><ul>
+<li>fusionbot.gazebo 파일을 다시 수정하고, launch 파일을 실행시키면 tf와 함께 제어되는 로봇을 확인하실 수 있습니다. (기본적으로 /cmd_vel topic을 통해 로봇을 조종할 수 있습니다.)</li>
+</ul>
+<p><img src="/kr/ros2_basic_foxy/images13/gz_diff.gif?height=300px" alt="gz_diff.gif"></p>
+<hr>
+<h2 id="ros-1-gazebo-package">ROS 1 Gazebo Package</h2>
+<blockquote>
+<p>제공드린 zip 파일을 사용해서 ROS 1에서 동작하는 gazebo package를 만들어보겠습니다. ROS 2보다 훨씬 간편합니다. 😊</p>
+</blockquote>
+<p>연습을 위해 다시 한 번 파일을 다운받겠습니다.</p>
+<p>📂 <a href="https://drive.google.com/file/d/1vltZMsTH3wkMysQQRmKJ5kiC4adzJxH0/view?usp=sharing">fusionbot_description.zip</a></p>
+<ol>
+<li>fusionbot.gazebo을 아래와 같이 수정합니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; ?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;robot</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;fusionbot&#34;</span> <span style="color:#a6e22e">xmlns:xacro=</span><span style="color:#e6db74">&#34;http://www.ros.org/wiki/xacro&#34;</span> <span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;body_color&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Gazebo/Silver&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;gazebo&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;plugin</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;libgazebo_ros_control.so&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;control&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/gazebo&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;gazebo</span> <span style="color:#a6e22e">reference=</span><span style="color:#e6db74">&#34;base_link&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;material&gt;</span>${body_color}<span style="color:#f92672">&lt;/material&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;mu1&gt;</span>0.1<span style="color:#f92672">&lt;/mu1&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;mu2&gt;</span>0.1<span style="color:#f92672">&lt;/mu2&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;selfCollide&gt;</span>true<span style="color:#f92672">&lt;/selfCollide&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;gravity&gt;</span>true<span style="color:#f92672">&lt;/gravity&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/gazebo&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;gazebo</span> <span style="color:#a6e22e">reference=</span><span style="color:#e6db74">&#34;lidar_1&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;material&gt;</span>${body_color}<span style="color:#f92672">&lt;/material&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;mu1&gt;</span>0.2<span style="color:#f92672">&lt;/mu1&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;mu2&gt;</span>0.2<span style="color:#f92672">&lt;/mu2&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;selfCollide&gt;</span>true<span style="color:#f92672">&lt;/selfCollide&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/gazebo&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;gazebo</span> <span style="color:#a6e22e">reference=</span><span style="color:#e6db74">&#34;right_wheel_1&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;material&gt;</span>${body_color}<span style="color:#f92672">&lt;/material&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;mu1&gt;</span>100000.0<span style="color:#f92672">&lt;/mu1&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;mu2&gt;</span>100000.0<span style="color:#f92672">&lt;/mu2&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;selfCollide&gt;</span>true<span style="color:#f92672">&lt;/selfCollide&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/gazebo&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;gazebo</span> <span style="color:#a6e22e">reference=</span><span style="color:#e6db74">&#34;left_wheel_1&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;material&gt;</span>${body_color}<span style="color:#f92672">&lt;/material&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;mu1&gt;</span>1500<span style="color:#f92672">&lt;/mu1&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;mu2&gt;</span>1500<span style="color:#f92672">&lt;/mu2&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;selfCollide&gt;</span>true<span style="color:#f92672">&lt;/selfCollide&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/gazebo&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/robot&gt;</span>
+</span></span></code></pre></div><ol start="2">
+<li>fusionbot.xacro를 수정합니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span># From
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;joint</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;��ü3&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;fixed&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;origin</span> <span style="color:#a6e22e">rpy=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0.05 0.0 0.11&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;parent</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;base_link&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;child</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;lidar_1&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/joint&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;joint</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;ȸ��7&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;continuous&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;origin</span> <span style="color:#a6e22e">rpy=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0.0 -0.1 0.05&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;parent</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;base_link&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;child</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;right_wheel_1&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;axis</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;-0.0 -1.0 0.0&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/joint&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;joint</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;ȸ��8&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;continuous&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;origin</span> <span style="color:#a6e22e">rpy=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0.0 0.1 0.05&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;parent</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;base_link&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;child</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;left_wheel_1&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;axis</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;-0.0 1.0 0.0&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/joint&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># To
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;joint</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;lidar_joint&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;fixed&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;origin</span> <span style="color:#a6e22e">rpy=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0.05 0.0 0.11&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;parent</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;base_link&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;child</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;lidar_1&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/joint&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;joint</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;right_wheel_joint&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;continuous&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;origin</span> <span style="color:#a6e22e">rpy=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0.0 -0.1 0.05&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;parent</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;base_link&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;child</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;right_wheel_1&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;axis</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0.0 1.0 0.0&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/joint&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;joint</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;left_wheel_joint&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;continuous&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;origin</span> <span style="color:#a6e22e">rpy=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0.0 0.1 0.05&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;parent</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;base_link&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;child</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;left_wheel_1&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;axis</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0.0 1.0 0.0&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/joint&gt;</span>
+</span></span></code></pre></div><ul>
+<li>joint 축 방향 수정</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;joint</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;right_wheel_joint&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;continuous&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;origin</span> <span style="color:#a6e22e">rpy=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0.0 -0.1 0.05&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;parent</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;base_link&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;child</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;right_wheel_1&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;axis</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0.0 1.0 0.0&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/joint&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;joint</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;left_wheel_joint&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;continuous&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;origin</span> <span style="color:#a6e22e">rpy=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0.0 0.1 0.05&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;parent</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;base_link&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;child</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;left_wheel_1&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;axis</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0.0 1.0 0.0&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/joint&gt;</span>
+</span></span></code></pre></div><ul>
+<li>base_footprint 추가</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;link</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#39;base_footprint&#39;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;joint</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#39;base_link_joint&#39;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#39;fixed&#39;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;origin</span> <span style="color:#a6e22e">rpy=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;parent</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;base_footprint&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;child</span> <span style="color:#a6e22e">link=</span><span style="color:#e6db74">&#34;base_link&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/joint&gt;</span>
+</span></span></code></pre></div><ol start="3">
+<li>다시 한 번 description을 실행합니다. 이번에는 launch file이 이름이 바뀌었습니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>catkin build fusionbot_description
+</span></span><span style="display:flex;"><span>source devel/setup.bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>roslaunch fusionbot_description display.launch
+</span></span></code></pre></div><p><img src="/kr/ros2_basic_foxy/images13/ros0.png?height=300px" alt="ros0.png"></p>
+<ul>
+<li>ROS 1의 launch file은 <strong>xml</strong> 문법을 사용했습니다.</li>
+</ul>
+<blockquote>
+<p>joint_state_publisher와 robot_state_publisher를 사용하는 부분은 모두 ROS 2와 동일하며, robot_state_publisher는 robot_description을 요구하기 때문에 argument로 지정하고 있습니다.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span># display.launch
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;launch&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;$(find fusionbot_description)/urdf/fusionbot.xacro&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;model&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;gui&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;$(find fusionbot_description)/launch/urdf.rviz&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;rvizconfig&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;param</span> <span style="color:#a6e22e">command=</span><span style="color:#e6db74">&#34;$(find xacro)/xacro $(arg model)&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;robot_description&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;param</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;use_gui&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(arg gui)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;node</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;joint_state_publisher&#34;</span> <span style="color:#a6e22e">pkg=</span><span style="color:#e6db74">&#34;joint_state_publisher&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;joint_state_publisher&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;node</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;robot_state_publisher&#34;</span> <span style="color:#a6e22e">pkg=</span><span style="color:#e6db74">&#34;robot_state_publisher&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;robot_state_publisher&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;node</span> <span style="color:#a6e22e">args=</span><span style="color:#e6db74">&#34;-d $(arg rvizconfig)&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;rviz&#34;</span> <span style="color:#a6e22e">pkg=</span><span style="color:#e6db74">&#34;rviz&#34;</span> <span style="color:#a6e22e">required=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;rviz&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/launch&gt;</span>
+</span></span></code></pre></div><ol start="4">
+<li>fusionbot.xacro 수정 - package://를 통한 파일 접근을 모두 $(find pkg) 형태로 변형해줍니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;link</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;base_link&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;inertial&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;origin</span> <span style="color:#a6e22e">rpy=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0.0037594591254762827 0.0 0.052804115668456025&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;mass</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;2.3079643337726483&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;inertia</span> <span style="color:#a6e22e">ixx=</span><span style="color:#e6db74">&#34;0.00789&#34;</span> <span style="color:#a6e22e">ixy=</span><span style="color:#e6db74">&#34;0.0&#34;</span> <span style="color:#a6e22e">ixz=</span><span style="color:#e6db74">&#34;-0.000325&#34;</span> <span style="color:#a6e22e">iyy=</span><span style="color:#e6db74">&#34;0.008347&#34;</span> <span style="color:#a6e22e">iyz=</span><span style="color:#e6db74">&#34;0.0&#34;</span> <span style="color:#a6e22e">izz=</span><span style="color:#e6db74">&#34;0.01475&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/inertial&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;visual&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;origin</span> <span style="color:#a6e22e">rpy=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;geometry&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;mesh</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;$(find fusionbot_description)/meshes/base_link.stl&#34;</span> <span style="color:#a6e22e">scale=</span><span style="color:#e6db74">&#34;0.001 0.001 0.001&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/geometry&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;material</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;silver&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/visual&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;collision&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;origin</span> <span style="color:#a6e22e">rpy=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0 0 0&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;geometry&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;mesh</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;$(find fusionbot_description)/meshes/base_link.stl&#34;</span> <span style="color:#a6e22e">scale=</span><span style="color:#e6db74">&#34;0.001 0.001 0.001&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/geometry&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/collision&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/link&gt;</span>
+</span></span></code></pre></div><ol start="5">
+<li>ROS 2에서 세팅하였던 센서와 제어 plugin을 다시 ROS 1 버전으로 수정해주어야 합니다. 해당 작업은 gazebo_ros_pkg의 wiki 페이지를 참고하면 되며 이번 예시에서는 카메라 센서 하나 정도만 함께 작업해보겠습니다. ⇒ <a href="https://github.com/ros-simulation/gazebo_ros_pkgs/wiki/ROS-2-Migration:-Camera">gazebo_ros_pkg</a></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;plugin</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;plugin_name&#34;</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;libgazebo_ros_camera.so&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;alwaysOn&gt;</span>true<span style="color:#f92672">&lt;/alwaysOn&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;updateRate&gt;</span>0.0<span style="color:#f92672">&lt;/updateRate&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;robotNamespace&gt;</span>custom_ns<span style="color:#f92672">&lt;/robotNamespace&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;cameraName&gt;</span>custom_camera<span style="color:#f92672">&lt;/cameraName&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;imageTopicName&gt;</span>custom_image<span style="color:#f92672">&lt;/imageTopicName&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;cameraInfoTopicName&gt;</span>custom_info<span style="color:#f92672">&lt;/cameraInfoTopicName&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;frameName&gt;</span>custom_frame<span style="color:#f92672">&lt;/frameName&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;hackBaseline&gt;</span>0.07<span style="color:#f92672">&lt;/hackBaseline&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;distortionK1&gt;</span>0.1<span style="color:#f92672">&lt;/distortionK1&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;distortionK2&gt;</span>0.2<span style="color:#f92672">&lt;/distortionK2&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;distortionK3&gt;</span>0.3<span style="color:#f92672">&lt;/distortionK3&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;distortionT1&gt;</span>0.5<span style="color:#f92672">&lt;/distortionT1&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;distortionT2&gt;</span>0.5<span style="color:#f92672">&lt;/distortionT2&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/plugin&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;plugin</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;plugin_name&#34;</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;libgazebo_ros_camera.so&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- Change namespace, camera name and topics so -
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">       * Images are published to: /custom_ns/custom_camera/custom_image
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">       * Camera info is published to: /custom_ns/custom_camera/custom_info
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;ros&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;namespace&gt;</span>custom_ns<span style="color:#f92672">&lt;/namespace&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;remapping&gt;</span>image_raw:=custom_img<span style="color:#f92672">&lt;/remapping&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;remapping&gt;</span>camera_info:=custom_info<span style="color:#f92672">&lt;/remapping&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/ros&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- Set camera name. If empty, defaults to sensor name (i.e. &#34;sensor_name&#34;) --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;camera_name&gt;</span>custom_camera<span style="color:#f92672">&lt;/camera_name&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- Set TF frame name. If empty, defaults to link name (i.e. &#34;link_name&#34;) --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;frame_name&gt;</span>custom_frame<span style="color:#f92672">&lt;/frame_name&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;hack_baseline&gt;</span>0.07<span style="color:#f92672">&lt;/hack_baseline&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- No need to repeat distortion parameters or to set autoDistortion --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/plugin&gt;</span>
+</span></span></code></pre></div><p>⇒ ROS 1에 존재했던 태크들이 대부분 ROS 2넘어가면서 중복 제거와 재편성이 되었습니다. 해당 부분을 참고하여 우리 상황에 맞게 수정을 해보겠습니다.</p>
+
+<div class="notices note" ><p>모든 작업이 완료된 패키지 압축 파일을 제공드리니 실습 도중 오류가 발생하면 참고하시기 바랍니다.</p>
+</div>
+
+<section class="attachments ">
+  <label>
+    <i class="fas fa-paperclip" aria-hidden="true"></i>
+    Example Packages
+  </label>
+  <div class="attachments-files">
+    <li>
+      <a href="/kr/ros2_basic_foxy/lecture14.kr.files/fusionbot_description.zip">fusionbot_description.zip</a>
+      (34 )
+    </li>
+  </div>
+</section>
+
+<ol start="6">
+<li>이제 모든 plugin들을 추가하였으니, fusionbot.gazebo파일에 include를 작성해주면 urdf 수정은 끝이 납니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; ?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;robot</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;fusionbot&#34;</span> <span style="color:#a6e22e">xmlns:xacro=</span><span style="color:#e6db74">&#34;http://www.ros.org/wiki/xacro&#34;</span> <span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;body_color&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Gazebo/Silver&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;lidar_color&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Gazebo/Blue&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;wheel_color&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Gazebo/Black&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:include</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;$(find fusionbot_description)/urdf/sensors/mono_cam.gazebo&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:include</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;$(find fusionbot_description)/urdf/sensors/depth_cam.gazebo&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:include</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;$(find fusionbot_description)/urdf/sensors/lidar_2d.gazebo&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:include</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;$(find fusionbot_description)/urdf/sensors/lidar_3d.gazebo&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:include</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;$(find fusionbot_description)/urdf/sensors/imu.gazebo&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- hector_gazebo doesn&#39;t supports noetic --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- &lt;xacro:include filename=&#34;$(find fusionbot_description)/urdf/sensors/gps.gazebo&#34; /&gt; --&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:include</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;$(find fusionbot_description)/urdf/controllers/diff_drive.gazebo&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;gazebo</span> <span style="color:#a6e22e">reference=</span><span style="color:#e6db74">&#34;base_link&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;material&gt;</span>${body_color}<span style="color:#f92672">&lt;/material&gt;</span>
+</span></span></code></pre></div><ol start="7">
+<li>gazebo를 실행시키기 위한 launch file을 만들고 패키지를 재빌드합니다.</li>
+</ol>
+<p>joint_state_publisher, robot_state_publisher, gazebo_ros와 urdf_spawner를 통해 gazebo 상에 로봇을 최종 등장시키는 launch file 입니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;launch&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- Robot pose --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;x&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;0&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;y&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;0&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;z&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;0&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;roll&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;0&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;pitch&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;0&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;yaw&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;0&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;world_name&#34;</span>   <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;gcamp_world.world&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- &lt;arg name=&#34;world_file&#34; default=&#34;$(find fusionbot_description)/worlds/$(arg world_name)&#34;/&gt; --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;model_name&#34;</span>   <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;fusionbot&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- send urdf to param server --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- xacro --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;param</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;robot_description&#34;</span> <span style="color:#a6e22e">command=</span><span style="color:#e6db74">&#34;$(find xacro)/xacro --inorder &#39;$(find fusionbot_description)/urdf/fusionbot.xacro&#39;&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- urdf or raw xml file --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- &lt;param name=&#34;robot_description&#34; command=&#34;cat $(find museumGuide)/urdf_model/peoplebot.xml&#34; /&gt; --&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- Send fake joint values--&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;node</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;joint_state_publisher&#34;</span> <span style="color:#a6e22e">pkg=</span><span style="color:#e6db74">&#34;joint_state_publisher&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;joint_state_publisher&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;param</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;use_gui&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;False&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/node&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- Send robot states to tf --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;node</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;robot_state_publisher&#34;</span> <span style="color:#a6e22e">pkg=</span><span style="color:#e6db74">&#34;robot_state_publisher&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;robot_state_publisher&#34;</span> <span style="color:#a6e22e">respawn=</span><span style="color:#e6db74">&#34;false&#34;</span> <span style="color:#a6e22e">output=</span><span style="color:#e6db74">&#34;screen&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- Launch Gazebo World --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;include</span> <span style="color:#a6e22e">file=</span><span style="color:#e6db74">&#34;$(find gazebo_ros)/launch/empty_world.launch&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;use_sim_time&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;debug&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;false&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;gui&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- &lt;arg name=&#34;world_name&#34; value=&#34;$(arg world_file)&#34;/&gt; --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/include&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- Spawn My Robot --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;node</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;urdf_spawner&#34;</span> <span style="color:#a6e22e">pkg=</span><span style="color:#e6db74">&#34;gazebo_ros&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;spawn_model&#34;</span> <span style="color:#a6e22e">respawn=</span><span style="color:#e6db74">&#34;false&#34;</span> <span style="color:#a6e22e">output=</span><span style="color:#e6db74">&#34;screen&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">args=</span><span style="color:#e6db74">&#34;-urdf -param robot_description -model $(arg model_name)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              -x $(arg x) -y $(arg y) -z $(arg z)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/launch&gt;</span>
+</span></span></code></pre></div>
+<div class="notices note" ><p>현재는 주석처리가 되어 있지만 여러분의 world를 만들어 보시고 world 폴더 내 위치시킨 다음 해당 world에서 로봇을 등장시키는 실습도 해보시기 바랍니다.</p>
+</div>
+
+<h3 id="world-extensive">World Extensive</h3>
+<blockquote>
+<p>github에는 다른 사람들이 만들어 둔 다양한 gazebo world들이 있습니다. 이들을 사용하는 방법을 익혀두면 여러분의 수고를 덜면서 더욱 다채로운 예시를 실행할 수 있습니다.</p>
+</blockquote>
+<ul>
+<li>이번에 사용해볼 world는 clearpath의 cpr_gazebo 패키지안에 존재합니다. 해당 repo를 clone하고 빌드하겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>cd ~/catkin_ws/src
+</span></span><span style="display:flex;"><span>git clone https://github.com/clearpathrobotics/cpr_gazebo.git
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cd ~/catkin_ws
+</span></span><span style="display:flex;"><span>catkin build cpr_office_gazebo
+</span></span><span style="display:flex;"><span>source devel/setup.bash
+</span></span></code></pre></div><ul>
+<li>이제, 우리의 launch file을 수정해보겠습니다. 제가 <strong>uncomment</strong> 라고 해둔 라인 아래를 주석 해제 하신 뒤 마지막 부분에 아래의 라인을 추가하십니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- Spawn Structure --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;param</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;office_geom&#34;</span> <span style="color:#a6e22e">command=</span><span style="color:#e6db74">&#34;$(find xacro)/xacro --inorder &#39;$(find cpr_office_gazebo)/urdf/office_construction_geometry.urdf.xacro&#39;&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;node</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;office_world_spawner&#34;</span> <span style="color:#a6e22e">pkg=</span><span style="color:#e6db74">&#34;gazebo_ros&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;spawn_model&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">args=</span><span style="color:#e6db74">&#34;-urdf -model office_construction_geometry -param office_geom -x 0 -y 0 -z 0 -Y 0&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span></code></pre></div><blockquote>
+<p>이제 마지막 예시를 실행해보겠습니다.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>catkin build fusionbot_description
+</span></span><span style="display:flex;"><span>source devel/setup.bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Terminal 1
+</span></span><span style="display:flex;"><span>roslaunch fusionbot_description gazebo.launch
+</span></span><span style="display:flex;"><span># Terminal 2
+</span></span><span style="display:flex;"><span>rviz
+</span></span></code></pre></div><ul>
+<li>다채로운 시뮬레이션 world에서 plugin을 통해 추가했던 수많은 센서 데이터들을 rviz를 사용하여 마음껏 시각화해보시기 바랍니다. 😃</li>
+</ul>
+<p><img src="/kr/ros2_basic_foxy/images13/ros1.png?height=300px" alt="ros1.png"></p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/kr/ros2_basic_foxy/lecture13/" title="Lecture13 - Gazebo and Robot(1)"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kr/ros2_basic_foxy/lecture1/" title="Lecture1 - Introduction to ROS 2" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1674162734"></script>
+    <script src="/js/perfect-scrollbar.min.js?1674162734"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1674162734"></script>
+    <script src="/js/jquery.sticky.js?1674162734"></script>
+    <script src="/js/featherlight.min.js?1674162734"></script>
+    <script src="/js/highlight.pack.js?1674162734"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1674162734"></script>
+    <script src="/js/learn.js?1674162734"></script>
+    <script src="/js/hugo-learn.js?1674162734"></script>
+    
+        
+            <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+
