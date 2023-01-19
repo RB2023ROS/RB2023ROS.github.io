@@ -272,6 +272,16 @@ XMLRPC Extensible Markup Language - XML이란, 웹 서비스에서 데이터를 
     </item>
     
     <item>
+      <title>Lecture12 - SROS2</title>
+      <link>/kr/ros2_basic_foxy/lecture12/</link>
+      <pubDate>Wed, 21 Dec 2022 04:41:42 +0900</pubDate>
+      
+      <guid>/kr/ros2_basic_foxy/lecture12/</guid>
+      <description>sros2 DDS는 기본적으로 보안이 적용되어 있지는 않습니다. 대신, 아래와 같이 5가지의 보안 기능이 표준 정의에 포함되어 있습니다. 사용자는 이들을 Plugin 형태로 추가하여 사용하게 되며, 주로 Vendor단에서 패치 형태로 제공합니다.
+Authentication: 같은 네트워크를 사용하고, 특정 domain내에 존재하는 participant 사이의 신원을 검사합니다. (x.509 인증서와 특정 Public Key Infrastructure - PKI를 사용합니다. ) Access control: participant의 동작, 혹은 리소스를 제한합니다. (apparmor나 cgroup이 아니라 특정 participant를 특정 DDS 도메인으로 제한하거나, participant가 특정 DDS 항목을 읽거나 쓸 수 있도록 하는 형태입니다.</description>
+    </item>
+    
+    <item>
       <title>Lecture13 - SROS</title>
       <link>/kr/ros_basic_noetic/lecture13/</link>
       <pubDate>Wed, 21 Dec 2022 03:02:41 +0900</pubDate>

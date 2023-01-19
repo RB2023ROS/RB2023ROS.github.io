@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="kr" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.104.1" />
+    <meta name="description" content="COM2018 OOP Class Lecture Note">
+<meta name="author" content="Soo Young Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Lecture12 - SROS2 - Documentation for Hugo Learn Theme</title>
+
+    
+    <link href="/css/nucleus.css?1674158113" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1674158113" rel="stylesheet">
+    <link href="/css/hybrid.css?1674158113" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1674158113" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1674158113" rel="stylesheet">
+    <link href="/css/auto-complete.css?1674158113" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1674158113" rel="stylesheet">
+    <link href="/css/theme.css?1674158113" rel="stylesheet">
+    <link href="/css/tabs.css?1674158113" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1674158113" rel="stylesheet">
+    
+    <link href="/css/theme-green.css?1674158113" rel="stylesheet">
+    
+    <link href="/css/foo.css?1674158113" rel="stylesheet"><link href="/css/bar.css?1674158113" rel="stylesheet">
+
+    <script src="/js/jquery-3.3.1.min.js?1674158113"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/kr/ros2_basic_foxy/lecture12/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img width="1097" alt="image" src="https://user-images.githubusercontent.com/12381733/209764275-05dcbdbf-cef7-47ad-94a6-6d61febad01e.png">
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1674158113"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1674158113"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/kr";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1674158113"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/kr'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_basic_noetic/" title="ROS Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_basic_noetic/">
+          <b>ROS Noetic. </b>ROS Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture1/" title="Lecture1 - Introduction to ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture1/">
+        Lecture1 - Introduction to ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture2/" title="Lecture2 - Dev Env Setup" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture2/">
+        Lecture2 - Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture3/" title="Lecture3 - Core of ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture3/">
+        Lecture3 - Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture4/" title="Lecture4 - ROS Launch, RViz" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture4/">
+        Lecture4 - ROS Launch, RViz
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture5/" title="Lecture5 - First Programming, ROS Topic" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture5/">
+        Lecture5 - First Programming, ROS Topic
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture6/" title="Lecture6 - ROS Service, Parameter" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture6/">
+        Lecture6 - ROS Service, Parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture7/" title="Lecture7 - Rqt Tools and rosbag, ROS Time" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture7/">
+        Lecture7 - Rqt Tools and rosbag, ROS Time
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture8/" title="Lecture8 - Deal with Open Source Projects, Custom Interfaces" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture8/">
+        Lecture8 - Deal with Open Source Projects, Custom Interfaces
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture9/" title="Lecture9 - ROS TF and Examples" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture9/">
+        Lecture9 - ROS TF and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture10/" title="Lecture10 - TF2 Examples, Outro" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture10/">
+        Lecture10 - TF2 Examples, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture11/" title="Lecture11 - ROSCPP" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture11/">
+        Lecture11 - ROSCPP
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture12/" title="Lecture12 - More About ROS System" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture12/">
+        Lecture12 - More About ROS System
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture13/" title="Lecture13 - SROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture13/">
+        Lecture13 - SROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_basic_foxy/" title="ROS 2 Basics" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/kr/ros2_basic_foxy/">
+          <b>ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture1/" title="Lecture1 - Introduction to ROS 2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture1/">
+        Lecture1 - Introduction to ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture2/" title="Lecture2 - ROS 2 Node, Package" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture2/">
+        Lecture2 - ROS 2 Node, Package
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture3/" title="Lecture3 - ROS 2 Node Programming, ROS 2 parameter" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture3/">
+        Lecture3 - ROS 2 Node Programming, ROS 2 parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture4/" title="Lecture4 - ROS 2 Node C&#43;&#43; Programming" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture4/">
+        Lecture4 - ROS 2 Node C&#43;&#43; Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture5/" title="Lecture5 - ROS 2 Topic and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture5/">
+        Lecture5 - ROS 2 Topic and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture6/" title="Lecture6 - ROS 2 Service and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture6/">
+        Lecture6 - ROS 2 Service and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture7/" title="Lecture7 - Useful ROS 2 Example, Navigation2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture7/">
+        Lecture7 - Useful ROS 2 Example, Navigation2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture8/" title="Lecture8 - ROS 2 Action and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture8/">
+        Lecture8 - ROS 2 Action and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture9/" title="Lecture9 - C&#43;&#43; Programming Again, Outro" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture9/">
+        Lecture9 - C&#43;&#43; Programming Again, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture10/" title="Lecture10 - About DDS" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture10/">
+        Lecture10 - About DDS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture11/" title="Lecture11 - About DDS (2)" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture11/">
+        Lecture11 - About DDS (2)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture12/" title="Lecture12 - SROS2" class="dd-item active">
+        <a href="/kr/ros2_basic_foxy/lecture12/">
+        Lecture12 - SROS2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros1"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 1</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros2"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 2</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="kr" value="/kr/ros2_basic_foxy/lecture12/" selected>Korean</option>
+                    
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='' href="https://github.com/com2018-fa22/hugo-blog/tree/main/content/ros2_basic_foxy/lecture12.kr.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text"></span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                   Lecture12 - SROS2
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#sros2">sros2</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#sros2-1">SROS2</a>
+      <ul>
+        <li><a href="#authentication-example">Authentication Example</a></li>
+        <li><a href="#access-control"><strong>Access Control</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Lecture12 - SROS2
+            </h1>
+          
+
+        
+
+
+<h2 id="sros2">sros2</h2>
+<p>DDS는 기본적으로 보안이 적용되어 있지는 않습니다. 대신, 아래와 같이 5가지의 보안 기능이 표준 정의에 포함되어 있습니다. 사용자는 이들을 Plugin 형태로 추가하여 사용하게 되며, 주로 Vendor단에서 패치 형태로 제공합니다.</p>
+<ol>
+<li><strong>Authentication</strong>: 같은 네트워크를 사용하고, 특정 domain내에 존재하는 participant 사이의 신원을 검사합니다. (x.509 인증서와 특정 Public Key Infrastructure - PKI를 사용합니다. )</li>
+<li><strong>Access control</strong>: participant의 동작, 혹은 리소스를 제한합니다. (apparmor나 cgroup이 아니라 특정 participant를 특정 DDS 도메인으로 제한하거나, participant가 특정 DDS 항목을 읽거나 쓸 수 있도록 하는 형태입니다.)</li>
+<li><strong>Cryptography</strong>: encryption/decryption/signing/hashing/digital signatures와 같은 암호화 관련 작업을 담당합니다. (Authentication과 Access control plugin에서 모두 이 기능을 사용하게 되고, DDS의 Topic Message를 암호화합니다.)</li>
+<li><strong>Logging</strong>: DDS의 보안 관련 이벤트를 로깅합니다.</li>
+<li><strong>Data tagging</strong>: data에 추가 label을 달수 있습니다. 이를 통해 데이터의 보안 측면 분류를 할 수 있으며, 더욱 개선된 access control이 가능합니다.</li>
+</ol>
+
+<div class="notices note" ><p>아래 2종류는 필수 표준이 아니기 때문에 대부분의 Vendor들은 제공하고 있지 않습니다.</p>
+</div>
+
+<blockquote>
+<p><a href="https://github.com/ros-security/community">ROS 2 Security Working Group (SWG)</a>은 DDS와 ROS 2의 보안과 관련된 오픈 그룹입니다. 해당 그룹에서는 DDS의 보안 취약점을 분석하였는데요, 그 결과 총 13종류의 보안 취약점을 발견하였습니다.</p>
+</blockquote>
+<ul>
+<li>
+<p>이러한 13가지 취약성은 CVE(Common Vulnerabilities and Exposure)로 등록되었고, 이 중 7개는 <a href="https://www.first.org/cvss/specification-document">CVSS(Common Vulnerability Scoring System)</a> v3를 기준으로 &lsquo;High&rsquo; 등급을 판정받았으며, 나머지 5개 또한 &lsquo;Medium&rsquo; 등급을 판정받았습니다.</p>
+</li>
+<li>
+<p>이러한 분석 결과로 US Cybersecurity and Infrastructure Security Agency (CISA)는 DDS 시스템에 보안 권고 경고 ICS Advisory <a href="https://www.cisa.gov/uscert/ics/advisories/icsa-21-315-02">(ICSA-21-315-02)</a>를 내렸고, 그 결과 각 DDS 벤더들은 현재 보안에 계속해서 신경쓰고 있는 상황입니다.</p>
+</li>
+</ul>
+<p>=&gt; 해당 13종의 보안 취약점에 대해서 간단히 리뷰를 해보겠습니다.</p>
+<h4 id="network-based-vulnerabilities">Network-based vulnerabilities</h4>
+<ul>
+<li>Network Layer에서 고의적인 RTPS packet 전송을 통해 DoS 공격이 가능한 점</li>
+<li>불충분한 IP Check (기본 Domain Multicast IP 등)
+관련 DDS 표준 - CVE-2021-38425, CVE-2021-38429, CVE-2021-38487, CVE-2021-43547
+관련 위험 코드 - <a href="https://cwe.mitre.org/data/definitions/406.html">Common Weakness CWE-406</a></li>
+</ul>
+<h4 id="configuration-based-vulnerabilities">Configuration-based vulnerabilities</h4>
+<ul>
+<li>DDS의 셋업 파일은 XML, JSON, YAML과 같은 보편적인 형태를 사용하므로 위험하다고 판단</li>
+<li>ex1) DDS 시스템 중 보안이 취약한 XML 라이브러리를 파고들어 액세스 권한을 탈취할 수 있음</li>
+<li>ex2) 특정 XML Pasrse 내 부적절한 값을 전달하여 buffer overflow를 발생시킬 수 있음</li>
+</ul>
+<p>⇒ 이러한 이유로 현재 대부분의 DDS Vendor들은 보안 Patch를 배포한 상황입니다.</p>
+<table>
+<thead>
+<tr>
+<th>Fast DDS</th>
+<th><a href="https://github.com/eProsima/Fast-DDS">https://github.com/eProsima/Fast-DDS</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open DDS</td>
+<td><a href="https://opendds.org/">https://opendds.org/</a></td>
+</tr>
+<tr>
+<td>rti DDS</td>
+<td><a href="https://www.rti.com/products/dds-standard">https://www.rti.com/products/dds-standard</a></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>아래 첨부 파일에는 Ubuntu를 관리하는 Canonical 재단에서 배포한 ROS 사용자를 위한 보안 강화 전략들이 담겨 있습니다. 라즈베리파이와 TurtleBot 로봇을 통해 각종 보안 테스트를 한 결과로 얻게 된 인사이트가 담겨 있습니다.</p>
+</blockquote>
+<ul>
+<li>Disabling USB</li>
+<li>Remove default users such as “ubuntu”</li>
+<li>SSH hardening</li>
+<li>Disabling Internet Protocol v6</li>
+<li>Unattended upgrades</li>
+</ul>
+<section class="attachments ">
+  <label>
+    <i class="fas fa-paperclip" aria-hidden="true"></i>
+    Example Packages
+  </label>
+  <div class="attachments-files">
+    <li>
+      <a href="/kr/ros2_basic_foxy/lecture12.kr.files/Securing%20ROS_WhitePapaer_10.03.20.pdf">Securing ROS_WhitePapaer_10.03.20.pdf</a>
+      (325 )
+    </li>
+  </div>
+</section>
+
+<h2 id="sros2-1">SROS2</h2>
+<blockquote>
+<p>ROS 1의 sros와 마찬가지로 sros2는 ROS 2의 보안을 위한 도구들의 집합입니다.</p>
+</blockquote>
+<ul>
+<li>CA 인증서 자동 생성, x.509에 기반한 keypair 생성</li>
+<li>keypairs, governance and permissions files등이 담기는 keystore 생성</li>
+<li>DDS traffic을 암호화하는 governance file 제공</li>
+</ul>
+<p>SROS2 공식 레퍼런스에서 제공하는 기본 예시들을 함께 실행해보고, 패킷 분석도 진행해보겠습니다.</p>
+<ul>
+<li>sros2 setup</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt install libssl-dev
+</span></span><span style="display:flex;"><span>sudo apt install ros-foxy-demo-nodes-cpp -y
+</span></span><span style="display:flex;"><span>sudo apt install ros-foxy-demo-nodes-py -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mkdir ~/sros2_demo
+</span></span><span style="display:flex;"><span>cd ~/sros2_demo
+</span></span></code></pre></div><ul>
+<li>각종 인증 관련 파일들이 위치하게 될 keystore를 생성합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ros2 security create_keystore demo_keystore
+</span></span><span style="display:flex;"><span>creating keystore: demo_keystore
+</span></span><span style="display:flex;"><span>creating new CA key/cert pair
+</span></span><span style="display:flex;"><span>creating governance file: demo_keystore/enclaves/governance.xml
+</span></span><span style="display:flex;"><span>creating signed governance file: demo_keystore/enclaves/governance.p7s
+</span></span><span style="display:flex;"><span>all <span style="color:#66d9ef">done</span>! enjoy your keystore in demo_keystore
+</span></span><span style="display:flex;"><span>cheers!
+</span></span></code></pre></div><ul>
+<li>생성된 keystore 폴더는 다음과 같은 폴더 형태를 취하고 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>├── enclaves
+</span></span><span style="display:flex;"><span>│   ├── governance.p7s
+</span></span><span style="display:flex;"><span>│   └── governance.xml
+</span></span><span style="display:flex;"><span>├── private
+</span></span><span style="display:flex;"><span>│   ├── ca.key.pem
+</span></span><span style="display:flex;"><span>│   ├── identity_ca.key.pem -&gt; ca.key.pem
+</span></span><span style="display:flex;"><span>│   └── permissions_ca.key.pem -&gt; ca.key.pem
+</span></span><span style="display:flex;"><span>└── public
+</span></span><span style="display:flex;"><span>    ├── ca.cert.pem
+</span></span><span style="display:flex;"><span>    ├── identity_ca.cert.pem -&gt; ca.cert.pem
+</span></span><span style="display:flex;"><span>    └── permissions_ca.cert.pem -&gt; ca.cert.pem
+</span></span></code></pre></div><p>아래 예시와 같이 각종 인증키가 생성되는 것을 확인 가능합니다.</p>
+<ul>
+<li>ca.key.pem</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>-----BEGIN PRIVATE KEY-----
+</span></span><span style="display:flex;"><span>MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgiXuds0wpQA1F7Cnv
+</span></span><span style="display:flex;"><span>+533UuaPWKnZBYscqvHoyo00XOqhRANCAATI2CRyvxYccuxaWGTKDDe5b2dmdqH5
+</span></span><span style="display:flex;"><span>pBBbeHXXD1QRt7khzpX11InLr9jjpmaotgNIl6oap5d5IF1cIQUXuF1Y
+</span></span><span style="display:flex;"><span>-----END PRIVATE KEY-----
+</span></span></code></pre></div><h3 id="authentication-example">Authentication Example</h3>
+<blockquote>
+<p>첫번째 예시에서는 인증 keypair를 가진 topic publisher와 subscriber를 생성해보려 합니다. 더불어 wireshark를 통해 암호화된 topic message도 확인해보겠습니다.</p>
+</blockquote>
+<ul>
+<li>sros2 키워드를 사용하여 두 세트의 인증서를 생성합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ros2 security create_key demo_keystore /talker_listener/talker
+</span></span><span style="display:flex;"><span>ros2 security create_key demo_keystore /talker_listener/listener
+</span></span></code></pre></div><ul>
+<li>keystore 폴더 내부에 인증서와 permission이라는 config 파일이 추가되었습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>├── enclaves
+</span></span><span style="display:flex;"><span>│   ├── governance.p7s
+</span></span><span style="display:flex;"><span>│   ├── governance.xml
+</span></span><span style="display:flex;"><span>│   └── talker_listener
+</span></span><span style="display:flex;"><span>│       ├── listener
+</span></span><span style="display:flex;"><span>│       │   ├── cert.pem
+</span></span><span style="display:flex;"><span>│       │   ├── governance.p7s -&gt; ../../governance.p7s
+</span></span><span style="display:flex;"><span>│       │   ├── identity_ca.cert.pem -&gt; ../../../public/identity_ca.cert.pem
+</span></span><span style="display:flex;"><span>│       │   ├── key.pem
+</span></span><span style="display:flex;"><span>│       │   ├── permissions_ca.cert.pem -&gt; ../../../public/permissions_ca.cert.pem
+</span></span><span style="display:flex;"><span>│       │   ├── permissions.p7s
+</span></span><span style="display:flex;"><span>│       │   └── permissions.xml
+</span></span><span style="display:flex;"><span>│       └── talker
+</span></span><span style="display:flex;"><span>│           ├── cert.pem
+</span></span><span style="display:flex;"><span>│           ├── governance.p7s -&gt; ../../governance.p7s
+</span></span><span style="display:flex;"><span>│           ├── identity_ca.cert.pem -&gt; ../../../public/identity_ca.cert.pem
+</span></span><span style="display:flex;"><span>│           ├── key.pem
+</span></span><span style="display:flex;"><span>│           ├── permissions_ca.cert.pem -&gt; ../../../public/permissions_ca.cert.pem
+</span></span><span style="display:flex;"><span>│           ├── permissions.p7s
+</span></span><span style="display:flex;"><span>│           └── permissions.xml
+</span></span><span style="display:flex;"><span>├── private
+</span></span><span style="display:flex;"><span>│   ├── ca.key.pem
+</span></span><span style="display:flex;"><span>│   ├── identity_ca.key.pem -&gt; ca.key.pem
+</span></span><span style="display:flex;"><span>│   └── permissions_ca.key.pem -&gt; ca.key.pem
+</span></span><span style="display:flex;"><span>└── public
+</span></span><span style="display:flex;"><span>    ├── ca.cert.pem
+</span></span><span style="display:flex;"><span>    ├── identity_ca.cert.pem -&gt; ca.cert.pem
+</span></span><span style="display:flex;"><span>    └── permissions_ca.cert.pem -&gt; ca.cert.pem
+</span></span></code></pre></div><p>예제를 실행하기 전, 일반적인 Topic 통신 시 String data가 패킷에 노출되는 모습을 살펴보겠습니다. wireshark를 실행시킨 뒤, 커멘드 라인을 실행시키고 패킷을 수집합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1</span>
+</span></span><span style="display:flex;"><span>ros2 run demo_nodes_cpp talker
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
+</span></span><span style="display:flex;"><span>ros2 run demo_nodes_cpp listener
+</span></span></code></pre></div><p><img src="/kr/ros2_basic_foxy/images12/sros0.png?height=300px" alt="sros0.png"></p>
+<p>⇒ RTPS Heartbeat 패킷을 살펴보면, Hello World 라는 데이터가 고스란히 노출되어 있는 모습을 확인 가능합니다.</p>
+<p><img src="/kr/ros2_basic_foxy/images12/sros1.png?height=500px" alt="sros1.png"></p>
+<ul>
+<li>이제 보안 옵션을 적용해보겠으며, sros2에서는 다양한 환경 변수를 통해 보완 관련 옵션을 변경할 수 있도록 하고 있습니다. security를 enable 시켜보겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export ROS_SECURITY_KEYSTORE<span style="color:#f92672">=</span>~/sros2_demo/demo_keystore
+</span></span><span style="display:flex;"><span>export ROS_SECURITY_ENABLE<span style="color:#f92672">=</span>true
+</span></span><span style="display:flex;"><span>export ROS_SECURITY_STRATEGY<span style="color:#f92672">=</span>Enforce
+</span></span></code></pre></div><ul>
+<li>다음으로, 사용한 RMW DDS를 변경해줍니다. 안타깝게도 CycloneDDS의 Debian Package는 보안 plugin을 제공하지 않기 때문에 보안 옵션 적용 시 아래와 같은 에러가 발생합니다. (소스 코드 빌드를 하면 해결됩니다.)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1674150011.742615669<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>rcl<span style="color:#f92672">]</span>: Found security directory: /home/kimsooyoung/sros2_demo/demo_keystore/enclaves/talker_listener/talker
+</span></span><span style="display:flex;"><span>1674150011.756184 <span style="color:#f92672">[</span>19<span style="color:#f92672">]</span>     talker: Could not load Authentication library: dds_security_auth: cannot open shared object file: No such file or directory
+</span></span><span style="display:flex;"><span>1674150011.756216 <span style="color:#f92672">[</span>19<span style="color:#f92672">]</span>     talker: Could not load Authentication plugin.
+</span></span><span style="display:flex;"><span>1674150011.756221 <span style="color:#f92672">[</span>19<span style="color:#f92672">]</span>     talker: Could not load security
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>ERROR<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1674150011.757250268<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>rmw_cyclonedds_cpp<span style="color:#f92672">]</span>: rmw_create_node: failed to create DDS participant
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; <span style="color:#f92672">[</span>rcutils|error_handling.c:108<span style="color:#f92672">]</span> rcutils_set_error_state<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>This error state is being overwritten:
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><ul>
+<li>따라서, 이번 예시를 위해 Fast DDS로 RMW를 변경하겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export RMW_IMPLEMENTATION<span style="color:#f92672">=</span>rmw_fastrtps_cpp
+</span></span></code></pre></div>
+<div class="notices note" ><p>서로 다른 Vendor 끼리는 보안 plugin이 호환되지 않습니다. (보안은 표준이 아닙니다.)</p>
+</div>
+
+
+<div class="notices note" ><p>rmw_connextdds ( rit DDS )는 유료 사용 시 보안 옵션을 사용 가능하며 30일 무료판을 사용하셔도 됩니다. ⇒ <a href="https://www.rti.com/free-trial">https://www.rti.com/free-trial</a></p>
+</div>
+
+<ul>
+<li>이제 pub-sub 예시를 실행해보겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1</span>
+</span></span><span style="display:flex;"><span>$ cd ~/sros2_demo/
+</span></span><span style="display:flex;"><span>$ export RMW_IMPLEMENTATION<span style="color:#f92672">=</span>rmw_fastrtps_cpp
+</span></span><span style="display:flex;"><span>$ ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1674150302.868609218<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>rcl<span style="color:#f92672">]</span>: Found security directory: /home/kimsooyoung/sros2_demo/demo_keystore/enclaves/talker_listener/talker
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1674150303.901477001<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>talker<span style="color:#f92672">]</span>: Publishing: <span style="color:#e6db74">&#39;Hello World: 1&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1674150304.901496377<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>talker<span style="color:#f92672">]</span>: Publishing: <span style="color:#e6db74">&#39;Hello World: 2&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
+</span></span><span style="display:flex;"><span>$ cd ~/sros2_demo/
+</span></span><span style="display:flex;"><span>$ export RMW_IMPLEMENTATION<span style="color:#f92672">=</span>rmw_fastrtps_cpp
+</span></span><span style="display:flex;"><span>$ ros2 run demo_nodes_cpp listener
+</span></span><span style="display:flex;"><span>???
+</span></span><span style="display:flex;"><span>$ ros2 run demo_nodes_cpp listener --ros-args --enclave /talker_listener/listener
+</span></span></code></pre></div><blockquote>
+<p>보안 옵션을 적용하지 않았기 때문에 Publisher가 동작하지 않습니다.</p>
+</blockquote>
+<ul>
+<li>현 상황에서 다시금 wireshark를 실행하여 패킷을 수집해보겠습니다.</li>
+</ul>
+<p><img src="/kr/ros2_basic_foxy/images12/sros2.png?height=300px" alt="sros2.png"></p>
+<ul>
+<li>사진과 같이 이제는 RTPS가 아닌, TLSv1.2 프로토콜을 사용하여 데이터가 오가게 됩니다. 해당 패킷을 열어보면 아래와 같이 암호화가 되어있습니다.</li>
+</ul>
+<p><img src="/kr/ros2_basic_foxy/images12/sros3.png?height=500px" alt="sros3.png"></p>
+<ul>
+<li>더불어, RTPS 프로토콜 패킷을 살펴보면, enclave 옵션이 적용된 것도 확인 가능합니다.</li>
+</ul>
+<p><img src="/kr/ros2_basic_foxy/images12/sros4.png?height=500px" alt="sros4.png"></p>
+
+<div class="notices note" ><p>만약, 서로 다른 머신끼리 통신을 하고 싶다면, <code>demo_keystore</code>를 두 머신 모두 동일하게 소유하고 있어야 합니다. 옆자리에 다른 PC가 있다면 직접 실습해보세요</p>
+</div>
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p ~/sros2_demo/demo_keystore
+</span></span><span style="display:flex;"><span>scp -r talker USERNAME@oldschool.local:~/sros2_demo/demo_keystore
+</span></span></code></pre></div><h3 id="access-control"><strong>Access Control</strong></h3>
+<blockquote>
+<p>시스템의 보안 수준을 높이기 위해 각 노드가 수행할 수 있는 작업을 제한하는 Access Control을 정의할 수 있습니다. 이번 예시에서는 특정 topic만 사용 가능하도록 profile을 지정해보겠습니다.</p>
+</blockquote>
+<ul>
+<li>ROS 2에서 기본 제공하는 policy 예시를 복사합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt install subversion
+</span></span><span style="display:flex;"><span>cd ~/sros2_demo
+</span></span><span style="display:flex;"><span>svn checkout https://github.com/ros2/sros2/trunk/sros2/test/policies
+</span></span></code></pre></div><ul>
+<li>clone한 policy를 바탕으로 node의 action을 제한하는 description을 생성합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~/sros2_demo
+</span></span><span style="display:flex;"><span>ros2 security create_permission demo_keystore /talker_listener/talker policies/sample.policy.xml
+</span></span><span style="display:flex;"><span>ros2 security create_permission demo_keystore /talker_listener/listener policies/sample.policy.xml
+</span></span></code></pre></div>
+<div class="notices note" ><p>위 작업은 talker / listener의 cert.pem이 있어야 실행 가능합니다.</p>
+</div>
+
+<ul>
+<li>일전 예시를 다시 실행시켜보겠습니다. 얼핏 보기에는 달라진 점이 전혀 없어 보입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1</span>
+</span></span><span style="display:flex;"><span>ros2 run demo_nodes_cpp talker --ros-args -e /talker_listener/talker
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
+</span></span><span style="display:flex;"><span>ros2 run demo_nodes_py listener --ros-args -e /talker_listener/listener
+</span></span></code></pre></div><ul>
+<li>하지만, argument를 통해 사용하는 topic을 다른 것으로 바꾸는 순간, <strong>not found in allow rule</strong>라는 명령어와 함께 Node가 생성되지 않습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1</span>
+</span></span><span style="display:flex;"><span>ros2 run demo_nodes_cpp talker --ros-args -e /talker_listener/talker
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
+</span></span><span style="display:flex;"><span>ros2 run demo_nodes_py listener --ros-args -r chatter:<span style="color:#f92672">=</span>not_chatter -e /talker_listener/listener
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1674152415.259964110<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>rcl<span style="color:#f92672">]</span>: Found security directory: /home/kimsooyoung/sros2_demo/demo_keystore/enclaves/talker_listener/listener
+</span></span><span style="display:flex;"><span>2023-01-20 03:20:15.303 <span style="color:#f92672">[</span>SECURITY Error<span style="color:#f92672">]</span> rt/not_chatter topic not found in allow rule. <span style="color:#f92672">(</span>/tmp/binarydeb/ros-foxy-fastrtps-2.1.2/src/cpp/security/accesscontrol/Permissions.cpp:1271<span style="color:#f92672">)</span> -&gt; Function check_create_datareader
+</span></span><span style="display:flex;"><span>2023-01-20 03:20:15.303 <span style="color:#f92672">[</span>SECURITY Error<span style="color:#f92672">]</span> Error checking creation of local reader bb.dd.19.9c.75.22.60.e0.55.c1.c0.3a|0.0.11.4 <span style="color:#f92672">(</span>rt/not_chatter topic not found in allow rule. <span style="color:#f92672">(</span>/tmp/binarydeb/ros-foxy-fastrtps-2.1.2/src/cpp/security/accesscontrol/Permissions.cpp:1271<span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span> -&gt; Function register_local_reader
+</span></span><span style="display:flex;"><span>2023-01-20 03:20:15.303 <span style="color:#f92672">[</span>PARTICIPANT Error<span style="color:#f92672">]</span> Problem creating associated Reader -&gt; Function createSubscriber
+</span></span></code></pre></div><ul>
+<li>이번 예시에서 사용한 policy file입니다. - <strong>policies/sample.policy.xml</strong> topic publisher와 subscriber는 오직 /chatter topic만을 사용할 수 있게 access limit 걸리게 됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;?xml version<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1.0&#34;</span> encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>?&gt;
+</span></span><span style="display:flex;"><span>&lt;policy version<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.2.0&#34;</span>
+</span></span><span style="display:flex;"><span>  xmlns:xi<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XInclude&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;enclaves&gt;
+</span></span><span style="display:flex;"><span>    &lt;xi:include href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;talker_listener.policy.xml&#34;</span>
+</span></span><span style="display:flex;"><span>      xpointer<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xpointer(/policy/enclaves/*)&#34;</span>/&gt;
+</span></span><span style="display:flex;"><span>    &lt;xi:include href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;add_two_ints.policy.xml&#34;</span>
+</span></span><span style="display:flex;"><span>      xpointer<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xpointer(/policy/enclaves/*)&#34;</span>/&gt;
+</span></span><span style="display:flex;"><span>    &lt;xi:include href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;minimal_action.policy.xml&#34;</span>
+</span></span><span style="display:flex;"><span>      xpointer<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xpointer(/policy/enclaves/*)&#34;</span>/&gt;
+</span></span><span style="display:flex;"><span>    &lt;enclave path<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/sample_policy/admin&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;profiles&gt;
+</span></span><span style="display:flex;"><span>        &lt;profile ns<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/&#34;</span> node<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;admin&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;xi:include href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;common/node.xml&#34;</span>
+</span></span><span style="display:flex;"><span>            xpointer<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xpointer(/profile/*)&#34;</span>/&gt;
+</span></span><span style="display:flex;"><span>          &lt;actions call<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ALLOW&#34;</span> execute<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ALLOW&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;action&gt;fibonacci&lt;/action&gt;
+</span></span><span style="display:flex;"><span>          &lt;/actions&gt;
+</span></span><span style="display:flex;"><span>          &lt;services reply<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ALLOW&#34;</span> request<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ALLOW&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;service&gt;add_two_ints&lt;/service&gt;
+</span></span><span style="display:flex;"><span>          &lt;/services&gt;
+</span></span><span style="display:flex;"><span>          &lt;topics publish<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ALLOW&#34;</span> subscribe<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ALLOW&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;topic&gt;chatter&lt;/topic&gt;
+</span></span><span style="display:flex;"><span>          &lt;/topics&gt;
+</span></span><span style="display:flex;"><span>        &lt;/profile&gt;
+</span></span><span style="display:flex;"><span>      &lt;/profiles&gt;
+</span></span><span style="display:flex;"><span>    &lt;/enclave&gt;
+</span></span><span style="display:flex;"><span>  &lt;/enclaves&gt;
+</span></span><span style="display:flex;"><span>&lt;/policy&gt;
+</span></span></code></pre></div><hr>
+<p><strong>참고자료</strong></p>
+<ul>
+<li><a href="https://canonical.com/blog/security-vulnerabilities-on-the-data-distribution-service-dds">https://canonical.com/blog/security-vulnerabilities-on-the-data-distribution-service-dds</a></li>
+<li><a href="https://github.com/ros2/sros2">https://github.com/ros2/sros2</a></li>
+<li><a href="https://canonical.com/blog/what-is-sros-2">https://canonical.com/blog/what-is-sros-2</a></li>
+</ul>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/kr/ros2_basic_foxy/lecture11/" title="Lecture11 - About DDS (2)"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kr/ros2_basic_foxy/lecture1/" title="Lecture1 - Introduction to ROS 2" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1674158113"></script>
+    <script src="/js/perfect-scrollbar.min.js?1674158113"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1674158113"></script>
+    <script src="/js/jquery.sticky.js?1674158113"></script>
+    <script src="/js/featherlight.min.js?1674158113"></script>
+    <script src="/js/highlight.pack.js?1674158113"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1674158113"></script>
+    <script src="/js/learn.js?1674158113"></script>
+    <script src="/js/hugo-learn.js?1674158113"></script>
+    
+        
+            <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+
