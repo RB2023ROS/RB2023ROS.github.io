@@ -4,21 +4,21 @@
 	"title": "ROS Basics",
 	"tags": [],
 	"description": "",
-	"content": "\nLecture1. Lecture1 - Introduction to ROS Lecture2. Dev Env Setup Lecture3. Core of ROS Lecture4. ROS Launch, RViz Lecture5. First Programming, ROS Topic Lecture6. ROS Service, Parameter Lecture7. Rqt Tools and rosbag, ROS Time Lecture8. Deal with Open Source Projects, Custom Interfaces Lecture9. ROS TF and Examples Lecture10. TF2 Examples, Outro "
+	"content": "\nLecture1. Lecture1 - Introduction to ROS Lecture2. Dev Env Setup Lecture3. Core of ROS Lecture4. ROS Launch, RViz Lecture5. First Programming, ROS Topic Lecture6. ROS Service, Parameter Lecture7. Rqt Tools and rosbag, ROS Time Lecture8. Deal with Open Source Projects, Custom Interfaces Lecture9. ROS TF and Examples Lecture10. TF2 Examples, Outro Lecture11 - ROSCPP Lecture12 - More About ROS System Lecture13 - SROS "
 },
 {
 	"uri": "/kr/ros2_basic_foxy/",
 	"title": "ROS 2 Basics",
 	"tags": [],
 	"description": "",
-	"content": "\nLecture1. Lecture1 - Introduction to ROS 2 Lecture2. ROS 2 Node, Package Lecture3. ROS 2 Node Programming, ROS 2 Parameter Lecture4. ROS 2 Node C++ Programming Lecture5. ROS 2 Topic and Examples Lecture6. ROS 2 Service and Examples Lecture7. Useful ROS 2 Examples, Nav2 Lecture8. ROS 2 Action and Examples Lecture9. C++ Programming Again, Outro "
+	"content": "\nLecture1. Lecture1 - Introduction to ROS 2 Lecture2. ROS 2 Node, Package Lecture3. ROS 2 Node Programming, ROS 2 Parameter Lecture4. ROS 2 Node C++ Programming Lecture5. ROS 2 Topic and Examples Lecture6. ROS 2 Service and Examples Lecture7. Useful ROS 2 Examples, Nav2 Lecture8. ROS 2 Action and Examples Lecture9. C++ Programming Again, Outro Lecture10 - About DDS Lecture11 - About DDS (2) Lecture12 - SROS2 Lecture13 - Gazebo and Robot(1) Lecture14 - Gazebo and Robot(2) "
 },
 {
 	"uri": "/kr/",
 	"title": "2023 Road Balance ROS Lecture Note",
 	"tags": [],
 	"description": "",
-	"content": "2023 ROAD BALANCE ROS LECTURE NOTE 본 사이트는 2023년 Road Balance의 ROS/ROS 2 강의에 사용되는 강의 노트입니다.\nROS Noetic Lecture Lecture1. Lecture1 - Introduction to ROS Lecture2. Dev Env Setup Lecture3. Core of ROS Lecture4. ROS Launch, RViz Lecture5. First Programming, ROS Topic Lecture6. ROS Service, Parameter Lecture7. Rqt Tools and rosbag, ROS Time Lecture8. Deal with Open Source Projects, Custom Interfaces Lecture9. ROS TF and Examples Lecture10. TF2 Examples, Outro ROS 2 Foxy Lecture Lecture1. Lecture1 - Introduction to ROS 2 Lecture2. ROS 2 Node, Package Lecture3. ROS 2 Node Programming, ROS 2 Parameter Lecture4. ROS 2 Node C++ Programming Lecture5. ROS 2 Topic and Examples Lecture6. ROS 2 Service and Examples Lecture7. Useful ROS 2 Examples, Nav2 Lecture8. ROS 2 Action and Examples Lecture9. C++ Programming Again, Outro "
+	"content": "2023 ROAD BALANCE ROS LECTURE NOTE 본 사이트는 2023년 Road Balance의 ROS/ROS 2 강의에 사용되는 강의 노트입니다.\nROS Noetic Lecture Lecture1. Lecture1 - Introduction to ROS Lecture2. Dev Env Setup Lecture3. Core of ROS Lecture4. ROS Launch, RViz Lecture5. First Programming, ROS Topic Lecture6. ROS Service, Parameter Lecture7. Rqt Tools and rosbag, ROS Time Lecture8. Deal with Open Source Projects, Custom Interfaces Lecture9. ROS TF and Examples Lecture10. TF2 Examples, Outro Lecture11 - ROSCPP Lecture12 - More About ROS System Lecture13 - SROS ROS 2 Foxy Lecture Lecture1. Lecture1 - Introduction to ROS 2 Lecture2. ROS 2 Node, Package Lecture3. ROS 2 Node Programming, ROS 2 Parameter Lecture4. ROS 2 Node C++ Programming Lecture5. ROS 2 Topic and Examples Lecture6. ROS 2 Service and Examples Lecture7. Useful ROS 2 Examples, Nav2 Lecture8. ROS 2 Action and Examples Lecture9. C++ Programming Again, Outro Lecture10 - About DDS Lecture11 - About DDS (2) Lecture12 - SROS2 Lecture13 - Gazebo and Robot(1) Lecture14 - Gazebo and Robot(2) "
 },
 {
 	"uri": "/kr/ros2_basic_foxy/lecture1/",
