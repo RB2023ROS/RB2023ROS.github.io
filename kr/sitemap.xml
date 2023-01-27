@@ -57,17 +57,10 @@
     <loc>/kr/ros2_basic_foxy/lecture9/</loc>
     <lastmod>2023-01-02T12:38:58+09:00</lastmod>
   </url><url>
-<<<<<<< HEAD
     <loc>/kr/advanced_contents_ros2/lecture1/</loc>
     <lastmod>2023-01-01T14:08:02+09:00</lastmod>
   </url><url>
     <loc>/kr/advanced_contents_ros2/lecture2/</loc>
-=======
-    <loc>/kr/ros2_basic_foxy/lecture10/</loc>
-    <lastmod>2023-01-01T14:08:02+09:00</lastmod>
-  </url><url>
-    <loc>/kr/ros2_basic_foxy/lecture11/</loc>
->>>>>>> bccf9535527a66bc6066600a566a5dfd5193c450
     <lastmod>2023-01-01T13:19:51+09:00</lastmod>
   </url><url>
     <loc>/kr/ros_basic_noetic/lecture1/</loc>
@@ -106,7 +99,6 @@
     <loc>/kr/advanced_contents_ros1/lecture2/</loc>
     <lastmod>2022-12-22T03:02:12+09:00</lastmod>
   </url><url>
-<<<<<<< HEAD
     <loc>/kr/advanced_contents_ros2/lecture3/</loc>
     <lastmod>2022-12-21T04:41:42+09:00</lastmod>
   </url><url>
@@ -117,18 +109,6 @@
     <lastmod>2022-01-19T04:41:42+09:00</lastmod>
   </url><url>
     <loc>/kr/ros_and_gazebo/lecture2/</loc>
-=======
-    <loc>/kr/ros2_basic_foxy/lecture12/</loc>
-    <lastmod>2022-12-21T04:41:42+09:00</lastmod>
-  </url><url>
-    <loc>/kr/ros_basic_noetic/lecture13/</loc>
-    <lastmod>2022-12-21T03:02:41+09:00</lastmod>
-  </url><url>
-    <loc>/kr/ros2_basic_foxy/lecture13/</loc>
-    <lastmod>2022-01-19T04:41:42+09:00</lastmod>
-  </url><url>
-    <loc>/kr/ros2_basic_foxy/lecture14/</loc>
->>>>>>> bccf9535527a66bc6066600a566a5dfd5193c450
     <lastmod>2022-01-18T04:41:42+09:00</lastmod>
   </url><url>
     <loc>/kr/categories/</loc>
