@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gazebo and ROS on Documentation for Hugo Learn Theme</title>
+    <link>/kr/ros_and_gazebo/</link>
+    <description>Recent content in Gazebo and ROS on Documentation for Hugo Learn Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 25 Oct 2022 12:26:00 +0900</lastBuildDate><atom:link href="/kr/ros_and_gazebo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lecture1 - Gazebo and Robot</title>
+      <link>/kr/ros_and_gazebo/lecture1/</link>
+      <pubDate>Wed, 19 Jan 2022 04:41:42 +0900</pubDate>
+      
+      <guid>/kr/ros_and_gazebo/lecture1/</guid>
+      <description>FusionBot 소개 이번 실습을 위해 모바일 로봇에서 가장 많이 사용되는 타입의 로봇, FusionBot을 준비하였습니다. FusionBot을 통해 ROS에서의 로봇 표현 방법을 익힌 뒤, 실제 CAD 파일에서 Gazebo 상의 로봇을 구현하는 실습을 진행해봅시다.
+실습을 위한 git repo를 clone한 뒤 종속성들을 설치합시다. cd ~/ros2_ws/src git clone https://github.com/RB2023ROS/du2023-gz.git cd du2023-gz ./setup_scripts.sh URDF와 Robot Description 일반적으로, 로봇은 Links와 Joints 두가지 요소로 이루어집니다.
+Link : 단단하게 고정된 강체(rigid-body)이며, 사람의 골격에 해당합니다. Joint : link 사이를 결합해주고 이들 사이 운동을 결정짓습니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture2 - Gazebo and Robot(2)</title>
+      <link>/kr/ros_and_gazebo/lecture2/</link>
+      <pubDate>Tue, 18 Jan 2022 04:41:42 +0900</pubDate>
+      
+      <guid>/kr/ros_and_gazebo/lecture2/</guid>
+      <description>FusionBot과 Gazebo Description 예시를 통해 URDF에 대해 습득하였다면, 이제 Gazebo에 로봇을 등장시키고, 이동, 센싱을 구현할 차례입니다. FusionBot을 통해 실습을 진행해보고, 이전 예시에서의 로봇들도 함께 분석해 보겠습니다.
+강의에서는, Gazebo에서 로봇을 등장시키는 2가지 방법을 제시하고자 합니다.
+Xacro 파일을 통한 로봇 Spawn URDF 파일을 통한 로봇 Spawn 두 방식 모두 launch file에서 실행되는 Node들은 동일합니다.
+gazebo_ros를 통해 gazebo server와 client를 실행하고 robot_state_publisher와 joint_state_publisher를 통해 robot_description topic을 준비합니다. 마지막으로, gazebo_ros에서 제공하는 spawn_entity라는 Node를 통해 로봇을 Gazebo 상에 등장시킵니다.</description>
+    </item>
+    
+  </channel>
+</rss>

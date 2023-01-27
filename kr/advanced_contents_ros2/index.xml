@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ROS 2 on Documentation for Hugo Learn Theme</title>
+    <link>/kr/advanced_contents_ros2/</link>
+    <description>Recent content in ROS 2 on Documentation for Hugo Learn Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 25 Nov 2022 12:26:00 +1000</lastBuildDate><atom:link href="/kr/advanced_contents_ros2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lecture1 - About DDS</title>
+      <link>/kr/advanced_contents_ros2/lecture1/</link>
+      <pubDate>Sun, 01 Jan 2023 14:08:02 +0900</pubDate>
+      
+      <guid>/kr/advanced_contents_ros2/lecture1/</guid>
+      <description>About DDS ROS 1과 대두되는 가장 큰 차이점으로, ROS 2는 DDS를 미들웨어로 기반하여 개편되었습니다. 따라서 DDS에 대한 개요와 기능을 이해하는 것은 ROS 2의 성질을 파악하는 데 많은 도움이 됩니다.
+What is DDS? DDS - Data Distribution Service는 OMG에서 정의한 Publish-Subscribe 방식의 실시간 데이터 분배 서비스 표준입니다.
+Pub-Sub이라는 용어는 ROS 개발자에게 무척 익숙한 단어이지요? DDS의 기본 통신 개념은 ROS의 Topic과 매우 유사합니다. 이러한 결론을 머리속에 잘 담아두고 계속해서 진행해 보겠습니다.
+OMG(Object Management Group)는 분산 객체 컴퓨팅(Distributed Object Computing) 영역의 표준을 제정하는 국제 비영리 컨소시엄으로 영향력 있는 각종 세계 표준을 정의하고 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture11 - About DDS (2)</title>
+      <link>/kr/advanced_contents_ros2/lecture2/</link>
+      <pubDate>Sun, 01 Jan 2023 13:19:51 +0900</pubDate>
+      
+      <guid>/kr/advanced_contents_ros2/lecture2/</guid>
+      <description>DDS의 IDL DDS에서는 특정 언어에 의존적이지 않는 데이터 통신을 위해 IDL을 사용합니다.
+IDL - Interface Description Language 또는 Interface Definition Language는 어느 한 언어에 국한되지 않는 언어중립적인 방법으로 인터페이스를 표현함으로써, 같은 언어를 사용하지 않는 컴포넌트 사이의 통신을 가능하게 합니다.
+OMG의 Interface Definition Language Version 3.5에 따른 사용 가능한 키워드들은 아래와 같습니다. image from : MDS 테크 ROS 2에서는 interface라는 이름으로 topic message, service srv, action action이 사용되었지요. 이들이 모두 IDL 타입을 갖기 때문에 rclpy, rclcpp, rcljava 모두에서 사용할 수 있는 것입니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture12 - SROS2</title>
+      <link>/kr/advanced_contents_ros2/lecture3/</link>
+      <pubDate>Wed, 21 Dec 2022 04:41:42 +0900</pubDate>
+      
+      <guid>/kr/advanced_contents_ros2/lecture3/</guid>
+      <description>sros2 DDS는 기본적으로 보안이 적용되어 있지는 않습니다. 대신, 아래와 같이 5가지의 보안 기능이 표준 정의에 포함되어 있습니다. 사용자는 이들을 Plugin 형태로 추가하여 사용하게 되며, 주로 Vendor단에서 패치 형태로 제공합니다.
+Authentication: 같은 네트워크를 사용하고, 특정 domain내에 존재하는 participant 사이의 신원을 검사합니다. (x.509 인증서와 특정 Public Key Infrastructure - PKI를 사용합니다. ) Access control: participant의 동작, 혹은 리소스를 제한합니다. (apparmor나 cgroup이 아니라 특정 participant를 특정 DDS 도메인으로 제한하거나, participant가 특정 DDS 항목을 읽거나 쓸 수 있도록 하는 형태입니다.</description>
+    </item>
+    
+  </channel>
+</rss>

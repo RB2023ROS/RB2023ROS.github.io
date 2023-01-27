@@ -1,0 +1,2468 @@
+<!DOCTYPE html>
+<html lang="kr" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.110.0">
+    <meta name="description" content="COM2018 OOP Class Lecture Note">
+<meta name="author" content="Soo Young Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Lecture1 - ROSCPP - Documentation for Hugo Learn Theme</title>
+
+    
+    <link href="/css/nucleus.css?1674796157" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1674796157" rel="stylesheet">
+    <link href="/css/hybrid.css?1674796157" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1674796157" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1674796157" rel="stylesheet">
+    <link href="/css/auto-complete.css?1674796157" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1674796157" rel="stylesheet">
+    <link href="/css/theme.css?1674796157" rel="stylesheet">
+    <link href="/css/tabs.css?1674796157" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1674796157" rel="stylesheet">
+    
+    <link href="/css/theme-green.css?1674796157" rel="stylesheet">
+    
+    <link href="/css/foo.css?1674796157" rel="stylesheet"><link href="/css/bar.css?1674796157" rel="stylesheet">
+
+    <script src="/js/jquery-3.3.1.min.js?1674796157"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/kr/advanced_contents_ros1/lecture1/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img width="1097" alt="image" src="https://user-images.githubusercontent.com/12381733/209764275-05dcbdbf-cef7-47ad-94a6-6d61febad01e.png">
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1674796157"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1674796157"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/kr";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1674796157"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/kr'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_basic_noetic/" title="ROS Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_basic_noetic/">
+          <b>ROS Noetic. </b>ROS Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture1/" title="Lecture1 - Introduction to ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture1/">
+        Lecture1 - Introduction to ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture2/" title="Lecture2 - Dev Env Setup" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture2/">
+        Lecture2 - Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture3/" title="Lecture3 - Core of ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture3/">
+        Lecture3 - Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture4/" title="Lecture4 - ROS Launch, RViz" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture4/">
+        Lecture4 - ROS Launch, RViz
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture5/" title="Lecture5 - First Programming, ROS Topic" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture5/">
+        Lecture5 - First Programming, ROS Topic
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture6/" title="Lecture6 - ROS Service, Parameter" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture6/">
+        Lecture6 - ROS Service, Parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture7/" title="Lecture7 - Rqt Tools and rosbag, ROS Time" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture7/">
+        Lecture7 - Rqt Tools and rosbag, ROS Time
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture8/" title="Lecture8 - Deal with Open Source Projects, Custom Interfaces" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture8/">
+        Lecture8 - Deal with Open Source Projects, Custom Interfaces
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture9/" title="Lecture9 - ROS TF and Examples" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture9/">
+        Lecture9 - ROS TF and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture10/" title="Lecture10 - TF2 Examples, Outro" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture10/">
+        Lecture10 - TF2 Examples, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/advanced_contents_ros1/" title="ROS" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/kr/advanced_contents_ros1/">
+          <b>Advanced Contents. </b>ROS
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture1/" title="Lecture1 - ROSCPP" class="dd-item active">
+        <a href="/kr/advanced_contents_ros1/lecture1/">
+        Lecture1 - ROSCPP
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture2/" title="Lecture2 - More About ROS System" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture2/">
+        Lecture2 - More About ROS System
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture3/" title="Lecture3 - SROS" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture3/">
+        Lecture3 - SROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_basic_foxy/" title="ROS 2 Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros2_basic_foxy/">
+          <b>ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture1/" title="Lecture1 - Introduction to ROS 2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture1/">
+        Lecture1 - Introduction to ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture2/" title="Lecture2 - ROS 2 Node, Package" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture2/">
+        Lecture2 - ROS 2 Node, Package
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture3/" title="Lecture3 - ROS 2 Node Programming, ROS 2 parameter" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture3/">
+        Lecture3 - ROS 2 Node Programming, ROS 2 parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture4/" title="Lecture4 - ROS 2 Node C&#43;&#43; Programming" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture4/">
+        Lecture4 - ROS 2 Node C&#43;&#43; Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture5/" title="Lecture5 - ROS 2 Topic and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture5/">
+        Lecture5 - ROS 2 Topic and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture6/" title="Lecture6 - ROS 2 Service and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture6/">
+        Lecture6 - ROS 2 Service and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture7/" title="Lecture7 - Useful ROS 2 Example, Navigation2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture7/">
+        Lecture7 - Useful ROS 2 Example, Navigation2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture8/" title="Lecture8 - ROS 2 Action and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture8/">
+        Lecture8 - ROS 2 Action and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture9/" title="Lecture9 - C&#43;&#43; Programming Again, Outro" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture9/">
+        Lecture9 - C&#43;&#43; Programming Again, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/advanced_contents_ros2/" title="ROS 2" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/advanced_contents_ros2/">
+          <b>Advanced Contents. </b>ROS 2
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture1/" title="Lecture1 - About DDS" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture1/">
+        Lecture1 - About DDS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture2/" title="Lecture11 - About DDS (2)" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture2/">
+        Lecture11 - About DDS (2)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture3/" title="Lecture12 - SROS2" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture3/">
+        Lecture12 - SROS2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_and_gazebo/" title="Gazebo and ROS" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_and_gazebo/">
+          <b>Gazebo. </b>Gazebo and ROS
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_and_gazebo/lecture1/" title="Lecture1 - Gazebo and Robot" class="dd-item ">
+        <a href="/kr/ros_and_gazebo/lecture1/">
+        Lecture1 - Gazebo and Robot
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_and_gazebo/lecture2/" title="Lecture2 - Gazebo and Robot(2)" class="dd-item ">
+        <a href="/kr/ros_and_gazebo/lecture2/">
+        Lecture2 - Gazebo and Robot(2)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros1"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 1</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros2"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 2</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="kr" value="/kr/advanced_contents_ros1/lecture1/" selected>Korean</option>
+                    
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='' href="https://github.com/com2018-fa22/hugo-blog/tree/main/content/advanced_contents_ros1/lecture1.kr.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text"></span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                   Lecture1 - ROSCPP
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#roscpp-programming">roscpp Programming</a></li>
+        <li><a href="#rospy와의-차이점으로-roscpp은-nodehandle이라는-클래스를-사용합니다">rospy와의 차이점으로, roscpp은 NodeHandle이라는 클래스를 사용합니다.</a></li>
+        <li><a href="#ros-c-package-build">ROS C++ Package Build</a></li>
+      </ul>
+    </li>
+    <li><a href="#roscpp-topic">roscpp Topic</a>
+      <ul>
+        <li><a href="#rosudp">ROSUDP</a></li>
+        <li><a href="#roscpp-service">roscpp Service</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Lecture1 - ROSCPP
+            </h1>
+          
+
+        
+
+
+<h3 id="roscpp-programming">roscpp Programming</h3>
+<p>ros는 다양한 언어를 지원하고 있습니다. 지금까지 살펴보았던 rospy는 가장 쉽고 빠르게 배울 수 있어서 사용하였지만, UDPROS, Nodelet, Plugin과 같은 Advanced ROS 개발을 위해서는 C++ 프로그래밍을 통한 Node 개발이 필요합니다.</p>
+<p><img src="/kr/advanced_contents_ros1/images1/cpp.png?height=300px" alt="cpp.png"></p>
+<ul>
+<li>image from : <a href="https://ko.m.wikipedia.org/wiki/%ED%8C%8C%EC%9D%BC:ISO_C%2B%2B_Logo.svg">wikipedia</a></li>
+</ul>
+
+<div class="notices note" ><p>rospy를 통해 개념을 모두 익혔기 때문에 이번 강의에서는 개발 API를 위주로 roscpp을 배워보겠습니다.</p>
+</div>
+
+<ul>
+<li>가장 기초가 되는 Node 프로그래밍부터 차이점을 살펴봅시다.</li>
+</ul>
+
+
+<div class="tab-panel">
+    <div class="tab-nav">
+    
+        <button
+          data-tab-item="rospy"
+          data-tab-group="default"
+          class="tab-nav-button btn active"
+          onclick="switchTab('default','rospy')"
+         >rospy</button>
+    
+        <button
+          data-tab-item="roscpp"
+          data-tab-group="default"
+          class="tab-nav-button btn "
+          onclick="switchTab('default','roscpp')"
+         >roscpp</button>
+    
+    </div>
+    <div class="tab-content">
+        
+        <div data-tab-item="rospy" data-tab-group="default" class="tab-item active">
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> rospy
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> std_msgs.msg <span style="color:#f92672">import</span> String
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">my_first_node</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># ROS nodes require initialization</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># It contains master registration, uploading parameters</span>
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#f92672">.</span>init_node(<span style="color:#e6db74">&#39;my_first_node&#39;</span>, anonymous<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># ROS safe timer</span>
+</span></span><span style="display:flex;"><span>    rate <span style="color:#f92672">=</span> rospy<span style="color:#f92672">.</span>Rate(<span style="color:#ae81ff">10</span>) <span style="color:#75715e"># 10hz</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Loop control Example</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">not</span> rospy<span style="color:#f92672">.</span>is_shutdown():
+</span></span><span style="display:flex;"><span>        hello_du <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hello du </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> rospy<span style="color:#f92672">.</span>get_time()
+</span></span><span style="display:flex;"><span>        rospy<span style="color:#f92672">.</span>loginfo(hello_du)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Below line calls sleep method in Python internally.</span>
+</span></span><span style="display:flex;"><span>        rate<span style="color:#f92672">.</span>sleep()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        my_first_node()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> rospy<span style="color:#f92672">.</span>ROSInterruptException:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div>
+        </div>
+        
+        <div data-tab-item="roscpp" data-tab-group="default" class="tab-item ">
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;ros/ros.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;std_msgs/String.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span><span style="color:#f92672">**</span> argv){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ros<span style="color:#f92672">::</span>init(argc, argv, <span style="color:#e6db74">&#34;basic_node&#34;</span>);
+</span></span><span style="display:flex;"><span>    ros<span style="color:#f92672">::</span>NodeHandle nh;
+</span></span><span style="display:flex;"><span>    ros<span style="color:#f92672">::</span>Rate r(<span style="color:#ae81ff">5</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> ( ros<span style="color:#f92672">::</span>ok() ) {
+</span></span><span style="display:flex;"><span>        ROS_INFO(<span style="color:#e6db74">&#34;This is Basic Node&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ros::spinOnce();
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        r.sleep();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+        </div>
+        
+    </div>
+</div>
+
+<blockquote>
+<p>간단히 표를 통해 비교해보면 아래와 같이 상당 부분 반복되는 점들을 확인할 수 있습니다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>rospy</th>
+<th>roscpp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Client Library</td>
+<td>import rospy</td>
+<td>#include &lt;ros/ros.h&gt;</td>
+</tr>
+<tr>
+<td>initialization</td>
+<td>rospy.init_node</td>
+<td>ros::init</td>
+</tr>
+<tr>
+<td>interface import</td>
+<td>from std_msgs.msg import String</td>
+<td>#include &lt;std_msgs/String.h&gt;</td>
+</tr>
+<tr>
+<td>logging</td>
+<td>rospy.loginfo()</td>
+<td>ROS_INFO()</td>
+</tr>
+<tr>
+<td>spin</td>
+<td>rospy.spin()</td>
+<td>ros::spin()</td>
+</tr>
+<tr>
+<td>rate</td>
+<td>rospy.Rate()</td>
+<td>ros::Rate()</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="rospy와의-차이점으로-roscpp은-nodehandle이라는-클래스를-사용합니다">rospy와의 차이점으로, roscpp은 NodeHandle이라는 클래스를 사용합니다.</h3>
+<p>roscpp은 NodeHandle을 통해 parameter, publisher, subscriber, serviceServer들을 생성하며, 매개변수로 <strong>namespace</strong>를 받습니다.</p>
+
+<div class="notices note" ><p>cmd_vel_pub 예시코드에 namespace를 설정한 뒤 topic값의 변화를 살펴봅시다.</p>
+</div>
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>ros<span style="color:#f92672">::</span>NodeHandle nh(<span style="color:#e6db74">&#34;my_namespace&#34;</span>);
+</span></span></code></pre></div><p>더불어, NodeHandle은 ROS Node lifecycle 중 “start”의 트리거가 됩니다. Node의 Lifecycle에 대한 자세한 설명은 링크로 대체하겠습니다.</p>
+<p><img src="/kr/advanced_contents_ros1/images1/lf.png?height=300px" alt="lf.png"></p>
+<ul>
+<li>image from : <a href="http://wiki.ros.org/roscpp/Overview/Initialization%20and%20Shutdown">Initialization and Shutdown</a></li>
+</ul>
+
+<div class="notices tip" ><p>NodeHandle은 반드시 ros::init 보다 뒤에 생성되어야 합니다</p>
+</div>
+
+<h3 id="ros-c-package-build">ROS C++ Package Build</h3>
+<p>C++로 작성된 코드는 빌드가 필요하며 caktin 시스템에서는 <strong>CMake</strong>가 빌드를 도와줍니다.</p>
+<p>빌드 시에 필요한 공유 라이브러리, 외부 라이브러리들, 빌드 속성과 같은 상세 내용들이 CMakeLists.txt에 위치합니다.</p>
+<p>본 강의에서는 CMake에 대해서는 자세히 다루지 않고, 프로그래밍 시 알아야 하는 부분만 살펴보겠습니다.</p>
+<ul>
+<li><strong>find_package</strong> - ROS에서 기본 제공하는 패키지들을 손쉽게 추가할 수 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">## Find catkin macros and libraries</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## is used, also find other catkin packages</span>
+</span></span><span style="display:flex;"><span>find_package(catkin REQUIRED COMPONENTS
+</span></span><span style="display:flex;"><span>  roscpp
+</span></span><span style="display:flex;"><span>  geometry_msgs
+</span></span><span style="display:flex;"><span>  sensor_msgs
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><ul>
+<li>컴파일 옵션 - add_executable과 add_dependencies를 적용하고, 빌드 결과가 위치하는 지점을 catkin workspace의 build 폴더로 지정해야 합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">## Declare a C++ executable</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## With catkin_make all packages are built within a single CMake context</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## The recommended prefix ensures that target names across packages don&#39;t collide</span>
+</span></span><span style="display:flex;"><span>add_executable(cmd_vel_pub_node src<span style="color:#f92672">/</span>cmdvel_pub<span style="color:#f92672">.</span>cpp)
+</span></span><span style="display:flex;"><span>add_executable(laser_sub_node src<span style="color:#f92672">/</span>laser_sub<span style="color:#f92672">.</span>cpp)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>add_dependencies(cmd_vel_pub_node <span style="color:#960050;background-color:#1e0010">$</span>{cmd_vel_pub_node_EXPORTED_TARGETS} <span style="color:#960050;background-color:#1e0010">$</span>{catkin_EXPORTED_TARGETS})
+</span></span><span style="display:flex;"><span>add_dependencies(laser_sub_node <span style="color:#960050;background-color:#1e0010">$</span>{laser_sub_node_EXPORTED_TARGETS} <span style="color:#960050;background-color:#1e0010">$</span>{catkin_EXPORTED_TARGETS})
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>target_link_libraries(cmd_vel_pub_node
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">$</span>{catkin_LIBRARIES}
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>target_link_libraries(laser_sub_node
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">$</span>{catkin_LIBRARIES}
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><ul>
+<li>이후 catkin build와 실행은 rospy와 동일합니다. (executable name에 주의합니다.)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>catkin build &lt;pkg-name&gt;
+</span></span><span style="display:flex;"><span>source devel/setup.bash
+</span></span><span style="display:flex;"><span>rosrun &lt;pkg-name&gt; &lt;executable-name&gt;
+</span></span></code></pre></div><h2 id="roscpp-topic">roscpp Topic</h2>
+<ul>
+<li>roscpp의 예시들은 rospy와 동일한 기능을 하도록 작성하였습니다. 코드의 API에 집중하여 비교, 분석해보겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1</span>
+</span></span><span style="display:flex;"><span>roslaunch smb_gazebo smb_gazebo.launch
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Example 1</span>
+</span></span><span style="display:flex;"><span>rosrun cpp_topic_pkg cmd_vel_pub
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Example 2</span>
+</span></span><span style="display:flex;"><span>rosrun cpp_topic_pkg laser_scan_sub
+</span></span></code></pre></div><ul>
+<li><strong>cmd_vel_pub code</strong></li>
+</ul>
+
+
+<div class="tab-panel">
+    <div class="tab-nav">
+    
+        <button
+          data-tab-item="python"
+          data-tab-group="default"
+          class="tab-nav-button btn active"
+          onclick="switchTab('default','python')"
+         >python</button>
+    
+        <button
+          data-tab-item="c&#43;&#43;"
+          data-tab-group="default"
+          class="tab-nav-button btn "
+          onclick="switchTab('default','c\u002b\u002b')"
+         >c&#43;&#43;</button>
+    
+    </div>
+    <div class="tab-content">
+        
+        <div data-tab-item="python" data-tab-group="default" class="tab-item active">
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> rospy
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> geometry_msgs.msg <span style="color:#f92672">import</span> Twist
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CmdVelPubNode</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Publisher requires 3 paramters</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#  1. topic name</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#  2. topic msg type</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#  3. topic queue size</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>cmd_vel_pub_ <span style="color:#f92672">=</span> rospy<span style="color:#f92672">.</span>Publisher(<span style="color:#e6db74">&#34;cmd_vel&#34;</span>, Twist, queue_size<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>timer_ <span style="color:#f92672">=</span> rospy<span style="color:#f92672">.</span>Timer(rospy<span style="color:#f92672">.</span>Duration(<span style="color:#ae81ff">1.0</span><span style="color:#f92672">/</span><span style="color:#ae81ff">10.0</span>), self<span style="color:#f92672">.</span>pub_msg)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>twist_ <span style="color:#f92672">=</span> Twist()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">pub_msg</span>(self, event<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># geometry_msgs.Twist</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># ref: http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Twist.html</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>twist_<span style="color:#f92672">.</span>linear<span style="color:#f92672">.</span>x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>twist_<span style="color:#f92672">.</span>angular<span style="color:#f92672">.</span>z <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>cmd_vel_pub_<span style="color:#f92672">.</span>publish(self<span style="color:#f92672">.</span>twist_)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">cmd_vel_node</span>():
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#f92672">.</span>init_node(<span style="color:#e6db74">&#39;cmd_vel_node&#39;</span>, anonymous<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>    cmd_vel_pub_node <span style="color:#f92672">=</span> CmdVelPubNode()
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#f92672">.</span>spin()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        cmd_vel_node()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> rospy<span style="color:#f92672">.</span>ROSInterruptException:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div>
+        </div>
+        
+        <div data-tab-item="c&#43;&#43;" data-tab-group="default" class="tab-item ">
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;ros/ros.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;geometry_msgs/Twist.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CmdVelPubNode</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    ros<span style="color:#f92672">::</span>Publisher cmd_vel_pub_;
+</span></span><span style="display:flex;"><span>    ros<span style="color:#f92672">::</span>Timer timer_;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    geometry_msgs<span style="color:#f92672">::</span>Twist twist_msg_;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    CmdVelPubNode(ros<span style="color:#f92672">::</span>NodeHandle <span style="color:#f92672">*</span>nh) {
+</span></span><span style="display:flex;"><span>        ROS_INFO(<span style="color:#e6db74">&#34;Publisher and Subscriber initialized&#34;</span>);
+</span></span><span style="display:flex;"><span>        timer_ <span style="color:#f92672">=</span> nh<span style="color:#f92672">-&gt;</span>createTimer(ros<span style="color:#f92672">::</span>Duration(<span style="color:#ae81ff">0.1</span>), <span style="color:#f92672">&amp;</span>CmdVelPubNode<span style="color:#f92672">::</span>timerCallback, <span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>        cmd_vel_pub_ <span style="color:#f92672">=</span> nh<span style="color:#f92672">-&gt;</span>advertise<span style="color:#f92672">&lt;</span>geometry_msgs<span style="color:#f92672">::</span>Twist<span style="color:#f92672">&gt;</span>(<span style="color:#e6db74">&#34;cmd_vel&#34;</span>, <span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">timerCallback</span>(<span style="color:#66d9ef">const</span> ros<span style="color:#f92672">::</span>TimerEvent<span style="color:#f92672">&amp;</span> event){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        twist_msg_.linear.x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>;
+</span></span><span style="display:flex;"><span>        twist_msg_.angular.z <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        cmd_vel_pub_.publish(twist_msg_);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argv, <span style="color:#66d9ef">char</span><span style="color:#f92672">**</span> argc) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ros<span style="color:#f92672">::</span>init(argv, argc, <span style="color:#e6db74">&#34;cmd_vel_node&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ros::NodeHandle nh(&#34;my_namespace&#34;);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    ros<span style="color:#f92672">::</span>NodeHandle nh;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    CmdVelPubNode cmd_pub_node(<span style="color:#f92672">&amp;</span>nh);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ros<span style="color:#f92672">::</span>spin();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+        </div>
+        
+    </div>
+</div>
+
+<ul>
+<li><strong>laser_scan_sub code</strong></li>
+</ul>
+
+
+<div class="tab-panel">
+    <div class="tab-nav">
+    
+        <button
+          data-tab-item="python"
+          data-tab-group="default"
+          class="tab-nav-button btn active"
+          onclick="switchTab('default','python')"
+         >python</button>
+    
+        <button
+          data-tab-item="c&#43;&#43;"
+          data-tab-group="default"
+          class="tab-nav-button btn "
+          onclick="switchTab('default','c\u002b\u002b')"
+         >c&#43;&#43;</button>
+    
+    </div>
+    <div class="tab-content">
+        
+        <div data-tab-item="python" data-tab-group="default" class="tab-item active">
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> rospy
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sensor_msgs.msg <span style="color:#f92672">import</span> LaserScan
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LaserSubNode</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Publisher requires 3 paramters</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#  1. topic name</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#  2. topic msg type</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#  3. sub callback method</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>laser_sub_ <span style="color:#f92672">=</span> rospy<span style="color:#f92672">.</span>Subscriber(<span style="color:#e6db74">&#34;scan&#34;</span>, LaserScan, self<span style="color:#f92672">.</span>laser_cb)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># first param of callback method is always topic msg</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">laser_cb</span>(self, data):
+</span></span><span style="display:flex;"><span>        rospy<span style="color:#f92672">.</span>loginfo( len(data<span style="color:#f92672">.</span>ranges))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        data.ranges[0]: </span><span style="color:#e6db74">{</span>data<span style="color:#f92672">.</span>ranges[<span style="color:#ae81ff">0</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        data.ranges[90]: </span><span style="color:#e6db74">{</span>data<span style="color:#f92672">.</span>ranges[<span style="color:#ae81ff">90</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        data.ranges[179]: </span><span style="color:#e6db74">{</span>data<span style="color:#f92672">.</span>ranges[<span style="color:#ae81ff">179</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        data.ranges[270]: </span><span style="color:#e6db74">{</span>data<span style="color:#f92672">.</span>ranges[<span style="color:#ae81ff">270</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        data.ranges[360]: </span><span style="color:#e6db74">{</span>data<span style="color:#f92672">.</span>ranges[<span style="color:#ae81ff">360</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">laser_sub_node</span>():
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#f92672">.</span>init_node(<span style="color:#e6db74">&#39;laser_sub_node&#39;</span>, anonymous<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>    laser_sub_node <span style="color:#f92672">=</span> LaserSubNode()
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#f92672">.</span>spin()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        laser_sub_node()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> rospy<span style="color:#f92672">.</span>ROSInterruptException:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div>
+        </div>
+        
+        <div data-tab-item="c&#43;&#43;" data-tab-group="default" class="tab-item ">
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;ros/ros.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;geometry_msgs/Twist.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sensor_msgs/LaserScan.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LaserSubNode</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    ros<span style="color:#f92672">::</span>Subscriber laser_sub_;
+</span></span><span style="display:flex;"><span>    ros<span style="color:#f92672">::</span>Timer timer_;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    LaserSubNode(ros<span style="color:#f92672">::</span>NodeHandle <span style="color:#f92672">*</span>nh) {
+</span></span><span style="display:flex;"><span>        ROS_INFO(<span style="color:#e6db74">&#34;Publisher and Subscriber initialized&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// TCPROS
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// laser_sub_ = nh-&gt;subscribe(&#34;scan&#34;, 10, &amp;LaserSubNode::laserSubCallback, this);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// UDPROS
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        laser_sub_ <span style="color:#f92672">=</span> nh<span style="color:#f92672">-&gt;</span>subscribe(<span style="color:#e6db74">&#34;scan&#34;</span>, <span style="color:#ae81ff">10</span>, <span style="color:#f92672">&amp;</span>LaserSubNode<span style="color:#f92672">::</span>laserSubCallback, <span style="color:#66d9ef">this</span>,
+</span></span><span style="display:flex;"><span>                ros<span style="color:#f92672">::</span>TransportHints()
+</span></span><span style="display:flex;"><span>                    .unreliable()
+</span></span><span style="display:flex;"><span>                    .reliable()
+</span></span><span style="display:flex;"><span>                    .maxDatagramSize(<span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>                    .tcpNoDelay()
+</span></span><span style="display:flex;"><span>            );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">laserSubCallback</span>(<span style="color:#66d9ef">const</span> sensor_msgs<span style="color:#f92672">::</span>LaserScanConstPtr data){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        ROS_INFO_STREAM(<span style="color:#e6db74">&#34;data.ranges[0]: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> data<span style="color:#f92672">-&gt;</span>ranges[<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>        ROS_INFO_STREAM(<span style="color:#e6db74">&#34;data.ranges[90]: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> data<span style="color:#f92672">-&gt;</span>ranges[<span style="color:#ae81ff">90</span>]);
+</span></span><span style="display:flex;"><span>        ROS_INFO_STREAM(<span style="color:#e6db74">&#34;data.ranges[179]: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> data<span style="color:#f92672">-&gt;</span>ranges[<span style="color:#ae81ff">179</span>]);
+</span></span><span style="display:flex;"><span>        ROS_INFO_STREAM(<span style="color:#e6db74">&#34;data.ranges[270]: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> data<span style="color:#f92672">-&gt;</span>ranges[<span style="color:#ae81ff">270</span>]);
+</span></span><span style="display:flex;"><span>        ROS_INFO_STREAM(<span style="color:#e6db74">&#34;data.ranges[360]: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> data<span style="color:#f92672">-&gt;</span>ranges[<span style="color:#ae81ff">360</span>]);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// std::cout &lt;&lt; std::to_string(data.ranges[0]) &lt;&lt; std::endl;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>        ROS_INFO(<span style="color:#e6db74">&#34;Publisher and Subscriber initialized&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argv, <span style="color:#66d9ef">char</span><span style="color:#f92672">**</span> argc) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ros<span style="color:#f92672">::</span>init(argv, argc, <span style="color:#e6db74">&#34;laser_sub_node&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ros::NodeHandle nh(&#34;my_namespace&#34;);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    ros<span style="color:#f92672">::</span>NodeHandle nh;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    LaserSubNode laser_sub_node(<span style="color:#f92672">&amp;</span>nh);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ros<span style="color:#f92672">::</span>spin();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+        </div>
+        
+    </div>
+</div>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>rospy</th>
+<th>roscpp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Publisher</td>
+<td><a href="http://docs.ros.org/en/melodic/api/rospy/html/rospy.topics.Publisher-class.html">rospy.Publisher(topic_name, Message-Type, queue_size)</a></td>
+<td><a href="http://docs.ros.org/en/kinetic/api/roscpp/html/classros_1_1NodeHandle.html">advertise<!-- raw HTML omitted -->(topic_name, queue_size)</a></td>
+</tr>
+<tr>
+<td>Subscriber</td>
+<td><a href="http://docs.ros.org/en/melodic/api/rospy/html/rospy.topics.Subscriber-class.html">rospy.Subscriber(topic_name, Message-Type, callback)</a></td>
+<td><a href="http://docs.ros.org/en/kinetic/api/roscpp/html/classros_1_1NodeHandle.html">subscribe(topic_name, queue_size, callback)</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>C++로 OOP 코드 작성 시, boost를 통한 binding이 필요함에 유의합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>CmdVelPubNode(ros<span style="color:#f92672">::</span>NodeHandle <span style="color:#f92672">*</span>nh) {
+</span></span><span style="display:flex;"><span>    ROS_INFO(<span style="color:#e6db74">&#34;Publisher and Subscriber initialized&#34;</span>);
+</span></span><span style="display:flex;"><span>    timer_ <span style="color:#f92672">=</span> nh<span style="color:#f92672">-&gt;</span>createTimer(ros<span style="color:#f92672">::</span>Duration(<span style="color:#ae81ff">0.1</span>), <span style="color:#f92672">&amp;</span>CmdVelPubNode<span style="color:#f92672">::</span>timerCallback, <span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>    cmd_vel_pub_ <span style="color:#f92672">=</span> nh<span style="color:#f92672">-&gt;</span>advertise<span style="color:#f92672">&lt;</span>geometry_msgs<span style="color:#f92672">::</span>Twist<span style="color:#f92672">&gt;</span>(<span style="color:#e6db74">&#34;cmd_vel&#34;</span>, <span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>파이썬과 마찬가지로 sub callback의 첫번째 매개변수는 topic msg data이며, <strong>std::shared_ptr</strong>가 사용됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sub_callback</span>(<span style="color:#66d9ef">const</span> sensor_msgs<span style="color:#f92672">::</span>LaserScanConstPtr <span style="color:#f92672">&amp;</span>data ){
+</span></span><span style="display:flex;"><span>    ROS_INFO_STREAM(<span style="color:#e6db74">&#34;data.ranges[0]: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> data<span style="color:#f92672">-&gt;</span>ranges[<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>roscpp에서는 Logger 사용 시 c_str 포멧으로 변환해줘야 한다는 단점이 있습니다. 이를 간편하게 하기 위해 저는 <strong>ROS_INFO_STREAM</strong>를 애용합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>ROS_INFO_STREAM(<span style="color:#e6db74">&#34;data.ranges[0]: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> data<span style="color:#f92672">-&gt;</span>ranges[<span style="color:#ae81ff">0</span>]);
+</span></span></code></pre></div><h3 id="rosudp">ROSUDP</h3>
+<blockquote>
+<p>ROS Topic 통신을 위해 Publisher와 Subscriber간의 negotiation이 이루어지며, 이 시점에서 Subscriber에 의해 TCP/UDPROS 중 어떠한 통신이 사용될 지 결정됩니다. Subscriber 코드를 수정하여 UDPROS를 사용해봅시다.</p>
+</blockquote>
+<ul>
+<li>subscribe 예시를 다음과 같이 수정하고 빌드 후 다시 실행시켜봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>laser_sub_ <span style="color:#f92672">=</span> nh<span style="color:#f92672">-&gt;</span>subscribe(<span style="color:#e6db74">&#34;scan&#34;</span>, <span style="color:#ae81ff">10</span>, <span style="color:#f92672">&amp;</span>LaserSubNode<span style="color:#f92672">::</span>laserSubCallback, <span style="color:#66d9ef">this</span>,
+</span></span><span style="display:flex;"><span>                ros<span style="color:#f92672">::</span>TransportHints()
+</span></span><span style="display:flex;"><span>                    .unreliable()
+</span></span><span style="display:flex;"><span>                    .reliable()
+</span></span><span style="display:flex;"><span>                    .maxDatagramSize(<span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>                    .tcpNoDelay()
+</span></span><span style="display:flex;"><span>            );
+</span></span></code></pre></div><p>위 코드에서, unreliable은 UDPROS를, reliable은 TCPROS를 뜻합니다. UDPROS를 사용하는 경우, maxDatagramSize를 지정할 수 있으며, TCPROS를 사용하는 경우 tcpNoDelay를 사용 가능합니다. 위 코드는 UDPROS 통신을 먼저 시도한 뒤, 응답이 없다면 TCPROS를 사용하게 됩니다.</p>
+<blockquote>
+<p>이 같은 설정에 대한 상세 내용은 링크를 확인합시다. ⇒ 참고링크 : <a href="https://docs.ros.org/en/api/roscpp/html/classros_1_1TransportHints.html#a897ab86f1b9d7e145cdecc6a5f86ed28">ros::TransportHints Class Reference</a></p>
+</blockquote>
+<ul>
+<li>소스코드 빌드 후 다시 실행</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>catkin build cpp_topic_pkg
+</span></span><span style="display:flex;"><span>source devel<span style="color:#f92672">/</span>setup.bash
+</span></span><span style="display:flex;"><span>rosrun cpp_topic_pkg laser_scan_sub
+</span></span></code></pre></div><ul>
+<li>rosnode info를 통해 transport 상태를 확인합니다. ⇒ UDPROS를 사용하고 있음을 알 수 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rosnode info /laser_sub_node
+</span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span> * topic: /scan
+</span></span><span style="display:flex;"><span>    * to: /pointcloud_to_laserscan <span style="color:#f92672">(</span>http://192.168.55.236:39875/<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    * direction: inbound
+</span></span><span style="display:flex;"><span>    * transport: UDPROS
+</span></span></code></pre></div><h3 id="roscpp-service">roscpp Service</h3>
+<ul>
+<li>service 예시들도 rospy와 동일한 기능을 갖습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1</span>
+</span></span><span style="display:flex;"><span>roslaunch smb_gazebo smb_gazebo.launch
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Example 1</span>
+</span></span><span style="display:flex;"><span>rosrun cpp_service_pkg emergency_stop
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Example 2</span>
+</span></span><span style="display:flex;"><span>rosrun cpp_service_pkg spawn_model_client
+</span></span></code></pre></div><ul>
+<li><strong>emergency_stop code</strong></li>
+</ul>
+
+
+<div class="tab-panel">
+    <div class="tab-nav">
+    
+        <button
+          data-tab-item="python"
+          data-tab-group="default"
+          class="tab-nav-button btn active"
+          onclick="switchTab('default','python')"
+         >python</button>
+    
+        <button
+          data-tab-item="c&#43;&#43;"
+          data-tab-group="default"
+          class="tab-nav-button btn "
+          onclick="switchTab('default','c\u002b\u002b')"
+         >c&#43;&#43;</button>
+    
+    </div>
+    <div class="tab-content">
+        
+        <div data-tab-item="python" data-tab-group="default" class="tab-item active">
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#! /usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> rospy
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> roslaunch.pmon <span style="color:#f92672">import</span> start_process_monitor
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> geometry_msgs.msg <span style="color:#f92672">import</span> Twist
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> std_srvs.srv <span style="color:#f92672">import</span> SetBool, SetBoolResponse
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">EmergencyStopNode</span>(object):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>cmd_vel_pub_ <span style="color:#f92672">=</span> rospy<span style="color:#f92672">.</span>Publisher(<span style="color:#e6db74">&#34;cmd_vel&#34;</span>, Twist, queue_size<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>stop_server_ <span style="color:#f92672">=</span> rospy<span style="color:#f92672">.</span>Service(<span style="color:#e6db74">&#34;emergency_stop&#34;</span>, SetBool, self<span style="color:#f92672">.</span>stop_cb)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>pm_ <span style="color:#f92672">=</span> start_process_monitor()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>twist_msg_   <span style="color:#f92672">=</span> Twist()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>response_    <span style="color:#f92672">=</span> SetBoolResponse()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        rospy<span style="color:#f92672">.</span>loginfo(<span style="color:#e6db74">&#34;E Stop Server Started&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>twist_pub()
+</span></span><span style="display:flex;"><span>        rospy<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">0.1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">twist_pub</span>(self):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>twist_msg_<span style="color:#f92672">.</span>linear<span style="color:#f92672">.</span>x  <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>twist_msg_<span style="color:#f92672">.</span>angular<span style="color:#f92672">.</span>z <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>cmd_vel_pub_<span style="color:#f92672">.</span>publish(self<span style="color:#f92672">.</span>twist_msg_)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">stop_cb</span>(self, request):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> request<span style="color:#f92672">.</span>data <span style="color:#f92672">is</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>twist_msg_<span style="color:#f92672">.</span>linear<span style="color:#f92672">.</span>x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>twist_msg_<span style="color:#f92672">.</span>angular<span style="color:#f92672">.</span>z <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>cmd_vel_pub_<span style="color:#f92672">.</span>publish(self<span style="color:#f92672">.</span>twist_msg_)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>response_<span style="color:#f92672">.</span>success <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>response_<span style="color:#f92672">.</span>message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Successfully Stopped&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>response_<span style="color:#f92672">.</span>success <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>response_<span style="color:#f92672">.</span>message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Stop Failed&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>response_
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#f92672">.</span>init_node(<span style="color:#e6db74">&#34;emergency_stop_node&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    e_stop_node <span style="color:#f92672">=</span> EmergencyStopNode()
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">1.0</span>)
+</span></span><span style="display:flex;"><span>    e_stop_node<span style="color:#f92672">.</span>twist_pub()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#f92672">.</span>spin()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        main()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> rospy<span style="color:#f92672">.</span>ROSInterruptException:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div>
+        </div>
+        
+        <div data-tab-item="c&#43;&#43;" data-tab-group="default" class="tab-item ">
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;ros/ros.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;std_srvs/SetBool.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;geometry_msgs/Twist.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> SetBool <span style="color:#f92672">=</span> std_srvs<span style="color:#f92672">::</span>SetBool;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">EmergencyStopNode</span> {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    ros<span style="color:#f92672">::</span>ServiceServer service_;
+</span></span><span style="display:flex;"><span>    ros<span style="color:#f92672">::</span>Publisher cmd_vel_pub_;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    geometry_msgs<span style="color:#f92672">::</span>Twist twist_msg_;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    EmergencyStopNode(ros<span style="color:#f92672">::</span>NodeHandle <span style="color:#f92672">*</span>nh){
+</span></span><span style="display:flex;"><span>        service_ <span style="color:#f92672">=</span> nh<span style="color:#f92672">-&gt;</span>advertiseService(<span style="color:#e6db74">&#34;emergency_stop&#34;</span>, <span style="color:#f92672">&amp;</span>EmergencyStopNode<span style="color:#f92672">::</span>eStopCallback, <span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>        cmd_vel_pub_ <span style="color:#f92672">=</span> nh<span style="color:#f92672">-&gt;</span>advertise<span style="color:#f92672">&lt;</span>geometry_msgs<span style="color:#f92672">::</span>Twist<span style="color:#f92672">&gt;</span>(<span style="color:#e6db74">&#34;cmd_vel&#34;</span>, <span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        ROS_INFO_STREAM(<span style="color:#e6db74">&#34;EmergencyStopNode Started&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">moveRobot</span>(){
+</span></span><span style="display:flex;"><span>        twist_msg_.linear.x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>;
+</span></span><span style="display:flex;"><span>        twist_msg_.angular.z <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        cmd_vel_pub_.publish(twist_msg_);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">eStopCallback</span>(SetBool<span style="color:#f92672">::</span>Request <span style="color:#f92672">&amp;</span>req, SetBool<span style="color:#f92672">::</span>Response <span style="color:#f92672">&amp;</span>res){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(req.data <span style="color:#f92672">==</span> true){
+</span></span><span style="display:flex;"><span>            twist_msg_.linear.x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>;
+</span></span><span style="display:flex;"><span>            twist_msg_.angular.z <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>;
+</span></span><span style="display:flex;"><span>            cmd_vel_pub_.publish(twist_msg_);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            res.success <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>            res.message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Successfully Stopped&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> true;
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            res.success <span style="color:#f92672">=</span> false;
+</span></span><span style="display:flex;"><span>            res.message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Stop Failed&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> false;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    ros<span style="color:#f92672">::</span>init(argc, argv, <span style="color:#e6db74">&#34;emergency_stop_node&#34;</span>);
+</span></span><span style="display:flex;"><span>    ros<span style="color:#f92672">::</span>NodeHandle nh;
+</span></span><span style="display:flex;"><span>    EmergencyStopNode e_stop_service(<span style="color:#f92672">&amp;</span>nh);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> start_time <span style="color:#f92672">=</span> ros<span style="color:#f92672">::</span>Time<span style="color:#f92672">::</span>now();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> cur_time   <span style="color:#f92672">=</span> ros<span style="color:#f92672">::</span>Time<span style="color:#f92672">::</span>now();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>( (cur_time <span style="color:#f92672">-</span> start_time) <span style="color:#f92672">&lt;</span> ros<span style="color:#f92672">::</span>Duration(<span style="color:#ae81ff">3.0</span>)){
+</span></span><span style="display:flex;"><span>        e_stop_service.moveRobot();
+</span></span><span style="display:flex;"><span>        cur_time <span style="color:#f92672">=</span> ros<span style="color:#f92672">::</span>Time<span style="color:#f92672">::</span>now();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ros<span style="color:#f92672">::</span>spin();
+</span></span><span style="display:flex;"><span>    ros<span style="color:#f92672">::</span>shutdown();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+        </div>
+        
+    </div>
+</div>
+
+<ul>
+<li><strong>spawn_model_client code</strong></li>
+</ul>
+
+
+<div class="tab-panel">
+    <div class="tab-nav">
+    
+        <button
+          data-tab-item="python"
+          data-tab-group="default"
+          class="tab-nav-button btn active"
+          onclick="switchTab('default','python')"
+         >python</button>
+    
+        <button
+          data-tab-item="c&#43;&#43;"
+          data-tab-group="default"
+          class="tab-nav-button btn "
+          onclick="switchTab('default','c\u002b\u002b')"
+         >c&#43;&#43;</button>
+    
+    </div>
+    <div class="tab-content">
+        
+        <div data-tab-item="python" data-tab-group="default" class="tab-item active">
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#! /usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">referenced from programcreek
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">url : https://www.programcreek.com/python/example/93572/rospkg.RosPack
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> math
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> rospy
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> rospkg
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> geometry_msgs.msg <span style="color:#f92672">import</span> Pose
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> gazebo_msgs.srv <span style="color:#f92672">import</span> SpawnModel
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">spawn_helix</span>():
+</span></span><span style="display:flex;"><span>    rospy<span style="color:#f92672">.</span>init_node(<span style="color:#e6db74">&#34;gazebo_spawn_model&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># model_name</span>
+</span></span><span style="display:flex;"><span>    model_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;box&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># model_xml</span>
+</span></span><span style="display:flex;"><span>    rospack <span style="color:#f92672">=</span> rospkg<span style="color:#f92672">.</span>RosPack()
+</span></span><span style="display:flex;"><span>    model_path <span style="color:#f92672">=</span> rospack<span style="color:#f92672">.</span>get_path(<span style="color:#e6db74">&#34;py_service_pkg&#34;</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/urdf/&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> open(model_path <span style="color:#f92672">+</span> model_name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.urdf&#34;</span>, <span style="color:#e6db74">&#34;r&#34;</span>) <span style="color:#66d9ef">as</span> xml_file:
+</span></span><span style="display:flex;"><span>        model_xml <span style="color:#f92672">=</span> xml_file<span style="color:#f92672">.</span>read()<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># robot_namespace</span>
+</span></span><span style="display:flex;"><span>    robot_namespace <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># initial_pose</span>
+</span></span><span style="display:flex;"><span>    initial_pose <span style="color:#f92672">=</span> Pose()
+</span></span><span style="display:flex;"><span>    initial_pose<span style="color:#f92672">.</span>position<span style="color:#f92672">.</span>x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    initial_pose<span style="color:#f92672">.</span>position<span style="color:#f92672">.</span>y <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    initial_pose<span style="color:#f92672">.</span>position<span style="color:#f92672">.</span>z <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># z rotation -pi/2 to Quaternion</span>
+</span></span><span style="display:flex;"><span>    initial_pose<span style="color:#f92672">.</span>orientation<span style="color:#f92672">.</span>z <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">0.707</span>
+</span></span><span style="display:flex;"><span>    initial_pose<span style="color:#f92672">.</span>orientation<span style="color:#f92672">.</span>w <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.707</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># reference_frame</span>
+</span></span><span style="display:flex;"><span>    reference_frame <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;world&#34;</span>
+</span></span><span style="display:flex;"><span>    theta <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    spawn_model_prox <span style="color:#f92672">=</span> rospy<span style="color:#f92672">.</span>ServiceProxy(<span style="color:#e6db74">&#34;gazebo/spawn_urdf_model&#34;</span>, SpawnModel)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">100</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># service call</span>
+</span></span><span style="display:flex;"><span>        initial_pose<span style="color:#f92672">.</span>position<span style="color:#f92672">.</span>x <span style="color:#f92672">=</span> theta <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>cos(theta)
+</span></span><span style="display:flex;"><span>        initial_pose<span style="color:#f92672">.</span>position<span style="color:#f92672">.</span>y <span style="color:#f92672">=</span> theta <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>sin(theta)
+</span></span><span style="display:flex;"><span>        theta <span style="color:#f92672">+=</span> <span style="color:#ae81ff">0.2</span>
+</span></span><span style="display:flex;"><span>        entity_name <span style="color:#f92672">=</span> model_name <span style="color:#f92672">+</span> str(i)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        result <span style="color:#f92672">=</span> spawn_model_prox(
+</span></span><span style="display:flex;"><span>            entity_name, model_xml, robot_namespace, initial_pose, reference_frame
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34; result fromat
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        bool success
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        string status_message
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        rospy<span style="color:#f92672">.</span>loginfo(result)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        spawn_helix()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> rospy<span style="color:#f92672">.</span>ROSInterruptException:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div>
+        </div>
+        
+        <div data-tab-item="c&#43;&#43;" data-tab-group="default" class="tab-item ">
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fstream&gt; // ros.h doesn&#39;t contain this lib</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;ros/ros.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;ros/package.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;geometry_msgs/Pose.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;gazebo_msgs/SpawnModel.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addXml</span>(gazebo_msgs<span style="color:#f92672">::</span>SpawnModel<span style="color:#f92672">&amp;</span> model_in, <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string<span style="color:#f92672">&amp;</span> file_path ){
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>ifstream file(file_path);
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>string line;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>file.eof()){
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>getline(file, line);
+</span></span><span style="display:flex;"><span>        model_in.request.model_xml <span style="color:#f92672">+=</span> line;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    file.close();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpawnModelClient</span> {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    ros<span style="color:#f92672">::</span>ServiceClient spawn_model_prox;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> model_num_ <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">double</span> theta_  <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    SpawnModelClient(ros<span style="color:#f92672">::</span>NodeHandle <span style="color:#f92672">*</span>nh){
+</span></span><span style="display:flex;"><span>        spawn_model_prox <span style="color:#f92672">=</span> nh<span style="color:#f92672">-&gt;</span>serviceClient<span style="color:#f92672">&lt;</span>gazebo_msgs<span style="color:#f92672">::</span>SpawnModel<span style="color:#f92672">&gt;</span>(<span style="color:#e6db74">&#34;gazebo/spawn_urdf_model&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">auto</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span>; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>serviceCall();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">serviceCall</span>(){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        gazebo_msgs<span style="color:#f92672">::</span>SpawnModel model;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// add roslib in find_package()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">auto</span> file_path <span style="color:#f92672">=</span> ros<span style="color:#f92672">::</span>package<span style="color:#f92672">::</span>getPath(<span style="color:#e6db74">&#34;cpp_service_pkg&#34;</span>) <span style="color:#f92672">+</span>  <span style="color:#e6db74">&#34;/urdf/box.urdf&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        addXml(model, file_path);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        model.request.model_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;box&#34;</span> <span style="color:#f92672">+</span> std<span style="color:#f92672">::</span>to_string(model_num_<span style="color:#f92672">++</span>);
+</span></span><span style="display:flex;"><span>        model.request.reference_frame <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;world&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        model.request.initial_pose <span style="color:#f92672">=</span> getPose();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ServiceClient.call() =&gt; return bool type
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (spawn_model_prox.call(model)){
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">auto</span> response <span style="color:#f92672">=</span> model.response;
+</span></span><span style="display:flex;"><span>            ROS_INFO(<span style="color:#e6db74">&#34;%s&#34;</span>, response.status_message.c_str()); <span style="color:#75715e">// Print the result given by the service called
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            ROS_ERROR(<span style="color:#e6db74">&#34;Failed to call service /trajectory_by_name&#34;</span>);
+</span></span><span style="display:flex;"><span>            ros<span style="color:#f92672">::</span>shutdown();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        model_num_<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    geometry_msgs<span style="color:#f92672">::</span>Pose getPose(){
+</span></span><span style="display:flex;"><span>        geometry_msgs<span style="color:#f92672">::</span>Pose initial_pose;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        initial_pose.position.x <span style="color:#f92672">=</span> theta_ <span style="color:#f92672">*</span> cos(theta_);
+</span></span><span style="display:flex;"><span>        initial_pose.position.y <span style="color:#f92672">=</span> theta_ <span style="color:#f92672">*</span> sin(theta_);
+</span></span><span style="display:flex;"><span>        theta_ <span style="color:#f92672">+=</span> <span style="color:#ae81ff">0.2</span>;
+</span></span><span style="display:flex;"><span>        initial_pose.position.z <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        initial_pose.orientation.z <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">0.707</span>;
+</span></span><span style="display:flex;"><span>        initial_pose.orientation.w <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.707</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> initial_pose;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span><span style="color:#f92672">**</span> argv){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ros<span style="color:#f92672">::</span>init(argc, argv, <span style="color:#e6db74">&#34;gazebo_spawn_model&#34;</span>);
+</span></span><span style="display:flex;"><span>    ros<span style="color:#f92672">::</span>NodeHandle nh;
+</span></span><span style="display:flex;"><span>    SpawnModelClient spawn_model_client(<span style="color:#f92672">&amp;</span>nh);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ros<span style="color:#f92672">::</span>shutdown();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+        </div>
+        
+    </div>
+</div>
+
+<ul>
+<li>Service Server와 Client를 생성하는 코드 API 차이를 비교해봅시다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>rospy</th>
+<th>roscpp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Server</td>
+<td><a href="http://docs.ros.org/en/jade/api/rospy/html/rospy.service-module.html">rospy.Service(service_name, srv_type, callback)</a></td>
+<td><a href="http://docs.ros.org/en/kinetic/api/roscpp/html/classros_1_1NodeHandle.html">advertiseService(service_name, srv_type, callback)</a></td>
+</tr>
+<tr>
+<td>Client</td>
+<td><a href="http://docs.ros.org/en/melodic/api/rospy/html/rospy.impl.tcpros_service.ServiceProxy-class.html">rospy.ServiceProxy(server_name, srv_type)</a></td>
+<td><a href="http://docs.ros.org/en/kinetic/api/roscpp/html/classros_1_1NodeHandle.html">serviceClient&lt;srv_type&gt;(service_name)</a></td>
+</tr>
+<tr>
+<td>Time</td>
+<td>rospy.Time.now()</td>
+<td>ros::Time::now()</td>
+</tr>
+<tr>
+<td>rospack</td>
+<td>rospkg.RosPack().get_path()</td>
+<td>ros::package::getPath()</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>실제 로봇 프로그래밍시에는 python보다 c++가 우세하게 사용됩니다. 하지만 우리는 이미 rospy를 통해 통신 메커니즘에 대해 이해하였기 때문에 간단히 짚고 넘어갔으며, 관련된 추가 개발은 강의 노트를 통해 지속 업데이트할 예정입니다.</p>
+</blockquote>
+<p><strong>참고자료</strong></p>
+<ul>
+<li><a href="http://wiki.ros.org/roscpp/Overview/Publishers%20and%20Subscribers">http://wiki.ros.org/roscpp/Overview/Publishers and Subscribers</a></li>
+<li><a href="http://docs.ros.org/">http://docs.ros.org/</a></li>
+</ul>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/kr/advanced_contents_ros1/" title="ROS"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kr/advanced_contents_ros1/lecture2/" title="Lecture2 - More About ROS System" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1674796158"></script>
+    <script src="/js/perfect-scrollbar.min.js?1674796158"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1674796158"></script>
+    <script src="/js/jquery.sticky.js?1674796158"></script>
+    <script src="/js/featherlight.min.js?1674796158"></script>
+    <script src="/js/highlight.pack.js?1674796158"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1674796158"></script>
+    <script src="/js/learn.js?1674796158"></script>
+    <script src="/js/hugo-learn.js?1674796158"></script>
+    
+        
+            <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="kr" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.110.0">
+    <meta name="description" content="COM2018 OOP Class Lecture Note">
+<meta name="author" content="Soo Young Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Lecture1 - About DDS - Documentation for Hugo Learn Theme</title>
+
+    
+    <link href="/css/nucleus.css?1674796157" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1674796157" rel="stylesheet">
+    <link href="/css/hybrid.css?1674796157" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1674796157" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1674796157" rel="stylesheet">
+    <link href="/css/auto-complete.css?1674796157" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1674796157" rel="stylesheet">
+    <link href="/css/theme.css?1674796157" rel="stylesheet">
+    <link href="/css/tabs.css?1674796157" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1674796157" rel="stylesheet">
+    
+    <link href="/css/theme-green.css?1674796157" rel="stylesheet">
+    
+    <link href="/css/foo.css?1674796157" rel="stylesheet"><link href="/css/bar.css?1674796157" rel="stylesheet">
+
+    <script src="/js/jquery-3.3.1.min.js?1674796157"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/kr/advanced_contents_ros2/lecture1/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img width="1097" alt="image" src="https://user-images.githubusercontent.com/12381733/209764275-05dcbdbf-cef7-47ad-94a6-6d61febad01e.png">
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1674796157"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1674796157"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/kr";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1674796157"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/kr'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_basic_noetic/" title="ROS Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_basic_noetic/">
+          <b>ROS Noetic. </b>ROS Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture1/" title="Lecture1 - Introduction to ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture1/">
+        Lecture1 - Introduction to ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture2/" title="Lecture2 - Dev Env Setup" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture2/">
+        Lecture2 - Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture3/" title="Lecture3 - Core of ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture3/">
+        Lecture3 - Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture4/" title="Lecture4 - ROS Launch, RViz" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture4/">
+        Lecture4 - ROS Launch, RViz
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture5/" title="Lecture5 - First Programming, ROS Topic" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture5/">
+        Lecture5 - First Programming, ROS Topic
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture6/" title="Lecture6 - ROS Service, Parameter" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture6/">
+        Lecture6 - ROS Service, Parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture7/" title="Lecture7 - Rqt Tools and rosbag, ROS Time" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture7/">
+        Lecture7 - Rqt Tools and rosbag, ROS Time
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture8/" title="Lecture8 - Deal with Open Source Projects, Custom Interfaces" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture8/">
+        Lecture8 - Deal with Open Source Projects, Custom Interfaces
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture9/" title="Lecture9 - ROS TF and Examples" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture9/">
+        Lecture9 - ROS TF and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture10/" title="Lecture10 - TF2 Examples, Outro" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture10/">
+        Lecture10 - TF2 Examples, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/advanced_contents_ros1/" title="ROS" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/advanced_contents_ros1/">
+          <b>Advanced Contents. </b>ROS
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture1/" title="Lecture1 - ROSCPP" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture1/">
+        Lecture1 - ROSCPP
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture2/" title="Lecture2 - More About ROS System" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture2/">
+        Lecture2 - More About ROS System
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture3/" title="Lecture3 - SROS" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture3/">
+        Lecture3 - SROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_basic_foxy/" title="ROS 2 Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros2_basic_foxy/">
+          <b>ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture1/" title="Lecture1 - Introduction to ROS 2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture1/">
+        Lecture1 - Introduction to ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture2/" title="Lecture2 - ROS 2 Node, Package" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture2/">
+        Lecture2 - ROS 2 Node, Package
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture3/" title="Lecture3 - ROS 2 Node Programming, ROS 2 parameter" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture3/">
+        Lecture3 - ROS 2 Node Programming, ROS 2 parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture4/" title="Lecture4 - ROS 2 Node C&#43;&#43; Programming" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture4/">
+        Lecture4 - ROS 2 Node C&#43;&#43; Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture5/" title="Lecture5 - ROS 2 Topic and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture5/">
+        Lecture5 - ROS 2 Topic and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture6/" title="Lecture6 - ROS 2 Service and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture6/">
+        Lecture6 - ROS 2 Service and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture7/" title="Lecture7 - Useful ROS 2 Example, Navigation2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture7/">
+        Lecture7 - Useful ROS 2 Example, Navigation2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture8/" title="Lecture8 - ROS 2 Action and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture8/">
+        Lecture8 - ROS 2 Action and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture9/" title="Lecture9 - C&#43;&#43; Programming Again, Outro" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture9/">
+        Lecture9 - C&#43;&#43; Programming Again, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/advanced_contents_ros2/" title="ROS 2" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/kr/advanced_contents_ros2/">
+          <b>Advanced Contents. </b>ROS 2
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture1/" title="Lecture1 - About DDS" class="dd-item active">
+        <a href="/kr/advanced_contents_ros2/lecture1/">
+        Lecture1 - About DDS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture2/" title="Lecture11 - About DDS (2)" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture2/">
+        Lecture11 - About DDS (2)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture3/" title="Lecture12 - SROS2" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture3/">
+        Lecture12 - SROS2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_and_gazebo/" title="Gazebo and ROS" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_and_gazebo/">
+          <b>Gazebo. </b>Gazebo and ROS
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_and_gazebo/lecture1/" title="Lecture1 - Gazebo and Robot" class="dd-item ">
+        <a href="/kr/ros_and_gazebo/lecture1/">
+        Lecture1 - Gazebo and Robot
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_and_gazebo/lecture2/" title="Lecture2 - Gazebo and Robot(2)" class="dd-item ">
+        <a href="/kr/ros_and_gazebo/lecture2/">
+        Lecture2 - Gazebo and Robot(2)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros1"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 1</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros2"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 2</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="kr" value="/kr/advanced_contents_ros2/lecture1/" selected>Korean</option>
+                    
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='' href="https://github.com/com2018-fa22/hugo-blog/tree/main/content/advanced_contents_ros2/lecture1.kr.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text"></span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                   Lecture1 - About DDS
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#about-dds">About DDS</a>
+      <ul>
+        <li><a href="#what-is-dds">What is DDS?</a></li>
+        <li><a href="#rtpsreal-time-publish-subscribe-wire-protocol-layer">RTPS(Real-Time Publish-Subscribe Wire Protocol) Layer</a></li>
+        <li><a href="#dds-discovery">DDS Discovery</a></li>
+        <li><a href="#dcpsdata-centric-publish-subscribe-layer">DCPS(Data-Centric Publish-Subscribe) Layer</a></li>
+        <li><a href="#dds-pub-sub의-기본-구성-요소">DDS Pub-Sub의 기본 구성 요소</a></li>
+      </ul>
+    </li>
+    <li><a href="#dds-qos">DDS QoS</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Lecture1 - About DDS
+            </h1>
+          
+
+        
+
+
+<h2 id="about-dds">About DDS</h2>
+<blockquote>
+<p>ROS 1과 대두되는 가장 큰 차이점으로, ROS 2는 DDS를 미들웨어로 기반하여 개편되었습니다. 따라서 DDS에 대한 개요와 기능을 이해하는 것은 ROS 2의 성질을 파악하는 데 많은 도움이 됩니다.</p>
+</blockquote>
+<h3 id="what-is-dds">What is DDS?</h3>
+<p><strong>DDS - Data Distribution Service</strong>는 OMG에서 정의한 Publish-Subscribe 방식의 실시간 데이터 분배 서비스 표준입니다.</p>
+<p>Pub-Sub이라는 용어는 ROS 개발자에게 무척 익숙한 단어이지요? DDS의 기본 통신 개념은 ROS의 Topic과 매우 유사합니다. 이러한 결론을 머리속에 잘 담아두고 계속해서 진행해 보겠습니다.</p>
+
+<div class="notices note" ><p>OMG(Object Management Group)는 분산 객체 컴퓨팅(Distributed Object Computing) 영역의 표준을 제정하는 국제 비영리 컨소시엄으로 영향력 있는 각종 세계 표준을 정의하고 있습니다.</p>
+</div>
+
+<p><img src="/kr/advanced_contents_ros2/images1/main0.png?height=300px" alt="main0.png"></p>
+<ul>
+<li>image from : <a href="http://strauss.cnu.ac.kr/research_echodds.php">분산이동컴퓨팅 연구실</a></li>
+</ul>
+<p>OMG DDS는 통신 프로토콜이 아닌 기능적 표준으로, 위 그림과 같이 TCP/UDP 같은 통신 프로토콜 위에서 정의되는 객체입니다.</p>
+<p>그림의 아래에서부터 OMG DDS의 구조를 간단히 살펴보겠습니다.</p>
+<h3 id="rtpsreal-time-publish-subscribe-wire-protocol-layer">RTPS(Real-Time Publish-Subscribe Wire Protocol) Layer</h3>
+<ul>
+<li>
+<p><strong>RTPS Layer</strong>는 네트워크 내, 참여자 정보를 유지하고, 네트워크 참여자에 대한 정보를 기반으로 자동 검색을 해주며, (같은 네트워크를 사용하는 ROS 2 시스템은 서로 통신이 가능합니다.) 더불어, 참여자의 동적 추가와 이탈에 대응하는 기능을 합니다.</p>
+</li>
+<li>
+<p>RTPS는 OMG에 의해 표준화된, 데이터 분산 시스템을 위한 프로토콜로써 Pub-Sub 구조의 통신 모델을 지원합니다. UDP와 같이 신뢰성 없는 계층 위에서도 동작 가능하도록 설계되었으며, 4가지 모듈로 구성되어 있습니다.</p>
+</li>
+</ul>
+<ol>
+<li><strong>Structure Module</strong> : 데이터 교환 시, 통신에 참여하게 되는 개체들에 대해 정의합니다.</li>
+<li><strong>Message Module</strong> : Writer와 Reader간 정보 교환을 위해 사용되는 메시지에 대해 정의합니다.</li>
+<li><strong>Behavior Module</strong> : Writer와 Reader간 상태, 시간 조건에 따라 수행되어야 할 메시지 전송 절차에 대해 정의합니다.</li>
+<li><strong>Discovery Module</strong> : 같은 도메인 상에 존재하는 개체에 대한 정보를 탐색하는 기능을 수행합니다. Discovery Module은 다음과 같이 두 가지의 RTPS 프로토콜을 사용합니다.
+<ol>
+<li><strong>PDP</strong>(Participant Discovery Protocol) : 서로 다른 네트워크 상에서의 Participant탐색을 위한 프로토콜</li>
+<li><strong>EDP</strong>(Endpoint Discovery Protocol) : Writer, Reader와 같이 서로 다른 종단점 간의 탐색 정보 교환에 사용되는 프로토콜</li>
+</ol>
+</li>
+</ol>
+<p><img src="/kr/advanced_contents_ros2/images1/main1.png?height=300px" alt="main1.png"></p>
+<ul>
+<li>image from : <a href="https://blog.naver.com/neos_rtos/30173805276">OMG DDS(Data Distrubution Service) 기술 개요</a></li>
+</ul>
+<h3 id="dds-discovery">DDS Discovery</h3>
+<blockquote>
+<p>ROS 2를 사용하는 두 디바이스는 같은 네트워크를 사용하고 있다면 자동으로 서로를 인식할 수 있습니다. 어떻게 이러한 동작이 가능하며, 이를 위한 필요조건은 무엇인지 살펴보겠습니다.</p>
+</blockquote>
+<p><strong>Discovery를 위해 필요한 정보들</strong> - DDS 미들웨어 통신을 위해 아래 4가지 정보를 사전에 교환해야 합니다.</p>
+<ul>
+<li><strong>Who</strong> : Topic Publish 혹은 Subscribe 대상</li>
+<li><strong>Where</strong> : DDS 표준에서 생성한 Locator 정보</li>
+<li><strong>What</strong> : Publish하거나 Subscribe하려는 Topic</li>
+<li><strong>How</strong> : Topic Publisher인지 Subscriber인지에 대한 정보</li>
+</ul>
+
+<div class="notices note" ><p>DDS RTPS도 결국 UDP나 TCP 네트워크 레이어를 사용하며, 이를 위해서 실질적으로 IP와 PORT등의 정보가 필요합니다. 하지만, DDS는 사용자가 주소를 지정하지 않아도 “Topic”만으로 통신이 가능합니다. 이를 가능하게 해주는 것이 <strong>Locator</strong>이며, 이는 Middle Ware단에서 능동적으로 통신에 필요한 정보를 포함하는 새로운 개념을 별도로 생성하는 것입니다.</p>
+</div>
+
+<p>DDS 표준에서는 Discovery를 수행하는 절차를 <strong>PDP</strong> 와 <strong>EDP</strong>로 구분하고 있습니다.</p>
+<ul>
+<li><strong>PDP(Participant Discovery Protocol)</strong> : 같은 도메인에 존재하는 서로 다른 Participant를 검색하는 절차로, Participant에 포함되어 있는 endpoint 의 정보를 검색합니다.</li>
+<li><strong>EDP(Endpoint Discovery Protocol)</strong> : PDP를 통해 Participant가 서로를 탐지하고 나면, EDP가 수행됩니다. 표준에서는 각 프로토콜이 지원해야할 최소한의 기능을 만족하는 SPDP와 SEDP에 대해 설명하고 있습니다.</li>
+</ul>
+
+<div class="notices note" ><p>vendor에 따라 다양한 PDP와 EDP를 지원할 수 있지만, 호환성을 위해 모든 RTPS는 SPDP(Simple Participant Discovery Protocol)와 SEDP(Simple Endpoint Discovery Protocol)를 필수로 지원해야합니다. 서로 다른 vendor를 가진 머신 사이에 통신이 가능한 이유이기도 합니다.</p>
+</div>
+
+<blockquote>
+<p>그림을 통해 SPDP와 SEDP를 활용한 Discovery 절차에 대해 알아봅시다.</p>
+</blockquote>
+<ul>
+<li>같은 Domain을 사용하는 Participant는 생성 시, Discovery를 수행하는 3쌍의 builtin Writer와 builtin Reader, 그리고 pre-defined topic를 포함하게 됩니다. DDS가 구동되면, Participant는 Multicast로 PDP(Participant Discovery Protocol) 메시지를 주기적으로 전송하기 시작합니다.</li>
+</ul>
+<p><img src="/kr/advanced_contents_ros2/images1/main2.png?height=250px" alt="main2.png"></p>
+<ul>
+<li>각 Participant의 builtinParticipantWriter와 builtinPariticpantReader 사이 SPDP 교환이 이루어집니다. 전달되는 정보에는 Participant에 포함된 builtinPublicationWriter와 builtinPublicationReader의 Locator 정보가 담겨 있습니다.</li>
+</ul>
+<p><img src="/kr/advanced_contents_ros2/images1/main3.png?height=250px" alt="main3.png"></p>
+<ul>
+<li>SPDP 교환 이후, 상대방 Participant의 정보를 통해 양측 Participant들은 서로 연결됩니다.</li>
+</ul>
+<p><img src="/kr/advanced_contents_ros2/images1/main4.png?height=350px" alt="main4.png"></p>
+<ul>
+<li>이후, Topic 수행을 위해 각 Participant에 Endpoint에 해당하는 Publisher와 Datawriter가 하나씩 생성됩니다.</li>
+</ul>
+<p><img src="/kr/advanced_contents_ros2/images1/main5.png?height=300px" alt="main5.png"></p>
+<ul>
+<li>SPDP에서 교환했던 Locator정보를 바탕으로 builtinPublicationWriter는 builtiinPublicationReader에게, builtinSubscriptionWriter는 SubscriptionReader에게 Unicast를 통해 정보를 전달합니다.(SEDP를 교환하는 것입니다.) 전달되는 정보에는 topic, data type, Qos등의 정보가 포함되어 있습니다.</li>
+</ul>
+<p><img src="/kr/advanced_contents_ros2/images1/main6.png?height=300px" alt="main6.png"></p>
+<ul>
+<li>SEDP의 결과로 Participant에 포함된 Endpoint들이 연결되고, 연결된 두 Endpoint는 동일 Topic으로 통신을 시작합니다.</li>
+</ul>
+<p><img src="/kr/advanced_contents_ros2/images1/main7.png?height=300px" alt="main7.png"></p>
+<blockquote>
+<p>Discovery 과정을 한번에 정리한 그림입니다. 다시 한 번 의미를 이해하면서 과정을 복기해봅시다.</p>
+</blockquote>
+<p><img src="/kr/advanced_contents_ros2/images1/main8.png?height=400px" alt="main8.png"></p>
+<h3 id="dcpsdata-centric-publish-subscribe-layer">DCPS(Data-Centric Publish-Subscribe) Layer</h3>
+<blockquote>
+<p>DCPS Layer는 RTPS Layer와 Application 사이의 인터페이스 역할을 합니다. 이후 다뤄지는 Participant, Domain, Topic 등을 정의하고, Publish-Subscribe를 수행합니다. 더불어, DDS의 중요한 기능 중 하나인 QoS(Quality of Service)도 담당하고 있습니다.</p>
+</blockquote>
+<p>구현 측면에서, DCPS는 Data read/write API를 제공함으로 응용 프로그램들 사이 데이터를 교환할 상대에 대한 인지 없이 원하는 데이터의 송수신이 가능하게 합니다.</p>
+<p><img src="/kr/advanced_contents_ros2/images1/main9.png?height=300px" alt="main9.png"></p>
+<ul>
+<li>image from : <a href="https://blog.naver.com/neos_rtos/30173805276">OMG DDS(Data Distrubution Service) 기술 개요</a></li>
+</ul>
+<h4 id="datawriter--datareader">DataWriter / DataReader</h4>
+<blockquote>
+<p>DataWriter는 송신자, DataReader는 수신자의 역할을 합니다. DataWriter는 Sample(실제 데이터)을 생성하고 전송하는 역할을 하며, DataReader는 Sample을 수신하는 기능을 합니다. 단일 DataWriter와 DataReader는 단일 Topic만을 보유할 수 있습니다.</p>
+</blockquote>
+<ul>
+<li><strong>Publisher</strong></li>
+</ul>
+<p>데이터 Publish를 담당하는 객체로, 하나의 Publisher는 다수의 DataWriter를 가질 수 있습니다. 때문에, 각 Publisher들은 여러 Topic 데이터를 Publish 할 수 있습니다. Publish하고자 하는 데이터 객체의 값이 Publisher에게 전해지면 Publisher는 자신에게 설정된 QoS값에 따라 연관된 Subscriber에게 전달합니다.</p>
+<ul>
+<li><strong>Subscriber</strong></li>
+</ul>
+<p>데이터 Subscribe를 담당하는 객체로, Publisher와 유사하게 다수의 DataReader를 가질 수 있으며 여러 Topic 데이터를 수신할 수 있습니다. Subscriber가 데이터를 수신한 이후, 응용 프로그램은 DataReader를 통해 실제 데이터로 접근하는 방식입니다.</p>
+<h3 id="dds-pub-sub의-기본-구성-요소">DDS Pub-Sub의 기본 구성 요소</h3>
+<p><img src="/kr/advanced_contents_ros2/images1/main10.png?height=300px" alt="main10.png"></p>
+<ul>
+<li>image from : <a href="https://blog.naver.com/PostView.naver?blogId=neos_rtos&amp;logNo=220346180839&amp;parentCategoryNo=&amp;categoryNo=20&amp;viewDate=&amp;isShowPopularPosts=false&amp;from=postList">MDS 테크</a></li>
+</ul>
+<p><strong>Topic</strong></p>
+<p>Topic은 Publish-Subscribe의 관계를 정의하는 Key입니다. topic은 데이터 타입과 해당 데이터의 <strong>QoS</strong>에 대한 정보를 담고 있습니다. QoS를 Topic 데이터에 추가하고, Topic과 연관된 DataWriter, Datawriter에 연관된 QoS를 설정하는 식으로 제어됩니다. (Subscriber 측도 동일합니다.)</p>
+
+<div class="notices note" ><p>Topic의 이름은 Domain 내에서 유일해야 합니다.</p>
+</div>
+
+<p><strong>Participant</strong></p>
+<p>Participant는 DDS Publisher와 Subscriber를 담게 되는 객체입니다. ROS 2의 Node안에 다수의 Publisher와 Subscriber와 공존할 수 있는 것처럼, Participant도 다수의 DataWriter와 DataReader를 가질 수 있습니다.</p>
+<p><img src="/kr/advanced_contents_ros2/images1/main11.png?height=300px" alt="main11.png"></p>
+<p><strong>Domain</strong></p>
+<p>Domain은 Participant들이 활동하는 영역으로, 같은 Domain을 갖는 Participant내에서만 정보전달을 할 수 있습니다. ROS 2 터미널의 실행 시 <strong>ROS_DOMAIN_ID</strong>라는 콘솔 출력이 나왔던 것을 기억하시나요?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>***************  Startup Menu <span style="color:#66d9ef">for</span> ROS  ***************
+</span></span><span style="display:flex;"><span>* Usage: To set ROS env to be auto-loaded, please    *
+</span></span><span style="display:flex;"><span>*        assign ros_option in ros_menu/config.yaml   *
+</span></span><span style="display:flex;"><span>******************************************************
+</span></span><span style="display:flex;"><span>0<span style="color:#f92672">)</span> Do nothing
+</span></span><span style="display:flex;"><span>1<span style="color:#f92672">)</span> ROS <span style="color:#ae81ff">1</span> noetic
+</span></span><span style="display:flex;"><span>2<span style="color:#f92672">)</span> ROS <span style="color:#ae81ff">2</span> foxy
+</span></span><span style="display:flex;"><span>3<span style="color:#f92672">)</span> ROS2/ROS1_bridge
+</span></span><span style="display:flex;"><span>Please choose an option: <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>------------------------------------------------------
+</span></span><span style="display:flex;"><span>* ROS_DOMAIN_ID <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span>------------------------------------------------------
+</span></span></code></pre></div><blockquote>
+<p>이렇게 DDS의 통신 구조에 대해서 알아보았습니다. 위 구조에서 실제 사용자는 Topic, Publisher, Subscriber만 구현하면 되며, DataWriter, DataReader와 RTPS, DCPS는 DDS가 알아서 처리하게 됩니다. 이러한 DDS의 장점에 기반하여 ROS 2 시스템이 올라가게 되는 것이지요.</p>
+</blockquote>
+<h2 id="dds-qos">DDS QoS</h2>
+<blockquote>
+<p>TCPROS/UDPROS라는 자체 프로토콜을 사용했던 기존 ROS 1과는 달리, ROS 2에서는 QoS 옵션을 통해 원하는 기능을 선택적으로 사용할 수 있습니다. 이는 DDS의 QoS를 도입하였기 때문으로, Publisher, Subscriber를 선언할 때, QoS를 매개변수형태로 지정하는 방식이 사용됩니다.</p>
+</blockquote>
+<p>상황에 따라 데이터의 신뢰성이 중요할 수도 있고, 버퍼의 크기를 크게 하여 Topic의 안정성을 높여야 할 수도 있습니다. 이러한 통신의 품질을 옵션화하기 위해서, DDS에서는 아래와 같은 22가지의 QoS를 정의하고 있습니다.</p>
+<p><img src="/kr/advanced_contents_ros2/images1/qos0.png?height=300px" alt="qos0.png"></p>
+<p>각각의 QoS 옵션은 연관된 조합으로 Topic, DataWriter, DataReader, Publisher, Subscriber, Domain, Participant에 적용되며, 본 세션에서는 주로 사용되는 QoS를 위주로 살펴보고자 합니다.</p>
+<ul>
+<li><strong>RELIABILITY</strong>: 데이터 통신의 신뢰성 레벨(재전송 여부)을 결정하며 두 가지 속성을 설정 할 수 있습니다.
+<ul>
+<li><strong>RELIABLE</strong> : DataWriter History에 있는 모든 샘플들이 DataReader에 전달되는 것을 보장합니다.</li>
+<li><strong>BEST_EFFORT</strong> : 통신 시 손실된 데이터 샘플을 재전송 하지 않고, 전달된 데이터의 순서는 유지 합니다.</li>
+</ul>
+</li>
+</ul>
+<p><img src="/kr/advanced_contents_ros2/images1/qos1.png?height=100px" alt="qos1.png"></p>
+
+<div class="notices note" ><p>알파벳은 다음과 같은 의미를 갖습니다. <strong>T</strong> : TOPIC, <strong>DR</strong> : DataReader, <strong>DW</strong> : DataWriter, <strong>P</strong> : Publisher, <strong>S</strong> : Subscriber</p>
+</div>
+
+
+<div class="notices note" ><p>RxO는 Requested/Offered의 약자로 QoS가 적용되는 대상을 Publisher(발간/송신) 측과 Subscriber(구독/수신) 측으로 구분해서 서로의 상관관계를 표현하는 방법입니다.</p>
+</div>
+
+<ul>
+<li><strong>‘YES’</strong> : Publisher 측과 Subscriber 측 모두 QoS가 적용되어야 하고, 설정된 QoS 값이 호환되어야 한다.</li>
+<li><strong>‘NO’</strong> : Publisher 측과 Subscriber 측 모두 QoS 가 적용되어야 하지만, 설정된 QoS 값은 서로 독립적이다.</li>
+<li><strong>‘N/A’</strong> : Publisher 측과 Subscriber 측 중 한 측에만 적용되어야 한다.</li>
+</ul>
+
+<div class="notices note" ><p>Changeable이 ‘YES’ 일 경우에는, 동작하면서도 QoS 의 값이 변경될 수 있지만, ‘NO’일 경우에는 처음 생성된 이후에는 변경할 수 없습니다.</p>
+</div>
+
+<ul>
+<li><strong>HISTORY</strong> : 데이터의 재전송을 위해 HistoryCache내 데이터 보관 방법을 결정하며 두 가지 속성을 설정 할 수 있습니다.
+<ul>
+<li><strong>KEEP_LAST</strong> : Depth(History Cache안에 유지하고 있을 데이터 개수) 크기 만큼 최신 데이터를 유지 합니다.</li>
+<li><strong>KEEP_ALL</strong> : DataReader에게 인스턴스의 모든 값들을 유지하고 전송 합니다.</li>
+</ul>
+</li>
+</ul>
+<p><img src="/kr/advanced_contents_ros2/images1/qos2.png?height=100px" alt="qos2.png"></p>
+<ul>
+<li><strong>DURABILITY</strong> : 나중에 참여한 DataReader에게 이전 데이터를 전송할지 여부를 결정 하며 네 가지 속성을 설정 할 수 있습니다.
+<ul>
+<li><strong>VOLATILE</strong> : 연결이 설정 된 이후의 데이터만 제공 합니다.</li>
+<li><strong>TRANSIENT</strong> <strong>LOCAL</strong> : DataWriter 생명주기와 일치 일치합니다.</li>
+<li><strong>TRANSIENT</strong> : DataReader에 과거 데이터를 제공 합니다.</li>
+<li><strong>PERSISTENT</strong> : Permanent-Storage에 과거 데이터를 저장하며, 데이터의 유효성은 System 보다 오래 지속 됩니다.</li>
+</ul>
+</li>
+</ul>
+<p><img src="/kr/advanced_contents_ros2/images1/qos3.png?height=100px" alt="qos3.png"></p>
+<ul>
+<li><strong>OWNERSHIP</strong> : 다수의 DataWriter가 동일한 인스턴스를 갱신하게 허용할지를 결정합니다.
+<ul>
+<li><strong>SHARED</strong> : 다수의 DataWriter들이 동일한 데이터 인스턴스 업데이트가 가능합니다.</li>
+<li><strong>EXCLUSIVE</strong> : 데이터 객체의 각 인스턴스는 하나의 DataWriter에 의해서만 수정 가능합니다.</li>
+</ul>
+</li>
+</ul>
+<p><img src="/kr/advanced_contents_ros2/images1/qos4.png?height=100px" alt="qos4.png"></p>
+<ul>
+<li><strong>PARTITION</strong> : Domain 내부에서 Node들을 분리하는 방법을 결정 합니다. (Domain 내에서 별도의 논리적인 통신 채널 형성) - Partition Name이 같은 DataWriter/DataReader간 데이터 배포 가 가능합니다.</li>
+</ul>
+
+<div class="notices note" ><p><strong>Partition과 Domain의 차이</strong> - 다른 Domain들에 속하는 개체들은 완전히 서로 독립 된 상태입니다. Entity는 다수의 Partition에 있을 수 있지만 하나의 Domain에만 속할 수 있습니다.</p>
+</div>
+
+<p><img src="/kr/advanced_contents_ros2/images1/qos5.png?height=100px" alt="qos5.png"></p>
+<ul>
+<li><strong>DEADLINE</strong> : 데이터 샘플 사이의 최대 도착 시간을 정의할 수 있습니다.
+<ul>
+<li><strong>DataWriter</strong>는 DEADLINE(period:Duration_t)이 설정된 시간 안에 적어도 한번 이상의 데이터를 전송합니다.</li>
+<li><strong>DataReader</strong>는 DEADLINE(period:Duration_t) 시간 안에 DataWriter로부터 데이터를 받지 못하면 DDS로부터 위반 통보를 받습니다.</li>
+</ul>
+</li>
+</ul>
+<p><img src="/kr/advanced_contents_ros2/images1/qos6.png?height=100px" alt="qos6.png"></p>
+<ul>
+<li><strong>TIME_BASED_FILTER</strong> : DataReader 가 데이터를 필터링 하는 시간을 결정 합니다.
+<ul>
+<li>Minimum_separation: Duation_t 값을 설정하여 DataReader는 이 값 이내에 수신한 데이터는 삭제 합니다.</li>
+</ul>
+</li>
+</ul>
+<p><img src="/kr/advanced_contents_ros2/images1/qos7.png?height=100px" alt="qos7.png"></p>
+<blockquote>
+<p>ROS 2에서는 자주 사용되는 QoS 조합을 묶어 RMW QoS Profile이라는 이름으로 제공하고 있습니다. 지금까지 우리가 queue_size만을 전달하고 있었지만, 사실은 아래 사진의 Default에서 Depth만 바꿔주고 있었던 것입니다.</p>
+</blockquote>
+<p><img src="/kr/advanced_contents_ros2/images1/qos8.png?height=300px" alt="qos8.png"></p>
+<ul>
+<li>image from : <a href="https://cafe.naver.com/openrt/24319">오로카</a></li>
+</ul>
+<blockquote>
+<p>ros2에서 QoS 설정하는 방법은 매우 간단합니다. Publisher, Subscriber 클래스를 생성하면서 QoS 옵션을 매개변수로 전달하면 됩니다.</p>
+</blockquote>
+<ul>
+<li>python example - RMW QoS Profile 사용 시</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.qos <span style="color:#f92672">import</span> qos_profile_sensor_data
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>string_publisher <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_publisher(String, <span style="color:#e6db74">&#39;qos_test_topic&#39;</span>, qos_profile_sensor_data)
+</span></span></code></pre></div><ul>
+<li>python example - 직접 Profile 설정 시</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.qos <span style="color:#f92672">import</span> QoSDurabilityPolicy
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.qos <span style="color:#f92672">import</span> QoSHistoryPolicy
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.qos <span style="color:#f92672">import</span> QoSProfile
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.qos <span style="color:#f92672">import</span> QoSReliabilityPolicy
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>my_profile <span style="color:#f92672">=</span> QoSProfile(
+</span></span><span style="display:flex;"><span>    reliability<span style="color:#f92672">=</span>QoSReliabilityPolicy<span style="color:#f92672">.</span>BEST_EFFORT,
+</span></span><span style="display:flex;"><span>    history<span style="color:#f92672">=</span>QoSHistoryPolicy<span style="color:#f92672">.</span>KEEP_LAST,
+</span></span><span style="display:flex;"><span>    depth<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>    durability<span style="color:#f92672">=</span>QoSDurabilityPolicy<span style="color:#f92672">.</span>VOLATILE
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>string_publisher <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_publisher(String, <span style="color:#e6db74">&#39;qos_test_topic&#39;</span>, my_profile)
+</span></span></code></pre></div><p>=&gt; 참고 링크 : <a href="https://github.com/ros2/rclpy/blob/4e1654eca2758c42e7c22f3d6c518d6ec26ad9de/rclpy/rclpy/qos.py#L390">rclpy/qos.py</a></p>
+<ul>
+<li>topic 통신이 이루어지고 있는 상황에서, QoS 옵션을 보고 싶다면 Topic 커멘드에 verbose 옵션을 추가하면 됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1 - publisher</span>
+</span></span><span style="display:flex;"><span>$ ros2 run py_topic_tutorial qos_example_publisher
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2 - subscriber</span>
+</span></span><span style="display:flex;"><span>$ ros2 run py_topic_tutorial qos_example_subscriber
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 3 - topic info</span>
+</span></span><span style="display:flex;"><span>$ ros2 topic info /qos_test_topic --verbose
+</span></span><span style="display:flex;"><span>Type: std_msgs/msg/String
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Publisher count: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Node name: twist_pub_node
+</span></span><span style="display:flex;"><span>Node namespace: /
+</span></span><span style="display:flex;"><span>Topic type: std_msgs/msg/String
+</span></span><span style="display:flex;"><span>Endpoint type: PUBLISHER
+</span></span><span style="display:flex;"><span>GID: 60.77.10.01.f3.67.78.3d.6b.0c.cc.7b.00.00.14.03.00.00.00.00.00.00.00.00
+</span></span><span style="display:flex;"><span>QoS profile:
+</span></span><span style="display:flex;"><span>  Reliability: RMW_QOS_POLICY_RELIABILITY_BEST_EFFORT
+</span></span><span style="display:flex;"><span>  Durability: RMW_QOS_POLICY_DURABILITY_VOLATILE
+</span></span><span style="display:flex;"><span>  Lifespan: <span style="color:#ae81ff">9223372036854775807</span> nanoseconds
+</span></span><span style="display:flex;"><span>  Deadline: <span style="color:#ae81ff">9223372036854775807</span> nanoseconds
+</span></span><span style="display:flex;"><span>  Liveliness: RMW_QOS_POLICY_LIVELINESS_AUTOMATIC
+</span></span><span style="display:flex;"><span>  Liveliness lease duration: <span style="color:#ae81ff">9223372036854775807</span> nanoseconds
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Subscription count: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Node name: string_sub_node
+</span></span><span style="display:flex;"><span>Node namespace: /
+</span></span><span style="display:flex;"><span>Topic type: std_msgs/msg/String
+</span></span><span style="display:flex;"><span>Endpoint type: SUBSCRIPTION
+</span></span><span style="display:flex;"><span>GID: d2.03.10.01.d5.6b.69.e0.be.3f.b5.a2.00.00.14.04.00.00.00.00.00.00.00.00
+</span></span><span style="display:flex;"><span>QoS profile:
+</span></span><span style="display:flex;"><span>  Reliability: RMW_QOS_POLICY_RELIABILITY_BEST_EFFORT
+</span></span><span style="display:flex;"><span>  Durability: RMW_QOS_POLICY_DURABILITY_VOLATILE
+</span></span><span style="display:flex;"><span>  Lifespan: <span style="color:#ae81ff">9223372036854775807</span> nanoseconds
+</span></span><span style="display:flex;"><span>  Deadline: <span style="color:#ae81ff">9223372036854775807</span> nanoseconds
+</span></span><span style="display:flex;"><span>  Liveliness: RMW_QOS_POLICY_LIVELINESS_AUTOMATIC
+</span></span><span style="display:flex;"><span>  Liveliness lease duration: <span style="color:#ae81ff">9223372036854775807</span> nanoseconds
+</span></span></code></pre></div><blockquote>
+<p>DDS QoS는 <strong>RxO - requested by offered</strong> 특성을 갖고 있어 서로 양립할 수 없는 조합이 존재합니다. 예를 들어, Publish의 Reliability가 BEST_EFFORT일때, Subscriber의 Reliability가 RELIABLE라면, Topic 통신이 발생할 수 없습니다.</p>
+</blockquote>
+<ul>
+<li>코드를 수정하여 직접 실습해봅시다.</li>
+</ul>
+
+
+<div class="tab-panel">
+    <div class="tab-nav">
+    
+        <button
+          data-tab-item="qos_example_publisher.py"
+          data-tab-group="default"
+          class="tab-nav-button btn active"
+          onclick="switchTab('default','qos_example_publisher.py')"
+         >qos_example_publisher.py</button>
+    
+        <button
+          data-tab-item="qos_example_subscriber.py"
+          data-tab-group="default"
+          class="tab-nav-button btn "
+          onclick="switchTab('default','qos_example_subscriber.py')"
+         >qos_example_subscriber.py</button>
+    
+    </div>
+    <div class="tab-content">
+        
+        <div data-tab-item="qos_example_publisher.py" data-tab-group="default" class="tab-item active">
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>my_profile <span style="color:#f92672">=</span> QoSProfile(
+</span></span><span style="display:flex;"><span>    reliability<span style="color:#f92672">=</span>QoSReliabilityPolicy<span style="color:#f92672">.</span>BEST_EFFORT,
+</span></span><span style="display:flex;"><span>    history<span style="color:#f92672">=</span>QoSHistoryPolicy<span style="color:#f92672">.</span>KEEP_LAST,
+</span></span><span style="display:flex;"><span>    depth<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>    durability<span style="color:#f92672">=</span>QoSDurabilityPolicy<span style="color:#f92672">.</span>VOLATILE
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>string_publisher <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_publisher(String, <span style="color:#e6db74">&#39;qos_test_topic&#39;</span>, qos_profile_sensor_data)
+</span></span></code></pre></div>
+        </div>
+        
+        <div data-tab-item="qos_example_subscriber.py" data-tab-group="default" class="tab-item ">
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>my_profile <span style="color:#f92672">=</span> QoSProfile(
+</span></span><span style="display:flex;"><span>    reliability<span style="color:#f92672">=</span>QoSReliabilityPolicy<span style="color:#f92672">.</span>RELIABLE,
+</span></span><span style="display:flex;"><span>    history<span style="color:#f92672">=</span>QoSHistoryPolicy<span style="color:#f92672">.</span>KEEP_LAST,
+</span></span><span style="display:flex;"><span>    depth<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>    durability<span style="color:#f92672">=</span>QoSDurabilityPolicy<span style="color:#f92672">.</span>VOLATILE
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>pose_subscriber <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_subscription(
+</span></span><span style="display:flex;"><span>    String, <span style="color:#e6db74">&#39;qos_test_topic&#39;</span>, self<span style="color:#f92672">.</span>sub_callback, my_profile
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div>
+        </div>
+        
+    </div>
+</div>
+
+<ul>
+<li>코드 변경 후 실행 - Warning과 함께 Subscriber가 동작하지 않음을 알 수 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run py_topic_tutorial qos_example_publisher
+</span></span><span style="display:flex;"><span>[WARN] [<span style="color:#ae81ff">1673945160.449603592</span>] [twist_pub_node]: New subscription discovered on this topic, requesting incompatible QoS<span style="color:#f92672">.</span> No messages will be sent to it<span style="color:#f92672">.</span> Last incompatible policy: RELIABILITY_QOS_POLICY
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run py_topic_tutorial qos_example_subscriber
+</span></span><span style="display:flex;"><span>[WARN] [<span style="color:#ae81ff">1673945160.455319911</span>] [string_sub_node]: New publisher discovered on this topic, offering incompatible QoS<span style="color:#f92672">.</span> No messages will be received <span style="color:#f92672">from</span> it. Last incompatible policy: RELIABILITY_QOS_POLICY
+</span></span></code></pre></div><blockquote>
+<p>QoS를 통해 원하는 도메인에서의 성능을 끌어올리고 안정성을 갖춘 시스템을 구축합시다.</p>
+</blockquote>
+<p>⇒ 다음 페이지에서 계속됩니다.</p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/kr/advanced_contents_ros2/" title="ROS 2"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kr/advanced_contents_ros2/lecture2/" title="Lecture11 - About DDS (2)" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1674796157"></script>
+    <script src="/js/perfect-scrollbar.min.js?1674796157"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1674796157"></script>
+    <script src="/js/jquery.sticky.js?1674796157"></script>
+    <script src="/js/featherlight.min.js?1674796157"></script>
+    <script src="/js/highlight.pack.js?1674796157"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1674796157"></script>
+    <script src="/js/learn.js?1674796157"></script>
+    <script src="/js/hugo-learn.js?1674796157"></script>
+    
+        
+            <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+
