@@ -110,11 +110,19 @@ Topic Publish 예제 - Random Movement Turtle 예제 실행 cbp cpp_topic_tutori
     </item>
     
     <item>
+<<<<<<< HEAD
       <title>Lecture1 - About DDS</title>
       <link>/kr/advanced_contents_ros2/lecture1/</link>
       <pubDate>Sun, 01 Jan 2023 14:08:02 +0900</pubDate>
       
       <guid>/kr/advanced_contents_ros2/lecture1/</guid>
+=======
+      <title>Lecture10 - About DDS</title>
+      <link>/kr/ros2_basic_foxy/lecture10/</link>
+      <pubDate>Sun, 01 Jan 2023 14:08:02 +0900</pubDate>
+      
+      <guid>/kr/ros2_basic_foxy/lecture10/</guid>
+>>>>>>> bccf9535527a66bc6066600a566a5dfd5193c450
       <description>About DDS ROS 1과 대두되는 가장 큰 차이점으로, ROS 2는 DDS를 미들웨어로 기반하여 개편되었습니다. 따라서 DDS에 대한 개요와 기능을 이해하는 것은 ROS 2의 성질을 파악하는 데 많은 도움이 됩니다.
 What is DDS? DDS - Data Distribution Service는 OMG에서 정의한 Publish-Subscribe 방식의 실시간 데이터 분배 서비스 표준입니다.
 Pub-Sub이라는 용어는 ROS 개발자에게 무척 익숙한 단어이지요? DDS의 기본 통신 개념은 ROS의 Topic과 매우 유사합니다. 이러한 결론을 머리속에 잘 담아두고 계속해서 진행해 보겠습니다.
@@ -123,10 +131,17 @@ OMG(Object Management Group)는 분산 객체 컴퓨팅(Distributed Object Compu
     
     <item>
       <title>Lecture11 - About DDS (2)</title>
+<<<<<<< HEAD
       <link>/kr/advanced_contents_ros2/lecture2/</link>
       <pubDate>Sun, 01 Jan 2023 13:19:51 +0900</pubDate>
       
       <guid>/kr/advanced_contents_ros2/lecture2/</guid>
+=======
+      <link>/kr/ros2_basic_foxy/lecture11/</link>
+      <pubDate>Sun, 01 Jan 2023 13:19:51 +0900</pubDate>
+      
+      <guid>/kr/ros2_basic_foxy/lecture11/</guid>
+>>>>>>> bccf9535527a66bc6066600a566a5dfd5193c450
       <description>DDS의 IDL DDS에서는 특정 언어에 의존적이지 않는 데이터 통신을 위해 IDL을 사용합니다.
 IDL - Interface Description Language 또는 Interface Definition Language는 어느 한 언어에 국한되지 않는 언어중립적인 방법으로 인터페이스를 표현함으로써, 같은 언어를 사용하지 않는 컴포넌트 사이의 통신을 가능하게 합니다.
 OMG의 Interface Definition Language Version 3.5에 따른 사용 가능한 키워드들은 아래와 같습니다. image from : MDS 테크 ROS 2에서는 interface라는 이름으로 topic message, service srv, action action이 사용되었지요. 이들이 모두 IDL 타입을 갖기 때문에 rclpy, rclcpp, rcljava 모두에서 사용할 수 있는 것입니다.</description>
@@ -273,17 +288,29 @@ XMLRPC Extensible Markup Language - XML이란, 웹 서비스에서 데이터를 
     
     <item>
       <title>Lecture12 - SROS2</title>
+<<<<<<< HEAD
       <link>/kr/advanced_contents_ros2/lecture3/</link>
       <pubDate>Wed, 21 Dec 2022 04:41:42 +0900</pubDate>
       
       <guid>/kr/advanced_contents_ros2/lecture3/</guid>
+=======
+      <link>/kr/ros2_basic_foxy/lecture12/</link>
+      <pubDate>Wed, 21 Dec 2022 04:41:42 +0900</pubDate>
+      
+      <guid>/kr/ros2_basic_foxy/lecture12/</guid>
+>>>>>>> bccf9535527a66bc6066600a566a5dfd5193c450
       <description>sros2 DDS는 기본적으로 보안이 적용되어 있지는 않습니다. 대신, 아래와 같이 5가지의 보안 기능이 표준 정의에 포함되어 있습니다. 사용자는 이들을 Plugin 형태로 추가하여 사용하게 되며, 주로 Vendor단에서 패치 형태로 제공합니다.
 Authentication: 같은 네트워크를 사용하고, 특정 domain내에 존재하는 participant 사이의 신원을 검사합니다. (x.509 인증서와 특정 Public Key Infrastructure - PKI를 사용합니다. ) Access control: participant의 동작, 혹은 리소스를 제한합니다. (apparmor나 cgroup이 아니라 특정 participant를 특정 DDS 도메인으로 제한하거나, participant가 특정 DDS 항목을 읽거나 쓸 수 있도록 하는 형태입니다.</description>
     </item>
     
     <item>
+<<<<<<< HEAD
       <title>Lecture3 - SROS</title>
       <link>/kr/advanced_contents_ros1/lecture3/</link>
+=======
+      <title>Lecture13 - SROS</title>
+      <link>/kr/ros_basic_noetic/lecture13/</link>
+>>>>>>> bccf9535527a66bc6066600a566a5dfd5193c450
       <pubDate>Wed, 21 Dec 2022 03:02:41 +0900</pubDate>
       
       <guid>/kr/advanced_contents_ros1/lecture3/</guid>
@@ -293,22 +320,38 @@ UDPROS가 roscpp만 지원했던 것처럼, sros도 rospy와 사용할 시 제�
     </item>
     
     <item>
+<<<<<<< HEAD
       <title>Lecture1 - Gazebo and Robot</title>
       <link>/kr/ros_and_gazebo/lecture1/</link>
       <pubDate>Wed, 19 Jan 2022 04:41:42 +0900</pubDate>
       
       <guid>/kr/ros_and_gazebo/lecture1/</guid>
+=======
+      <title>Lecture13 - Gazebo and Robot(1)</title>
+      <link>/kr/ros2_basic_foxy/lecture13/</link>
+      <pubDate>Wed, 19 Jan 2022 04:41:42 +0900</pubDate>
+      
+      <guid>/kr/ros2_basic_foxy/lecture13/</guid>
+>>>>>>> bccf9535527a66bc6066600a566a5dfd5193c450
       <description>FusionBot 소개 이번 실습을 위해 모바일 로봇에서 가장 많이 사용되는 타입의 로봇, FusionBot을 준비하였습니다. FusionBot을 통해 ROS에서의 로봇 표현 방법을 익힌 뒤, 실제 CAD 파일에서 Gazebo 상의 로봇을 구현하는 실습을 진행해봅시다.
 실습을 위한 git repo를 clone한 뒤 종속성들을 설치합시다. cd ~/ros2_ws/src git clone https://github.com/RB2023ROS/du2023-gz.git cd du2023-gz ./setup_scripts.sh URDF와 Robot Description 일반적으로, 로봇은 Links와 Joints 두가지 요소로 이루어집니다.
 Link : 단단하게 고정된 강체(rigid-body)이며, 사람의 골격에 해당합니다. Joint : link 사이를 결합해주고 이들 사이 운동을 결정짓습니다.</description>
     </item>
     
     <item>
+<<<<<<< HEAD
       <title>Lecture2 - Gazebo and Robot(2)</title>
       <link>/kr/ros_and_gazebo/lecture2/</link>
       <pubDate>Tue, 18 Jan 2022 04:41:42 +0900</pubDate>
       
       <guid>/kr/ros_and_gazebo/lecture2/</guid>
+=======
+      <title>Lecture14 - Gazebo and Robot(2)</title>
+      <link>/kr/ros2_basic_foxy/lecture14/</link>
+      <pubDate>Tue, 18 Jan 2022 04:41:42 +0900</pubDate>
+      
+      <guid>/kr/ros2_basic_foxy/lecture14/</guid>
+>>>>>>> bccf9535527a66bc6066600a566a5dfd5193c450
       <description>FusionBot과 Gazebo Description 예시를 통해 URDF에 대해 습득하였다면, 이제 Gazebo에 로봇을 등장시키고, 이동, 센싱을 구현할 차례입니다. FusionBot을 통해 실습을 진행해보고, 이전 예시에서의 로봇들도 함께 분석해 보겠습니다.
 강의에서는, Gazebo에서 로봇을 등장시키는 2가지 방법을 제시하고자 합니다.
 Xacro 파일을 통한 로봇 Spawn URDF 파일을 통한 로봇 Spawn 두 방식 모두 launch file에서 실행되는 Node들은 동일합니다.
