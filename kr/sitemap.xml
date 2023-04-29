@@ -11,14 +11,17 @@
     <loc>/kr/ros2_basic_foxy/</loc>
     <lastmod>2022-11-25T12:26:00+09:00</lastmod>
   </url><url>
-    <loc>/kr/advanced_contents_ros2/</loc>
+    <loc>/kr/ros2_foxy/</loc>
     <lastmod>2022-11-25T12:26:00+10:00</lastmod>
+  </url><url>
+    <loc>/kr/advanced_contents_ros2/</loc>
+    <lastmod>2022-11-25T12:26:00+11:00</lastmod>
   </url><url>
     <loc>/kr/ros_and_gazebo/</loc>
     <lastmod>2022-10-25T12:26:00+09:00</lastmod>
   </url><url>
     <loc>/kr/</loc>
-    <lastmod>2023-01-02T12:39:15+09:00</lastmod>
+    <lastmod>2023-04-28T10:51:29+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -29,6 +32,66 @@
                 hreflang="kr"
                 href="/kr/"
                 />
+  </url><url>
+    <loc>/kr/ros2_foxy/lecture1/</loc>
+    <lastmod>2023-04-28T10:51:29+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_foxy/lecture2/</loc>
+    <lastmod>2023-04-28T10:51:29+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_foxy/lecture3/</loc>
+    <lastmod>2023-04-28T10:51:29+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_foxy/lecture4/</loc>
+    <lastmod>2023-04-28T10:51:29+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_foxy/lecture5/</loc>
+    <lastmod>2023-04-28T10:51:29+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_foxy/lecture6/</loc>
+    <lastmod>2023-04-28T10:51:28+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_foxy/lecture7/</loc>
+    <lastmod>2023-04-28T10:51:28+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_foxy/lecture8/</loc>
+    <lastmod>2023-04-28T10:51:28+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_foxy/lecture9/</loc>
+    <lastmod>2023-04-28T10:51:28+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_foxy/lecture10/</loc>
+    <lastmod>2023-04-28T10:51:09+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_foxy/lecture11/</loc>
+    <lastmod>2023-04-28T10:51:09+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_foxy/lecture12/</loc>
+    <lastmod>2023-04-28T10:51:09+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_foxy/lecture13/</loc>
+    <lastmod>2023-04-28T10:51:09+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_foxy/lecture14/</loc>
+    <lastmod>2023-04-28T10:51:09+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_foxy/lecture15/</loc>
+    <lastmod>2023-04-28T10:51:09+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_foxy/lecture16/</loc>
+    <lastmod>2023-04-28T10:51:09+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_foxy/lecture17/</loc>
+    <lastmod>2023-04-28T10:51:09+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_foxy/lecture18/</loc>
+    <lastmod>2023-04-28T10:51:09+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_foxy/lecture19/</loc>
+    <lastmod>2023-04-28T10:40:29+09:00</lastmod>
+  </url><url>
+    <loc>/kr/ros2_foxy/lecture20/</loc>
+    <lastmod>2023-04-28T10:40:29+09:00</lastmod>
   </url><url>
     <loc>/kr/ros2_basic_foxy/lecture1/</loc>
     <lastmod>2023-01-02T12:39:15+09:00</lastmod>

@@ -1,0 +1,3010 @@
+<!DOCTYPE html>
+<html lang="kr" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.104.1" />
+    <meta name="description" content="COM2018 OOP Class Lecture Note">
+<meta name="author" content="Soo Young Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Lecture7. ROS 2 Topic and Programming - Documentation for Hugo Learn Theme</title>
+
+    
+    <link href="/css/nucleus.css?1682765761" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1682765761" rel="stylesheet">
+    <link href="/css/hybrid.css?1682765761" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1682765761" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1682765761" rel="stylesheet">
+    <link href="/css/auto-complete.css?1682765761" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1682765761" rel="stylesheet">
+    <link href="/css/theme.css?1682765761" rel="stylesheet">
+    <link href="/css/tabs.css?1682765761" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1682765761" rel="stylesheet">
+    
+    <link href="/css/theme-green.css?1682765761" rel="stylesheet">
+    
+    <link href="/css/foo.css?1682765761" rel="stylesheet"><link href="/css/bar.css?1682765761" rel="stylesheet">
+
+    <script src="/js/jquery-3.3.1.min.js?1682765761"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/kr/ros2_foxy/lecture7/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img width="1097" alt="image" src="https://user-images.githubusercontent.com/12381733/209764275-05dcbdbf-cef7-47ad-94a6-6d61febad01e.png">
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1682765761"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1682765761"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/kr";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1682765761"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/kr'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_basic_noetic/" title="ROS Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_basic_noetic/">
+          <b>ROS Noetic. </b>ROS Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture1/" title="Lecture1 - Introduction to ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture1/">
+        Lecture1 - Introduction to ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture2/" title="Lecture2 - Dev Env Setup" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture2/">
+        Lecture2 - Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture3/" title="Lecture3 - Core of ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture3/">
+        Lecture3 - Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture4/" title="Lecture4 - ROS Launch, RViz" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture4/">
+        Lecture4 - ROS Launch, RViz
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture5/" title="Lecture5 - First Programming, ROS Topic" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture5/">
+        Lecture5 - First Programming, ROS Topic
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture6/" title="Lecture6 - ROS Service, Parameter" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture6/">
+        Lecture6 - ROS Service, Parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture7/" title="Lecture7 - Rqt Tools and rosbag, ROS Time" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture7/">
+        Lecture7 - Rqt Tools and rosbag, ROS Time
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture8/" title="Lecture8 - Deal with Open Source Projects, Custom Interfaces" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture8/">
+        Lecture8 - Deal with Open Source Projects, Custom Interfaces
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture9/" title="Lecture9 - ROS TF and Examples" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture9/">
+        Lecture9 - ROS TF and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture10/" title="Lecture10 - TF2 Examples, Outro" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture10/">
+        Lecture10 - TF2 Examples, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/advanced_contents_ros1/" title="ROS" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/advanced_contents_ros1/">
+          <b>Advanced Contents. </b>ROS
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture1/" title="Lecture1 - ROSCPP" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture1/">
+        Lecture1 - ROSCPP
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture2/" title="Lecture2 - More About ROS System" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture2/">
+        Lecture2 - More About ROS System
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture3/" title="Lecture3 - SROS" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture3/">
+        Lecture3 - SROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_basic_foxy/" title="ROS 2 Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros2_basic_foxy/">
+          <b>[Old]ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture1/" title="Lecture1 - Introduction to ROS 2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture1/">
+        Lecture1 - Introduction to ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture2/" title="Lecture2 - ROS 2 Node, Package" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture2/">
+        Lecture2 - ROS 2 Node, Package
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture3/" title="Lecture3 - ROS 2 Node Programming, ROS 2 parameter" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture3/">
+        Lecture3 - ROS 2 Node Programming, ROS 2 parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture4/" title="Lecture4 - ROS 2 Node C&#43;&#43; Programming" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture4/">
+        Lecture4 - ROS 2 Node C&#43;&#43; Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture5/" title="Lecture5 - ROS 2 Topic and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture5/">
+        Lecture5 - ROS 2 Topic and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture6/" title="Lecture6 - ROS 2 Service and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture6/">
+        Lecture6 - ROS 2 Service and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture7/" title="Lecture7 - Useful ROS 2 Example, Navigation2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture7/">
+        Lecture7 - Useful ROS 2 Example, Navigation2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture8/" title="Lecture8 - ROS 2 Action and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture8/">
+        Lecture8 - ROS 2 Action and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture9/" title="Lecture9 - C&#43;&#43; Programming Again, Outro" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture9/">
+        Lecture9 - C&#43;&#43; Programming Again, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_foxy/" title="ROS 2 Basics" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/kr/ros2_foxy/">
+          <b>[New]ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture1/" title="Lecture1. What is ROS?" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture1/">
+        Lecture1. What is ROS?
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture2/" title="Lecture2. Dev Env Setup" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture2/">
+        Lecture2. Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture3/" title="Lecture3. Core of ROS" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture3/">
+        Lecture3. Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture4/" title="Lecture4. ROS 2 Node and Parameter Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture4/">
+        Lecture4. ROS 2 Node and Parameter Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture5/" title="Lecture5. ROS 2 Communication Mechanisms" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture5/">
+        Lecture5. ROS 2 Communication Mechanisms
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture6/" title="Lecture6. ROS 2 Tools" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture6/">
+        Lecture6. ROS 2 Tools
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture7/" title="Lecture7. ROS 2 Topic and Programming" class="dd-item active">
+        <a href="/kr/ros2_foxy/lecture7/">
+        Lecture7. ROS 2 Topic and Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture8/" title="Lecture8. ROS 2 Service and Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture8/">
+        Lecture8. ROS 2 Service and Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture9/" title="Lecture9. ROS 2 Action Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture9/">
+        Lecture9. ROS 2 Action Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture10/" title="Lecture10. TF and ROS 2" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture10/">
+        Lecture10. TF and ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture11/" title="Lecture11. About Gazebo - 1" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture11/">
+        Lecture11. About Gazebo - 1
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture12/" title="Lecture12. About Gazebo - 2" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture12/">
+        Lecture12. About Gazebo - 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture13/" title="Lecture13. Useful ROS 2 Examples (Sensor Part)" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture13/">
+        Lecture13. Useful ROS 2 Examples (Sensor Part)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture14/" title="Lecture14. Useful ROS 2 Examples (Control Part)" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture14/">
+        Lecture14. Useful ROS 2 Examples (Control Part)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture15/" title="Lecture15. Advanced ROS 2, Package Management" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture15/">
+        Lecture15. Advanced ROS 2, Package Management
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture16/" title="Lecture16" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture16/">
+        Lecture16
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture17/" title="Lecture17" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture17/">
+        Lecture17
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture18/" title="Lecture18" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture18/">
+        Lecture18
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture19/" title="Lecture19" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture19/">
+        Lecture19
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture20/" title="Lecture20" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture20/">
+        Lecture20
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/advanced_contents_ros2/" title="ROS 2" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/advanced_contents_ros2/">
+          <b>Advanced Contents. </b>ROS 2
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture1/" title="Lecture1 - About DDS" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture1/">
+        Lecture1 - About DDS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture2/" title="Lecture11 - About DDS (2)" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture2/">
+        Lecture11 - About DDS (2)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture3/" title="Lecture12 - SROS2" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture3/">
+        Lecture12 - SROS2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_and_gazebo/" title="Gazebo and ROS" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_and_gazebo/">
+          <b>Gazebo. </b>Gazebo and ROS
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_and_gazebo/lecture1/" title="Lecture1 - Gazebo and Robot" class="dd-item ">
+        <a href="/kr/ros_and_gazebo/lecture1/">
+        Lecture1 - Gazebo and Robot
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_and_gazebo/lecture2/" title="Lecture2 - Gazebo and Robot(2)" class="dd-item ">
+        <a href="/kr/ros_and_gazebo/lecture2/">
+        Lecture2 - Gazebo and Robot(2)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros1"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 1</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros2"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 2</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="kr" value="/kr/ros2_foxy/lecture7/" selected>Korean</option>
+                    
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='' href="https://github.com/com2018-fa22/hugo-blog/tree/main/content/ros2_foxy/lecture7.kr.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text"></span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                   Lecture7. ROS 2 Topic and Programming
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#ros-2-topic-and-programming">ROS 2 Topic and Programming</a></li>
+    <li><a href="#src-gazebo">SRC Gazebo</a>
+      <ul>
+        <li><a href="#ros-2-topic-프로그래밍---python">ROS 2 Topic 프로그래밍 - python</a></li>
+      </ul>
+    </li>
+    <li><a href="#코드-분석">코드 분석</a>
+      <ul>
+        <li></li>
+        <li><a href="#코드-분석-1">코드 분석</a></li>
+        <li><a href="#ros-2-topic-programming---c">ROS 2 Topic Programming - C++</a></li>
+        <li><a href="#코드-분석-2">코드 분석</a></li>
+        <li><a href="#코드-분석-3">코드 분석</a></li>
+        <li><a href="#example-3---parking-1">example 3 - parking</a></li>
+        <li><a href="#custom-interface-generation">Custom Interface Generation</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Lecture7. ROS 2 Topic and Programming
+            </h1>
+          
+
+        
+
+
+<h2 id="ros-2-topic-and-programming">ROS 2 Topic and Programming</h2>
+<p>강의를 열심히 따라오면서 개념을 잊어버렸을 수 있으므로 Topic에 대해서 간단히 개념 복습을 해보겠습니다.</p>
+<ul>
+<li>Topic은 Node들 사이에 데이터(Message)가 오가는 길(Bus)의 이름이며, 적절한 이름으로 데이터를 송수신하지 않으면 원하는 동작을 수행할 수 없습니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images7/topic.gif?height=300px" alt="topic.gif"></p>
+<p>image from : <a href="https://docs.ros.org/en/foxy/Tutorials/Topics/Understanding-ROS2-Topics.html">docs.ros.org</a></p>
+<ul>
+<li>Topic의 중요한 특징으로 Topic은 여러 Node들로부터 데이터를 받을 수 있고, 전송 시에도 여러 Node들에게 전송이 가능한 방식입니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images7/topic2.gif?height=300px" alt="topic2.gif"></p>
+<p>image from : <a href="https://docs.ros.org/en/foxy/Tutorials/Topics/Understanding-ROS2-Topics.html">docs.ros.org</a></p>
+<p>topic을 통해 데이터가 전달되는 과정은 다음과 같습니다.</p>
+<ol>
+<li>데이터를 보내는 주체인 <strong>publisher</strong>는 데이터를 받는 주체, <strong>subscriber</strong>를 지정한 뒤, topic을 통해 원하는 정보를 전달합니다. 이것을 <strong>topic publish</strong>라고 부르지요.</li>
+<li>반대로, 데이터를 받는 주체인 <strong>subscriber</strong> 입장에선 topic을 통해 데이터를 받게 되며 이것은 <strong>topic subscribe</strong>라고 불립니다.</li>
+</ol>
+<ul>
+<li>Topic을 사용할 시 Publisher, Subscriber 사이에는 특정한 형식을 갖는 데이터, msg가 오갑니다. 원하는 데이터에 적합한 topic msg를 사용하면 더욱 효율적인 로봇 프로그래밍이 가능해집니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images7/Untitled.png?height=300px" alt="Untitled.png"></p>
+<p>image from : <a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/ROS2021/lec4/ROS%20Course%20Slides%20Course%204.pdf">ethz.ch</a></p>
+<ul>
+<li>특정 message가 어떻게 구성되어 있는지 알고 싶을 때는 다음과 같은 커멘드 라인을 사용합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ros2 interface show geometry_msgs/msg/Twist
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This expresses velocity in free space broken into its linear and angular parts.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Vector3  linear
+</span></span><span style="display:flex;"><span>Vector3  angular
+</span></span></code></pre></div><h2 id="src-gazebo">SRC Gazebo</h2>
+<p>이번 ROS 2 강의의 실습들은 Road Balance의 차량형 로봇 SRC를 통해 진행하고자 합니다. 실습을 진행하기 전 Gazebo 환경을 함께 세팅해보겠습니다.</p>
+<ul>
+<li>src_gazebo 실행 세팅</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~/ros2_ws/src/du2023-ros2
+</span></span><span style="display:flex;"><span>./setup_scripts.sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Package build</span>
+</span></span><span style="display:flex;"><span>cbp src_controller
+</span></span><span style="display:flex;"><span>source install/local_setup.bash
+</span></span><span style="display:flex;"><span>cbp src_gazebo
+</span></span><span style="display:flex;"><span>source install/local_setup.bash
+</span></span></code></pre></div><ul>
+<li>모든 준비가 완료되었다면 ros2 launch를 통해 이번 실습에 사용될 Gazebo 환경을 실행합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>ros2 launch src_gazebo empty_world<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span></code></pre></div><ul>
+<li>아무것도 없는 Gazebo 환경에 차량형 로봇이 등장할 것입니다. 함께 등장하는 <strong>rqt_robot_steering</strong>을 통해 로봇을 움직여보세요.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images7/src_turn.gif?height=400px" alt="src_turn.gif"></p>
+<p>⇒ 현재 /cmd_vel topic을 사용해서 로봇을 조종하고 있는 상황입니다. 지난 시간 학습한 rqt tool들을 사용해서 시스템 분석을 진행해봅시다.</p>
+<ul>
+<li>rqt_graph를 통해 해당 topic의 publisher / subscriber 확인</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images7/Untitled1.png?height=500px" alt="Untitled1.png"></p>
+<ul>
+<li>topic 조회</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 topic list
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>clicked_point
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>clock
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>cmd_vel
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>dynamic_joint_states
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>forward_position_controller<span style="color:#f92672">/</span>commands
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>goal_pose
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>imu<span style="color:#f92672">/</span>data
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>initialpose
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>joint_states
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>logi_camera_sensor<span style="color:#f92672">/</span>camera_info
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>logi_camera_sensor<span style="color:#f92672">/</span>image_raw
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>parameter_events
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>performance_metrics
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>robot_description
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>rosout
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>scan
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>steering_angle_middle
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>tf
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>tf_static
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>throttling_vel_middle
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>velocity_controller<span style="color:#f92672">/</span>commands
+</span></span></code></pre></div><ul>
+<li>특정 topic 정보 확인</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 topic info <span style="color:#f92672">/</span>forward_position_controller<span style="color:#f92672">/</span>commands
+</span></span><span style="display:flex;"><span>Type: std_msgs<span style="color:#f92672">/</span>msg<span style="color:#f92672">/</span>Float64MultiArray
+</span></span><span style="display:flex;"><span>Publisher count: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>Subscription count: <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>⇒ 이렇게 시스템에 대한 분석을 해두면 코딩 전 명확한 목표와 기능을 세울 수 있고, 많은 시간을 단축할 수 있습니다.</p>
+<h3 id="ros-2-topic-프로그래밍---python">ROS 2 Topic 프로그래밍 - python</h3>
+<h4 id="example-1---cmd_vel-publish">example 1 - cmd_vel publish</h4>
+<ul>
+<li>준비된 예시를 우선 실행해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1</span>
+</span></span><span style="display:flex;"><span>ros2 launch src_gazebo empty_world<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
+</span></span><span style="display:flex;"><span>cd <span style="color:#f92672">~/</span>ros2_ws
+</span></span><span style="display:flex;"><span>colcon build <span style="color:#f92672">--</span>packages<span style="color:#f92672">-</span>select py_topic_tutorial
+</span></span><span style="display:flex;"><span>source install<span style="color:#f92672">/</span>local_setup<span style="color:#f92672">.</span>bash
+</span></span><span style="display:flex;"><span>ros2 run py_topic_tutorial topic_pub_node
+</span></span></code></pre></div><p>⇒ 로봇이 원을 그리며 움직이기 시작합니다.</p>
+<p><img src="/kr/ros2_foxy/images7/circle_src.gif?height=400px" alt="circle_src.gif"></p>
+<h2 id="코드-분석">코드 분석</h2>
+<ul>
+<li>ROS 2에서 파이썬 프로그래밍을 하기 위해서, rclpy.node.Node를 import 해야 했습니다. 더불어, Topic에 사용되는 msg, <strong>Twist</strong>를 import하는 부분도 눈여겨봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> random
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> geometry_msgs.msg <span style="color:#f92672">import</span> Twist
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> rclpy
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.node <span style="color:#f92672">import</span> Node
+</span></span></code></pre></div><ul>
+<li>핵심이 되는 TwistPubNode 클래스의 생성자부터 살펴보겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TwistPubNode</span>(Node):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__(<span style="color:#e6db74">&#39;twist_pub_node&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;TwistPubNode Created at </span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>get_clock()<span style="color:#f92672">.</span>now()<span style="color:#f92672">.</span>to_msg()<span style="color:#f92672">.</span>sec<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># self.twist_publisher = self.create_publisher(Twist, &#34;twist_topic&#34;, 10)</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>twist_publisher <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_publisher(Twist, <span style="color:#e6db74">&#39;/cmd_vel&#39;</span>, <span style="color:#ae81ff">10</span>)
+</span></span></code></pre></div><ul>
+<li><strong>create_publisher</strong>는 topic publisher를 생성하는 함수로 3개의 매개변수를 받으며 각각에 대한 설명은 다음과 같습니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message type</td>
+<td>Topic 통신에 사용될 msg Type</td>
+</tr>
+<tr>
+<td>topic name</td>
+<td>사용할 Topic 이름을 지정 (이 이름을 잘못 설정하면 존재하지 않는 topic에 Publish하는 오류 상황이 발생하니 주의합니다.)</td>
+</tr>
+<tr>
+<td>queue_size</td>
+<td>topic 통신 시 대기열의 크기</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>이어서, timer callback에서 publish가 이루어집니다. 인스턴스화한 publisher에서 <strong>publish</strong> 함수를 사용하며 매개변수로 message가 전달됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>        <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>create_timer(<span style="color:#ae81ff">0.2</span>, self<span style="color:#f92672">.</span>timer_callback)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">timer_callback</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Timer will run this function periodically.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        msg <span style="color:#f92672">=</span> Twist()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Fill in msg with compatible values</span>
+</span></span><span style="display:flex;"><span>        msg<span style="color:#f92672">.</span>linear<span style="color:#f92672">.</span>x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>        msg<span style="color:#f92672">.</span>angular<span style="color:#f92672">.</span>z <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>twist_publisher<span style="color:#f92672">.</span>publish(msg)
+</span></span></code></pre></div><h4 id="example-2---scan-subscription">example 2 - scan subscription</h4>
+<ul>
+<li>이번 예시는 2D 라이다 데이터를 다뤄보고자 합니다. 아래의 커멘드 라인들을 실행해주세요.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 launch src_gazebo empty_world<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run py_topic_tutorial topic_sub_node
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1672494602.141200628</span>] [scan_sub_node]:
+</span></span><span style="display:flex;"><span>msg<span style="color:#f92672">.</span>ranges[<span style="color:#ae81ff">0</span>] : inf
+</span></span><span style="display:flex;"><span>msg<span style="color:#f92672">.</span>ranges[<span style="color:#ae81ff">30</span>] : inf
+</span></span><span style="display:flex;"><span>msg<span style="color:#f92672">.</span>ranges[<span style="color:#ae81ff">60</span>] : <span style="color:#ae81ff">0.7975894212722778</span>
+</span></span><span style="display:flex;"><span>msg<span style="color:#f92672">.</span>ranges[<span style="color:#ae81ff">90</span>] : inf
+</span></span><span style="display:flex;"><span>msg<span style="color:#f92672">.</span>ranges[<span style="color:#ae81ff">119</span>] : inf
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span></code></pre></div><ul>
+<li>예시를 실행시킨 상황에서 Gazebo 상의 로봇 주변으로 물체를 등장시킨 뒤, topic node를 실행하고 있는 터미널 창의 변화를 살펴봅시다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images7/Untitled2.png?height=300px" alt="Untitled2.png"></p>
+<p>⇒ scan data의 ranges는 사진과 같은 거리 데이터를 담고 있으며, 각 지점에 해당하는 lidar data를 터미널에 표시하는 예시였습니다.</p>
+<p><img src="/kr/ros2_foxy/images7/Untitled3.png?height=300px" alt="Untitled3.png"></p>
+<h3 id="코드-분석-1">코드 분석</h3>
+<ul>
+<li>이번 예시는 2D lidar 데이터를 위해 제공되는 sensor_msgs/msg/LaserScan msg를 사용하고 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> rclpy
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.node <span style="color:#f92672">import</span> Node
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sensor_msgs.msg <span style="color:#f92672">import</span> LaserScan
+</span></span></code></pre></div><p>⇒ 해당 msg에 대한 정보를 조회하는 방법, 이제는 모두 숙지하셨으리라 믿습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 interface show sensor_msgs<span style="color:#f92672">/</span>msg<span style="color:#f92672">/</span>LaserScan
+</span></span></code></pre></div><ul>
+<li>ScanSubNode 클래스의 생성자에서는 scan topic의 <strong>subscriber</strong>가 생성됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ScanSubNode</span>(Node):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__(<span style="color:#e6db74">&#39;scan_sub_node&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        queue_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>  <span style="color:#75715e"># Queue Size</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>pose_subscriber <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_subscription(
+</span></span><span style="display:flex;"><span>            LaserScan, <span style="color:#e6db74">&#39;scan&#39;</span>, self<span style="color:#f92672">.</span>sub_callback, queue_size
+</span></span><span style="display:flex;"><span>        )
+</span></span></code></pre></div><ul>
+<li><strong>create_subscription</strong>은 4개의 매개변수를 필요로 합니다. 각각의 매개변수를 보면서 왜 이런 값들이 필요할지 생각해보세요.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Message Type</td>
+<td>Topic 통신에 사용될 msg Type</td>
+</tr>
+<tr>
+<td>topic name</td>
+<td>데이터를 Subscribe할 Topic의 이름</td>
+</tr>
+<tr>
+<td>subscribe callback</td>
+<td>데이터가 전달될 때마다 실행되는 callback 함수. 전달된 데이터를 통해 실행할 작업이 이 함수 안에 구현됨</td>
+</tr>
+<tr>
+<td>queue_size</td>
+<td>create_publisher때와 마찬가지로, 대기열의 크기</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>더불어, sub_callback의 첫번쨰 매개변수는 항상 topic message data가 됩니다. 대부분의 구현에서는 해당 message에서 원하는 데이터를 추출한 다음, 이후의 처리를 진행합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>		<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sub_callback</span>(self, msg):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Timer will run this function periodically.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39; </span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span><span style="color:#e6db74">            </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">msg.ranges[0] : </span><span style="color:#e6db74">{</span>msg<span style="color:#f92672">.</span>ranges[<span style="color:#ae81ff">0</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span><span style="color:#e6db74">            </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">msg.ranges[30] : </span><span style="color:#e6db74">{</span>msg<span style="color:#f92672">.</span>ranges[<span style="color:#ae81ff">30</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span><span style="color:#e6db74">            </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">msg.ranges[60] : </span><span style="color:#e6db74">{</span>msg<span style="color:#f92672">.</span>ranges[<span style="color:#ae81ff">60</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span><span style="color:#e6db74">            </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">msg.ranges[90] : </span><span style="color:#e6db74">{</span>msg<span style="color:#f92672">.</span>ranges[<span style="color:#ae81ff">90</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span><span style="color:#e6db74">            </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">msg.ranges[119] : </span><span style="color:#e6db74">{</span>msg<span style="color:#f92672">.</span>ranges[<span style="color:#ae81ff">119</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span><span style="color:#e6db74">        &#39;</span>)
+</span></span></code></pre></div><h4 id="example-3---parking">example 3 - parking</h4>
+<ul>
+<li>이번 예시를 실행하기 전에, empty_world.launch.py를 수정해야 합니다. gazebo_ros server의 실행 시 전달되는 환경 파일을 변경하는 작업입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>		<span style="color:#75715e"># gazebo</span>
+</span></span><span style="display:flex;"><span>    pkg_gazebo_ros <span style="color:#f92672">=</span> FindPackageShare<span style="color:#f92672">(</span>package<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;gazebo_ros&#39;</span><span style="color:#f92672">)</span>.find<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;gazebo_ros&#39;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    pkg_path <span style="color:#f92672">=</span> os.path.join<span style="color:#f92672">(</span>get_package_share_directory<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;src_gazebo&#39;</span><span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># world_path = os.path.join(pkg_path, &#39;worlds&#39;, &#39;empty_world.world&#39;)</span>
+</span></span><span style="display:flex;"><span>    world_path <span style="color:#f92672">=</span> os.path.join<span style="color:#f92672">(</span>pkg_path, <span style="color:#e6db74">&#39;worlds&#39;</span>, <span style="color:#e6db74">&#39;wall_world.world&#39;</span><span style="color:#f92672">)</span>
+</span></span></code></pre></div><ul>
+<li>이번 예시는 일정 거리 내 벽이 검출되면 자동으로 로봇을 정지시킵니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 launch src_gazebo empty_world<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run py_topic_tutorial parking_node
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1672563255.067421128</span>] [parking_node]: Distance <span style="color:#f92672">from</span> Front Object : <span style="color:#ae81ff">0.6280616521835327</span>
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1672563255.173734128</span>] [parking_node]: Distance <span style="color:#f92672">from</span> Front Object : <span style="color:#ae81ff">0.5546504259109497</span>
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1672563255.281276729</span>] [parking_node]: Distance <span style="color:#f92672">from</span> Front Object : <span style="color:#ae81ff">0.5124648809432983</span>
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1672563255.389067729</span>] [parking_node]: <span style="color:#f92672">====</span> Parking Done<span style="color:#960050;background-color:#1e0010">!!!</span> <span style="color:#f92672">====</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images7/parking.gif?height=300px" alt="parking.gif"></p>
+<p>이 기능을 위해 Topic Publish와 Subscribe가 모두 필요합니다.</p>
+<ol>
+<li><strong>/cmd_vel topic publish</strong></li>
+<li><strong>/scan topic subscribe</strong></li>
+</ol>
+<ul>
+<li>따라서, Node의 생성자에서 Publisher와 Subscriber를 모두 생성합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ParkingNode</span>(Node):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__(<span style="color:#e6db74">&#39;parking_node&#39;</span>)
+</span></span><span style="display:flex;"><span>        queue_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>  <span style="color:#75715e"># Queue Size</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>twist_publisher <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_publisher(Twist, <span style="color:#e6db74">&#39;cmd_vel&#39;</span>, queue_size)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>scan_subscriber <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_subscription(
+</span></span><span style="display:flex;"><span>            LaserScan, <span style="color:#e6db74">&#39;scan&#39;</span>, self<span style="color:#f92672">.</span>sub_callback, queue_size
+</span></span><span style="display:flex;"><span>        )
+</span></span></code></pre></div><ul>
+<li>sub_callback에서 전방 (msg.ranges[60]) 물체와의 거리를 탐지하고, 이 거리가 0.5m 이하가 될 시 정지 topic을 publish 합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>		<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sub_callback</span>(self, msg):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        twist_msg <span style="color:#f92672">=</span> Twist()
+</span></span><span style="display:flex;"><span>        distance_forward <span style="color:#f92672">=</span> msg<span style="color:#f92672">.</span>ranges[<span style="color:#ae81ff">60</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> distance_forward <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Distance from Front Object : </span><span style="color:#e6db74">{</span>distance_forward<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>            twist_msg<span style="color:#f92672">.</span>linear<span style="color:#f92672">.</span>x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>twist_publisher<span style="color:#f92672">.</span>publish(twist_msg)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#39;==== Parking Done!!! ====</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>            twist_msg<span style="color:#f92672">.</span>linear<span style="color:#f92672">.</span>x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>twist_publisher<span style="color:#f92672">.</span>publish(twist_msg)
+</span></span></code></pre></div><h3 id="ros-2-topic-programming---c">ROS 2 Topic Programming - C++</h3>
+<h4 id="example-1---cmd_vel-publish-1">example 1 - cmd_vel publish</h4>
+<ul>
+<li>준비된 예시들을 빌드 해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cbp cpp_topic_tutorial
+</span></span><span style="display:flex;"><span>source install/local_setup.bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1</span>
+</span></span><span style="display:flex;"><span>ros2 launch src_gazebo empty_world.launch.py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
+</span></span><span style="display:flex;"><span>ros2 run cpp_topic_tutorial cpp_topic_pub_node
+</span></span></code></pre></div><p>⇒ 구현 자체는 동일합니다. 로봇이 원을 그리며 움직이기 시작합니다.</p>
+<h3 id="코드-분석-2">코드 분석</h3>
+<ul>
+<li>로봇을 움직이기 위해서 <strong>geometry_msgs/msg/Twist</strong> 형식의 topic message type을 사용해야 함을 배운 바 있습니다. 이를 위해서 다음과 같이, 헤더를 include 하면 됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;geometry_msgs/msg/twist.hpp&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;rclcpp/rclcpp.hpp&#34;</span><span style="color:#75715e">
+</span></span></span></code></pre></div>
+<div class="notices tip" ><p>단, 파이썬과 달리 c++ 헤더는 snake_case를 취하며, 코드 사용 시 CamelCase를 사용함에 주의합니다.</p>
+</div>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python</td>
+<td>from geometry_msgs.msg import Twist</td>
+</tr>
+<tr>
+<td>Cpp</td>
+<td>#include &ldquo;geometry_msgs/msg/twist.hpp&rdquo;</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>publisher는 <strong>create_publisher</strong> 함수를 통해 생성할 수 있습니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rclcpp::Publisher<!-- raw HTML omitted --></td>
+<td>template을 통해 message type을 적습니다.</td>
+</tr>
+<tr>
+<td>topic_name</td>
+<td>publish할 topic의 이름</td>
+</tr>
+<tr>
+<td>queue size</td>
+<td>일전과 동일</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>rclcpp<span style="color:#f92672">::</span>Publisher<span style="color:#f92672">&lt;</span>geometry_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>Twist<span style="color:#f92672">&gt;::</span>SharedPtr twist_publisher;
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>twist_publisher <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_publisher<span style="color:#f92672">&lt;</span>geometry_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>Twist<span style="color:#f92672">&gt;</span>(<span style="color:#e6db74">&#34;turtle1/cmd_vel&#34;</span>, <span style="color:#ae81ff">10</span>);
+</span></span></code></pre></div>
+<div class="notices note" ><p>geometry_msgs::msg::Twist와 같이 타입이 길기 때문에 using을 사용하여 축약하곤 합니다.</p>
+</div>
+
+<h4 id="example-2---scan-subscription-1">example 2 - scan subscription</h4>
+<ul>
+<li>로봇 내 장착된 2D Lidar data를 적절히 표시하는 예시였습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1</span>
+</span></span><span style="display:flex;"><span>$ ros2 launch src_gazebo empty_world.launch.py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
+</span></span><span style="display:flex;"><span>$ ros2 run cpp_topic_tutorial cpp_topic_sub_node
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1672494602.141200628<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>scan_sub_node<span style="color:#f92672">]</span>:
+</span></span><span style="display:flex;"><span>msg.ranges<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> : inf
+</span></span><span style="display:flex;"><span>msg.ranges<span style="color:#f92672">[</span>30<span style="color:#f92672">]</span> : inf
+</span></span><span style="display:flex;"><span>msg.ranges<span style="color:#f92672">[</span>60<span style="color:#f92672">]</span> : 0.7975894212722778
+</span></span><span style="display:flex;"><span>msg.ranges<span style="color:#f92672">[</span>90<span style="color:#f92672">]</span> : inf
+</span></span><span style="display:flex;"><span>msg.ranges<span style="color:#f92672">[</span>119<span style="color:#f92672">]</span> : inf
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images7/Untitled4.png?height=300px" alt="Untitled4.png"></p>
+<h3 id="코드-분석-3">코드 분석</h3>
+<ul>
+<li>subscriber는 create_subscription 함수를 통해 생성할 수 있습니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rclcpp::Subscription&lt;&gt;</td>
+<td>template을 통해 message type을 적습니다.</td>
+</tr>
+<tr>
+<td>topic_name</td>
+<td>subscribe할 topic의 이름</td>
+</tr>
+<tr>
+<td>queue size</td>
+<td>일전과 동일</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>std::bind를 통해 callback 함수를 전달합니다.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>예시에서는 callback 함수의 매개변수가 1개이기에 std::placeholders::_1이 사용되었습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>LaserSubNode() <span style="color:#f92672">:</span> Node(<span style="color:#e6db74">&#34;laser_sub_node&#34;</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  laser_subscriber <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_subscription<span style="color:#f92672">&lt;</span>LaserScan<span style="color:#f92672">&gt;</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;scan&#34;</span>, <span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>bind(<span style="color:#f92672">&amp;</span>LaserSubNode<span style="color:#f92672">::</span>sub_callback, <span style="color:#66d9ef">this</span>, std<span style="color:#f92672">::</span>placeholders<span style="color:#f92672">::</span>_1)
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>callback 함수의 첫번째 매개변수인 데이터는 SharedPtr 타입이 사용된다는 것에 주의하며, 때문에 레퍼런스를 사용할 수 없습니다. (자주 있는 실수이므로 오류 상황도 함께 살펴보겠습니다.)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sub_callback</span>(<span style="color:#66d9ef">const</span> LaserScan<span style="color:#f92672">::</span>SharedPtr msg){
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;msg.ranges[0]: &#39;%f&#39;&#34;</span>, msg<span style="color:#f92672">-&gt;</span>ranges[<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;msg.ranges[30]: &#39;%f&#39;&#34;</span>, msg<span style="color:#f92672">-&gt;</span>ranges[<span style="color:#ae81ff">30</span>]);
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;msg.ranges[60]: &#39;%f&#39;&#34;</span>, msg<span style="color:#f92672">-&gt;</span>ranges[<span style="color:#ae81ff">60</span>]);
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;msg.ranges[90]: &#39;%f&#39;&#34;</span>, msg<span style="color:#f92672">-&gt;</span>ranges[<span style="color:#ae81ff">90</span>]);
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;msg.ranges[119]: &#39;%f&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, msg<span style="color:#f92672">-&gt;</span>ranges[<span style="color:#ae81ff">119</span>]);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>SharedPtr은 rclcpp 내부적으로 정의되어 있는 스마트 포인터입니다. 현 상황에서 레퍼런스를 사용하기 위해서는 ConstSharedPtr을 사용하면 됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sub_callback</span>(<span style="color:#66d9ef">const</span> LaserScan<span style="color:#f92672">::</span>ConstSharedPtr <span style="color:#f92672">&amp;</span>msg){
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;msg.ranges[0]: &#39;%f&#39;&#34;</span>, msg<span style="color:#f92672">-&gt;</span>ranges[<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;msg.ranges[30]: &#39;%f&#39;&#34;</span>, msg<span style="color:#f92672">-&gt;</span>ranges[<span style="color:#ae81ff">30</span>]);
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;msg.ranges[60]: &#39;%f&#39;&#34;</span>, msg<span style="color:#f92672">-&gt;</span>ranges[<span style="color:#ae81ff">60</span>]);
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;msg.ranges[90]: &#39;%f&#39;&#34;</span>, msg<span style="color:#f92672">-&gt;</span>ranges[<span style="color:#ae81ff">90</span>]);
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;msg.ranges[119]: &#39;%f&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, msg<span style="color:#f92672">-&gt;</span>ranges[<span style="color:#ae81ff">119</span>]);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="example-3---parking-1">example 3 - parking</h3>
+<ul>
+<li>일정 거리 내 벽이 검출되면 자동으로 로봇이 정지하는 예시였습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 launch src_gazebo empty_world<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run cpp_topic_tutorial cpp_parking_node
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1672563255.067421128</span>] [parking_node]: Distance <span style="color:#f92672">from</span> Front Object : <span style="color:#ae81ff">0.6280616521835327</span>
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1672563255.173734128</span>] [parking_node]: Distance <span style="color:#f92672">from</span> Front Object : <span style="color:#ae81ff">0.5546504259109497</span>
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1672563255.281276729</span>] [parking_node]: Distance <span style="color:#f92672">from</span> Front Object : <span style="color:#ae81ff">0.5124648809432983</span>
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1672563255.389067729</span>] [parking_node]: <span style="color:#f92672">====</span> Parking Done<span style="color:#960050;background-color:#1e0010">!!!</span> <span style="color:#f92672">====</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images7/parking.gif?height=300px" alt="parking.gif"></p>
+<ul>
+<li>이 기능을 위해 Topic Publish와 Subscribe가 모두 필요합니다. 따라서, Node의 생성자에서 Publisher와 Subscriber를 모두 생성합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  ParkingNode() <span style="color:#f92672">:</span> Node(<span style="color:#e6db74">&#34;laser_sub_node&#34;</span>)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    twist_publisher <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_publisher<span style="color:#f92672">&lt;</span>Twist<span style="color:#f92672">&gt;</span>(<span style="color:#e6db74">&#34;cmd_vel&#34;</span>, <span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    laser_subscriber <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_subscription<span style="color:#f92672">&lt;</span>LaserScan<span style="color:#f92672">&gt;</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;scan&#34;</span>, <span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>      std<span style="color:#f92672">::</span>bind(<span style="color:#f92672">&amp;</span>ParkingNode<span style="color:#f92672">::</span>sub_callback, <span style="color:#66d9ef">this</span>, std<span style="color:#f92672">::</span>placeholders<span style="color:#f92672">::</span>_1)
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><ul>
+<li>sub_callback에서 전방 (msg.ranges[60]) 물체와의 거리를 탐지하고, 이 거리가 0.5m 이하가 될 시 정지 topic을 publish 합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sub_callback</span>(<span style="color:#66d9ef">const</span> LaserScan<span style="color:#f92672">::</span>SharedPtr msg){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> distance_forward <span style="color:#f92672">=</span> msg<span style="color:#f92672">-&gt;</span>ranges[<span style="color:#ae81ff">60</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(distance_forward <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>){
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">auto</span> msg <span style="color:#f92672">=</span> Twist();
+</span></span><span style="display:flex;"><span>      msg.linear.x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>;
+</span></span><span style="display:flex;"><span>      twist_publisher<span style="color:#f92672">-&gt;</span>publish(msg);
+</span></span><span style="display:flex;"><span>    }<span style="color:#66d9ef">else</span>{
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">auto</span> msg <span style="color:#f92672">=</span> Twist();
+</span></span><span style="display:flex;"><span>      msg.linear.x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>;
+</span></span><span style="display:flex;"><span>      twist_publisher<span style="color:#f92672">-&gt;</span>publish(msg);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><ul>
+<li>rclcpp의 경우 CMakeLists.txt를 수정하여 node를 컴파일해야 했습니다. 이번 예시에서도 마찬가지 작업이 필요하며, 특히 코드에서 include 하였던 sensor_msgs geometry_msgs를 바인딩 하는 점에 유의하세요.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e"># find_package를 통해 종속성들을 추가합니다.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>find_package(rclcpp REQUIRED)
+</span></span><span style="display:flex;"><span>find_package(geometry_msgs REQUIRED)
+</span></span><span style="display:flex;"><span>find_package(sensor_msgs REQUIRED)
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_executable(cpp_topic_pub_node src<span style="color:#f92672">/</span>cpp_topic_pub_node.cpp)
+</span></span><span style="display:flex;"><span>ament_target_dependencies(cpp_topic_pub_node rclcpp geometry_msgs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_executable(cpp_topic_sub_node src<span style="color:#f92672">/</span>cpp_topic_sub_node.cpp)
+</span></span><span style="display:flex;"><span>ament_target_dependencies(cpp_topic_sub_node rclcpp sensor_msgs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_executable(cpp_parking_node src<span style="color:#f92672">/</span>cpp_parking_node.cpp)
+</span></span><span style="display:flex;"><span>ament_target_dependencies(cpp_parking_node rclcpp sensor_msgs geometry_msgs)
+</span></span></code></pre></div><h3 id="custom-interface-generation">Custom Interface Generation</h3>
+<blockquote>
+<p>Topic의 msg, Service의 srv, Action의 action… 각각 통신 메커니즘마다. 사용하는 데이터 타입은 이제 익숙해지셨으리라 생각합니다. 그리고 ROS 2 에서는 자주 사용되는 데이터 타입들을 제공하고 있습니다.</p>
+</blockquote>
+<ul>
+<li>몇가지를 함께 조회해 봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>ros2 interface show msg <span style="color:#f92672">/</span> srv <span style="color:#f92672">/</span> action
+</span></span></code></pre></div><p>이렇게 미리 제공되는 데이터 타입들은 common interfaces라는 이름으로 제공되고 있습니다.</p>
+<p>⇒ <a href="https://github.com/ros2/common_interfaces">https://github.com/ros2/common_interfaces</a></p>
+<ul>
+<li>그런데, 만약 나만의 새로운 데이터 타입을 만들고 싶다면 어떻게 해야 할까요? ROS 2에서는 custom interface의 생성을 제공하고 있습니다. 함께 실습해봅시다.</li>
+</ul>
+<blockquote>
+<p>ROS 2에서 custom interface를 만들기 위해서는 <strong>C++ Package</strong>에서 작업이 이루어져야 합니다. C++ package는 build type ament_cmake를 사용하는 package였습니다.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ros2 pkg create --build-type ament_cmake &lt;package-name&gt;
+</span></span><span style="display:flex;"><span>$ ros2 pkg create --build-type ament_cmake custom_interfaces
+</span></span></code></pre></div><ul>
+<li>해당 패키지 내 action, msg, srv 라는 폴더를 만들고 해당 폴더 안에 나만의 인터페이스를 작성합니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images7/Untitled5.png?height=300px" alt="Untitled5.png"></p>
+<ul>
+<li>example - MyFirstMsg.msg</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>string name
+</span></span><span style="display:flex;"><span>float32 height
+</span></span><span style="display:flex;"><span>float32 weight
+</span></span><span style="display:flex;"><span>uint8 age
+</span></span></code></pre></div><ul>
+<li>example - TurningControl.srv</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>uint32 time_duration
+</span></span><span style="display:flex;"><span>float64 angular_vel_z
+</span></span><span style="display:flex;"><span>float64 linear_vel_x
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>bool success
+</span></span></code></pre></div><ul>
+<li>example - Parking.action</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#goal definition</span>
+</span></span><span style="display:flex;"><span>bool start_flag
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#result definition</span>
+</span></span><span style="display:flex;"><span>string message
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#feedback definition</span>
+</span></span><span style="display:flex;"><span>float32 distance
+</span></span></code></pre></div><ul>
+<li>custom interface 내부에는 primitive type / pre-defined type이 존재 가능합니다.</li>
+</ul>
+<p>⇒ primitive type은 아래의 그림을 참고하시고</p>
+<p>⇒ pre-defined type은 해당 ROS 2 시스템에서 이미 정의된 (std_msgs, std_srvs, etc…)가 가능합니다.</p>
+<p><img src="/kr/ros2_foxy/images7/Untitled6.png?height=300px" alt="Untitled6.png"></p>
+<p>image from : <a href="https://design.ros2.org/articles/interface_definition.html">https://design.ros2.org/articles/interface_definition.html</a></p>
+<p>⇒ 이제 해당 interface를 rclpy, rclcpp에서 사용 가능하도록 해봅시다.</p>
+<ul>
+<li>CMakeLists.txt 수정</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>rosidl_generate_interfaces(<span style="color:#960050;background-color:#1e0010">$</span>{PROJECT_NAME}
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;action/DataGen.action&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;action/Parking.action&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;srv/CircleTurtle.srv&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;srv/TurtleJail.srv&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><ul>
+<li>package.xml 수정</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;build_depend&gt;</span>rosidl_default_generators<span style="color:#f92672">&lt;/build_depend&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;exec_depend&gt;</span>rosidl_default_runtime<span style="color:#f92672">&lt;/exec_depend&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;member_of_group&gt;</span>rosidl_interface_packages<span style="color:#f92672">&lt;/member_of_group&gt;</span>
+</span></span></code></pre></div><ul>
+<li>패키지 빌드와 소싱</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ colcon build --packages-select custom_interfaces
+</span></span><span style="display:flex;"><span>Starting &gt;&gt;&gt; custom_interfaces
+</span></span><span style="display:flex;"><span>Finished <span style="color:#f92672">&lt;&lt;&lt;</span> custom_interfaces <span style="color:#f92672">[</span>0.62s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Summary: <span style="color:#ae81ff">1</span> package finished <span style="color:#f92672">[</span>0.84s<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ source install/local_setup.bash
+</span></span></code></pre></div><ul>
+<li>이제 ROS 2에서 해당 인터페이스를 사용할 수 있습니다 (단, 현재 custom_interfaces 패키지는 ros2_ws에 존재하기 때문에 해당 workspace를 소싱한 터미널에서만 조회가 가능합니다. )</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ros2 interface show custom_interfaces/srv/TurtleJail
+</span></span><span style="display:flex;"><span>float32 width
+</span></span><span style="display:flex;"><span>float32 height
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>bool success
+</span></span></code></pre></div><p>⇒ 그럼, custom interface의 실제 사용은 어떻게 할까요? 방금 생성한 custom_interfaces/srv/TurtleJail를예시로 살펴보겠습니다.</p>
+<ul>
+<li>rclpy</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> custom_interfaces.srv <span style="color:#f92672">import</span> TurtleJail
+</span></span></code></pre></div><ul>
+<li>rclcpp</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#include &#34;custom_interfaces/srv/turtle_jail.hpp&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>using TurtleJail <span style="color:#f92672">=</span> custom_interfaces::srv::TurtleJail;
+</span></span></code></pre></div><ul>
+<li>python을 사용하는 패키지에서 별도 작업 없이 사용 가능하지만 C++ 패키지는 코딩 시 CMakeLists.txt의 수정이 필요합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>find_package(ament_cmake REQUIRED)
+</span></span><span style="display:flex;"><span>find_package(rclcpp REQUIRED)
+</span></span><span style="display:flex;"><span>find_package(<span style="color:#f92672">&lt;</span>custom<span style="color:#f92672">-</span>interface<span style="color:#f92672">-</span>pkg<span style="color:#f92672">&gt;</span> REQUIRED)                         <span style="color:#75715e"># CHANGE</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_executable(talker src<span style="color:#f92672">/</span>publisher_member_function<span style="color:#f92672">.</span>cpp)
+</span></span><span style="display:flex;"><span>ament_target_dependencies(talker rclcpp <span style="color:#f92672">&lt;</span>custom<span style="color:#f92672">-</span>interface<span style="color:#f92672">-</span>pkg<span style="color:#f92672">&gt;</span>)         <span style="color:#75715e"># CHANGE</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>install(TARGETS
+</span></span><span style="display:flex;"><span>  talker
+</span></span><span style="display:flex;"><span>  DESTINATION lib<span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">$</span>{PROJECT_NAME})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ament_package()
+</span></span></code></pre></div><p>실제 ROS 2 호환 카메라 패키들을 보아도 필요에 따라 custom interface들을 선언한 모습을 확인 가능합니다.</p>
+<ul>
+<li>realsense_ros</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images7/Untitled6.png?height=300px" alt="Untitled6.png"></p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/kr/ros2_foxy/lecture6/" title="Lecture6. ROS 2 Tools"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kr/ros2_foxy/lecture8/" title="Lecture8. ROS 2 Service and Programming" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1682765761"></script>
+    <script src="/js/perfect-scrollbar.min.js?1682765761"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1682765761"></script>
+    <script src="/js/jquery.sticky.js?1682765761"></script>
+    <script src="/js/featherlight.min.js?1682765761"></script>
+    <script src="/js/highlight.pack.js?1682765761"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1682765761"></script>
+    <script src="/js/learn.js?1682765761"></script>
+    <script src="/js/hugo-learn.js?1682765761"></script>
+    
+        
+            <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

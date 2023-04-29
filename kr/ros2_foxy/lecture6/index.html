@@ -1,0 +1,2757 @@
+<!DOCTYPE html>
+<html lang="kr" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.104.1" />
+    <meta name="description" content="COM2018 OOP Class Lecture Note">
+<meta name="author" content="Soo Young Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Lecture6. ROS 2 Tools - Documentation for Hugo Learn Theme</title>
+
+    
+    <link href="/css/nucleus.css?1682765761" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1682765761" rel="stylesheet">
+    <link href="/css/hybrid.css?1682765761" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1682765761" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1682765761" rel="stylesheet">
+    <link href="/css/auto-complete.css?1682765761" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1682765761" rel="stylesheet">
+    <link href="/css/theme.css?1682765761" rel="stylesheet">
+    <link href="/css/tabs.css?1682765761" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1682765761" rel="stylesheet">
+    
+    <link href="/css/theme-green.css?1682765761" rel="stylesheet">
+    
+    <link href="/css/foo.css?1682765761" rel="stylesheet"><link href="/css/bar.css?1682765761" rel="stylesheet">
+
+    <script src="/js/jquery-3.3.1.min.js?1682765761"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/kr/ros2_foxy/lecture6/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img width="1097" alt="image" src="https://user-images.githubusercontent.com/12381733/209764275-05dcbdbf-cef7-47ad-94a6-6d61febad01e.png">
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1682765761"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1682765761"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/kr";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1682765761"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/kr'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_basic_noetic/" title="ROS Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_basic_noetic/">
+          <b>ROS Noetic. </b>ROS Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture1/" title="Lecture1 - Introduction to ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture1/">
+        Lecture1 - Introduction to ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture2/" title="Lecture2 - Dev Env Setup" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture2/">
+        Lecture2 - Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture3/" title="Lecture3 - Core of ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture3/">
+        Lecture3 - Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture4/" title="Lecture4 - ROS Launch, RViz" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture4/">
+        Lecture4 - ROS Launch, RViz
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture5/" title="Lecture5 - First Programming, ROS Topic" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture5/">
+        Lecture5 - First Programming, ROS Topic
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture6/" title="Lecture6 - ROS Service, Parameter" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture6/">
+        Lecture6 - ROS Service, Parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture7/" title="Lecture7 - Rqt Tools and rosbag, ROS Time" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture7/">
+        Lecture7 - Rqt Tools and rosbag, ROS Time
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture8/" title="Lecture8 - Deal with Open Source Projects, Custom Interfaces" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture8/">
+        Lecture8 - Deal with Open Source Projects, Custom Interfaces
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture9/" title="Lecture9 - ROS TF and Examples" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture9/">
+        Lecture9 - ROS TF and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture10/" title="Lecture10 - TF2 Examples, Outro" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture10/">
+        Lecture10 - TF2 Examples, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/advanced_contents_ros1/" title="ROS" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/advanced_contents_ros1/">
+          <b>Advanced Contents. </b>ROS
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture1/" title="Lecture1 - ROSCPP" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture1/">
+        Lecture1 - ROSCPP
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture2/" title="Lecture2 - More About ROS System" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture2/">
+        Lecture2 - More About ROS System
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture3/" title="Lecture3 - SROS" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture3/">
+        Lecture3 - SROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_basic_foxy/" title="ROS 2 Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros2_basic_foxy/">
+          <b>[Old]ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture1/" title="Lecture1 - Introduction to ROS 2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture1/">
+        Lecture1 - Introduction to ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture2/" title="Lecture2 - ROS 2 Node, Package" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture2/">
+        Lecture2 - ROS 2 Node, Package
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture3/" title="Lecture3 - ROS 2 Node Programming, ROS 2 parameter" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture3/">
+        Lecture3 - ROS 2 Node Programming, ROS 2 parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture4/" title="Lecture4 - ROS 2 Node C&#43;&#43; Programming" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture4/">
+        Lecture4 - ROS 2 Node C&#43;&#43; Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture5/" title="Lecture5 - ROS 2 Topic and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture5/">
+        Lecture5 - ROS 2 Topic and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture6/" title="Lecture6 - ROS 2 Service and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture6/">
+        Lecture6 - ROS 2 Service and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture7/" title="Lecture7 - Useful ROS 2 Example, Navigation2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture7/">
+        Lecture7 - Useful ROS 2 Example, Navigation2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture8/" title="Lecture8 - ROS 2 Action and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture8/">
+        Lecture8 - ROS 2 Action and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture9/" title="Lecture9 - C&#43;&#43; Programming Again, Outro" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture9/">
+        Lecture9 - C&#43;&#43; Programming Again, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_foxy/" title="ROS 2 Basics" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/kr/ros2_foxy/">
+          <b>[New]ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture1/" title="Lecture1. What is ROS?" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture1/">
+        Lecture1. What is ROS?
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture2/" title="Lecture2. Dev Env Setup" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture2/">
+        Lecture2. Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture3/" title="Lecture3. Core of ROS" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture3/">
+        Lecture3. Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture4/" title="Lecture4. ROS 2 Node and Parameter Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture4/">
+        Lecture4. ROS 2 Node and Parameter Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture5/" title="Lecture5. ROS 2 Communication Mechanisms" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture5/">
+        Lecture5. ROS 2 Communication Mechanisms
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture6/" title="Lecture6. ROS 2 Tools" class="dd-item active">
+        <a href="/kr/ros2_foxy/lecture6/">
+        Lecture6. ROS 2 Tools
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture7/" title="Lecture7. ROS 2 Topic and Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture7/">
+        Lecture7. ROS 2 Topic and Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture8/" title="Lecture8. ROS 2 Service and Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture8/">
+        Lecture8. ROS 2 Service and Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture9/" title="Lecture9. ROS 2 Action Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture9/">
+        Lecture9. ROS 2 Action Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture10/" title="Lecture10. TF and ROS 2" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture10/">
+        Lecture10. TF and ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture11/" title="Lecture11. About Gazebo - 1" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture11/">
+        Lecture11. About Gazebo - 1
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture12/" title="Lecture12. About Gazebo - 2" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture12/">
+        Lecture12. About Gazebo - 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture13/" title="Lecture13. Useful ROS 2 Examples (Sensor Part)" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture13/">
+        Lecture13. Useful ROS 2 Examples (Sensor Part)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture14/" title="Lecture14. Useful ROS 2 Examples (Control Part)" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture14/">
+        Lecture14. Useful ROS 2 Examples (Control Part)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture15/" title="Lecture15. Advanced ROS 2, Package Management" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture15/">
+        Lecture15. Advanced ROS 2, Package Management
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture16/" title="Lecture16" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture16/">
+        Lecture16
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture17/" title="Lecture17" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture17/">
+        Lecture17
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture18/" title="Lecture18" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture18/">
+        Lecture18
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture19/" title="Lecture19" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture19/">
+        Lecture19
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture20/" title="Lecture20" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture20/">
+        Lecture20
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/advanced_contents_ros2/" title="ROS 2" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/advanced_contents_ros2/">
+          <b>Advanced Contents. </b>ROS 2
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture1/" title="Lecture1 - About DDS" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture1/">
+        Lecture1 - About DDS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture2/" title="Lecture11 - About DDS (2)" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture2/">
+        Lecture11 - About DDS (2)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture3/" title="Lecture12 - SROS2" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture3/">
+        Lecture12 - SROS2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_and_gazebo/" title="Gazebo and ROS" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_and_gazebo/">
+          <b>Gazebo. </b>Gazebo and ROS
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_and_gazebo/lecture1/" title="Lecture1 - Gazebo and Robot" class="dd-item ">
+        <a href="/kr/ros_and_gazebo/lecture1/">
+        Lecture1 - Gazebo and Robot
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_and_gazebo/lecture2/" title="Lecture2 - Gazebo and Robot(2)" class="dd-item ">
+        <a href="/kr/ros_and_gazebo/lecture2/">
+        Lecture2 - Gazebo and Robot(2)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros1"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 1</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros2"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 2</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="kr" value="/kr/ros2_foxy/lecture6/" selected>Korean</option>
+                    
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='' href="https://github.com/com2018-fa22/hugo-blog/tree/main/content/ros2_foxy/lecture6.kr.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text"></span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                   Lecture6. ROS 2 Tools
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#rqt_graph">rqt_graph</a></li>
+    <li><a href="#topic-tools---message-publisher--topic-monitor">Topic Tools - Message Publisher &amp; Topic Monitor</a></li>
+    <li><a href="#service-tools---service-caller">Service Tools - Service Caller</a></li>
+    <li><a href="#rviz2">Rviz2</a></li>
+    <li><a href="#rqt_robot_steering">rqt_robot_steering</a></li>
+    <li><a href="#rosbag2"><strong>rosbag2</strong></a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Lecture6. ROS 2 Tools
+            </h1>
+          
+
+        
+
+
+<p><img src="/kr/ros2_foxy/images6/Untitled.png?height=200px" alt="Untitled.png"></p>
+<p>ROS 2는 rqt라는 프로그램의 집합을 제공합니다. rqt의 GUI를 사용하면 데이터 시각화, 코딩 없이 통신 메커니즘과 상호 작용, tf frame의 시각화 등 ROS 2 프로그래밍이 매우 매우 편해집니다.</p>
+<blockquote>
+<p>이번 시간을 통해 몇가지 자주 사용되는 rqt들을 살펴보고, 약간의 실습도 진행해보겠습니다.</p>
+</blockquote>
+<ul>
+<li>rqt의 실행은 다음과 같습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>rqt
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images6/Untitled1.png?height=300px" alt="Untitled1.png"></p>
+<p>⇒ 초기 실행 시 빈 화면이 등장하지만, 상단 탭을 통해 수많은 응용 프로그램들을 확인할 수 있습니다.</p>
+<h2 id="rqt_graph">rqt_graph</h2>
+<blockquote>
+<p>rqt_graph는 node와 topic에 대해 시각화하여 한 장의 이미지를 보여주는 툴로, 가장 많이 사용되는 Rqt Tool입니다.</p>
+</blockquote>
+<ul>
+<li>rqt_graph는 자주 사용되는 만큼 보통 개별적으로 실행합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>rqt_graph
+</span></span></code></pre></div><ul>
+<li>사진에 보이는 동그라미는 node를, 네모는 topic을 의미합니다. 더불어 화살표의 방향을 통해 topic의 송/수신자를 구별할 수 있습니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images6/Untitled2.png?height=300px" alt="Untitled2.png"></p>
+<ul>
+<li>더불어 rqt_graph는 다양한 시각화 옵션들을 제공하고 있습니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Node Option</th>
+<th>Hide Option</th>
+<th>ETC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Node Only</td>
+<td>Dead sinks</td>
+<td>Group Option</td>
+</tr>
+<tr>
+<td>Nodes/Topics (Active)</td>
+<td>Leaf Topics</td>
+<td>Actions</td>
+</tr>
+<tr>
+<td>Nodes/Topics (All)</td>
+<td>Debug</td>
+<td>tf</td>
+</tr>
+<tr>
+<td></td>
+<td>tf</td>
+<td>Images</td>
+</tr>
+<tr>
+<td></td>
+<td>Unreachable</td>
+<td>Highlight</td>
+</tr>
+<tr>
+<td></td>
+<td>Params</td>
+<td>Fit</td>
+</tr>
+</tbody>
+</table>
+<p>⇒ 참고로, rqt_graph의 node에 마우스 커서를 가져가면 관련 topic들의 색상을 바꿔줍니다. (Highlight)</p>
+
+<div class="notices tip" ><p>Topic 이름을 잘못 생성하거나 겹치는 경우, 코드 차원에서 디버깅이 힘들지만 rqt_graph를 사용하면 손쉽게 판별 가능합니다.</p>
+</div>
+
+<h2 id="topic-tools---message-publisher--topic-monitor">Topic Tools - Message Publisher &amp; Topic Monitor</h2>
+<blockquote>
+<p>rqt 상단의 탭에서 다음과 같이 화면을 구성합니다.</p>
+</blockquote>
+<ol>
+<li><strong>plugins ⇒ topics ⇒ Message Publisher</strong></li>
+<li><strong>pulgins ⇒ topics ⇒ Topic Monitor</strong></li>
+</ol>
+<p><img src="/kr/ros2_foxy/images6/Untitled3.png?height=300px" alt="Untitled3.png"></p>
+<ul>
+<li>message publisher를 사용하면 코딩 없이 원하는 topic을 publish 가능합니다. Topic Msg에 원하는 데이터를 채워넣은 뒤, 체크박스를 클릭하면 로봇이 움직이기 시작합니다. 실습을 위해 일전 husky gazebo를 실행시키고 로봇을 제어해 보겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1</span>
+</span></span><span style="display:flex;"><span>ros2 launch husky_gazebo husky_playpen.launch.py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
+</span></span><span style="display:flex;"><span>rqt
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images6/Untitled4.png?height=400px" alt="Untitled4.png"></p>
+<ul>
+<li>Topic Monitor를 사용하면, Topic 데이터들을 효과적으로 모니터링 가능합니다. Topic Publisher와 동일하게 체크박스를 눌러 topic을 선택한 뒤, 변하는 데이터를 확인해봅시다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images6/Untitled5.png?height=400px" alt="Untitled5.png"></p>
+<h2 id="service-tools---service-caller">Service Tools - Service Caller</h2>
+<blockquote>
+<p>rqt 상단의 탭에서 다음과 같이 화면을 구성합니다.</p>
+</blockquote>
+<ul>
+<li><strong>plugins ⇒ services ⇒ Service Caller</strong></li>
+</ul>
+<p><img src="/kr/ros2_foxy/images6/Untitled6.png?height=300px" alt="Untitled6.png"></p>
+<ul>
+<li>Service Caller를 통해 코딩 없이 간편하게 Service Call이 가능합니다. Service Srv에 원하는 데이터를 채워넣은 뒤, Call 버튼을 클릭하면 Request와 Response를 받을 수 있습니다. Gazebo상의 물체를 제거하는 간단한 실습을 해봅시다.</li>
+</ul>
+<ol>
+<li>gazebo_ros와 rqt를 실행합니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1 - Run Gazebo ROS</span>
+</span></span><span style="display:flex;"><span>ros2 launch gazebo_ros gazebo<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2 - rqt &amp; Service Caller</span>
+</span></span><span style="display:flex;"><span>rqt
+</span></span></code></pre></div><ol start="2">
+<li>rqt Service Caller를 실행시킨 뒤, /delete_entity service를 선택합니다.</li>
+</ol>
+<p><img src="/kr/ros2_foxy/images6/Untitled7.png?height=400px" alt="Untitled7.png"></p>
+<ol start="3">
+<li>gazebo상에서 모델을 등장시킨 뒤, 해당 모델의 이름을 service srv를 통해 전달하면 물체가 사라집니다!</li>
+</ol>
+<p><img src="/kr/ros2_foxy/images6/rqt_srv.gif?height=200px" alt="rqt_srv.gif"></p>
+<h2 id="rviz2">Rviz2</h2>
+<blockquote>
+<p>Rviz2는 ROS 2 개발 중 발생하는 수많은 로봇 데이터들을 시각화해주는 고마운 툴입니다. 다른 rqt 프로그램들은 몰라도, Rviz2의 사용법은 반드시 익혀두시기를 추천합니다.</p>
+</blockquote>
+<ul>
+<li>rviz2 예시를 위해 좀 더 갖춰진 gazebo 환경을 실행해보겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># package build</span>
+</span></span><span style="display:flex;"><span>cd <span style="color:#f92672">~/</span>ros2_ws
+</span></span><span style="display:flex;"><span>cbp src_gazebo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># demo env launch</span>
+</span></span><span style="display:flex;"><span>ros2 launch src_gazebo racecourse<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images6/Untitled8.png?height=400px" alt="Untitled8.png"></p>
+<p>⇒ 현재는 제가 미리 준비해둔 rviz2 화면이 등장했지만, 실습을 통해 이런 rviz2 화면을 구성하고 launch file을 통해 실행하는 법까지 다루어 보겠습니다.</p>
+<ul>
+<li>Rviz2의 개별 실행은 터미널에서 가능합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>rviz2
+</span></span></code></pre></div><ul>
+<li>rviz에서 view를 전환하는 방식은 gazebo와는 다르게 마우스 휠 클릭이 평행이동, 왼쪽 클릭이 회전이동입니다. 더불어, 우측 상단의 view를 통해 시점을 바꿀 수도 있습니다.</li>
+</ul>
+<p>⇒ Orbit이 기본이며, 종종 TopDownOrtho도 사용됩니다.</p>
+<p><img src="/kr/ros2_foxy/images6/Untitled9.png?height=100px" alt="Untitled9.png"></p>
+<ul>
+<li>좌측 Displays 패널을 통해 각종 Topic, TF 데이터들을 추가, 수정, 옵션 변경할 수 있습니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images6/Untitled10.png?height=300px" alt="Untitled10.png"></p>
+<ul>
+<li>새로운 display를 추가하기 위해서, 패널 하단 Add 버튼을 사용합니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images6/Untitled11.png?height=150px" alt="Untitled11.png"></p>
+
+<div class="notices tip" ><p>rviz2에서는 By display type / By Topic의 두가지 add option을 제공합니다.</p>
+</div>
+
+<ul>
+<li>
+<p>Topic type을 사용하면 rviz2가 현재 실행되고 있는 topic을 인식하여 적합한 시각화를 해주게됩니다.</p>
+</li>
+<li>
+<p>Display type은 원하는 시각화 타입을 먼저 선택하고, 해당 타입을 갖는 topic을 사용자가 매칭하는 방식입니다.</p>
+</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images6/Untitled12.png?height=300px" alt="Untitled12.png"></p>
+<ul>
+<li>시각화 시, 색상/크기/투명도 등 다양한 옵션을 바꿀 수 있습니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images6/Untitled13.png?height=300px" alt="Untitled13.png"></p>
+<ul>
+<li>ros2 launch로 rviz2 실행하기</li>
+</ul>
+<p>rviz2 또한 ros2 node입니다. 그렇기에 launch file에서의 실행은 일반 node와 동일합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#75715e"># Launch RViz</span>
+</span></span><span style="display:flex;"><span>    rviz <span style="color:#f92672">=</span> Node(
+</span></span><span style="display:flex;"><span>        package<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;rviz2&#39;</span>,
+</span></span><span style="display:flex;"><span>        executable<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;rviz2&#39;</span>,
+</span></span><span style="display:flex;"><span>        name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;rviz2&#39;</span>,
+</span></span><span style="display:flex;"><span>        output<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;screen&#39;</span>,
+</span></span><span style="display:flex;"><span>    )
+</span></span></code></pre></div><ul>
+<li>하지만, 이렇게 실행 시, 매번 시각화할 데이터를 선택하고, 옵션을 바꾸는 등의 수고스러움이 생깁니다. 따라서 rviz2는 설정을 저장하고 불러오는 기능을 제공합니다. (이는 rviz2 상단 패널에서도 확인 가능합니다.)</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images6/Untitled14.png?height=300px" alt="Untitled14.png"></p>
+<ul>
+<li>save config를 통해 나만의 설정을 저장하고, launch file을 통해 실행하는 실습을 진행해봅시다.</li>
+</ul>
+<ol>
+<li>여러분만의 rviz2 화면을 구성합니다.</li>
+</ol>
+<p><img src="/kr/ros2_foxy/images6/Untitled15.png?height=400px" alt="Untitled15.png"></p>
+<ol start="2">
+<li>해당 설정(config file)을 특정 패키지 내부에 저장하고, 위치를 기억합니다.</li>
+</ol>
+<p><img src="/kr/ros2_foxy/images6/Untitled16.png?height=300px" alt="Untitled16.png"></p>
+<ol start="3">
+<li>패키지 내 새로운 launch file을 작성하고 rviz2 node를 추가한 뒤, config file을 옵션으로 전달합니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> ament_index_python.packages <span style="color:#f92672">import</span> get_package_share_directory
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> launch <span style="color:#f92672">import</span> LaunchDescription
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> launch_ros.actions <span style="color:#f92672">import</span> Node
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate_launch_description</span>():
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    pkg_path <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(get_package_share_directory(<span style="color:#e6db74">&#39;src_gazebo&#39;</span>))
+</span></span><span style="display:flex;"><span>    rviz_config_file <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(pkg_path, <span style="color:#e6db74">&#39;rviz&#39;</span>, <span style="color:#e6db74">&#39;gazebo_racecourse.rviz&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Launch RViz</span>
+</span></span><span style="display:flex;"><span>    rviz <span style="color:#f92672">=</span> Node(
+</span></span><span style="display:flex;"><span>        package<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;rviz2&#39;</span>,
+</span></span><span style="display:flex;"><span>        executable<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;rviz2&#39;</span>,
+</span></span><span style="display:flex;"><span>        name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;rviz2&#39;</span>,
+</span></span><span style="display:flex;"><span>        output<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;screen&#39;</span>,
+</span></span><span style="display:flex;"><span>        arguments<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;-d&#39;</span>, rviz_config_file]
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> LaunchDescription([
+</span></span><span style="display:flex;"><span>        rviz
+</span></span><span style="display:flex;"><span>    ])
+</span></span></code></pre></div><ul>
+<li>참고로, 새로운 폴더가 추가되었을 시 CMakeLists.txt에 해당 폴더를 추가하여야 이후 launch file에서 접근 가능합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>install(
+</span></span><span style="display:flex;"><span>  DIRECTORY
+</span></span><span style="display:flex;"><span>    launch
+</span></span><span style="display:flex;"><span>    meshes
+</span></span><span style="display:flex;"><span>    models
+</span></span><span style="display:flex;"><span>    config
+</span></span><span style="display:flex;"><span>    worlds
+</span></span><span style="display:flex;"><span>    rviz
+</span></span><span style="display:flex;"><span>    urdf
+</span></span><span style="display:flex;"><span>  DESTINATION
+</span></span><span style="display:flex;"><span>    share<span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">$</span>{PROJECT_NAME}<span style="color:#f92672">/</span>
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><ul>
+<li>새로운 파일, 폴더가 추가되었으므로 colcon build를 수행한 뒤, 예제를 실행합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Package build again</span>
+</span></span><span style="display:flex;"><span>cbp src_gazebo
+</span></span><span style="display:flex;"><span>source install<span style="color:#f92672">/</span>local_setup<span style="color:#f92672">.</span>bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># execute your launch file</span>
+</span></span><span style="display:flex;"><span>ros2 launch src_gazebo <span style="color:#f92672">&lt;</span>your<span style="color:#f92672">-</span>launch<span style="color:#f92672">-</span>file<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><h2 id="rqt_robot_steering">rqt_robot_steering</h2>
+<ul>
+<li>rqt_robot_steering를 사용하면 움직이는 로봇을 조종하기 위해 별도의 코딩을 하지 않고도 GUI를 통한 조종이 가능합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># package install</span>
+</span></span><span style="display:flex;"><span>sudo apt install ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rqt<span style="color:#f92672">-</span>robot<span style="color:#f92672">-</span>steering
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># run node</span>
+</span></span><span style="display:flex;"><span>rqt_robot_steering
+</span></span></code></pre></div><ul>
+<li>GUI의 가로 슬라이드는 angular velocity, 세로 슬라이드는 linear velocity를 뜻하며 로봇의 topic이름을 맞춰준 뒤 원하는 조종이 가능합니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images6/Untitled17.png?height=400px" alt="Untitled17.png"></p>
+<ul>
+<li>실습을 위해 이전 husky 예시를 실행하고 rqt_robot_steering를 통해 로봇을 조종해보겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1</span>
+</span></span><span style="display:flex;"><span>ros2 launch husky_gazebo husky_playpen<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
+</span></span><span style="display:flex;"><span>rqt_robot_steering
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images6/Untitled18.png?height=400px" alt="Untitled18.png"></p>
+<h2 id="rosbag2"><strong>rosbag2</strong></h2>
+<blockquote>
+<p>rosbag은 프로그램 동작 중 발생하는 message 데이터를 기록하고 복기할 수 있게 해주는 툴입니다. 로봇 알고리즘을 개발할 때, 같은 상황에 대해 성능을 비교하는 경우, 혹은 교육 목적으로 데이터셋을 제공하는 경우 등에 매우 유용하게 사용할 수 있습니다.</p>
+</blockquote>
+<ul>
+<li>rosbag 사용법을 함께 실습해보겠습니다! 실습을 위해 gazebo 예시를 빌드하고 실행합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Example package clone</span>
+</span></span><span style="display:flex;"><span>cd ~/ros2_ws/src
+</span></span><span style="display:flex;"><span>git clone https://github.com/RB2023ROS/gz_ros2_examples
+</span></span><span style="display:flex;"><span>cd ~/ros2_ws
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Example package build</span>
+</span></span><span style="display:flex;"><span>cbp lidar_world
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Run Example package</span>
+</span></span><span style="display:flex;"><span>ros2 launch lidar_world lidar_world.launch.py
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images6/lidar_world_gz.gif?height=400px" alt="lidar_world_gz.gif"></p>
+<p>⇒ 매우 복잡한 형상의 환경과 동적 물체들이 등장합니다. 아마 고사양의 PC가 아닌 이상 이번 예제는 실행되지 않을 것입니다.</p>
+<p>⇒ 더불어 이런 여러 기능을 가진 시뮬레이션은 매우 느리게 동작하기 때문에 정확한 알고리즘의 검증이 불가능합니다.</p>
+<ul>
+<li>ROS 개발자들은 이러한 이유로 <strong>rosbag2</strong>를 통해 환경에서의 데이터셋을 제작합니다. 실제로 컴퓨터 비전 학회나 로봇 학회에서도 본인의 테스트베드를 rosbag으로 저장한 뒤 publish하는 경우가 많습니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images6/Untitled19.png?height=200px" alt="Untitled19.png"></p>
+<ul>
+<li>그럼 실습을 통해 rosbag2의 사용 방법을 알아봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1 - gazebo env</span>
+</span></span><span style="display:flex;"><span>ros2 launch lidar_world lidar_world<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2 - rosbag2 install &amp; run</span>
+</span></span><span style="display:flex;"><span>sudo apt<span style="color:#f92672">-</span>get install ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>ros2bag ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rosbag2<span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># create seperate dir for rosbag2</span>
+</span></span><span style="display:flex;"><span>mkdir <span style="color:#f92672">~/</span>ros2_ws<span style="color:#f92672">/</span>rosbag2
+</span></span><span style="display:flex;"><span>cd <span style="color:#f92672">~/</span>ros2_ws<span style="color:#f92672">/</span>rosbag2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ros2 bag record <span style="color:#f92672">-</span>a <span style="color:#f92672">-</span>o lidar_world
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1681816765.163369771</span>] [rosbag2_transport]: Listening <span style="color:#66d9ef">for</span> topics<span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1681816765.164494950</span>] [rosbag2_transport]: Subscribed to topic <span style="color:#e6db74">&#39;/tf_static&#39;</span>
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1681816765.165085302</span>] [rosbag2_transport]: Subscribed to topic <span style="color:#e6db74">&#39;/clicked_point&#39;</span>
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1681816765.165696583</span>] [rosbag2_transport]: Subscribed to topic <span style="color:#e6db74">&#39;/tf&#39;</span>
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1681816765.166304849</span>] [rosbag2_transport]: Subscribed to topic <span style="color:#e6db74">&#39;/goal_pose&#39;</span>
+</span></span></code></pre></div><p>⇒ record의 종료는 ctrl + c를 사용합니다.</p>
+<ul>
+<li>info 옵션을 통해 저장을 마친 rosbag2의 정보를 조회할 수 있습니다. 16초 동안 약 570MB의 데이터가 저장된 것을 알 수 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ros2 bag info lidar_world/lidar_world_0.db3
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1681817128.588731891<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>rosbag2_storage<span style="color:#f92672">]</span>: Opened database <span style="color:#e6db74">&#39;lidar_world/lidar_world_0.db3&#39;</span> <span style="color:#66d9ef">for</span> READ_ONLY.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Files:             lidar_world/lidar_world_0.db3
+</span></span><span style="display:flex;"><span>Bag size:          569.4 MiB
+</span></span><span style="display:flex;"><span>Storage id:        sqlite3
+</span></span><span style="display:flex;"><span>Duration:          16.325s
+</span></span><span style="display:flex;"><span>Start:             Apr <span style="color:#ae81ff">18</span> <span style="color:#ae81ff">2023</span> 20:19:25.172 <span style="color:#f92672">(</span>1681816765.172<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>End:               Apr <span style="color:#ae81ff">18</span> <span style="color:#ae81ff">2023</span> 20:19:41.497 <span style="color:#f92672">(</span>1681816781.497<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Messages:          <span style="color:#ae81ff">1068</span>
+</span></span><span style="display:flex;"><span>Topic information: Topic: /clock | Type: rosgraph_msgs/msg/Clock | Count: <span style="color:#ae81ff">173</span> | Serialization Format: cdr
+</span></span><span style="display:flex;"><span>                   Topic: /performance_metrics | Type: gazebo_msgs/msg/PerformanceMetrics | Count: <span style="color:#ae81ff">82</span> | Serialization Format: cdr
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><ul>
+<li>저장 완료된 rosbag2를 다시 복기해보고 rviz2를 통해 시각화까지 해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1 - ros2 bag play</span>
+</span></span><span style="display:flex;"><span>$ ros2 bag play lidar_world/lidar_world_0.db3
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1681817182.011798950<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>rosbag2_storage<span style="color:#f92672">]</span>: Opened database <span style="color:#e6db74">&#39;lidar_world/lidar_world_0.db3&#39;</span> <span style="color:#66d9ef">for</span> READ_ONLY.
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2 - rviz2</span>
+</span></span><span style="display:flex;"><span>$ rviz2
+</span></span></code></pre></div><p>⇒ Fixed Frame을 link_1으로 변경해야 포인트들을 확인 가능합니다.</p>
+<p><img src="/kr/ros2_foxy/images6/Untitled20.png?height=400px" alt="Untitled20.png"></p>
+<p>한차례 실습을 진행해 보았는데요, 이제 각각의 커멘드 라인 옵션들을 살펴보겠습니다.</p>
+<ul>
+<li>ros2 bag 키워드</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>record</td>
+<td>topic data를 저장합니다.</td>
+</tr>
+<tr>
+<td>info</td>
+<td>저장된 rosbag 데이터의 정보를 조회합니다.</td>
+</tr>
+<tr>
+<td>play</td>
+<td>저장된 rosbag 데이터를 재생합니다.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>ros2 bag record 옵션</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td>모든 topic data를 저장합니다.</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>저장될 rosbag의 이름을 지정합니다.</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>rosbag 저장 시, 최대 사이즈를 지정하며 사이즈 초과 시 새로운 rosbag으로 저장됩니다.</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>rosbag 저장 시, 최대 시간을 지정하며 사이즈 초과 시 새로운 rosbag으로 저장됩니다.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="notices note" ><p>더불어, convert 기능을 통해 rosbag2를 쪼개거나 합할 수 있습니다. 자세한 사용법은 링크로 남겨두겠습니다. <a href="https://github.com/ros2/rosbag2#converting-bags">https://github.com/ros2/rosbag2#converting-bags</a></p>
+</div>
+
+<blockquote>
+<p>실제 로봇 제품이 없더라도 기록된 rosbag2 데이터를 통해 알고리즘의 검증과 시연이 가능합니다. 이번 강의에서도 rosbag2 데이터를 적극 사용하고자 하니 잘 기억해주세요!</p>
+</blockquote>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/kr/ros2_foxy/lecture5/" title="Lecture5. ROS 2 Communication Mechanisms"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kr/ros2_foxy/lecture7/" title="Lecture7. ROS 2 Topic and Programming" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1682765761"></script>
+    <script src="/js/perfect-scrollbar.min.js?1682765761"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1682765761"></script>
+    <script src="/js/jquery.sticky.js?1682765761"></script>
+    <script src="/js/featherlight.min.js?1682765761"></script>
+    <script src="/js/highlight.pack.js?1682765761"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1682765761"></script>
+    <script src="/js/learn.js?1682765761"></script>
+    <script src="/js/hugo-learn.js?1682765761"></script>
+    
+        
+            <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

@@ -1,0 +1,2813 @@
+<!DOCTYPE html>
+<html lang="kr" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.104.1" />
+    <meta name="description" content="COM2018 OOP Class Lecture Note">
+<meta name="author" content="Soo Young Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Lecture2. Dev Env Setup - Documentation for Hugo Learn Theme</title>
+
+    
+    <link href="/css/nucleus.css?1682765761" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1682765761" rel="stylesheet">
+    <link href="/css/hybrid.css?1682765761" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1682765761" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1682765761" rel="stylesheet">
+    <link href="/css/auto-complete.css?1682765761" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1682765761" rel="stylesheet">
+    <link href="/css/theme.css?1682765761" rel="stylesheet">
+    <link href="/css/tabs.css?1682765761" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1682765761" rel="stylesheet">
+    
+    <link href="/css/theme-green.css?1682765761" rel="stylesheet">
+    
+    <link href="/css/foo.css?1682765761" rel="stylesheet"><link href="/css/bar.css?1682765761" rel="stylesheet">
+
+    <script src="/js/jquery-3.3.1.min.js?1682765761"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/kr/ros2_foxy/lecture2/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img width="1097" alt="image" src="https://user-images.githubusercontent.com/12381733/209764275-05dcbdbf-cef7-47ad-94a6-6d61febad01e.png">
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1682765761"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1682765761"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/kr";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1682765761"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/kr'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_basic_noetic/" title="ROS Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_basic_noetic/">
+          <b>ROS Noetic. </b>ROS Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture1/" title="Lecture1 - Introduction to ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture1/">
+        Lecture1 - Introduction to ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture2/" title="Lecture2 - Dev Env Setup" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture2/">
+        Lecture2 - Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture3/" title="Lecture3 - Core of ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture3/">
+        Lecture3 - Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture4/" title="Lecture4 - ROS Launch, RViz" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture4/">
+        Lecture4 - ROS Launch, RViz
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture5/" title="Lecture5 - First Programming, ROS Topic" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture5/">
+        Lecture5 - First Programming, ROS Topic
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture6/" title="Lecture6 - ROS Service, Parameter" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture6/">
+        Lecture6 - ROS Service, Parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture7/" title="Lecture7 - Rqt Tools and rosbag, ROS Time" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture7/">
+        Lecture7 - Rqt Tools and rosbag, ROS Time
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture8/" title="Lecture8 - Deal with Open Source Projects, Custom Interfaces" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture8/">
+        Lecture8 - Deal with Open Source Projects, Custom Interfaces
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture9/" title="Lecture9 - ROS TF and Examples" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture9/">
+        Lecture9 - ROS TF and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture10/" title="Lecture10 - TF2 Examples, Outro" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture10/">
+        Lecture10 - TF2 Examples, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/advanced_contents_ros1/" title="ROS" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/advanced_contents_ros1/">
+          <b>Advanced Contents. </b>ROS
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture1/" title="Lecture1 - ROSCPP" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture1/">
+        Lecture1 - ROSCPP
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture2/" title="Lecture2 - More About ROS System" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture2/">
+        Lecture2 - More About ROS System
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture3/" title="Lecture3 - SROS" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture3/">
+        Lecture3 - SROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_basic_foxy/" title="ROS 2 Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros2_basic_foxy/">
+          <b>[Old]ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture1/" title="Lecture1 - Introduction to ROS 2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture1/">
+        Lecture1 - Introduction to ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture2/" title="Lecture2 - ROS 2 Node, Package" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture2/">
+        Lecture2 - ROS 2 Node, Package
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture3/" title="Lecture3 - ROS 2 Node Programming, ROS 2 parameter" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture3/">
+        Lecture3 - ROS 2 Node Programming, ROS 2 parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture4/" title="Lecture4 - ROS 2 Node C&#43;&#43; Programming" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture4/">
+        Lecture4 - ROS 2 Node C&#43;&#43; Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture5/" title="Lecture5 - ROS 2 Topic and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture5/">
+        Lecture5 - ROS 2 Topic and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture6/" title="Lecture6 - ROS 2 Service and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture6/">
+        Lecture6 - ROS 2 Service and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture7/" title="Lecture7 - Useful ROS 2 Example, Navigation2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture7/">
+        Lecture7 - Useful ROS 2 Example, Navigation2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture8/" title="Lecture8 - ROS 2 Action and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture8/">
+        Lecture8 - ROS 2 Action and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture9/" title="Lecture9 - C&#43;&#43; Programming Again, Outro" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture9/">
+        Lecture9 - C&#43;&#43; Programming Again, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_foxy/" title="ROS 2 Basics" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/kr/ros2_foxy/">
+          <b>[New]ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture1/" title="Lecture1. What is ROS?" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture1/">
+        Lecture1. What is ROS?
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture2/" title="Lecture2. Dev Env Setup" class="dd-item active">
+        <a href="/kr/ros2_foxy/lecture2/">
+        Lecture2. Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture3/" title="Lecture3. Core of ROS" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture3/">
+        Lecture3. Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture4/" title="Lecture4. ROS 2 Node and Parameter Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture4/">
+        Lecture4. ROS 2 Node and Parameter Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture5/" title="Lecture5. ROS 2 Communication Mechanisms" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture5/">
+        Lecture5. ROS 2 Communication Mechanisms
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture6/" title="Lecture6. ROS 2 Tools" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture6/">
+        Lecture6. ROS 2 Tools
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture7/" title="Lecture7. ROS 2 Topic and Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture7/">
+        Lecture7. ROS 2 Topic and Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture8/" title="Lecture8. ROS 2 Service and Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture8/">
+        Lecture8. ROS 2 Service and Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture9/" title="Lecture9. ROS 2 Action Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture9/">
+        Lecture9. ROS 2 Action Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture10/" title="Lecture10. TF and ROS 2" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture10/">
+        Lecture10. TF and ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture11/" title="Lecture11. About Gazebo - 1" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture11/">
+        Lecture11. About Gazebo - 1
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture12/" title="Lecture12. About Gazebo - 2" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture12/">
+        Lecture12. About Gazebo - 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture13/" title="Lecture13. Useful ROS 2 Examples (Sensor Part)" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture13/">
+        Lecture13. Useful ROS 2 Examples (Sensor Part)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture14/" title="Lecture14. Useful ROS 2 Examples (Control Part)" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture14/">
+        Lecture14. Useful ROS 2 Examples (Control Part)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture15/" title="Lecture15. Advanced ROS 2, Package Management" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture15/">
+        Lecture15. Advanced ROS 2, Package Management
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture16/" title="Lecture16" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture16/">
+        Lecture16
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture17/" title="Lecture17" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture17/">
+        Lecture17
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture18/" title="Lecture18" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture18/">
+        Lecture18
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture19/" title="Lecture19" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture19/">
+        Lecture19
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture20/" title="Lecture20" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture20/">
+        Lecture20
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/advanced_contents_ros2/" title="ROS 2" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/advanced_contents_ros2/">
+          <b>Advanced Contents. </b>ROS 2
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture1/" title="Lecture1 - About DDS" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture1/">
+        Lecture1 - About DDS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture2/" title="Lecture11 - About DDS (2)" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture2/">
+        Lecture11 - About DDS (2)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture3/" title="Lecture12 - SROS2" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture3/">
+        Lecture12 - SROS2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_and_gazebo/" title="Gazebo and ROS" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_and_gazebo/">
+          <b>Gazebo. </b>Gazebo and ROS
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_and_gazebo/lecture1/" title="Lecture1 - Gazebo and Robot" class="dd-item ">
+        <a href="/kr/ros_and_gazebo/lecture1/">
+        Lecture1 - Gazebo and Robot
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_and_gazebo/lecture2/" title="Lecture2 - Gazebo and Robot(2)" class="dd-item ">
+        <a href="/kr/ros_and_gazebo/lecture2/">
+        Lecture2 - Gazebo and Robot(2)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros1"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 1</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros2"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 2</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="kr" value="/kr/ros2_foxy/lecture2/" selected>Korean</option>
+                    
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='' href="https://github.com/com2018-fa22/hugo-blog/tree/main/content/ros2_foxy/lecture2.kr.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text"></span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                   Lecture2. Dev Env Setup
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#develpoment-environment-setup">Develpoment Environment Setup</a></li>
+      </ul>
+    </li>
+    <li><a href="#ubuntu-linux--ros-2-setup"><strong>Ubuntu Linux &amp; ROS 2 Setup</strong></a>
+      <ul>
+        <li><a href="#해당-메뉴얼은-우분투-리눅스-2004버전을-사용하는-pc를-위한-ros-2-설치-튜토리얼입니다">해당 메뉴얼은 우분투 리눅스 20.04버전을 사용하는 PC를 위한 ROS 2 설치 튜토리얼입니다.</a></li>
+      </ul>
+    </li>
+    <li><a href="#windows-11--wsl-2-setup"><strong>Windows 11 &amp; WSL 2 Setup</strong></a></li>
+    <li><a href="#gui-인터페이스-설정">GUI 인터페이스 설정</a></li>
+    <li><a href="#오류-faq">오류 FAQ</a></li>
+    <li><a href="#windows-10--wsl-2-setup"><strong>Windows 10 &amp; WSL 2 Setup</strong></a>
+      <ul>
+        <li><a href="#gui-인터페이스-설정-1">GUI 인터페이스 설정</a></li>
+      </ul>
+    </li>
+    <li><a href="#오류-faq-1">오류 FAQ</a></li>
+    <li><a href="#기타-개발-환경">기타 개발 환경</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Lecture2. Dev Env Setup
+            </h1>
+          
+
+        
+
+
+<p><img src="/kr/ros2_foxy/images2/Untitled.png?height=400px" alt="Untitled.png"></p>
+<h3 id="develpoment-environment-setup">Develpoment Environment Setup</h3>
+<p>프로젝트 기반의 강의인 만큼, 개발 환경이 구축되지 않으면 앞으로의 실습을 진행할 수 없습니다.</p>
+<p>따라서 이번 파트에 많은 시간을 배정하였고, 힘들 수 있지만 끝까지 따라와주시면 감사합니다.</p>
+<p>준비한 환경은 다음과 같습니다.</p>
+<ol>
+<li><strong>Ubuntu Linux &amp; ROS 2 Setup</strong></li>
+<li><strong>Windows 11 &amp; WSL 2 Setup</strong></li>
+<li><strong>Windows 10 &amp; WSL 2 Setup</strong></li>
+</ol>
+<p>1,2,3 순서로 추천하는 설정입니다. 강의 컨텐츠를 따라오면서 선호하는 설정에 맞추어 작업하시다가 도저히 해결할 수 없는 문제가 발생한 경우 github issue를 발행하시거나 현장 강의의 경우 저를 불러 주시면 됩니다.</p>
+<h2 id="ubuntu-linux--ros-2-setup"><strong>Ubuntu Linux &amp; ROS 2 Setup</strong></h2>
+<h3 id="해당-메뉴얼은-우분투-리눅스-2004버전을-사용하는-pc를-위한-ros-2-설치-튜토리얼입니다">해당 메뉴얼은 우분투 리눅스 20.04버전을 사용하는 PC를 위한 ROS 2 설치 튜토리얼입니다.</h3>
+<p>기존 Windows를 사용하고 있었다면 <strong>듀얼 부팅</strong>이라는 것을 통해 Ubuntu + Windows를 모두 사용 가능합니다. 듀얼 부팅에 방법에 대해선 잘 설명한 영상들이 많으므로 링크로 대체하겠습니다.</p>
+<p>=&gt; <a href="https://www.itechguides.com/dual-boot-ubuntu-windows-10/">https://www.itechguides.com/dual-boot-ubuntu-windows-10/</a></p>
+<p><img src="/kr/ros2_foxy/images2/Untitled1.png?height=400px" alt="Untitled1.png"></p>
+
+<div class="notices note" ><p>Dual Booting 관련 자료 링크</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=-iSAyiicyQY&amp;t=492s">How to Dual Boot Ubuntu 20.04 LTS and Windows 10</a></li>
+<li><a href="https://www.youtube.com/watch?v=Z0T3uiCoEpA">How to Dual Boot Ubuntu and Windows 11</a></li>
+</ul>
+</div>
+
+<blockquote>
+<p>ROS 2를 설치하기 전, 유용한 유틸리티 프로그램들을 몇가지 소개해드리겠습니다.</p>
+</blockquote>
+<ul>
+<li>ternimator 설치 - 다중 터미널을 지원하는 훌륭한 터미널 프로그램입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>sudo apt update
+</span></span><span style="display:flex;"><span>sudo apt install terminator <span style="color:#f92672">-</span>y
+</span></span></code></pre></div><p>terminator 화면 분할 예시</p>
+<ol>
+<li>ctrl + shift + e : 가로 분할</li>
+<li>ctrl + shift + o : 세로 분할</li>
+<li>ctrl + shift + w : 창 닫기</li>
+<li>alt + 화살표 : 창 간 이동</li>
+</ol>
+<ul>
+<li>peek - gif 제작 시 유용한 프로그램입니다. 저는 Gazebo와 같은 시뮬레이션 상황의 디버깅 시 사용하고 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#a6e22e">sudo</span> <span style="color:#a6e22e">add</span><span style="color:#f92672">-</span><span style="color:#a6e22e">apt</span><span style="color:#f92672">-</span><span style="color:#a6e22e">repository</span> <span style="color:#a6e22e">ppa</span><span style="color:#f92672">:</span><span style="color:#a6e22e">peek</span><span style="color:#f92672">-</span><span style="color:#a6e22e">developers</span><span style="color:#f92672">/</span><span style="color:#a6e22e">stable</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sudo</span> <span style="color:#a6e22e">apt</span><span style="color:#f92672">-</span><span style="color:#a6e22e">get</span> <span style="color:#a6e22e">update</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sudo</span> <span style="color:#a6e22e">apt</span> <span style="color:#a6e22e">install</span> <span style="color:#a6e22e">peek</span>
+</span></span></code></pre></div><ul>
+<li>다음으로, 제가 미리 준비해둔 스크립트를 통해 ROS / ROS 2의 한줄 설치를 진행합니다. 설치 여부를 묻는 질문에는 y를 입력하시면 되며, OpenVINO를 설치하는 질문에서는 n를 입력하시면 됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~/
+</span></span><span style="display:flex;"><span>sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/kimsooyoung/ros_menu/main/scripts/setup.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>…
+</span></span><span style="display:flex;"><span>Do you want to install ROS automatically? <span style="color:#f92672">(</span>y/N<span style="color:#f92672">)</span>: y
+</span></span></code></pre></div><ul>
+<li>설치 후, 여러분들의 PC는 아래와 같이 실행 전, ROS 사용 여부를 선택하실 수 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>********* RoadBalance Startup Menu <span style="color:#66d9ef">for</span> ROS ***********
+</span></span><span style="display:flex;"><span>* Usage: Please <span style="color:#66d9ef">select</span> the following options to load *
+</span></span><span style="display:flex;"><span>*        ROS environment automatically.              *
+</span></span><span style="display:flex;"><span>******************************************************
+</span></span><span style="display:flex;"><span>0<span style="color:#f92672">)</span> Do nothing
+</span></span><span style="display:flex;"><span>1<span style="color:#f92672">)</span> ROS <span style="color:#ae81ff">1</span> noetic
+</span></span><span style="display:flex;"><span>2<span style="color:#f92672">)</span> ROS <span style="color:#ae81ff">2</span> foxy
+</span></span><span style="display:flex;"><span>3<span style="color:#f92672">)</span> ROS <span style="color:#ae81ff">2</span> galactic
+</span></span><span style="display:flex;"><span>4<span style="color:#f92672">)</span> ROS2/ROS1_bridge
+</span></span><span style="display:flex;"><span>h<span style="color:#f92672">)</span> Help
+</span></span><span style="display:flex;"><span>Please choose an option: <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>------------------------------------------------------
+</span></span><span style="display:flex;"><span>* ROS_DOMAIN_ID <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span>------------------------------------------------------
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div>
+<div class="notices note" ><p>해당 setup은 ADLINK의 오픈소스를 참고하였음을 밝힙니다. ADLINK는 DDS Vendor 중 하나로 ROS 2 보급에도 힘쓰고 있답니다. 😃</p>
+</div>
+
+<ul>
+<li>Gazebo와 Rviz2의 설치 여부를 함께 확인해 봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#ae81ff">1.</span> <span style="color:#a6e22e">gazebo</span> <span style="color:#a6e22e">install</span> <span style="color:#a6e22e">check</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">gazebo</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#ae81ff">2.</span> <span style="color:#a6e22e">rviz2</span> <span style="color:#a6e22e">install</span> <span style="color:#a6e22e">check</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">rviz2</span>
+</span></span></code></pre></div><blockquote>
+<p>그림와 같이 Gazebo의 화면이 어둡거나, 그림자가 보이지 않는다면 호환되는 그래픽 드라이버를 설치해야 하는 상황입니다. 당장 크게 불편하지 않다면 상관은 없습니다.</p>
+</blockquote>
+<p><img src="/kr/ros2_foxy/images2/Untitled2.png?height=300px" alt="Untitled2.png"></p>
+<ul>
+<li>혹시나 Gazebo가 설치되지 않았다면, 아래의 커멘드 라인을 통해 설치해줍니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo sh -c <span style="color:#e6db74">&#39;echo &#34;deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main&#34; /etc/apt/sources.list.d/gazebo-stable.list&#39;</span>
+</span></span><span style="display:flex;"><span>wget https://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+</span></span><span style="display:flex;"><span>sudo apt update
+</span></span><span style="display:flex;"><span>sudo apt install gazebo11 libgazebo11-dev -y
+</span></span><span style="display:flex;"><span>sudo apt install ros-foxy-gazebo-ros-pkgs -y
+</span></span><span style="display:flex;"><span>sudo apt install ros-noetic-gazebo-ros-pkgs -y
+</span></span></code></pre></div><h2 id="windows-11--wsl-2-setup"><strong>Windows 11 &amp; WSL 2 Setup</strong></h2>
+<blockquote>
+<p>해당 메뉴얼은 Windows11을 사용하는 PC를 위한 ROS 2 설치 튜토리얼입니다.</p>
+</blockquote>
+<ul>
+<li>설치 전, “Windows Key ⇒ 업데이트”를 통해 최신 업데이트를 반영합니다. (상황에 따라 재부팅이 필요할 수 있습니다.)</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images2/Untitled3.png?height=300px" alt="Untitled3.png"></p>
+<ul>
+<li>더불어, Ctrl + Alt + Delete ⇒ 작업관리자 ⇒ 왼쪽 성능 탭을 통해 가상화 기능이 Enable 되어 있는지 확인합니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images2/Untitled4.png?height=350px" alt="Untitled4.png"></p>
+
+<div class="notices note" ><p>이 시점에서 문제가 있다면, 링크를 통해 문제를 해결해봅시다.</p>
+</div>
+
+<p>⇒ <a href="https://www.manualfactory.net/15704">https://www.manualfactory.net/15704</a></p>
+<ul>
+<li>다음으로, 터미널 프로그램을 관리자 권한으로 실행합니다. 이는 “Windows Key + X” ⇒ 터미널(관리자)를 통해 실행 가능합니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images2/Untitled5.png?height=400px" alt="Untitled5.png"></p>
+<ul>
+<li>관리자 권한 Powershell에서 아래와 같은 커멘드 라인을 입력합니다. 사진과 같이 가상 머신 플렛폼 / WSL / Ubuntu가 모두 한번에 설치됩니다. - 여기에서 설치되는 Ubuntu는 22.04버전입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#a6e22e">wsl</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">install</span>
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images2/Untitled6.png?height=350px" alt="Untitled6.png"></p>
+<ul>
+<li>다음으로 동일 터미널에서 아래의 두 커멘드 라인을 입력합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#ae81ff">1.</span> <span style="color:#a6e22e">WSL</span> <span style="color:#a6e22e">Enable</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dism</span>.<span style="color:#a6e22e">exe</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">online</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">feature</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">featurename</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Microsoft</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Windows</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Subsystem</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Linux</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">all</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">norestart</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#ae81ff">2.</span> <span style="color:#a6e22e">VirtualMachinePlatform</span> <span style="color:#a6e22e">Enable</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dism</span>.<span style="color:#a6e22e">exe</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">online</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">feature</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">featurename</span><span style="color:#f92672">:</span><span style="color:#a6e22e">VirtualMachinePlatform</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">all</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">norestart</span>
+</span></span></code></pre></div><blockquote>
+<p>아래와 같이 모든 작업이 성공적으로 완료되어야 합니다!</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">dism</span>.<span style="color:#a6e22e">exe</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">online</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">feature</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">featurename</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Microsoft</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Windows</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Subsystem</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Linux</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">all</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">norestart</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">배포</span> <span style="color:#a6e22e">이미지</span> <span style="color:#a6e22e">서비스</span> <span style="color:#a6e22e">및</span> <span style="color:#a6e22e">관리</span> <span style="color:#a6e22e">도구</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">버전</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10.0.19041.844</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">이미지</span> <span style="color:#a6e22e">버전</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10.0.19043.1348</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">기능을</span> <span style="color:#a6e22e">사용하도록</span> <span style="color:#a6e22e">설정하는</span> <span style="color:#a6e22e">중</span> [<span style="color:#f92672">==========================</span><span style="color:#ae81ff">100.0</span><span style="color:#f92672">%==========================</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">작업을</span> <span style="color:#a6e22e">완료했습니다</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">dism</span>.<span style="color:#a6e22e">exe</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">online</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">feature</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">featurename</span><span style="color:#f92672">:</span><span style="color:#a6e22e">VirtualMachinePlatform</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">all</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">norestart</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">배포</span> <span style="color:#a6e22e">이미지</span> <span style="color:#a6e22e">서비스</span> <span style="color:#a6e22e">및</span> <span style="color:#a6e22e">관리</span> <span style="color:#a6e22e">도구</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">버전</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10.0.19041.844</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">이미지</span> <span style="color:#a6e22e">버전</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10.0.19043.1348</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">기능을</span> <span style="color:#a6e22e">사용하도록</span> <span style="color:#a6e22e">설정하는</span> <span style="color:#a6e22e">중</span> [<span style="color:#f92672">==========================</span><span style="color:#ae81ff">100.0</span><span style="color:#f92672">%==========================</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">작업을</span> <span style="color:#a6e22e">완료했습니다</span>.
+</span></span></code></pre></div><ul>
+<li>WSL 2 설정이 완료되었는지 확인을 해볼까요?</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C</span><span style="color:#f92672">:</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">Users</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#a6e22e">tge13</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">wsl</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">l</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">v</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">NAME</span>            <span style="color:#a6e22e">STATE</span>           <span style="color:#a6e22e">VERSION</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">*</span> <span style="color:#a6e22e">Ubuntu</span>          <span style="color:#a6e22e">Stopped</span>         <span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><ul>
+<li>설치된 Ubuntu는 22.04 버전으로, 강의에서 사용되는 20.04버전은 MS Store에서 다시 다운로드받아야 합니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images2/Untitled7.png?height=400px" alt="Untitled7.png"></p>
+<ul>
+<li>설치 이후, “열기” 버튼을 눌러 초기 실행을 하면 아래과 같은 터미널을 확인할 수 있으며, username, password를 설정합니다. - password는 보이지 않음에 유의합니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images2/Untitled8.png?height=200px" alt="Untitled8.png"></p>
+<ul>
+<li>다음으로, 제가 미리 준비해둔 스크립트를 통해 ROS / ROS 2의 한줄 설치를 진행합니다. 설치 여부를 묻는 질문에는 y를 입력하시면 되며, OpenVINO를 설치하는 질문에서는 n를 입력하시면 됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~/
+</span></span><span style="display:flex;"><span>sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/kimsooyoung/ros_menu/main/scripts/setup.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>…
+</span></span><span style="display:flex;"><span>Do you want to install ROS automatically? <span style="color:#f92672">(</span>y/N<span style="color:#f92672">)</span>: y
+</span></span></code></pre></div><ul>
+<li>설치 후, 여러분들의 PC는 아래와 같이 실행 전, ROS 사용 여부를 선택하실 수 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#f92672">*********</span> <span style="color:#a6e22e">RoadBalance</span> <span style="color:#a6e22e">Startup</span> <span style="color:#a6e22e">Menu</span> <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">ROS</span> <span style="color:#f92672">***********</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">*</span> <span style="color:#a6e22e">Usage</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Please</span> <span style="color:#a6e22e">select</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">following</span> <span style="color:#a6e22e">options</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">load</span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">*</span>        <span style="color:#a6e22e">ROS</span> <span style="color:#a6e22e">environment</span> <span style="color:#a6e22e">automatically</span>.              <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">******************************************************</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>) <span style="color:#a6e22e">Do</span> <span style="color:#a6e22e">nothing</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>) <span style="color:#a6e22e">ROS</span> <span style="color:#ae81ff">1</span> <span style="color:#a6e22e">noetic</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>) <span style="color:#a6e22e">ROS</span> <span style="color:#ae81ff">2</span> <span style="color:#a6e22e">foxy</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>) <span style="color:#a6e22e">ROS</span> <span style="color:#ae81ff">2</span> <span style="color:#a6e22e">galactic</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>) <span style="color:#a6e22e">ROS2</span><span style="color:#f92672">/</span><span style="color:#a6e22e">ROS1_bridge</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">h</span>) <span style="color:#a6e22e">Help</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Please</span> <span style="color:#a6e22e">choose</span> <span style="color:#a6e22e">an</span> <span style="color:#a6e22e">option</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">*</span> <span style="color:#a6e22e">ROS_DOMAIN_ID</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h2 id="gui-인터페이스-설정">GUI 인터페이스 설정</h2>
+<blockquote>
+<p>Gazebo, Rviz2, Rqt와 같은 시각화 프로그램을 사용하기 위해 Windows용 X Server인 VcXsrv를 사용하고자 합니다.</p>
+</blockquote>
+<ol>
+<li>링크를 통해 VcXsrv를 설치합니다. ⇒ <a href="https://sourceforge.net/projects/vcxsrv/">https://sourceforge.net/projects/vcxsrv/</a></li>
+<li>설치 이후, “Windows Key” ⇒ XLaunch를 검색하여 실행하고, 사진과 같은 설정을 진행합니다.</li>
+</ol>
+<p><img src="/kr/ros2_foxy/images2/Untitled9.png?height=200px" alt="Untitled9.png"></p>
+<table>
+<thead>
+<tr>
+<th>첫번째 페이지</th>
+<th>하단 Display Number를 -1에서 0으로 변경</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>두번째 페이지</td>
+<td>통과</td>
+</tr>
+<tr>
+<td>세번째 페이지</td>
+<td>Native opengl 체크해제 후 Disable access control 체크</td>
+</tr>
+<tr>
+<td>네번째 페이지</td>
+<td>통과</td>
+</tr>
+</tbody>
+</table>
+
+<div class="notices tip" ><p>앞으로 재부팅 시마다 이 설정을 반복해줘야 하며, 종종 Gazebo의 메모리 누수로 인해 화면이 종료되지 않는 경우가 있는데, 이런 경우 XLaunch를 강제 종료해주면 됩니다.</p>
+</div>
+
+<p><img src="/kr/ros2_foxy/images2/Untitled10.png?height=400px" alt="Untitled10.png"></p>
+<ul>
+<li>설정이 잘 되었는지 Gazebo를 실행해봅시다. 터미널 상의 아래의 4줄 커멘드 라인을 입력합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export GAZEBO_IP<span style="color:#f92672">=</span>127.0.0.1
+</span></span><span style="display:flex;"><span>export DISPLAY<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat /etc/resolv.conf | grep nameserver | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span><span style="color:#66d9ef">)</span>:0
+</span></span><span style="display:flex;"><span>export LIBGL_ALWAYS_INDIRECT<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 설정 완료 후 Gazebo 실행</span>
+</span></span><span style="display:flex;"><span>gazebo
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images2/Untitled11.png?height=400px" alt="Untitled11.png"></p>
+<ul>
+<li>마지막으로, 앞선 설정 커멘드 라인을 매번 수고스럽게 입력하지 않도록 bashrc 설정 파일을 수정합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export GAZEBO_IP=127.0.0.1&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;export DISPLAY=</span><span style="color:#66d9ef">$(</span>cat /etc/resolv.conf | grep nameserver | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">:0 &#34;</span> &gt;&gt; ~/.bashrc
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export LIBGL_ALWAYS_INDIRECT=0&#39;</span> &gt;&gt; ~/.bashrc
+</span></span></code></pre></div><hr>
+<h2 id="오류-faq">오류 FAQ</h2>
+<ul>
+<li>Ubuntu 실행 시 0x80370114 에러</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#a6e22e">Installing</span>, <span style="color:#66d9ef">this</span> <span style="color:#a6e22e">may</span> <span style="color:#a6e22e">take</span> <span style="color:#a6e22e">a</span> <span style="color:#a6e22e">few</span> <span style="color:#a6e22e">minutes</span>...
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">WslRegisterDistribution</span> <span style="color:#a6e22e">failed</span> <span style="color:#66d9ef">with</span> <span style="color:#a6e22e">error</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0x80370114</span>
+</span></span><span style="display:flex;"><span>Error<span style="color:#f92672">:</span> <span style="color:#ae81ff">0x80370114</span> <span style="color:#f92672">???</span> <span style="color:#f92672">???</span> <span style="color:#f92672">????</span> <span style="color:#f92672">??</span> <span style="color:#f92672">??</span> <span style="color:#f92672">???</span> <span style="color:#f92672">???</span> <span style="color:#f92672">???</span> <span style="color:#f92672">?</span> <span style="color:#f92672">????</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Press</span> <span style="color:#a6e22e">any</span> <span style="color:#a6e22e">key</span> <span style="color:#a6e22e">to</span> <span style="color:#66d9ef">continue</span>...
+</span></span></code></pre></div><p>⇒ 관리자 권한 Powershell에서 아래의 커멘드 라인을 입력해주세요</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#a6e22e">dism</span>.<span style="color:#a6e22e">exe</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">online</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">feature</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">featurename</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Microsoft</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Windows</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Subsystem</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Linux</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">all</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">norestart</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dism</span>.<span style="color:#a6e22e">exe</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">online</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">feature</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">featurename</span><span style="color:#f92672">:</span><span style="color:#a6e22e">VirtualMachinePlatform</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">all</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">norestart</span>
+</span></span></code></pre></div><h2 id="windows-10--wsl-2-setup"><strong>Windows 10 &amp; WSL 2 Setup</strong></h2>
+<p>해당 메뉴얼은 Windows 10을 사용하는 PC를 위한 ROS 2 설치 튜토리얼입니다.</p>
+<ul>
+<li>설치 전, “Windows Key ⇒ 업데이트”를 통해 최신 업데이트를 반영합니다. (상황에 따라 재부팅이 필요할 수 있습니다.)</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images2/Untitled12.png?height=300px" alt="Untitled12.png"></p>
+<ul>
+<li>powershell을 관리자 권한으로 실행한 뒤, 설치 되어있는 WSL 2를 활성화시킵니다. 이는 “Windows Key + X” ⇒ 터미널(관리자)를 통해 실행 가능합니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images2/Untitled13.png?height=300px" alt="Untitled13.png"></p>
+<ul>
+<li>관리자 권한 Powershell에서 아래와 같은 커멘드 라인을 입력합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#ae81ff">1.</span> <span style="color:#a6e22e">WSL</span> <span style="color:#a6e22e">Enable</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dism</span>.<span style="color:#a6e22e">exe</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">online</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">feature</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">featurename</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Microsoft</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Windows</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Subsystem</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Linux</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">all</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">norestart</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#ae81ff">2.</span> <span style="color:#a6e22e">VirtualMachinePlatform</span> <span style="color:#a6e22e">Enable</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dism</span>.<span style="color:#a6e22e">exe</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">online</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">feature</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">featurename</span><span style="color:#f92672">:</span><span style="color:#a6e22e">VirtualMachinePlatform</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">all</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">norestart</span>
+</span></span></code></pre></div><blockquote>
+<p>아래와 같이 모든 작업이 성공적으로 완료되어야 합니다!</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">dism</span>.<span style="color:#a6e22e">exe</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">online</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">feature</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">featurename</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Microsoft</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Windows</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Subsystem</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Linux</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">all</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">norestart</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">배포</span> <span style="color:#a6e22e">이미지</span> <span style="color:#a6e22e">서비스</span> <span style="color:#a6e22e">및</span> <span style="color:#a6e22e">관리</span> <span style="color:#a6e22e">도구</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">버전</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10.0.19041.844</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">이미지</span> <span style="color:#a6e22e">버전</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10.0.19043.1348</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">기능을</span> <span style="color:#a6e22e">사용하도록</span> <span style="color:#a6e22e">설정하는</span> <span style="color:#a6e22e">중</span> [<span style="color:#f92672">==========================</span><span style="color:#ae81ff">100.0</span><span style="color:#f92672">%==========================</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">작업을</span> <span style="color:#a6e22e">완료했습니다</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">dism</span>.<span style="color:#a6e22e">exe</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">online</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">feature</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">featurename</span><span style="color:#f92672">:</span><span style="color:#a6e22e">VirtualMachinePlatform</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">all</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">norestart</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">배포</span> <span style="color:#a6e22e">이미지</span> <span style="color:#a6e22e">서비스</span> <span style="color:#a6e22e">및</span> <span style="color:#a6e22e">관리</span> <span style="color:#a6e22e">도구</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">버전</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10.0.19041.844</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">이미지</span> <span style="color:#a6e22e">버전</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10.0.19043.1348</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">기능을</span> <span style="color:#a6e22e">사용하도록</span> <span style="color:#a6e22e">설정하는</span> <span style="color:#a6e22e">중</span> [<span style="color:#f92672">==========================</span><span style="color:#ae81ff">100.0</span><span style="color:#f92672">%==========================</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">작업을</span> <span style="color:#a6e22e">완료했습니다</span>.
+</span></span></code></pre></div><ul>
+<li>“Windows Key” ⇒ MS Store로 이동하여 windows terminal을 설치합니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images2/Untitled14.png?height=400px" alt="Untitled14.png"></p>
+<p>windows terminal 화면 분할 예시</p>
+<ul>
+<li>alt + shift + - : 가로 분할</li>
+<li>alt + shift + + : 세로 분할</li>
+<li>ctrl + shift + w : 창 닫기</li>
+<li>alt + 화살표 : 창 간 이동</li>
+</ul>
+<p><a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">다음 링크</a>를 통해 WSL 업데이트 프로그램을 다운받고 WSL 2 Linux 커널 업데이트를 설치/진행 후 재부팅합니다.</p>
+<p><img src="/kr/ros2_foxy/images2/Untitled15.png?height=400px" alt="Untitled15.png"></p>
+<ul>
+<li>커널 업데이트를 마친 다음, powershell에 아래 커맨드 라인을 입력하여 WSL 2를 기본 사용하도록 설정합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">wsl</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">set</span><span style="color:#f92672">-</span><span style="color:#66d9ef">default</span><span style="color:#f92672">-</span><span style="color:#a6e22e">version</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">WSL</span> <span style="color:#ae81ff">2</span><span style="color:#a6e22e">와의</span> <span style="color:#a6e22e">주요</span> <span style="color:#a6e22e">차이점에</span> <span style="color:#a6e22e">대한</span> <span style="color:#a6e22e">자세한</span> <span style="color:#a6e22e">내용은</span> <span style="color:#a6e22e">https</span><span style="color:#f92672">:</span><span style="color:#75715e">//aka.ms/wsl2를 참조하세요
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">작업을</span> <span style="color:#a6e22e">완료했습니다</span>.
+</span></span></code></pre></div><ul>
+<li>지금까지 진행한 작업들이 제대로 설정 되어있는지 확인해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">wsl</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">l</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">v</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">NAME</span>            <span style="color:#a6e22e">STATE</span>            <span style="color:#a6e22e">VERSION</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">*</span> <span style="color:#a6e22e">Ubuntu</span><span style="color:#f92672">-</span><span style="color:#ae81ff">20.04</span>    <span style="color:#a6e22e">Running</span>         <span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><ul>
+<li>MS Store 진입 후, Ubuntu 20.04 버전을 설치합니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images2/Untitled16.png?height=400px" alt="Untitled16.png"></p>
+<ul>
+<li>설치 이후, <strong>열기</strong> 버튼을 눌러 초기 실행을 하고 username, password를 설정합니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images2/Untitled17.png?height=200px" alt="Untitled17.png"></p>
+<ul>
+<li>설치 이후에는 windows terminal에서 <strong>Ubuntu Terminal</strong>을 선택하여 실행 및 진입이 가능합니다. 설정 탭을 통해 Ubuntu 20.04를 기본 터미널로 설정 후 저장합시다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images2/Untitled18.png?height=400px" alt="Untitled18.png"></p>
+<ul>
+<li>ROS / ROS 2를 한줄 설치합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cd ~/
+</span></span><span style="display:flex;"><span>$ sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/kimsooyoung/ros_menu/main/scripts/setup.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>Installing Neuron Startup Menu...
+</span></span><span style="display:flex;"><span>Cloning into <span style="color:#e6db74">&#39;/home/kimsooyoung/ros_menu&#39;</span>...
+</span></span><span style="display:flex;"><span>remote: Enumerating objects: 583, <span style="color:#66d9ef">done</span>.
+</span></span><span style="display:flex;"><span>remote: Counting objects: 100% <span style="color:#f92672">(</span>290/290<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+</span></span><span style="display:flex;"><span>remote: Compressing objects: 100% <span style="color:#f92672">(</span>193/193<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+</span></span><span style="display:flex;"><span>remote: Total <span style="color:#ae81ff">583</span> <span style="color:#f92672">(</span>delta 179<span style="color:#f92672">)</span>, reused <span style="color:#ae81ff">173</span> <span style="color:#f92672">(</span>delta 93<span style="color:#f92672">)</span>, pack-reused <span style="color:#ae81ff">293</span>
+</span></span><span style="display:flex;"><span>Receiving objects: 100% <span style="color:#f92672">(</span>583/583<span style="color:#f92672">)</span>, 154.50 KiB | 3.22 MiB/s, <span style="color:#66d9ef">done</span>.
+</span></span><span style="display:flex;"><span>Resolving deltas: 100% <span style="color:#f92672">(</span>340/340<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+</span></span><span style="display:flex;"><span>Do you want to install ROS automatically? <span style="color:#f92672">(</span>y/N<span style="color:#f92672">)</span>: y
+</span></span></code></pre></div><ul>
+<li>설치가 완료되었다면, 앞으로 터미널을 새로 등장시킬 때마다 다음과 같이 사용할 ROS 버전을 묻게 됩니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images2/Untitled19.png?height=400px" alt="Untitled19.png"></p>
+<h3 id="gui-인터페이스-설정-1">GUI 인터페이스 설정</h3>
+<p>Gazebo, Rviz2, Rqt와 같은 시각화 프로그램을 사용하기 위해 Windows용 X Server인 VcXsrv를 사용하고자 합니다.</p>
+<ol>
+<li>링크를 통해 VcXsrv를 설치합니다. ⇒ <a href="https://sourceforge.net/projects/vcxsrv/">https://sourceforge.net/projects/vcxsrv/</a></li>
+<li>설치 이후, “Windows Key” ⇒ XLaunch를 검색하여 실행하고, 사진과 같은 설정을 진행합니다.</li>
+</ol>
+<p><img src="/kr/ros2_foxy/images2/Untitled9.png?height=200px" alt="Untitled9.png"></p>
+<table>
+<thead>
+<tr>
+<th>첫번째 페이지</th>
+<th>하단 Display Number를 -1에서 0으로 변경</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>두번째 페이지</td>
+<td>통과</td>
+</tr>
+<tr>
+<td>세번째 페이지</td>
+<td>Native opengl 체크해제 후 Disable access control 체크</td>
+</tr>
+<tr>
+<td>네번째 페이지</td>
+<td>통과</td>
+</tr>
+</tbody>
+</table>
+
+<div class="notices tip" ><p>앞으로 재부팅 시마다 이 설정을 반복해줘야 하며, 종종 Gazebo의 메모리 누수로 인해 화면이 종료되지 않는 경우가 있는데, 이런 경우 XLaunch를 강제 종료해주면 됩니다.</p>
+</div>
+
+<ul>
+<li>설정이 잘 되었는지 Gazebo를 실행해봅시다. 터미널 상의 아래의 4줄 커멘드 라인을 입력합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export GAZEBO_IP<span style="color:#f92672">=</span>127.0.0.1
+</span></span><span style="display:flex;"><span>export DISPLAY<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat /etc/resolv.conf | grep nameserver | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span><span style="color:#66d9ef">)</span>:0
+</span></span><span style="display:flex;"><span>export LIBGL_ALWAYS_INDIRECT<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 설정 완료 후 Gazebo 실행</span>
+</span></span><span style="display:flex;"><span>gazebo
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images2/Untitled11.png?height=400px" alt="Untitled11.png"></p>
+<ul>
+<li>마지막으로, 앞선 설정 커멘드 라인을 매번 수고스럽게 입력하지 않도록 bashrc 설정 파일을 수정합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export GAZEBO_IP=127.0.0.1&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;export DISPLAY=</span><span style="color:#66d9ef">$(</span>cat /etc/resolv.conf | grep nameserver | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">:0 &#34;</span> &gt;&gt; ~/.bashrc
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export LIBGL_ALWAYS_INDIRECT=0&#39;</span> &gt;&gt; ~/.bashrc
+</span></span></code></pre></div><hr>
+<h2 id="오류-faq-1">오류 FAQ</h2>
+<ul>
+<li><code>wsl --set-default-version 2</code> 에서 작업 완료 메세지가 등장하지 않는 경우</li>
+</ul>
+<p>⇒ Linux용 Windows 하위 시스템 설정 여부를 확인해보신 뒤, 제일 처음 명령어부터 제가 보여드린 예시와 동일한 결과를 얻었는지 확인해보세요</p>
+<p><img src="/kr/ros2_foxy/images2/Untitled20.png?height=400px" alt="Untitled20.png"></p>
+<ul>
+<li>Ubuntu 설치 후 <strong>‘The WSL Optional Component is not Enabled. Please Enable it and Try again’</strong> 오류가 발생하는 경우</li>
+</ul>
+<p>⇒ 관리자 권한 Powershell에서 아래의 커멘드 라인을 입력합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">Enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">WindowsOptionalFeature</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">Online</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">FeatureName</span> <span style="color:#a6e22e">Microsoft</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Windows</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Subsystem</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Linux</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>Ubuntu 설치 후 <strong>0x80370102</strong> 에러가 발생한 경우
+부팅 BIOS에서 가상화 기능을 활성화해줍니다.</p>
+</li>
+<li>
+<p>Ubuntu 설치 후 <strong>0xc03a001a</strong> 에러가 발생한 경우
+<a href="https://goaloflife.tistory.com/193">다음 블로그 포스팅</a>을 참고합니다.</p>
+</li>
+<li>
+<p>Gazebo 실행 시 symbol lookup error가 발생하는 경우
+<code>sudo apt upgrade -y libignition-math2</code> 을 통해 누락된 패키지를 설치합니다.</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ gazebo
+</span></span><span style="display:flex;"><span>gazebo: symbol lookup error: /usr/lib/x86_64-linux-gnu/libgazebo_common.so.9: undefined symbol: _ZN8ignition10fuel_tools12ClientConfig12SetUserAgentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+</span></span></code></pre></div><ul>
+<li>Gazebo 자체가 실행되지 않는 경우
+PC 재시작 후 백신 프로그램을 종료시킵니다.
+제어판 ⇒ 시스템 및 보안 ⇒ Windows 방화벽 ⇒ 고급 설정 =&gt; 인바운드 규칙 ⇒ VcXsrv 사용 허용을 적용합니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images2/Untitled21.png?height=200px" alt="Untitled21.png"></p>
+<ul>
+<li>Gazebo는 실행되지만, Grid (실선)이 등장하지 않는 경우
+안타깝지만 그래픽 드라이버 문제일 가능성이 큽니다. Window ⇒ 업데이트 확인 진입 후 가장 최신 버전으로 모두 업그레이드를 실행해줍니다</li>
+</ul>
+<h2 id="기타-개발-환경">기타 개발 환경</h2>
+<p>강의 중 사용할 코드 환경은 다음과 같습니다.</p>
+<ul>
+<li>VSCode + Github Copilot</li>
+</ul>
+<p>강의 중 실행한 한 줄 설치에는 제가 기본적으로 설정한 여러 단축 커멘드들이 있습니다. 몇가지만 실습하고 넘어가보겠습니다.</p>
+<ul>
+<li>eb : edit bashrc의 약자로 ~/.bashrc 파일을 gedit을 통해 수정할 수 있습니다.</li>
+<li>sb : source bashrc의 약자로 수정된 ~/.bashrc 파일을 반영시킵니다.</li>
+<li>killg : 실행중인 Gazebo관련 모든 프로그램을 종료시킵니다.</li>
+</ul>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/kr/ros2_foxy/lecture1/" title="Lecture1. What is ROS?"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kr/ros2_foxy/lecture3/" title="Lecture3. Core of ROS" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1682765761"></script>
+    <script src="/js/perfect-scrollbar.min.js?1682765761"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1682765761"></script>
+    <script src="/js/jquery.sticky.js?1682765761"></script>
+    <script src="/js/featherlight.min.js?1682765761"></script>
+    <script src="/js/highlight.pack.js?1682765761"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1682765761"></script>
+    <script src="/js/learn.js?1682765761"></script>
+    <script src="/js/hugo-learn.js?1682765761"></script>
+    
+        
+            <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

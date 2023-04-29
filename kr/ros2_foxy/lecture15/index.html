@@ -1,0 +1,3437 @@
+<!DOCTYPE html>
+<html lang="kr" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.104.1" />
+    <meta name="description" content="COM2018 OOP Class Lecture Note">
+<meta name="author" content="Soo Young Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Lecture15. Advanced ROS 2, Package Management - Documentation for Hugo Learn Theme</title>
+
+    
+    <link href="/css/nucleus.css?1682765761" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1682765761" rel="stylesheet">
+    <link href="/css/hybrid.css?1682765761" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1682765761" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1682765761" rel="stylesheet">
+    <link href="/css/auto-complete.css?1682765761" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1682765761" rel="stylesheet">
+    <link href="/css/theme.css?1682765761" rel="stylesheet">
+    <link href="/css/tabs.css?1682765761" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1682765761" rel="stylesheet">
+    
+    <link href="/css/theme-green.css?1682765761" rel="stylesheet">
+    
+    <link href="/css/foo.css?1682765761" rel="stylesheet"><link href="/css/bar.css?1682765761" rel="stylesheet">
+
+    <script src="/js/jquery-3.3.1.min.js?1682765761"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/kr/ros2_foxy/lecture15/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img width="1097" alt="image" src="https://user-images.githubusercontent.com/12381733/209764275-05dcbdbf-cef7-47ad-94a6-6d61febad01e.png">
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1682765761"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1682765761"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/kr";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1682765761"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/kr'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_basic_noetic/" title="ROS Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_basic_noetic/">
+          <b>ROS Noetic. </b>ROS Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture1/" title="Lecture1 - Introduction to ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture1/">
+        Lecture1 - Introduction to ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture2/" title="Lecture2 - Dev Env Setup" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture2/">
+        Lecture2 - Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture3/" title="Lecture3 - Core of ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture3/">
+        Lecture3 - Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture4/" title="Lecture4 - ROS Launch, RViz" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture4/">
+        Lecture4 - ROS Launch, RViz
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture5/" title="Lecture5 - First Programming, ROS Topic" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture5/">
+        Lecture5 - First Programming, ROS Topic
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture6/" title="Lecture6 - ROS Service, Parameter" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture6/">
+        Lecture6 - ROS Service, Parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture7/" title="Lecture7 - Rqt Tools and rosbag, ROS Time" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture7/">
+        Lecture7 - Rqt Tools and rosbag, ROS Time
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture8/" title="Lecture8 - Deal with Open Source Projects, Custom Interfaces" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture8/">
+        Lecture8 - Deal with Open Source Projects, Custom Interfaces
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture9/" title="Lecture9 - ROS TF and Examples" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture9/">
+        Lecture9 - ROS TF and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture10/" title="Lecture10 - TF2 Examples, Outro" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture10/">
+        Lecture10 - TF2 Examples, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/advanced_contents_ros1/" title="ROS" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/advanced_contents_ros1/">
+          <b>Advanced Contents. </b>ROS
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture1/" title="Lecture1 - ROSCPP" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture1/">
+        Lecture1 - ROSCPP
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture2/" title="Lecture2 - More About ROS System" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture2/">
+        Lecture2 - More About ROS System
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture3/" title="Lecture3 - SROS" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture3/">
+        Lecture3 - SROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_basic_foxy/" title="ROS 2 Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros2_basic_foxy/">
+          <b>[Old]ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture1/" title="Lecture1 - Introduction to ROS 2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture1/">
+        Lecture1 - Introduction to ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture2/" title="Lecture2 - ROS 2 Node, Package" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture2/">
+        Lecture2 - ROS 2 Node, Package
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture3/" title="Lecture3 - ROS 2 Node Programming, ROS 2 parameter" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture3/">
+        Lecture3 - ROS 2 Node Programming, ROS 2 parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture4/" title="Lecture4 - ROS 2 Node C&#43;&#43; Programming" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture4/">
+        Lecture4 - ROS 2 Node C&#43;&#43; Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture5/" title="Lecture5 - ROS 2 Topic and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture5/">
+        Lecture5 - ROS 2 Topic and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture6/" title="Lecture6 - ROS 2 Service and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture6/">
+        Lecture6 - ROS 2 Service and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture7/" title="Lecture7 - Useful ROS 2 Example, Navigation2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture7/">
+        Lecture7 - Useful ROS 2 Example, Navigation2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture8/" title="Lecture8 - ROS 2 Action and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture8/">
+        Lecture8 - ROS 2 Action and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture9/" title="Lecture9 - C&#43;&#43; Programming Again, Outro" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture9/">
+        Lecture9 - C&#43;&#43; Programming Again, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_foxy/" title="ROS 2 Basics" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/kr/ros2_foxy/">
+          <b>[New]ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture1/" title="Lecture1. What is ROS?" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture1/">
+        Lecture1. What is ROS?
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture2/" title="Lecture2. Dev Env Setup" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture2/">
+        Lecture2. Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture3/" title="Lecture3. Core of ROS" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture3/">
+        Lecture3. Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture4/" title="Lecture4. ROS 2 Node and Parameter Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture4/">
+        Lecture4. ROS 2 Node and Parameter Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture5/" title="Lecture5. ROS 2 Communication Mechanisms" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture5/">
+        Lecture5. ROS 2 Communication Mechanisms
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture6/" title="Lecture6. ROS 2 Tools" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture6/">
+        Lecture6. ROS 2 Tools
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture7/" title="Lecture7. ROS 2 Topic and Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture7/">
+        Lecture7. ROS 2 Topic and Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture8/" title="Lecture8. ROS 2 Service and Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture8/">
+        Lecture8. ROS 2 Service and Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture9/" title="Lecture9. ROS 2 Action Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture9/">
+        Lecture9. ROS 2 Action Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture10/" title="Lecture10. TF and ROS 2" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture10/">
+        Lecture10. TF and ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture11/" title="Lecture11. About Gazebo - 1" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture11/">
+        Lecture11. About Gazebo - 1
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture12/" title="Lecture12. About Gazebo - 2" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture12/">
+        Lecture12. About Gazebo - 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture13/" title="Lecture13. Useful ROS 2 Examples (Sensor Part)" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture13/">
+        Lecture13. Useful ROS 2 Examples (Sensor Part)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture14/" title="Lecture14. Useful ROS 2 Examples (Control Part)" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture14/">
+        Lecture14. Useful ROS 2 Examples (Control Part)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture15/" title="Lecture15. Advanced ROS 2, Package Management" class="dd-item active">
+        <a href="/kr/ros2_foxy/lecture15/">
+        Lecture15. Advanced ROS 2, Package Management
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture16/" title="Lecture16" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture16/">
+        Lecture16
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture17/" title="Lecture17" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture17/">
+        Lecture17
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture18/" title="Lecture18" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture18/">
+        Lecture18
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture19/" title="Lecture19" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture19/">
+        Lecture19
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture20/" title="Lecture20" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture20/">
+        Lecture20
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/advanced_contents_ros2/" title="ROS 2" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/advanced_contents_ros2/">
+          <b>Advanced Contents. </b>ROS 2
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture1/" title="Lecture1 - About DDS" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture1/">
+        Lecture1 - About DDS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture2/" title="Lecture11 - About DDS (2)" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture2/">
+        Lecture11 - About DDS (2)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture3/" title="Lecture12 - SROS2" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture3/">
+        Lecture12 - SROS2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_and_gazebo/" title="Gazebo and ROS" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_and_gazebo/">
+          <b>Gazebo. </b>Gazebo and ROS
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_and_gazebo/lecture1/" title="Lecture1 - Gazebo and Robot" class="dd-item ">
+        <a href="/kr/ros_and_gazebo/lecture1/">
+        Lecture1 - Gazebo and Robot
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_and_gazebo/lecture2/" title="Lecture2 - Gazebo and Robot(2)" class="dd-item ">
+        <a href="/kr/ros_and_gazebo/lecture2/">
+        Lecture2 - Gazebo and Robot(2)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros1"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 1</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros2"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 2</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="kr" value="/kr/ros2_foxy/lecture15/" selected>Korean</option>
+                    
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='' href="https://github.com/com2018-fa22/hugo-blog/tree/main/content/ros2_foxy/lecture15.kr.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text"></span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                   Lecture15. Advanced ROS 2, Package Management
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#ros-2-launch-심화">ROS 2 Launch 심화</a>
+      <ul>
+        <li><a href="#launch-arguments">Launch arguments</a></li>
+        <li><a href="#timer-action">Timer Action</a></li>
+        <li><a href="#onprocessexit">OnProcessExit</a></li>
+        <li><a href="#includelaunchdescription">IncludeLaunchDescription</a></li>
+        <li><a href="#ifcondition-unlesscondition">IfCondition, UnlessCondition</a></li>
+        <li><a href="#groupaction">GroupAction</a></li>
+        <li><a href="#executor-and-callbackgroup">Executor and CallbackGroup</a></li>
+        <li><a href="#dead-lock-example">Dead Lock Example</a></li>
+        <li><a href="#multithreadedexecutor">MultiThreadedExecutor</a></li>
+        <li><a href="#callback-group">Callback Group</a></li>
+        <li><a href="#reentrantcallbackgroup">ReentrantCallbackGroup</a></li>
+      </ul>
+    </li>
+    <li><a href="#intra-process-communication-and-node-composition">Intra-process communication and Node Composition</a>
+      <ul>
+        <li><a href="#intra-process-communication-programming">Intra-process communication Programming</a></li>
+      </ul>
+    </li>
+    <li><a href="#ros-2-node-composition">ROS 2 Node Composition</a>
+      <ul>
+        <li><a href="#composition-programming">Composition Programming</a></li>
+        <li><a href="#compile-time-composition">Compile-time composition</a></li>
+        <li><a href="#composition-using-launch-actions">Composition using launch actions</a></li>
+      </ul>
+    </li>
+    <li><a href="#실-사용-사례---zed-ros2-composition">실 사용 사례 - ZED ros2 composition</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Lecture15. Advanced ROS 2, Package Management
+            </h1>
+          
+
+        
+
+
+<h2 id="ros-2-launch-심화">ROS 2 Launch 심화</h2>
+<h3 id="launch-arguments">Launch arguments</h3>
+<blockquote>
+<p>ROS 2 launch file은 파이썬 사용함에 따라 다양한 기능을 직접 구현할 수 있습니다. 다수 모델 사용 시 반복 내용을 함수로 만들 수도 있고, 외부 파일이나 패키지를 import 할 수도 있지요. launch 패키지에서는 자주 사용되는 기능들을 미리 제공하고 있습니다. 이러한 기능을 통해 launch file을 좀 더 풍성하게 만들어 봅시다.</p>
+</blockquote>
+<ul>
+<li>예제 실행 - use_rviz launch 옵션을 사용해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>ros2 launch src_gazebo empty_world.launch.py use_rviz:<span style="color:#f92672">=</span>true
+</span></span><span style="display:flex;"><span>ros2 launch src_gazebo empty_world.launch.py use_rviz:<span style="color:#f92672">=</span>false
+</span></span></code></pre></div><p>⇒ use_rviz 값에 따라 rviz2 실행 여부가 결정됩니다.</p>
+<ul>
+<li>이러한 launch argument는 LaunchConfiguration, DeclareLaunchArgument을 사용하여 구현할 수 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> launch.actions <span style="color:#f92672">import</span> DeclareLaunchArgument
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> launch.substitutions <span style="color:#f92672">import</span> LaunchConfiguration
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate_launch_description</span>():
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    namespace <span style="color:#f92672">=</span> LaunchConfiguration(<span style="color:#e6db74">&#39;namespace&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    declare_namespace_cmd <span style="color:#f92672">=</span> DeclareLaunchArgument(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;namespace&#39;</span>,
+</span></span><span style="display:flex;"><span>        default_value<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;my_robot&#39;</span>,
+</span></span><span style="display:flex;"><span>        description<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Top-level namespace&#39;</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> LaunchDescription(
+</span></span><span style="display:flex;"><span>        [
+</span></span><span style="display:flex;"><span>            declare_namespace_cmd,
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>    )
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LaunchConfiguration</td>
+<td>생성할 argument의 이름을 넣어주면 argument 객체가 반환됩니다.</td>
+</tr>
+<tr>
+<td>DeclareLaunchArgument</td>
+<td>default_value를 통해 argument의 기본값을, description을 통해 설명을 적어둡니다.</td>
+</tr>
+<tr>
+<td>declare_namespace_cmd</td>
+<td>LaunchDescription에게 생성된 argument 객체를 전달해야 비로소 사용이 가능합니다.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>declare_namespace_cmd의 값을 보고 싶은 경우가 있습니다. 하지만 이 객체 자체는 str 매직 메소드가 구현되어 있는 것이 아니어 print시 아래와 같은 결과를 얻습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(declare_namespace_cmd)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> result
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>launch<span style="color:#f92672">.</span>actions<span style="color:#f92672">.</span>declare_launch_argument<span style="color:#f92672">.</span>DeclareLaunchArgument object at <span style="color:#ae81ff">0x7fc89a164730</span><span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><ul>
+<li>하지만 launch argument의 값을 볼 수 있는 LogInfo라는 기능이 제공되고 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>message_info <span style="color:#f92672">=</span> LogInfo(msg<span style="color:#f92672">=</span>LaunchConfiguration(<span style="color:#e6db74">&#39;namespace&#39;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> LaunchDescription(
+</span></span><span style="display:flex;"><span>        [
+</span></span><span style="display:flex;"><span>            declare_namespace_cmd,
+</span></span><span style="display:flex;"><span>            message_info,
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>    )
+</span></span></code></pre></div>
+<div class="notices tip" ><p>LaunchDescription에 객체들을 넣어줄 때 순서에 주의합니다.</p>
+</div>
+
+<ul>
+<li>LogInfo 결과를 직접 확인해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 launch advanced_tutorial launch_arg_info<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>[INFO] [launch]: Default logging verbosity <span style="color:#f92672">is</span> set to INFO
+</span></span><span style="display:flex;"><span>[INFO] [launch<span style="color:#f92672">.</span>user]: my_robot
+</span></span></code></pre></div><ul>
+<li>실제 오픈소스 프로젝트를 살펴보아도 이러한 Launch argument를 수도 없이 확인할 수 있습니다. 아래 예시는 자율 주행을 위한 메타페키지인 nav2의 launch example입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate_launch_description</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Get the launch directory</span>
+</span></span><span style="display:flex;"><span>    bringup_dir <span style="color:#f92672">=</span> get_package_share_directory(<span style="color:#e6db74">&#39;nav2_bringup&#39;</span>)
+</span></span><span style="display:flex;"><span>    launch_dir <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(bringup_dir, <span style="color:#e6db74">&#39;launch&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Create the launch configuration variables</span>
+</span></span><span style="display:flex;"><span>    namespace <span style="color:#f92672">=</span> LaunchConfiguration(<span style="color:#e6db74">&#39;namespace&#39;</span>)
+</span></span><span style="display:flex;"><span>    use_namespace <span style="color:#f92672">=</span> LaunchConfiguration(<span style="color:#e6db74">&#39;use_namespace&#39;</span>)
+</span></span><span style="display:flex;"><span>    slam <span style="color:#f92672">=</span> LaunchConfiguration(<span style="color:#e6db74">&#39;slam&#39;</span>)
+</span></span><span style="display:flex;"><span>    map_yaml_file <span style="color:#f92672">=</span> LaunchConfiguration(<span style="color:#e6db74">&#39;map&#39;</span>)
+</span></span><span style="display:flex;"><span>    use_sim_time <span style="color:#f92672">=</span> LaunchConfiguration(<span style="color:#e6db74">&#39;use_sim_time&#39;</span>)
+</span></span><span style="display:flex;"><span>    params_file <span style="color:#f92672">=</span> LaunchConfiguration(<span style="color:#e6db74">&#39;params_file&#39;</span>)
+</span></span><span style="display:flex;"><span>    autostart <span style="color:#f92672">=</span> LaunchConfiguration(<span style="color:#e6db74">&#39;autostart&#39;</span>)
+</span></span><span style="display:flex;"><span>    use_composition <span style="color:#f92672">=</span> LaunchConfiguration(<span style="color:#e6db74">&#39;use_composition&#39;</span>)
+</span></span><span style="display:flex;"><span>    use_respawn <span style="color:#f92672">=</span> LaunchConfiguration(<span style="color:#e6db74">&#39;use_respawn&#39;</span>)
+</span></span><span style="display:flex;"><span>    log_level <span style="color:#f92672">=</span> LaunchConfiguration(<span style="color:#e6db74">&#39;log_level&#39;</span>)
+</span></span></code></pre></div><h3 id="timer-action">Timer Action</h3>
+<blockquote>
+<p>대규모 gazebo 파일을 불러오거나, urdf에 수많은 mesh가 결합되어 있는 경우, 프로세스 로딩에 상당한 시간이 소요될 수 있습니다. Timer Action은 일정 시간동안 대기 이벤트를 걸 수 있어 이러한 상황을 다루기 용이합니다.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> launch.actions <span style="color:#f92672">import</span> TimerAction
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Launch RViz</span>
+</span></span><span style="display:flex;"><span>    rviz2 <span style="color:#f92672">=</span> Node(
+</span></span><span style="display:flex;"><span>        package<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rviz2&#34;</span>,
+</span></span><span style="display:flex;"><span>        executable<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rviz2&#34;</span>,
+</span></span><span style="display:flex;"><span>        name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rviz2&#34;</span>,
+</span></span><span style="display:flex;"><span>        output<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;screen&#34;</span>,
+</span></span><span style="display:flex;"><span>        arguments<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;-d&#34;</span>, rviz_config_file],
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> LaunchDescription([
+</span></span><span style="display:flex;"><span>    TimerAction(
+</span></span><span style="display:flex;"><span>        period<span style="color:#f92672">=</span><span style="color:#ae81ff">3.0</span>,
+</span></span><span style="display:flex;"><span>        actions<span style="color:#f92672">=</span>[rviz2]
+</span></span><span style="display:flex;"><span>    ),
+</span></span></code></pre></div><p>⇒ urdf 로딩이 끝난 뒤 rviz2를 실행하도록 해둔 예시입니다.</p>
+<h3 id="onprocessexit">OnProcessExit</h3>
+<blockquote>
+<p>node 실행 시 순서를 지켜야 하는 경우 ex - model spawn 후 센서 데이터 처리 등 <strong>RegisterEventHandler</strong>와 <strong>OnProcessExit</strong>를 통해 실행 순서 로직을 구현할 수 있습니다.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> launch.actions <span style="color:#f92672">import</span> RegisterEventHandler
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> launch.event_handlers <span style="color:#f92672">import</span> OnProcessExit
+</span></span></code></pre></div><ul>
+<li>저의 경우 ros2_control을 사용할 때 주로 사용하고 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> LaunchDescription([
+</span></span><span style="display:flex;"><span>        declare_use_rviz,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        RegisterEventHandler(
+</span></span><span style="display:flex;"><span>            event_handler<span style="color:#f92672">=</span>OnProcessExit(
+</span></span><span style="display:flex;"><span>                target_action<span style="color:#f92672">=</span>spawn_entity,
+</span></span><span style="display:flex;"><span>                on_exit<span style="color:#f92672">=</span>[load_joint_state_broadcaster],
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>        RegisterEventHandler(
+</span></span><span style="display:flex;"><span>            event_handler<span style="color:#f92672">=</span>OnProcessExit(
+</span></span><span style="display:flex;"><span>                target_action<span style="color:#f92672">=</span>load_joint_state_broadcaster,
+</span></span><span style="display:flex;"><span>                on_exit<span style="color:#f92672">=</span>[load_forward_position_controller],
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>        ),
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>target_action</td>
+<td>먼저 완료되어야 하는 Node</td>
+</tr>
+<tr>
+<td>on_exit</td>
+<td>target_action 종료 후 실행되어야 하는 Node</td>
+</tr>
+</tbody>
+</table>
+<h3 id="includelaunchdescription">IncludeLaunchDescription</h3>
+<ul>
+<li>launch file은 매우 유연한 구현이 가능하도록 지원되며, 하나의 launch file에서 다른 launch file을 추가하는 것도 가능합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> launch.actions <span style="color:#f92672">import</span> IncludeLaunchDescription
+</span></span></code></pre></div><ul>
+<li>예를 들면, gazebo 상의 로봇을 위한 부분과 실제 로봇을 다루는 부분을 별도의 launch file로 분리한 뒤, main launch file에서는 이 둘을 스위칭하는 방식으로 구현할 수 있을 것입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate_launch_description</span>():
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    launch_test_pkg <span style="color:#f92672">=</span> get_package_share_directory(<span style="color:#e6db74">&#39;launch_test_pkg&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    robot_spawn <span style="color:#f92672">=</span> IncludeLaunchDescription(
+</span></span><span style="display:flex;"><span>        PythonLaunchDescriptionSource(
+</span></span><span style="display:flex;"><span>            os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(launch_test_pkg, <span style="color:#e6db74">&#39;launch&#39;</span>,<span style="color:#e6db74">&#39;robot_spawn.launch.py&#39;</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    rviz_launch <span style="color:#f92672">=</span> IncludeLaunchDescription(
+</span></span><span style="display:flex;"><span>        PythonLaunchDescriptionSource(
+</span></span><span style="display:flex;"><span>            os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(launch_test_pkg, <span style="color:#e6db74">&#39;launch&#39;</span>, <span style="color:#e6db74">&#39;start_rviz.launch.py&#39;</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> LaunchDescription([
+</span></span><span style="display:flex;"><span>        robot_spawn,
+</span></span><span style="display:flex;"><span>        rviz_launch,
+</span></span><span style="display:flex;"><span>    ])
+</span></span></code></pre></div><h3 id="ifcondition-unlesscondition">IfCondition, UnlessCondition</h3>
+<ul>
+<li>조건문에 따라 정해진 Node가 실행되도록 할 수도 있습니다. 이를 위해 IfCondition과 UnlessCondition을 사용합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> launch.conditions <span style="color:#f92672">import</span> IfCondition, UnlessCondition
+</span></span></code></pre></div><ul>
+<li>아래 예시를 보면, Node =&gt; condition 항목에 execute LaunchConfiguration이 삽입된 모습을 볼 수 있으며, execute 값에 따라 turtlesim_node의 실행 여부를 관리할 수 있게 됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate_launch_description</span>():
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    execute <span style="color:#f92672">=</span> LaunchConfiguration(<span style="color:#e6db74">&#39;execute&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    declare_execute_cmd <span style="color:#f92672">=</span> DeclareLaunchArgument(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;execute&#39;</span>,
+</span></span><span style="display:flex;"><span>        default_value<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;true&#39;</span>,
+</span></span><span style="display:flex;"><span>        description<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;whether to use namespace or not&#39;</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    turtlesim_node <span style="color:#f92672">=</span> Node(
+</span></span><span style="display:flex;"><span>        package <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;turtlesim&#39;</span>,
+</span></span><span style="display:flex;"><span>        executable <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;turtlesim_node&#39;</span>,
+</span></span><span style="display:flex;"><span>        name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;turtlesim_node&#39;</span>,
+</span></span><span style="display:flex;"><span>        output<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;screen&#39;</span>,
+</span></span><span style="display:flex;"><span>        condition<span style="color:#f92672">=</span>IfCondition(execute),
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> LaunchDescription(
+</span></span><span style="display:flex;"><span>        [
+</span></span><span style="display:flex;"><span>            declare_execute_cmd,
+</span></span><span style="display:flex;"><span>            turtlesim_node,
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>    )
+</span></span></code></pre></div><ul>
+<li>실제 예시를 통해 실습해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 launch advanced_tutorial ifcondition<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py execute<span style="color:#f92672">:=</span>false
+</span></span><span style="display:flex;"><span>[INFO] [launch]: All log files can be found below <span style="color:#f92672">/</span>home<span style="color:#f92672">/</span>kimsooyoung<span style="color:#f92672">/.</span>ros<span style="color:#f92672">/</span>log<span style="color:#f92672">/</span><span style="color:#ae81ff">2023</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">25</span><span style="color:#f92672">-</span><span style="color:#ae81ff">15</span><span style="color:#f92672">-</span><span style="color:#ae81ff">14</span><span style="color:#f92672">-</span><span style="color:#ae81ff">32</span><span style="color:#f92672">-</span><span style="color:#ae81ff">373647</span><span style="color:#f92672">-</span>kimsooyoung<span style="color:#f92672">-</span>XPS<span style="color:#f92672">-</span><span style="color:#ae81ff">13</span><span style="color:#f92672">-</span><span style="color:#ae81ff">9370</span><span style="color:#f92672">-</span><span style="color:#ae81ff">6088</span>
+</span></span><span style="display:flex;"><span>[INFO] [launch]: Default logging verbosity <span style="color:#f92672">is</span> set to INFO
+</span></span></code></pre></div><h3 id="groupaction">GroupAction</h3>
+<ul>
+<li>관련된 Node, launch file들을 한데 묶어 공통된 속성을 부여할 시 GroupAction을 사용하며, 주로 namespace를 지정할 때 많이 사용됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    turtle_group <span style="color:#f92672">=</span> GroupAction([
+</span></span><span style="display:flex;"><span>        PushRosNamespace(
+</span></span><span style="display:flex;"><span>            condition<span style="color:#f92672">=</span>IfCondition(use_namespace),
+</span></span><span style="display:flex;"><span>            namespace<span style="color:#f92672">=</span>namespace
+</span></span><span style="display:flex;"><span>        ),
+</span></span></code></pre></div><ul>
+<li>turtlesim에 namespace를 적용하는 실습을 해보겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 launch advanced_tutorial group_action<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 topic list
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>parameter_events
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>rosout
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>turtle1<span style="color:#f92672">/</span>cmd_vel
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>turtle1<span style="color:#f92672">/</span>color_sensor
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>turtle1<span style="color:#f92672">/</span>pose
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images15/Untitled.png?height=300px" alt="Untitled.png"></p>
+<p>⇒ 별도 namespace 지정이 없으면 위와 같은 rqt_graph를 확인할 수 있습니다.</p>
+<ul>
+<li>launch argument를 통해 namespace를 적용시킨 뒤, topic list와 rqt_graph를 살펴봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 launch advanced_tutorial group_action<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py use_namespace<span style="color:#f92672">:=</span>true namespace<span style="color:#f92672">:=</span>my_turtle
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 topic list
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>my_turtle<span style="color:#f92672">/</span>turtle1<span style="color:#f92672">/</span>cmd_vel
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>my_turtle<span style="color:#f92672">/</span>turtle1<span style="color:#f92672">/</span>color_sensor
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>my_turtle<span style="color:#f92672">/</span>turtle1<span style="color:#f92672">/</span>pose
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>parameter_events
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>rosout
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images15/Untitled1.png?height=300px" alt="Untitled1.png"></p>
+
+<div class="notices note" ><p>/my_turtle namespace가 적용된 모습을 확인할 수 있습니다. 👍</p>
+</div>
+
+<h3 id="executor-and-callbackgroup">Executor and CallbackGroup</h3>
+<p><img src="/kr/ros2_foxy/images15/Untitled2.png?height=250px" alt="Untitled2.png"></p>
+<blockquote>
+<p>실제 센서, 제어기를 개발 하다보면 기존 코드와 ROS 2 코드를 연동해야 할 일이 많습니다. 기존 코드가 병렬 연산 형태로 개발되었다면 ROS 2의 Spin과 맞물려 Dead Lock이 발생할 수 있습니다. 이러한 경우를 다루기 위해 ROS 2의 Executor와 CallbackGroup에 대해 알아봅시다.</p>
+</blockquote>
+
+<div class="notices note" ><p>이번 튜토리얼은 모두 c++로 진행됩니다.</p>
+</div>
+
+<ul>
+<li>예시 package를 build하고 sourcing 합시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>cbp cpp_multiproc_tutorial <span style="color:#f92672">&amp;&amp;</span> source install<span style="color:#f92672">/</span>local_setup<span style="color:#f92672">.</span>bash
+</span></span></code></pre></div><h3 id="dead-lock-example">Dead Lock Example</h3>
+<ul>
+<li>예시를 실행해보면서 발생할 수 있는 문제상황을 고려해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run cpp_multiproc_tutorial dead_lock
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682404393.717961395</span>] [deadlock_example]: timer_cb_1
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682404398.718512552</span>] [deadlock_example]: timer_cb_2
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682404400.719076263</span>] [deadlock_example]: timer_cb_1
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682404405.719559218</span>] [deadlock_example]: timer_cb_2
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682404407.719972272</span>] [deadlock_example]: timer_cb_1
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682404412.720329962</span>] [deadlock_example]: timer_cb_2
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682404414.720709183</span>] [deadlock_example]: timer_cb_1
+</span></span></code></pre></div><p>⇒ timer_cb_1이 5초 동안 sleep하는 동안 시스템을 독식해버립니다.</p>
+<ul>
+<li>실제 코드는 다음과 같이 5초마다 timer_cb_1을, 2초마다 timer_cb_2를 실행하는 것이 목표였습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">timer_cb_1</span>(){
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;timer_cb_1&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// assume that something logic happens here
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  std<span style="color:#f92672">::</span>this_thread<span style="color:#f92672">::</span>sleep_for(<span style="color:#ae81ff">5</span>s);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">timer_cb_2</span>(){
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;timer_cb_2&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// assume that something logic happens here
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  std<span style="color:#f92672">::</span>this_thread<span style="color:#f92672">::</span>sleep_for(<span style="color:#ae81ff">2</span>s);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>여기에서, 아래와 같이 timer 주기를 5초, 2초라고 수정하면 동작은 잘 됩니다. 하지만, 이는 지금가 원하는 상황을 표현하지 못합니다. 우리가 가정하는 상황은, timer callback안에서, ROS 2가 아닌 다른 무언가의 코드가 시스템을 점유하는 상황입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>DeadLockNode() <span style="color:#f92672">:</span> Node(<span style="color:#e6db74">&#34;deadlock_example&#34;</span>){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  timer_1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_wall_timer(
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">5</span>s, std<span style="color:#f92672">::</span>bind(<span style="color:#f92672">&amp;</span>DeadLockNode<span style="color:#f92672">::</span>timer_cb_1, <span style="color:#66d9ef">this</span>)
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  timer_2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_wall_timer(
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">2</span>s, std<span style="color:#f92672">::</span>bind(<span style="color:#f92672">&amp;</span>DeadLockNode<span style="color:#f92672">::</span>timer_cb_2, <span style="color:#66d9ef">this</span>)
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>main문은 다음과 같습니다. (rclcpp의 Default Executor인 Single Threaded Executor가 실행될 것입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv){
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>init(argc, argv);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>spin(std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>DeadLockNode<span style="color:#f92672">&gt;</span>());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>shutdown();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="multithreadedexecutor">MultiThreadedExecutor</h3>
+<ul>
+<li>rclcpp의 Executor는 그림과 같이 크게 3종류를 제공합니다. 지금까지는 기본인 SingleThreaded를 사용하였지만, MultThreaded도 사용해보겠습니다. 과연 문제를 해결해 줄 수 있을까요?</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images15/Untitled3.png?height=200px" alt="Untitled3.png"></p>
+<ul>
+<li>main 문을 수정하고 다시 컴파일 =&gt; 실행해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span> argv[]){
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>init(argc, argv);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Max CPU Core : &#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span><span style="color:#66d9ef">thread</span><span style="color:#f92672">::</span>hardware_concurrency() <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>executors<span style="color:#f92672">::</span>MultiThreadedExecutor executor(rclcpp<span style="color:#f92672">::</span>executor<span style="color:#f92672">::</span>ExecutorArgs(), <span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">auto</span> test_node <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>DeadLockNode<span style="color:#f92672">&gt;</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  executor.add_node(test_node);
+</span></span><span style="display:flex;"><span>  executor.spin();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>shutdown();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>예시 실행 (8코어 랩탑에서 실행하였습니다.)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run cpp_multiproc_tutorial multi_executor
+</span></span><span style="display:flex;"><span>Max CPU Core : <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682404852.346859530</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_1
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682404857.348183807</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_1
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682404862.348802309</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_1
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682404867.349427033</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_1
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682404872.349906028</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_1
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682404877.350774188</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_1
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682404882.351478568</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_1
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682404887.352284317</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_1
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682404892.352806238</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_1
+</span></span></code></pre></div><p>⇒ 여전히 timer_cb_1이 시스템을 독식하고 있습니다.</p>
+
+<div class="notices note" ><p>이렇게 되는 이유가 무엇일까요??</p>
+</div>
+
+<ul>
+<li>현재 상황을 그림으로 표현해보면 다음과 같습니다. 비록 multi-threaded executor가 실행되어 작업자가 3명이 있더라도 작업 라인이 1개밖에 없어 효율적이지 못한 것이지요.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images15/Untitled4.png?height=200px" alt="Untitled4.png"></p>
+<h3 id="callback-group">Callback Group</h3>
+<ul>
+<li>이를 해결하는 방법은 각각의 timer 마다 독립적인 작업 라인을 구축하는 것입니다. 그리고 이를 위해 rclcpp에서는 Callback Group이라는 API를 제공하고 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DeadLockNode</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> rclcpp<span style="color:#f92672">::</span>Node{
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>TimerBase<span style="color:#f92672">::</span>SharedPtr timer_1;
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>TimerBase<span style="color:#f92672">::</span>SharedPtr timer_2;
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>CallbackGroup<span style="color:#f92672">::</span>SharedPtr cb_group_1;
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>CallbackGroup<span style="color:#f92672">::</span>SharedPtr cb_group_2;
+</span></span></code></pre></div><ul>
+<li>각각의 Callback에 독립적인(MutuallyExclusive) Group을 구축하여 Executor들이 개별 Group을 다루도록 해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>cb_group_1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_callback_group(
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>CallbackGroupType<span style="color:#f92672">::</span>MutuallyExclusive
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cb_group_2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_callback_group(
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>CallbackGroupType<span style="color:#f92672">::</span>MutuallyExclusive
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>timer_1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_wall_timer(
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">200</span>ms, std<span style="color:#f92672">::</span>bind(<span style="color:#f92672">&amp;</span>DeadLockNode<span style="color:#f92672">::</span>timer_cb_1, <span style="color:#66d9ef">this</span>), cb_group_1
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>timer_2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_wall_timer(
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">200</span>ms, std<span style="color:#f92672">::</span>bind(<span style="color:#f92672">&amp;</span>DeadLockNode<span style="color:#f92672">::</span>timer_cb_2, <span style="color:#66d9ef">this</span>), cb_group_2
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><ul>
+<li>사용하는 CPU 코어는 2개로 맞춰주겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>rclcpp<span style="color:#f92672">::</span>executors<span style="color:#f92672">::</span>MultiThreadedExecutor executor(
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>executor<span style="color:#f92672">::</span>ExecutorArgs(), <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> test_node <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>DeadLockNode<span style="color:#f92672">&gt;</span>();
+</span></span></code></pre></div><ul>
+<li>실행 결과, timer_cb_1은 5초마다, timer_cb_2는 2초마다 잘 실행되는 것이 확인됩니다! 계속 실행되면서 약간의 오차가 있지만 이는 timer call 주기 때문입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run cpp_multiproc_tutorial callback_group
+</span></span><span style="display:flex;"><span>Max CPU Core : <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405209.687586816</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_1
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405209.687668485</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_2
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405211.688211586</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_2
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405213.688626203</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_2
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405214.689019990</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_1
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405215.690033260</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_2
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405217.690549333</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_2
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405219.689435329</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_1
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405219.691070145</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_2
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><ul>
+<li>지금 상황을 아까의 그림에 다시 비유해봅시다. Task들이 독자적인 Callback Group에서 실행되고, 각 Callback Group을 담당하는 Process가 있기 때문에 Delay 없이 모든 작업이 수월하게 실행됩니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images15/Untitled5.png?height=300px" alt="Untitled5.png"></p>
+<h3 id="reentrantcallbackgroup">ReentrantCallbackGroup</h3>
+<blockquote>
+<p>rclcpp에서 제공하는 또다른 Callback Group Option, Reentrant가 있습니다. 이를 사용해봅시다.</p>
+</blockquote>
+<p><img src="/kr/ros2_foxy/images15/Untitled6.png?height=200px" alt="Untitled6.png"></p>
+<p>reference : <a href="https://docs.ros2.org/eloquent/api/rclcpp/namespacerclcpp_1_1callback__group.html">https://docs.ros2.org/eloquent/api/rclcpp/namespacerclcpp_1_1callback__group.html</a></p>
+<ul>
+<li>Reentrant CallbackGroupType은 이름과 같이 Process와 Callback을 조율하여 가장 효율적인 실행을 제공합니다. 때문에 여러 callback이 같은 Group Option을 공유해도 문제 없습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  DeadLockNode() <span style="color:#f92672">:</span> Node(<span style="color:#e6db74">&#34;deadlock_example&#34;</span>){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cb_group_1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_callback_group(
+</span></span><span style="display:flex;"><span>      rclcpp<span style="color:#f92672">::</span>CallbackGroupType<span style="color:#f92672">::</span>Reentrant
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cb_group_2 <span style="color:#f92672">=</span> cb_group_1;
+</span></span></code></pre></div><ul>
+<li>예시를 실행해봅시다. 별도 Group이 아니더라도 모든 Callback이 잘 실행됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run cpp_multiproc_tutorial reentrant_callback_group
+</span></span><span style="display:flex;"><span>Max CPU Core : <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405497.174734254</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_1
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405497.174845897</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_2
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405499.175241117</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_2
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405501.175422765</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_2
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405502.175086294</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_1
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405503.175637456</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_2
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405505.175894939</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_2
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><ul>
+<li>하지만, Reentrant CallbackGroupType도 사용하는 프로세서 자체가 적으면 Dead lock에 빠집니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ReentrantNode</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> rclcpp<span style="color:#f92672">::</span>Node{
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>TimerBase<span style="color:#f92672">::</span>SharedPtr timer_1;
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>TimerBase<span style="color:#f92672">::</span>SharedPtr timer_2;
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>TimerBase<span style="color:#f92672">::</span>SharedPtr timer_3;
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>CallbackGroup<span style="color:#f92672">::</span>SharedPtr cb_group_1;
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>CallbackGroup<span style="color:#f92672">::</span>SharedPtr cb_group_2;
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>CallbackGroup<span style="color:#f92672">::</span>SharedPtr cb_group_3;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">timer_cb_3</span>(){
+</span></span><span style="display:flex;"><span>    RCLCPP_INFO(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;timer_cb_3&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// assume that something logic happens here
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    std<span style="color:#f92672">::</span>this_thread<span style="color:#f92672">::</span>sleep_for(<span style="color:#ae81ff">1</span>s);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>rclcpp<span style="color:#f92672">::</span>executors<span style="color:#f92672">::</span>MultiThreadedExecutor executor(
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>executor<span style="color:#f92672">::</span>ExecutorArgs(), <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><ul>
+<li>예시 실행 결과</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run cpp_multiproc_tutorial reentrant_limited
+</span></span><span style="display:flex;"><span>Max CPU Core : <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405732.583538668</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_1
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405737.584007252</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_2
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405739.584306750</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_3
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405740.585280574</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_1
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405745.585707617</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_2
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405747.586083455</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_3
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405748.586534268</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_1
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>⇒ 본디 timer_cb_3는 1초마다 실행되어야 하는데 Dead Lock에 빠짐을 볼 수 있습니다.</p>
+<ul>
+<li>Core 3개로 늘려주면 정상 작동하는지 확인해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>rclcpp<span style="color:#f92672">::</span>executors<span style="color:#f92672">::</span>MultiThreadedExecutor executor(
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>executor<span style="color:#f92672">::</span>ExecutorArgs(), <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><ul>
+<li>예시 실행 결과</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run cpp_multiproc_tutorial reentrant_limited
+</span></span><span style="display:flex;"><span>Max CPU Core : <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405809.551428499</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_1
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405809.551649918</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_2
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405809.551742931</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_3
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405810.552612691</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_3
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405811.552408971</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_2
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405811.552878292</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_3
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405812.553239899</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_3
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405813.552785030</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_2
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405813.553579643</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_3
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405814.552104332</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_1
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1682405814.553891457</span>] [deadlock_example]<span style="color:#f92672">:</span> timer_cb_3
+</span></span></code></pre></div><h2 id="intra-process-communication-and-node-composition">Intra-process communication and Node Composition</h2>
+<blockquote>
+<p>ROS 2 개발을 일반적으로 Node의 결합으로 이루어집니다.이를 통해 모듈화, 코드 재사용이 가능하지만 성능 저하가 초래되는 경우가 많습니다. ROS 1에서는 Nodelet이라는 것으로 이를 해결하고자 하였는데, 이는 기본적으로 하나의 프로세스에서 다수의 Node를 구현하고자 하는 작업입니다.</p>
+</blockquote>
+<blockquote>
+<p>이러한 작업을 통해 메모리 최적화와 동적 Node load / unload가 가능한 것이지요. 그리고 이를 이어받은 ROS 2에서는 Node Composition이라는 이름으로 같은 기능을 제공하고 있습니다.</p>
+</blockquote>
+<ul>
+<li>예시를 통해 Node Composition이 왜 필요한지 살펴봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>ros2 run composition_tutorial image_pipeline_all_in_one
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images15/Untitled7.png?height=400px" alt="Untitled7.png"></p>
+<p><img src="/kr/ros2_foxy/images15/Untitled8.png?height=200px" alt="Untitled8.png"></p>
+<p>⇒ 현재 3개의 Node가 실행중에 있습니다. 각각의 Node로 Image data가 전송되고 있지요.</p>
+
+<div class="notices note" ><p>⇒ 이미지에 찍힌 데이터 주소에 주목합시다.</p>
+</div>
+
+<ul>
+<li>이번에는 다른 상황을 실행해보겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>ros2 launch composition_tutorial image_pipeline_extra.launch.py
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images15/Untitled9.png?height=400px" alt="Untitled9.png"></p>
+
+<div class="notices note" ><p>Node를 거치면서 메모리 생성, 복사가 반복되기 때문에 주소가 모두 다른 것을 확인할 수 있습니다.</p>
+</div>
+
+<ul>
+<li>실제 top을 통해 메모리 효율을 비교해보겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>PID USER      PR  NI    VIRT    RES    SHR S  <span style="color:#f92672">%</span>CPU  <span style="color:#f92672">%</span>MEM     TIME<span style="color:#f92672">+</span> COMMAND
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">927</span> kimsooy<span style="color:#f92672">+</span>  <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">625328</span>  <span style="color:#ae81ff">86892</span>  <span style="color:#ae81ff">47116</span> S  <span style="color:#ae81ff">17.9</span>   <span style="color:#ae81ff">0.5</span>   <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">18.92</span> Xorg
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1217</span> kimsooy<span style="color:#f92672">+</span>  <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">4604400</span> <span style="color:#ae81ff">269984</span> <span style="color:#ae81ff">111132</span> S  <span style="color:#ae81ff">13.6</span>   <span style="color:#ae81ff">1.7</span>   <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">45.35</span> gnome<span style="color:#f92672">-</span>shell
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4095</span> kimsooy<span style="color:#f92672">+</span>  <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">1565920</span> <span style="color:#ae81ff">102108</span>  <span style="color:#ae81ff">73140</span> S  <span style="color:#ae81ff">11.9</span>   <span style="color:#ae81ff">0.6</span>   <span style="color:#ae81ff">0</span><span style="color:#f92672">:</span><span style="color:#ae81ff">01.13</span> image_pipeline_
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>PID USER      PR  NI    VIRT    RES    SHR S  <span style="color:#f92672">%</span>CPU  <span style="color:#f92672">%</span>MEM     TIME<span style="color:#f92672">+</span> COMMAND
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">927</span> kimsooy<span style="color:#f92672">+</span>  <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">607300</span>  <span style="color:#ae81ff">86892</span>  <span style="color:#ae81ff">47116</span> R  <span style="color:#ae81ff">18.8</span>   <span style="color:#ae81ff">0.5</span>   <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">11.38</span> Xorg
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2332</span> kimsooy<span style="color:#f92672">+</span>  <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">1130.9</span>g <span style="color:#ae81ff">258892</span> <span style="color:#ae81ff">126436</span> S  <span style="color:#ae81ff">16.8</span>   <span style="color:#ae81ff">1.6</span>   <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">15.52</span> chrome
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1217</span> kimsooy<span style="color:#f92672">+</span>  <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">4595376</span> <span style="color:#ae81ff">269984</span> <span style="color:#ae81ff">111132</span> R  <span style="color:#ae81ff">15.2</span>   <span style="color:#ae81ff">1.7</span>   <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">36.03</span> gnome<span style="color:#f92672">-</span>shell
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4030</span> kimsooy<span style="color:#f92672">+</span>  <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">1034768</span>  <span style="color:#ae81ff">77124</span>  <span style="color:#ae81ff">58520</span> S   <span style="color:#ae81ff">8.3</span>   <span style="color:#ae81ff">0.5</span>   <span style="color:#ae81ff">0</span><span style="color:#f92672">:</span><span style="color:#ae81ff">01.99</span> camera_node
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4034</span> kimsooy<span style="color:#f92672">+</span>  <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">1341172</span>  <span style="color:#ae81ff">98136</span>  <span style="color:#ae81ff">70164</span> S   <span style="color:#ae81ff">5.6</span>   <span style="color:#ae81ff">0.6</span>   <span style="color:#ae81ff">0</span><span style="color:#f92672">:</span><span style="color:#ae81ff">01.71</span> image_view_node
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4032</span> kimsooy<span style="color:#f92672">+</span>  <span style="color:#ae81ff">20</span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">811272</span>  <span style="color:#ae81ff">74320</span>  <span style="color:#ae81ff">55924</span> S   <span style="color:#ae81ff">4.6</span>   <span style="color:#ae81ff">0.5</span>   <span style="color:#ae81ff">0</span><span style="color:#f92672">:</span><span style="color:#ae81ff">01.21</span> watermark_node
+</span></span></code></pre></div>
+<div class="notices tip" ><p>이 둘의 차이는 Intra-process communication의 사용 유무입니다. Node ⇒ Node로 메모리가 전달되면서 불필요한 복사가 반복되면 메모리 효율이 저하됩니다.</p>
+</div>
+
+<h3 id="intra-process-communication-programming">Intra-process communication Programming</h3>
+<blockquote>
+<p>image_pipeline_all_in_one 코드와 예시를 통해 이를 어떻게 구현할 수 있는지 확인해봅시다.</p>
+</blockquote>
+<ul>
+<li>생성자 Option에서 use_intra_process_comms을 사용하였습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>CameraNode(
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string <span style="color:#f92672">&amp;</span> output, <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string <span style="color:#f92672">&amp;</span> node_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;camera_node&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> watermark <span style="color:#f92672">=</span> true, <span style="color:#66d9ef">int</span> device <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">int</span> width <span style="color:#f92672">=</span> <span style="color:#ae81ff">320</span>, <span style="color:#66d9ef">int</span> height <span style="color:#f92672">=</span> <span style="color:#ae81ff">240</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">:</span> Node(node_name, rclcpp<span style="color:#f92672">::</span>NodeOptions().use_intra_process_comms(true)),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>WatermarkNode(
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string <span style="color:#f92672">&amp;</span> input, <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string <span style="color:#f92672">&amp;</span> output, <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string <span style="color:#f92672">&amp;</span> text,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string <span style="color:#f92672">&amp;</span> node_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;watermark_node&#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">:</span> Node(node_name, rclcpp<span style="color:#f92672">::</span>NodeOptions().use_intra_process_comms(true)){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Node which receives sensor_msgs/Image messages and renders them using OpenCV.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ImageViewNode</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> rclcpp<span style="color:#f92672">::</span>Node{
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">explicit</span> ImageViewNode(<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string <span style="color:#f92672">&amp;</span> input, <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string <span style="color:#f92672">&amp;</span> node_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;image_view_node&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> watermark <span style="color:#f92672">=</span> true) <span style="color:#f92672">:</span> Node(node_name, rclcpp<span style="color:#f92672">::</span>NodeOptions().use_intra_process_comms(true)){
+</span></span></code></pre></div><ul>
+<li>Topic data 생성 시 unique_ptr, weak_ptr, SharedPtr을 사용한 모습도 보입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// Create a new unique_ptr to an Image message for storage.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>sensor_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>Image<span style="color:#f92672">::</span>UniquePtr msg(<span style="color:#66d9ef">new</span> sensor_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>Image());
+</span></span><span style="display:flex;"><span>msg<span style="color:#f92672">-&gt;</span>step <span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span>sensor_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>Image<span style="color:#f92672">::</span>_step_type<span style="color:#f92672">&gt;</span>(frame_.step);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Create a publisher on the input topic.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>pub_ <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_publisher<span style="color:#f92672">&lt;</span>sensor_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>Image<span style="color:#f92672">&gt;</span>(output, qos);
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>weak_ptr<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>remove_pointer<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">decltype</span>(pub_.get())<span style="color:#f92672">&gt;::</span>type<span style="color:#f92672">&gt;</span> captured_pub <span style="color:#f92672">=</span> pub_;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Create a subscription on the input topic.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>sub_ <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_subscription<span style="color:#f92672">&lt;</span>sensor_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>Image<span style="color:#f92672">&gt;</span>(
+</span></span><span style="display:flex;"><span>  input, rclcpp<span style="color:#f92672">::</span>SensorDataQoS(),[node_name, watermark](<span style="color:#66d9ef">const</span> sensor_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>Image<span style="color:#f92672">::</span>SharedPtr msg) {
+</span></span></code></pre></div>
+<div class="notices note" ><p>메모리 복사가 아닌 소유권 이전으로 최적화를 구현한 것입니다.</p>
+</div>
+
+<ul>
+<li>이번 예시에서는 <strong>SingleThreadedExecutor</strong>를 사용하여 Executor에 3개의 Node를 직접 추가하였습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span> argv[]){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>init(argc, argv);
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>executors<span style="color:#f92672">::</span>SingleThreadedExecutor executor;
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  executor.add_node(camera_node);
+</span></span><span style="display:flex;"><span>  executor.add_node(watermark_node);
+</span></span><span style="display:flex;"><span>  executor.add_node(image_view_node);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  executor.spin();
+</span></span></code></pre></div><blockquote>
+<p>지금 시점에서 Intra-comm이 필요한 이유는 모두 이해하셨으리라 생각합니다. 비록 이러한 구현이 가능은 하지만, ROS 개발자들은 이를 좀 더 쉽고 동적으로 할 수는 없을지 고민하였습니다.</p>
+</blockquote>
+<h2 id="ros-2-node-composition">ROS 2 Node Composition</h2>
+<blockquote>
+<p>Node Composition의 기본 개념은 각 Node를 런타임에 로드되는 공유 라이브러리인 &ldquo;Composition&quot;로 작성한다는 것입니다. 이러한 방식으로, 다음과 같은 것이 가능합니다</p>
+</blockquote>
+<ol>
+<li>각각의 Composition을 개별 프로세스에서 실행</li>
+<li>단일 프로세스에서 여러 노드를 실행하여 오버헤드를 낮추고 통신 효율성을 높이기</li>
+</ol>
+<ul>
+<li>Composition 예시 실행을 위한 준비를 해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>sudo apt install ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>ros2cli<span style="color:#f92672">*</span> <span style="color:#f92672">-</span>y
+</span></span><span style="display:flex;"><span>sudo apt install ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>composition <span style="color:#f92672">-</span>y
+</span></span></code></pre></div><p>다음으로, 기본 예시를 통해 Composition을 다루기 위한 CLI를 살펴보겠습니다.</p>
+<ul>
+<li>현재 사용 가능한 모든 components 조회</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 component types
+</span></span><span style="display:flex;"><span>(... components of other packages here)
+</span></span><span style="display:flex;"><span>composition
+</span></span><span style="display:flex;"><span>  composition<span style="color:#f92672">::</span>Talker
+</span></span><span style="display:flex;"><span>  composition<span style="color:#f92672">::</span>Listener
+</span></span><span style="display:flex;"><span>  composition<span style="color:#f92672">::</span>NodeLikeListener
+</span></span><span style="display:flex;"><span>  composition<span style="color:#f92672">::</span>Server
+</span></span><span style="display:flex;"><span>  composition<span style="color:#f92672">::</span>Client
+</span></span></code></pre></div><ul>
+<li>composition cli example - 순서는 다음과 같습니다.</li>
+</ul>
+<ol>
+<li>component container 실행</li>
+<li>component load</li>
+<li>component unload</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1 - execute component_container</span>
+</span></span><span style="display:flex;"><span>ros2 run rclcpp_components component_container
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2 - check available container</span>
+</span></span><span style="display:flex;"><span>ros2 component list
+</span></span><span style="display:flex;"><span>/ComponentManager
+</span></span></code></pre></div><ul>
+<li>component를 load 해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1 - load built-in publisher component</span>
+</span></span><span style="display:flex;"><span>ros2 component load /ComponentManager composition composition::Talker
+</span></span><span style="display:flex;"><span>&gt; Loaded component <span style="color:#ae81ff">1</span> into <span style="color:#e6db74">&#39;/ComponentManager&#39;</span> container node as <span style="color:#e6db74">&#39;/talker&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Container 실행 terminal 확인</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1682422159.067057665<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>talker<span style="color:#f92672">]</span>: Publishing: <span style="color:#e6db74">&#39;Hello World: 1&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1682422160.066962102<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>talker<span style="color:#f92672">]</span>: Publishing: <span style="color:#e6db74">&#39;Hello World: 2&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1682422161.066817081<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>talker<span style="color:#f92672">]</span>: Publishing: <span style="color:#e6db74">&#39;Hello World: 3&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1682422162.066801139<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>talker<span style="color:#f92672">]</span>: Publishing: <span style="color:#e6db74">&#39;Hello World: 4&#39;</span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2 - load built-in subscriber component</span>
+</span></span><span style="display:flex;"><span>ros2 component load /ComponentManager composition composition::Listener
+</span></span><span style="display:flex;"><span>&gt; Loaded component <span style="color:#ae81ff">2</span> into <span style="color:#e6db74">&#39;/ComponentManager&#39;</span> container node as <span style="color:#e6db74">&#39;/listener&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Container 실행 terminal 확인</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1682422159.067057665<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>talker<span style="color:#f92672">]</span>: Publishing: <span style="color:#e6db74">&#39;Hello World: 1&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1682422160.066962102<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>talker<span style="color:#f92672">]</span>: Publishing: <span style="color:#e6db74">&#39;Hello World: 2&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1682422161.066817081<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>talker<span style="color:#f92672">]</span>: Publishing: <span style="color:#e6db74">&#39;Hello World: 3&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1682422162.066801139<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>talker<span style="color:#f92672">]</span>: Publishing: <span style="color:#e6db74">&#39;Hello World: 4&#39;</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><ul>
+<li>ComponentManager의 하위 component로 talker와 listener가 등록되어 있는 것을 확인할 수 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ros2 component list
+</span></span><span style="display:flex;"><span>/ComponentManager
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">1</span>  /talker
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">2</span>  /listene
+</span></span></code></pre></div><ul>
+<li>component의 unload는 다음과 같습니다. 지금은 1개의 component 밖에 없기 때문에 id는 1이 됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ros2 component unload /ComponentManager &lt;id&gt;
+</span></span></code></pre></div><h3 id="composition-programming">Composition Programming</h3>
+<blockquote>
+<p>Composition은 내용이 까다롭고 디버깅도 쉽지 않습니다. 때문에 절차를 나누어 차근차근 작은 부분부터 함께 프로그래밍 실습을 해보도록 하겠습니다.</p>
+</blockquote>
+<ol>
+<li>기본 구조와 Export</li>
+<li>Data Forwarding</li>
+<li>Composition Container</li>
+<li>ComposableNodeContainer를 통한 launch</li>
+<li>실 사용 사례 ⇒ ZED Stereo Camera</li>
+</ol>
+<ul>
+<li>기본 구조와 Export - 아주 간단한 코드를 통해 Node Composition의 기초부터 익혀봅시다.</li>
+</ul>
+<ol>
+<li>Node 생성</li>
+<li>CMakeLists.txt 수정 후 Export</li>
+<li>Component 생성 및 실행 확인</li>
+</ol>
+<ul>
+<li>basic_component.cpp - 필수로 구현해야 하는 부분들을 살펴봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;rclcpp/rclcpp.hpp&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;std_msgs/msg/string.hpp&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std<span style="color:#f92672">::</span>chrono_literals;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> composition_tutorial {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BasicComponent</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> rclcpp<span style="color:#f92672">::</span>Node {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">explicit</span> BasicComponent(<span style="color:#66d9ef">const</span> rclcpp<span style="color:#f92672">::</span>NodeOptions <span style="color:#f92672">&amp;</span> options)
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">:</span> Node(<span style="color:#e6db74">&#34;BasicComponent&#34;</span>, options), count_(<span style="color:#ae81ff">0</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Create a publisher of &#34;std_mgs/String&#34; messages on the &#34;chatter&#34; topic.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    pub_ <span style="color:#f92672">=</span> create_publisher<span style="color:#f92672">&lt;</span>std_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>String<span style="color:#f92672">&gt;</span>(<span style="color:#e6db74">&#34;chatter&#34;</span>, <span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Use a timer to schedule periodic message publishing.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    timer_ <span style="color:#f92672">=</span> create_wall_timer(<span style="color:#ae81ff">1</span>s, std<span style="color:#f92672">::</span>bind(<span style="color:#f92672">&amp;</span>BasicComponent<span style="color:#f92672">::</span>on_timer, <span style="color:#66d9ef">this</span>));
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">protected</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> on_timer(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> msg <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_unique<span style="color:#f92672">&lt;</span>std_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>String<span style="color:#f92672">&gt;</span>();
+</span></span><span style="display:flex;"><span>    msg<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello World: &#34;</span> <span style="color:#f92672">+</span> std<span style="color:#f92672">::</span>to_string(<span style="color:#f92672">++</span>count_);
+</span></span><span style="display:flex;"><span>    RCLCPP_INFO(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;Publishing: &#39;%s&#39;&#34;</span>, msg<span style="color:#f92672">-&gt;</span>data.c_str());
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>flush(std<span style="color:#f92672">::</span>cout);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Put the message into a queue to be processed by the middleware.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// This call is non-blocking.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    pub_<span style="color:#f92672">-&gt;</span>publish(std<span style="color:#f92672">::</span>move(msg));
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  size_t count_;
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>Publisher<span style="color:#f92672">&lt;</span>std_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>String<span style="color:#f92672">&gt;::</span>SharedPtr pub_;
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>TimerBase<span style="color:#f92672">::</span>SharedPtr timer_;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// namespace composition
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;rclcpp_components/register_node_macro.hpp&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Register the component with class_loader.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// This acts as a sort of entry point, allowing the component to be discoverable when its library
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// is being loaded into a running process.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>RCLCPP_COMPONENTS_REGISTER_NODE(composition_tutorial<span style="color:#f92672">::</span>BasicComponent)
+</span></span></code></pre></div><ul>
+<li>요점들을 정리하면 다음과 같습니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>namespace 지정</td>
+<td>패키지 이름으로 설정하는 것이 일반적입니다.</td>
+</tr>
+<tr>
+<td>explicit 생성자</td>
+<td>일반 Node가 아닌 Component로의 사용을 위해 생성자 explicit 키워드를 사용합니다.</td>
+</tr>
+<tr>
+<td>smart_pointer</td>
+<td>on_timer에서 사용되는 msg 데이터가 shared_ptr 타입인 것을 볼 수 있었습니다. 메모리 최적화를 위해 다음 Component에게 pointer를 전달합니다.</td>
+</tr>
+<tr>
+<td>register_node_macro</td>
+<td>component register 매크로를 통해 구현한 Component를 ROS 2 시스템에 등록합니다. 이 기능은 Foxy기준 C++ 패키지만 지원합니다.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>CMakeLists.txt 수정 후 Export - 아래의 template에 맞추어 Component를 빌드하고 export합니다. Component 자체는 shared library이며 때문에 Container 실행 후 런타임에 load / unload가 가능합니다.</li>
+</ul>
+<ol>
+<li>add_library</li>
+<li>target_compile_definitions</li>
+<li>ament_target_dependencies</li>
+<li>rclcpp_components_register_nodes</li>
+<li>install</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>add_library<span style="color:#f92672">(</span>basic_component SHARED src/basic_component.cpp<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>target_compile_definitions<span style="color:#f92672">(</span>basic_component PRIVATE <span style="color:#e6db74">&#34;COMPOSITION_TUTORIAL_BUILDING_DLL&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>ament_target_dependencies<span style="color:#f92672">(</span>basic_component
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;rclcpp&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;rclcpp_components&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;std_msgs&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>rclcpp_components_register_nodes<span style="color:#f92672">(</span>basic_component <span style="color:#e6db74">&#34;composition_tutorial::BasicComponent&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>set<span style="color:#f92672">(</span>node_plugins <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>node_plugins<span style="color:#e6db74">}</span><span style="color:#e6db74">composition_tutorial::BasicComponent;</span>$<span style="color:#e6db74">&lt;TARGET_FILE:basic_component&gt;\n&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>install<span style="color:#f92672">(</span>TARGETS
+</span></span><span style="display:flex;"><span>  basic_component
+</span></span><span style="display:flex;"><span>  ARCHIVE DESTINATION lib
+</span></span><span style="display:flex;"><span>  LIBRARY DESTINATION lib
+</span></span><span style="display:flex;"><span>  RUNTIME DESTINATION bin
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>add_library</td>
+<td>현재 실행 파일을 만드는 것이 아니라 라이브러리를 생성하는 것이므로 add_executable이 아닌 add_library를 사용합니다.</td>
+</tr>
+<tr>
+<td>target_compile_definitions</td>
+<td>basic_component는 라이브러리이므로 특정 타겟에만 해당하는 컴파일 옵션을 정의합니다.</td>
+</tr>
+<tr>
+<td>ament_target_dependencies</td>
+<td>일반적인 종속석 linking입니다.</td>
+</tr>
+<tr>
+<td>rclcpp_components_register_nodes</td>
+<td>이 부분이 새롭게 등장한 내용인데요, 사실 main 함수가 없어도 실행 가능한 Node를 만들 수 있습니다. 지금은 라이브러리를 빌드하기 위한 커멘드로 사용되었지만 이는 이후에 다시 살펴보겠습니다.</td>
+</tr>
+<tr>
+<td>set</td>
+<td>node_plugins에 새롭게 컴파일한 basic_component를 추가합니다.</td>
+</tr>
+<tr>
+<td>install</td>
+<td>build 폴더에 위치시켜 ros2 component 커멘드 라인을 사용할 수 있도록 합니다.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Component 생성 및 실행 확인 - component cli를 통해 생성된 Component를 확인하고 실행해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Component 생성 확인</span>
+</span></span><span style="display:flex;"><span>$ ros2 component types
+</span></span><span style="display:flex;"><span>composition_tutorial
+</span></span><span style="display:flex;"><span>  composition_tutorial::BasicComponent
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Container 실행</span>
+</span></span><span style="display:flex;"><span>$ ros2 run rclcpp_components component_container
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 실행 중인 Container 확인 후 component load</span>
+</span></span><span style="display:flex;"><span>$ ros2 component list
+</span></span><span style="display:flex;"><span>/ComponentManager
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ ros2 component load /ComponentManager composition_tutorial composition_tutorial::BasicComponent
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Container 실행 Terminal에서 로그 확인</span>
+</span></span><span style="display:flex;"><span>&gt; <span style="color:#f92672">[</span>INFO<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>1682466495.013826879<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>BasicComponent<span style="color:#f92672">]</span>: Publishing: <span style="color:#e6db74">&#39;Hello World: 1&#39;</span>
+</span></span></code></pre></div><p>⇒ 지금은 cpp 파일에 최소한의 구현을 했지만 보통 헤더를 분리하고 visibility control을 통해 외부에서 접근할 수 있는 범위를 제한합니다.</p>
+<p>⇒ 실제 제품 개발 시 보안이 적용되어야 하는 부분이라면 Node코드 대신 Component를 제공하는 방법도 있습니다.</p>
+<h3 id="compile-time-composition">Compile-time composition</h3>
+<p>component로 동적 load / unload가 가능하지만 시스템 통합을 위해 manual 통합 코드를 작성하거나, launch file을 사용할 수 있습니다.</p>
+<ul>
+<li>직접 component들을 실행시키는 main 코드를 작성하는 경우입니다. 일전 image_pipeline_all_in_one을 통해 예시를 살펴봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span> argv[])
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>init(argc, argv);
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>executors<span style="color:#f92672">::</span>SingleThreadedExecutor executor;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Connect the nodes as a pipeline: camera_node -&gt; watermark_node -&gt; image_view_node
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>CameraNode<span style="color:#f92672">&gt;</span> camera_node <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>    camera_node <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>CameraNode<span style="color:#f92672">&gt;</span>(<span style="color:#e6db74">&#34;image&#34;</span>);
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">catch</span> (<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>exception <span style="color:#f92672">&amp;</span> e) {
+</span></span><span style="display:flex;"><span>    fprintf(stderr, <span style="color:#e6db74">&#34;%s Exiting ..</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, e.what());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">auto</span> watermark_node <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>WatermarkNode<span style="color:#f92672">&gt;</span>(<span style="color:#e6db74">&#34;image&#34;</span>, <span style="color:#e6db74">&#34;watermarked_image&#34;</span>, <span style="color:#e6db74">&#34;Hello world!&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">auto</span> image_view_node <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>ImageViewNode<span style="color:#f92672">&gt;</span>(<span style="color:#e6db74">&#34;watermarked_image&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  executor.add_node(camera_node);
+</span></span><span style="display:flex;"><span>  executor.add_node(watermark_node);
+</span></span><span style="display:flex;"><span>  executor.add_node(image_view_node);
+</span></span></code></pre></div><h3 id="composition-using-launch-actions">Composition using launch actions</h3>
+<ul>
+<li>composition container와 실행될 component들을 명시하는 launch action도 사용할 수 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>import launch
+</span></span><span style="display:flex;"><span>from launch_ros.actions import ComposableNodeContainer
+</span></span><span style="display:flex;"><span>from launch_ros.descriptions import ComposableNode
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def generate_launch_description()<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Generate launch description with multiple components.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    container <span style="color:#f92672">=</span> ComposableNodeContainer(
+</span></span><span style="display:flex;"><span>            name<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">&#39;</span>my_container<span style="color:#960050;background-color:#1e0010">&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">namespace</span><span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>            package<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">&#39;</span>rclcpp_components<span style="color:#960050;background-color:#1e0010">&#39;</span>,
+</span></span><span style="display:flex;"><span>            executable<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">&#39;</span>component_container<span style="color:#960050;background-color:#1e0010">&#39;</span>,
+</span></span><span style="display:flex;"><span>            composable_node_descriptions<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span>                ComposableNode(
+</span></span><span style="display:flex;"><span>                    package<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">&#39;</span>composition<span style="color:#960050;background-color:#1e0010">&#39;</span>,
+</span></span><span style="display:flex;"><span>                    plugin<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">&#39;</span>composition<span style="color:#f92672">::</span>Talker<span style="color:#960050;background-color:#1e0010">&#39;</span>,
+</span></span><span style="display:flex;"><span>                    name<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">&#39;</span>talker<span style="color:#960050;background-color:#1e0010">&#39;</span>),
+</span></span><span style="display:flex;"><span>                ComposableNode(
+</span></span><span style="display:flex;"><span>                    package<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">&#39;</span>composition<span style="color:#960050;background-color:#1e0010">&#39;</span>,
+</span></span><span style="display:flex;"><span>                    plugin<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">&#39;</span>composition<span style="color:#f92672">::</span>Listener<span style="color:#960050;background-color:#1e0010">&#39;</span>,
+</span></span><span style="display:flex;"><span>                    name<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">&#39;</span>listener<span style="color:#960050;background-color:#1e0010">&#39;</span>)
+</span></span><span style="display:flex;"><span>            ],
+</span></span><span style="display:flex;"><span>            output<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">&#39;</span>screen<span style="color:#960050;background-color:#1e0010">&#39;</span>,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> launch.LaunchDescription([container])
+</span></span></code></pre></div><ul>
+<li>기본 Container 이름은 /ComponentManager 이지만, remapping을 통해 namespace를 지정하거나 이 이름을 바꿀 수 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># container remapping</span>
+</span></span><span style="display:flex;"><span>ros2 run rclcpp_components component_container <span style="color:#f92672">--</span>ros<span style="color:#f92672">-</span>args <span style="color:#f92672">-</span>r __node<span style="color:#f92672">:=</span>MyContainer <span style="color:#f92672">-</span>r __ns<span style="color:#f92672">:=/</span>ns
+</span></span><span style="display:flex;"><span>ros2 component list
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">/</span>ns<span style="color:#f92672">/</span>MyContainer
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Remap node name</span>
+</span></span><span style="display:flex;"><span>ros2 component load <span style="color:#f92672">/</span>ns<span style="color:#f92672">/</span>MyContainer composition composition::Talker <span style="color:#f92672">--</span>node<span style="color:#f92672">-</span>name talker3 <span style="color:#f92672">--</span>node<span style="color:#f92672">-</span>namespace <span style="color:#f92672">/</span>ns2
+</span></span><span style="display:flex;"><span>ros2 component list
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>ns<span style="color:#f92672">/</span>MyContainer
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">1</span>  <span style="color:#f92672">/</span>ns2<span style="color:#f92672">/</span>talker3
+</span></span></code></pre></div><ul>
+<li>component에게 매개변수도 전달할 수 있습니다. use_intra_process_comms 옵션을 매개변수로 제어해 보겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>ros2 component load <span style="color:#f92672">/</span>ComponentManager composition composition::Talker <span style="color:#f92672">-</span>e use_intra_process_comms<span style="color:#f92672">:=</span>true
+</span></span></code></pre></div><p>구현과 사용에 대해서는 이정도 설명하고, 추가 자료는 링크로 남기겠습니다.</p>
+
+<div class="notices tip" ><p>Component를 shared library로 export하고 다른 package에서 import하여 사용하기 - <a href="https://discourse.ros.org/t/ament-best-practice-for-sharing-libraries/3602">Ament best practice for sharing libraries</a></p>
+</div>
+
+<h2 id="실-사용-사례---zed-ros2-composition">실 사용 사례 - ZED ros2 composition</h2>
+<p>composition의 중요성과 사용에 대해 좀 더 확실히 알 수 있는 예시를 가져와 보았습니다.</p>
+<blockquote>
+<p>Stereo Labs의 ZED Camera는 Composition을 사용하여 보다 효율적인 rgb convert, format conversion을 제공하고 있습니다. 코드를 통해 함께 살펴봅시다.⇒ 출처 : <a href="https://www.stereolabs.com/docs/ros2/ros2-composition/">https://www.stereolabs.com/docs/ros2/ros2-composition/</a></p>
+</blockquote>
+<ul>
+<li>zed_rgb_convert_component.hpp - composition인 ZedRgbCvtComponent가 구현되어 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> stereolabs
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ZedRgbCvtComponent</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> rclcpp<span style="color:#f92672">::</span>Node
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  ZED_CVT_COMPONENT_PUBLIC
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">explicit</span> ZedRgbCvtComponent(<span style="color:#66d9ef">const</span> rclcpp<span style="color:#f92672">::</span>NodeOptions <span style="color:#f92672">&amp;</span> options);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">virtual</span> <span style="color:#f92672">~</span>ZedRgbCvtComponent() {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">protected</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> camera_callback(
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> sensor_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>Image<span style="color:#f92672">::</span>ConstSharedPtr <span style="color:#f92672">&amp;</span> img,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> sensor_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>CameraInfo<span style="color:#f92672">::</span>ConstSharedPtr <span style="color:#f92672">&amp;</span> cam_info);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Publisher
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  image_transport<span style="color:#f92672">::</span>CameraPublisher mPubBgr;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Subscriber
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  image_transport<span style="color:#f92672">::</span>CameraSubscriber mSubBgra;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// QoS parameters
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  rclcpp<span style="color:#f92672">::</span>QoS mVideoQos;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// namespace stereolabs
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#endif  </span><span style="color:#75715e">// ZED_RGB_CONVERT_COMPONENT_HPP_
+</span></span></span></code></pre></div><ul>
+<li>zed_rgb_convert_component.cpp - 메모리 최적화를 위해 ConstSharedPtr 타입 input, output을 사용하고 있는 모습을 확인할 수 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> ZedRgbCvtComponent<span style="color:#f92672">::</span>camera_callback(
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> sensor_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>Image<span style="color:#f92672">::</span>ConstSharedPtr <span style="color:#f92672">&amp;</span> img,
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> sensor_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>CameraInfo<span style="color:#f92672">::</span>ConstSharedPtr <span style="color:#f92672">&amp;</span> cam_info)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Check for correct input image encoding
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (img<span style="color:#f92672">-&gt;</span>encoding <span style="color:#f92672">!=</span> sensor_msgs<span style="color:#f92672">::</span>image_encodings<span style="color:#f92672">::</span>BGRA8) {
+</span></span><span style="display:flex;"><span>    RCLCPP_ERROR(get_logger(), <span style="color:#e6db74">&#34;The input topic image requires &#39;BGRA8&#39; encoding&#34;</span>);
+</span></span><span style="display:flex;"><span>    exit(EXIT_FAILURE);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Convert BGRA to BGR using OpenCV
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span> data <span style="color:#f92672">=</span> <span style="color:#66d9ef">const_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">void</span> <span style="color:#f92672">*&gt;</span>(<span style="color:#66d9ef">reinterpret_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">void</span> <span style="color:#f92672">*&gt;</span>(<span style="color:#f92672">&amp;</span>img<span style="color:#f92672">-&gt;</span>data[<span style="color:#ae81ff">0</span>]));
+</span></span><span style="display:flex;"><span>  cv<span style="color:#f92672">::</span>Mat bgra(img<span style="color:#f92672">-&gt;</span>height, img<span style="color:#f92672">-&gt;</span>width, CV_8UC4, data);
+</span></span><span style="display:flex;"><span>  cv<span style="color:#f92672">::</span>Mat bgr;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  cv<span style="color:#f92672">::</span>cvtColor(bgra, bgr, cv<span style="color:#f92672">::</span>COLOR_BGRA2BGR);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Create the output message and copy coverted data
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>sensor_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>Image<span style="color:#f92672">&gt;</span> out_bgr <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>sensor_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>Image<span style="color:#f92672">&gt;</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  out_bgr<span style="color:#f92672">-&gt;</span>header.stamp <span style="color:#f92672">=</span> img<span style="color:#f92672">-&gt;</span>header.stamp;
+</span></span><span style="display:flex;"><span>  out_bgr<span style="color:#f92672">-&gt;</span>header.frame_id <span style="color:#f92672">=</span> img<span style="color:#f92672">-&gt;</span>header.frame_id;
+</span></span><span style="display:flex;"><span>  out_bgr<span style="color:#f92672">-&gt;</span>height <span style="color:#f92672">=</span> bgr.rows;
+</span></span><span style="display:flex;"><span>  out_bgr<span style="color:#f92672">-&gt;</span>width <span style="color:#f92672">=</span> bgr.cols;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> num <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;  <span style="color:#75715e">// for endianness detection
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  out_bgr<span style="color:#f92672">-&gt;</span>is_bigendian <span style="color:#f92672">=</span> <span style="color:#f92672">!</span>(<span style="color:#f92672">*</span><span style="color:#66d9ef">reinterpret_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span> <span style="color:#f92672">*&gt;</span>(<span style="color:#f92672">&amp;</span>num) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  out_bgr<span style="color:#f92672">-&gt;</span>step <span style="color:#f92672">=</span> bgr.step;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  size_t size <span style="color:#f92672">=</span> out_bgr<span style="color:#f92672">-&gt;</span>step <span style="color:#f92672">*</span> out_bgr<span style="color:#f92672">-&gt;</span>height;
+</span></span><span style="display:flex;"><span>  out_bgr<span style="color:#f92672">-&gt;</span>data.resize(size);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  out_bgr<span style="color:#f92672">-&gt;</span>encoding <span style="color:#f92672">=</span> sensor_msgs<span style="color:#f92672">::</span>image_encodings<span style="color:#f92672">::</span>BGR8;
+</span></span><span style="display:flex;"><span>  memcpy(<span style="color:#66d9ef">reinterpret_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span> <span style="color:#f92672">*&gt;</span>((<span style="color:#f92672">&amp;</span>out_bgr<span style="color:#f92672">-&gt;</span>data[<span style="color:#ae81ff">0</span>])), <span style="color:#f92672">&amp;</span>bgr.data[<span style="color:#ae81ff">0</span>], size);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Publish the new image message coupled with camera info from the original message
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  mPubBgr.publish(out_bgr, cam_info);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+<div class="notices note" ><p>camera_callback의 목표는 cv::cvtColor를 통해 BGRA (CV_8UC4)을 BGR (CV_8UC4) 타입으로 변환하는 것입니다.</p>
+</div>
+
+<ul>
+<li>ZedCamera Composition과 ZedRgbCvtComponent Composition을 함께 사용하는 별도 Executor를 만들어 제공하고 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span> argv[]){
+</span></span><span style="display:flex;"><span>    setvbuf(stdout, NULL, _IONBF, BUFSIZ);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    rclcpp<span style="color:#f92672">::</span>init(argc, argv);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    rclcpp<span style="color:#f92672">::</span>executors<span style="color:#f92672">::</span>MultiThreadedExecutor exec;
+</span></span><span style="display:flex;"><span>    rclcpp<span style="color:#f92672">::</span>NodeOptions options;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Enable intraprocess communication
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    options.use_intra_process_comms(true);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Add ZedCamera node
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">auto</span> zed_node <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>stereolabs<span style="color:#f92672">::</span>ZedCamera<span style="color:#f92672">&gt;</span>(options);
+</span></span><span style="display:flex;"><span>    exec.add_node(zed_node);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Add ZedRgbCvtComponent node
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">auto</span> zed_cvt_node <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>stereolabs<span style="color:#f92672">::</span>ZedRgbCvtComponent<span style="color:#f92672">&gt;</span>(options);
+</span></span><span style="display:flex;"><span>    exec.add_node(zed_cvt_node);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    exec.spin();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    rclcpp<span style="color:#f92672">::</span>shutdown();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+<div class="notices note" ><p>이는 물론 launch file로도 가능할 것입니다. 😁</p>
+</div>
+
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/kr/ros2_foxy/lecture14/" title="Lecture14. Useful ROS 2 Examples (Control Part)"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kr/ros2_foxy/lecture16/" title="Lecture16" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1682765761"></script>
+    <script src="/js/perfect-scrollbar.min.js?1682765761"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1682765761"></script>
+    <script src="/js/jquery.sticky.js?1682765761"></script>
+    <script src="/js/featherlight.min.js?1682765761"></script>
+    <script src="/js/highlight.pack.js?1682765761"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1682765761"></script>
+    <script src="/js/learn.js?1682765761"></script>
+    <script src="/js/hugo-learn.js?1682765761"></script>
+    
+        
+            <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

@@ -1,0 +1,3106 @@
+<!DOCTYPE html>
+<html lang="kr" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.104.1" />
+    <meta name="description" content="COM2018 OOP Class Lecture Note">
+<meta name="author" content="Soo Young Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Lecture9. ROS 2 Action Programming - Documentation for Hugo Learn Theme</title>
+
+    
+    <link href="/css/nucleus.css?1682765761" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1682765761" rel="stylesheet">
+    <link href="/css/hybrid.css?1682765761" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1682765761" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1682765761" rel="stylesheet">
+    <link href="/css/auto-complete.css?1682765761" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1682765761" rel="stylesheet">
+    <link href="/css/theme.css?1682765761" rel="stylesheet">
+    <link href="/css/tabs.css?1682765761" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1682765761" rel="stylesheet">
+    
+    <link href="/css/theme-green.css?1682765761" rel="stylesheet">
+    
+    <link href="/css/foo.css?1682765761" rel="stylesheet"><link href="/css/bar.css?1682765761" rel="stylesheet">
+
+    <script src="/js/jquery-3.3.1.min.js?1682765761"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/kr/ros2_foxy/lecture9/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img width="1097" alt="image" src="https://user-images.githubusercontent.com/12381733/209764275-05dcbdbf-cef7-47ad-94a6-6d61febad01e.png">
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1682765761"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1682765761"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/kr";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1682765761"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/kr'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_basic_noetic/" title="ROS Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_basic_noetic/">
+          <b>ROS Noetic. </b>ROS Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture1/" title="Lecture1 - Introduction to ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture1/">
+        Lecture1 - Introduction to ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture2/" title="Lecture2 - Dev Env Setup" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture2/">
+        Lecture2 - Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture3/" title="Lecture3 - Core of ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture3/">
+        Lecture3 - Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture4/" title="Lecture4 - ROS Launch, RViz" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture4/">
+        Lecture4 - ROS Launch, RViz
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture5/" title="Lecture5 - First Programming, ROS Topic" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture5/">
+        Lecture5 - First Programming, ROS Topic
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture6/" title="Lecture6 - ROS Service, Parameter" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture6/">
+        Lecture6 - ROS Service, Parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture7/" title="Lecture7 - Rqt Tools and rosbag, ROS Time" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture7/">
+        Lecture7 - Rqt Tools and rosbag, ROS Time
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture8/" title="Lecture8 - Deal with Open Source Projects, Custom Interfaces" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture8/">
+        Lecture8 - Deal with Open Source Projects, Custom Interfaces
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture9/" title="Lecture9 - ROS TF and Examples" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture9/">
+        Lecture9 - ROS TF and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture10/" title="Lecture10 - TF2 Examples, Outro" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture10/">
+        Lecture10 - TF2 Examples, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/advanced_contents_ros1/" title="ROS" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/advanced_contents_ros1/">
+          <b>Advanced Contents. </b>ROS
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture1/" title="Lecture1 - ROSCPP" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture1/">
+        Lecture1 - ROSCPP
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture2/" title="Lecture2 - More About ROS System" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture2/">
+        Lecture2 - More About ROS System
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture3/" title="Lecture3 - SROS" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture3/">
+        Lecture3 - SROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_basic_foxy/" title="ROS 2 Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros2_basic_foxy/">
+          <b>[Old]ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture1/" title="Lecture1 - Introduction to ROS 2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture1/">
+        Lecture1 - Introduction to ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture2/" title="Lecture2 - ROS 2 Node, Package" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture2/">
+        Lecture2 - ROS 2 Node, Package
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture3/" title="Lecture3 - ROS 2 Node Programming, ROS 2 parameter" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture3/">
+        Lecture3 - ROS 2 Node Programming, ROS 2 parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture4/" title="Lecture4 - ROS 2 Node C&#43;&#43; Programming" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture4/">
+        Lecture4 - ROS 2 Node C&#43;&#43; Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture5/" title="Lecture5 - ROS 2 Topic and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture5/">
+        Lecture5 - ROS 2 Topic and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture6/" title="Lecture6 - ROS 2 Service and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture6/">
+        Lecture6 - ROS 2 Service and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture7/" title="Lecture7 - Useful ROS 2 Example, Navigation2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture7/">
+        Lecture7 - Useful ROS 2 Example, Navigation2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture8/" title="Lecture8 - ROS 2 Action and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture8/">
+        Lecture8 - ROS 2 Action and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture9/" title="Lecture9 - C&#43;&#43; Programming Again, Outro" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture9/">
+        Lecture9 - C&#43;&#43; Programming Again, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_foxy/" title="ROS 2 Basics" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/kr/ros2_foxy/">
+          <b>[New]ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture1/" title="Lecture1. What is ROS?" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture1/">
+        Lecture1. What is ROS?
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture2/" title="Lecture2. Dev Env Setup" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture2/">
+        Lecture2. Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture3/" title="Lecture3. Core of ROS" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture3/">
+        Lecture3. Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture4/" title="Lecture4. ROS 2 Node and Parameter Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture4/">
+        Lecture4. ROS 2 Node and Parameter Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture5/" title="Lecture5. ROS 2 Communication Mechanisms" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture5/">
+        Lecture5. ROS 2 Communication Mechanisms
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture6/" title="Lecture6. ROS 2 Tools" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture6/">
+        Lecture6. ROS 2 Tools
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture7/" title="Lecture7. ROS 2 Topic and Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture7/">
+        Lecture7. ROS 2 Topic and Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture8/" title="Lecture8. ROS 2 Service and Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture8/">
+        Lecture8. ROS 2 Service and Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture9/" title="Lecture9. ROS 2 Action Programming" class="dd-item active">
+        <a href="/kr/ros2_foxy/lecture9/">
+        Lecture9. ROS 2 Action Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture10/" title="Lecture10. TF and ROS 2" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture10/">
+        Lecture10. TF and ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture11/" title="Lecture11. About Gazebo - 1" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture11/">
+        Lecture11. About Gazebo - 1
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture12/" title="Lecture12. About Gazebo - 2" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture12/">
+        Lecture12. About Gazebo - 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture13/" title="Lecture13. Useful ROS 2 Examples (Sensor Part)" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture13/">
+        Lecture13. Useful ROS 2 Examples (Sensor Part)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture14/" title="Lecture14. Useful ROS 2 Examples (Control Part)" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture14/">
+        Lecture14. Useful ROS 2 Examples (Control Part)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture15/" title="Lecture15. Advanced ROS 2, Package Management" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture15/">
+        Lecture15. Advanced ROS 2, Package Management
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture16/" title="Lecture16" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture16/">
+        Lecture16
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture17/" title="Lecture17" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture17/">
+        Lecture17
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture18/" title="Lecture18" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture18/">
+        Lecture18
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture19/" title="Lecture19" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture19/">
+        Lecture19
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture20/" title="Lecture20" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture20/">
+        Lecture20
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/advanced_contents_ros2/" title="ROS 2" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/advanced_contents_ros2/">
+          <b>Advanced Contents. </b>ROS 2
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture1/" title="Lecture1 - About DDS" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture1/">
+        Lecture1 - About DDS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture2/" title="Lecture11 - About DDS (2)" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture2/">
+        Lecture11 - About DDS (2)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture3/" title="Lecture12 - SROS2" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture3/">
+        Lecture12 - SROS2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_and_gazebo/" title="Gazebo and ROS" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_and_gazebo/">
+          <b>Gazebo. </b>Gazebo and ROS
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_and_gazebo/lecture1/" title="Lecture1 - Gazebo and Robot" class="dd-item ">
+        <a href="/kr/ros_and_gazebo/lecture1/">
+        Lecture1 - Gazebo and Robot
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_and_gazebo/lecture2/" title="Lecture2 - Gazebo and Robot(2)" class="dd-item ">
+        <a href="/kr/ros_and_gazebo/lecture2/">
+        Lecture2 - Gazebo and Robot(2)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros1"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 1</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros2"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 2</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="kr" value="/kr/ros2_foxy/lecture9/" selected>Korean</option>
+                    
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='' href="https://github.com/com2018-fa22/hugo-blog/tree/main/content/ros2_foxy/lecture9.kr.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text"></span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                   Lecture9. ROS 2 Action Programming
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#ros-2-action-programming">ROS 2 Action Programming</a>
+      <ul>
+        <li><a href="#ros-2-action-programming---python">ROS 2 Action Programming - python</a></li>
+        <li><a href="#코드-분석">코드 분석</a></li>
+        <li><a href="#example-2---action-client-parking-master">example 2 - Action Client (Parking Master)</a></li>
+        <li><a href="#코드-분석-1">코드 분석</a></li>
+        <li><a href="#example-3---action-server-dataset-generation">example 3 - Action Server (Dataset Generation)</a></li>
+        <li><a href="#이-node를-개발해보는-것이-이번-시간의-과제입니다">💪 이 Node를 개발해보는 것이 이번 시간의 과제입니다.</a></li>
+      </ul>
+    </li>
+    <li><a href="#ros-2-action-programming---c">ROS 2 Action Programming - C++</a>
+      <ul>
+        <li><a href="#example-1---action-server-parking-master-1">example 1 - Action Server (Parking Master)</a></li>
+        <li><a href="#코드-분석-2">코드 분석</a></li>
+        <li><a href="#example-2---action-client-parking-master-1">example 2 - Action Client (Parking Master)</a></li>
+        <li><a href="#코드-분석-3">코드 분석</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Lecture9. ROS 2 Action Programming
+            </h1>
+          
+
+        
+
+
+<h2 id="ros-2-action-programming">ROS 2 Action Programming</h2>
+<blockquote>
+<p>강의를 열심히 따라오면서 개념을 잊어버렸을 수 있으므로 Action에 대해서 간단히 개념 복습을 해보겠습니다.</p>
+</blockquote>
+<p><img src="/kr/ros2_foxy/images9/action.gif?height=300px" alt="action.gif"></p>
+<ul>
+<li>image from : <a href="https://docs.ros.org/en/foxy/Tutorials/Understanding-ROS2-Actions.html">https://docs.ros.org/en/foxy/Tutorials/Understanding-ROS2-Actions.html</a></li>
+</ul>
+<p>사진과 같이 Action Client와 Server가 주고받는 내용은 크게 5가지가 있습니다.</p>
+<ol>
+<li>Client ⇒ Server, Goal Request (service request와 유사합니다.)</li>
+<li>server ⇒ client, Goal Response</li>
+<li>client ⇒ server, Result Request</li>
+<li>server ⇒ client, Feedback (topic과 유사합니다.)</li>
+<li>server ⇒ client, Result Response</li>
+</ol>
+
+<div class="notices tip" ><p>만약 4번 도중 cancel이 발생하면 Action은 종료됩니다.</p>
+</div>
+
+<blockquote>
+<p>이렇게 Action은 Topic, Service의 특징을 모두 갖고 있으며 Cancel이라는 추가 기능까지 갖추고 있는 복잡한 통신 메커니즘이었습니다. 이번 예시에서는 ActionServer와 ActionClient, 그리고 과제로 별도 ActionServer까지 제시해보겠습니다.</p>
+</blockquote>
+<h3 id="ros-2-action-programming---python">ROS 2 Action Programming - python</h3>
+<h4 id="example-1---action-server-parking-master">example 1 - Action Server (Parking Master)</h4>
+<p><img src="/kr/ros2_foxy/images9/Untitled.png?height=400px" alt="Untitled.png"></p>
+<p>image from : <a href="https://www.kihoilbo.co.kr/news/articleView.html?idxno=1006073">기호일보</a></p>
+<blockquote>
+<p>Action을 사용하는 재미있는 예시를 준비해 보았습니다. 아래 명령어를 입력해 주세요</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1</span>
+</span></span><span style="display:flex;"><span>ros2 launch src_gazebo wall_world<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
+</span></span><span style="display:flex;"><span>ros2 run py_action_tutorial parking_action_server
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 3</span>
+</span></span><span style="display:flex;"><span>ros2 action send_goal <span style="color:#f92672">/</span>src_parking custom_interfaces<span style="color:#f92672">/</span>action<span style="color:#f92672">/</span>Parking <span style="color:#e6db74">&#34;start_flag: true&#34;</span> <span style="color:#f92672">--</span>feedback
+</span></span></code></pre></div>
+<div class="notices note" ><p>현재 custom interface를 사용하고 있으므로 workspace를 sourcing 해야 합니다!</p>
+</div>
+
+<ul>
+<li>예시 실행 시 벽에 인접하여 흰색 상자들이 주차 공간을 배정해줄 것입니다</li>
+</ul>
+<p>⇒ rqt_robot_steering으로 로봇을 잘 제어하여 주어진 주차 공간에 알맞게 주차를 해보세요!</p>
+<p><img src="/kr/ros2_foxy/images9/Untitled1.png?height=400px" alt="Untitled1.png"></p>
+<ul>
+<li>터미널 상의 Feedback을 통해 벽과의 거리를 확인할 수 있으며, 이 거리가 <strong>0.5m 이내</strong>가 되면 주차가 완료됩니다. 완료 시 좌우 공간이 얼마가 균형이 맞는지에 따라 다른 Result를 얻게 됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>Feedback:
+</span></span><span style="display:flex;"><span>    distance: <span style="color:#ae81ff">0.7399989366531372</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Feedback:
+</span></span><span style="display:flex;"><span>    distance: <span style="color:#ae81ff">0.630066454410553</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Result:
+</span></span><span style="display:flex;"><span>    message: <span style="color:#960050;background-color:#1e0010">&#39;</span>[Success<span style="color:#f92672">!</span>] Oh... Teach me how you did :<span style="color:#ae81ff">0</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images9/src_parking.gif?height=300px" alt="src_parking.gif"></p>
+<p>프로그래밍을 시작하기 전, 필요한 통신 메커니즘들을 살펴봅시다.</p>
+<ol>
+<li>
+<p>Action Server : Goal을 받으면, 정면 벽과의 거리를 feedback으로 전달합니다. 최종 Result는 String으로 성공 여부를 알려줍니다.</p>
+</li>
+<li>
+<p>LaserScan Sub : 주변 물체와의 스캔된 거리를 알 수 있습니다.</p>
+<p>⇒ Feedback Callback과 Subscription Callback 두 Callback 함수도 구현해야 할 것입니다.</p>
+</li>
+</ol>
+<ul>
+<li>이번 예시를 위해 custom interface를 만들어 보았습니다. (custom interface를 생성하는 방법에 대해 복습을 해볼 좋은 기회입니다. ⇒ 7강. ROS 2 Topic and Programming)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>$ ros2 interface show custom_interfaces/action/Parking
+</span></span><span style="display:flex;"><span>#goal definition
+</span></span><span style="display:flex;"><span>bool start_flag
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>#result definition
+</span></span><span style="display:flex;"><span>string message
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>#feedback definition
+</span></span><span style="display:flex;"><span>float32 distance
+</span></span></code></pre></div><h3 id="코드-분석">코드 분석</h3>
+<ul>
+<li>rclpy에서 Action Server를 사용하기 위해서는 ActionServer라는 별도의 패키지를 import 해야 합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> rclpy
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.node <span style="color:#f92672">import</span> Node
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.action <span style="color:#f92672">import</span> ActionServer
+</span></span></code></pre></div><ul>
+<li>코드 분석 전 살펴본 바와 같이 두 종류의 핸들러가 필요합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ParkingActionServer</span>(Node):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__(<span style="color:#e6db74">&#39;parking_action_server&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>laser_sub <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_subscription(
+</span></span><span style="display:flex;"><span>            LaserScan, <span style="color:#e6db74">&#39;scan&#39;</span>, self<span style="color:#f92672">.</span>sub_callback, <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>action_server <span style="color:#f92672">=</span> ActionServer(
+</span></span><span style="display:flex;"><span>            self, Parking, <span style="color:#e6db74">&#39;src_parking&#39;</span>,
+</span></span><span style="display:flex;"><span>            goal_callback<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>goal_callback,
+</span></span><span style="display:flex;"><span>            cancel_callback<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>cancel_callback,
+</span></span><span style="display:flex;"><span>            execute_callback<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>execute_callback,
+</span></span><span style="display:flex;"><span>        )
+</span></span></code></pre></div><ul>
+<li>이제 Action의 callback 지옥을 시작해보려 하는데요, 다시 한 번 개념을 다잡고 갑시다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>goal_callback</td>
+<td>client로부터 첫 goal request 발생 시 실행되는 cb</td>
+</tr>
+<tr>
+<td>cancel_callback</td>
+<td>feedback 도중 cancel request 발생 시 실행되는 cb</td>
+</tr>
+<tr>
+<td>execute_callback</td>
+<td>feedback 중 실행되는 cb</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>goal_callback은 goal message를 매개변수로 가지며, <strong>ACCEPT</strong> 혹은 <strong>Reject</strong> 값을 리턴합니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.action <span style="color:#f92672">import</span> GoalResponse
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">goal_callback</span>(self, goal_request):
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#39;Received goal request.&#39;</span>)
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>goal <span style="color:#f92672">=</span> goal_request
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> GoalResponse<span style="color:#f92672">.</span>ACCEPT
+</span></span></code></pre></div><ol start="2">
+<li><strong>cancel_callback</strong>은 goal_handle이라는 action handler object를 매개변수로 받습니다. 이 goal_handle 내부에는 여러 API들이 구현되어 있어 직접 확인해보고 넘어가고자 합니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.action <span style="color:#f92672">import</span> CancelResponse
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">cancel_callback</span>(self, goal_handle):
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>is_sub <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>is_done <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e"># print(dir(goal_handle))</span>
+</span></span><span style="display:flex;"><span>    goal_handle<span style="color:#f92672">.</span>canceled()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#39;Received cancel request&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> CancelResponse<span style="color:#f92672">.</span>ACCEPT
+</span></span></code></pre></div><ol start="3">
+<li><strong>execute_callback</strong>에서 주로 실제 로직이 구현되며, 업데이트되는 환경에 따라 client에게 feedback을 전달하고, 최종 result가 발동되는 조건도 구현합니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">execute_callback</span>(self, goal_handle):
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>    feedback_msg <span style="color:#f92672">=</span> Parking<span style="color:#f92672">.</span>Feedback()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> self<span style="color:#f92672">.</span>f_obs_distance <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span> <span style="color:#f92672">and</span> self<span style="color:#f92672">.</span>is_done <span style="color:#f92672">==</span> <span style="color:#66d9ef">False</span>:
+</span></span><span style="display:flex;"><span>        goal_handle<span style="color:#f92672">.</span>publish_feedback(feedback_msg)
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> result
+</span></span></code></pre></div><blockquote>
+<p>이번 예시의 로직을 간단하게 설명해보겠습니다. 로봇이 벽에 인접하게 되어 while loop를 벗어나면 <strong>goal succed</strong>를 수행하고, Result를 리턴합니다. 완료 시 좌우 물체와의 거리가 균일할 때 성공으로 판정짓습니다.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    goal_handle<span style="color:#f92672">.</span>succeed()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    result <span style="color:#f92672">=</span> Parking<span style="color:#f92672">.</span>Result()
+</span></span><span style="display:flex;"><span>    lr_diff <span style="color:#f92672">=</span> abs(self<span style="color:#f92672">.</span>r_obs_distance <span style="color:#f92672">-</span> self<span style="color:#f92672">.</span>l_obs_distance)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> lr_diff <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.15</span>:
+</span></span><span style="display:flex;"><span>        result<span style="color:#f92672">.</span>message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;[Success!] Oh... Teach me how you did :0&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        result<span style="color:#f92672">.</span>message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;[Fail] Be careful, Poor Driver! &#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>is_done <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> result
+</span></span></code></pre></div><ul>
+<li>이번 예시의 main문에서 특별한 점을 찾아볼 수 있습니다. <strong>MultiThreadedExecutor</strong>를 사용하고 있는데요. 이것이 하는 역할이 무엇일지 지금은 간단하게 실습을 통해 살펴봅시다.
+⇒ main 문의 주석을 토글하고, 다시 예제를 실행 시켜봅니다. 어떠한 결과를 얻으셨나요?</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>(args<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    rclpy<span style="color:#f92672">.</span>init(args<span style="color:#f92672">=</span>args)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># parking_action_server = ParkingActionServer()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># rclpy.spin(parking_action_server)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># parking_action_server.destroy_node()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># rclpy.shutdown()ㅁ</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
+</span></span></code></pre></div><ul>
+<li>현 예시는 여러 종류의 callback을 갖고 있습니다. 문제는 <strong>execute_callback</strong>이 실행되면서 while loop로 진입하면, 자원을 점유하여 sub_callback이 동작할 수 없는 구조가 됩니다. 이를 해결하기 위해 ROS 2에서는 Executor라는 개념을 도입합니다. (자세한 내용은 이후 살펴보겠습니다.)</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images9/Untitled2.png?height=300px" alt="Untitled2.png"></p>
+<ul>
+<li>image from : <a href="https://docs.ros.org/en/foxy/Concepts/About-Executors.html">docs.ros.org</a></li>
+</ul>
+<blockquote>
+<p>이후 여러가지 구현을 하다 보면 지금처럼 다중 Subscribe를 해야하는 경우, 혹은 하나의 프로세스에서 여러개의 Node를 실행시켜야 하는 경우가 발생합니다. 이때, <strong>Node Composition</strong>과 <strong>MultiThreadedExecutor</strong>를 적극 사용해보세요!</p>
+</blockquote>
+<h3 id="example-2---action-client-parking-master">example 2 - Action Client (Parking Master)</h3>
+<p>Action 자체도 쉽지 않은 개념인데 MultiThreadedExecutor등 새로운 개념으로 많은 혼란이 있을 것 같습니다. 따라서 Action Client는 일전 Parking Example의 Client만 구현해보도록 하겠습니다.</p>
+<ul>
+<li>이전 예시에서는 콘솔 창을 통해 직접 Action Client를 실행하였습니다.
+⇒ ros2 action send_goal <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>ros2 action send_goal <span style="color:#f92672">/</span>src_parking custom_interfaces<span style="color:#f92672">/</span>action<span style="color:#f92672">/</span>Parking <span style="color:#e6db74">&#34;start_flag: true&#34;</span> <span style="color:#f92672">--</span>feedback
+</span></span></code></pre></div><ul>
+<li>Action Client 예시는 바로 이 커멘드 라인을 코드로 호출하는 것입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>ros2 run cpp_action_tutorial parking_status_client
+</span></span></code></pre></div><h3 id="코드-분석-1">코드 분석</h3>
+<ul>
+<li>parking_status_client.py를 참고하시면 됩니다. 파일의 처음으로 ActionClient와 action data type을 import하고 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> rclpy
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.node <span style="color:#f92672">import</span> Node
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.action <span style="color:#f92672">import</span> ActionClient
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> custom_interfaces.action <span style="color:#f92672">import</span> Parking
+</span></span></code></pre></div><ul>
+<li>이번 예시에서도 Callback이 많아 정리부터 하고 넘어가겠습니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>feedback_callback</td>
+<td>Action Server로부터의 feedback cb</td>
+</tr>
+<tr>
+<td>goal_response_callback</td>
+<td>Action Server로부터의 Response cb</td>
+</tr>
+<tr>
+<td>get_result_callback</td>
+<td>Action Server로부터의 Result cb</td>
+</tr>
+<tr>
+<td>cancel_goal</td>
+<td>Action Server로 전달하는 Cancel cb</td>
+</tr>
+<tr>
+<td>goal_canceled_callback</td>
+<td>Action Server로부터의 Cancel cb</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>생성자에서는 Action Client 생성 외에 큰 작업은 없습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ParkingActionClient</span>(Node):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__(<span style="color:#e6db74">&#39;parking_action_client&#39;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_action_client <span style="color:#f92672">=</span> ActionClient(self, Parking, <span style="color:#e6db74">&#39;src_parking&#39;</span>)
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parking</td>
+<td>Action data type</td>
+</tr>
+<tr>
+<td>&lsquo;src_parking’</td>
+<td>Action name</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>send_goal()은 main에서 직접 호출되는 함수로, feedback_callback과 goal_response_callback을 바인딩합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">send_goal</span>(self):
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>_send_goal_future <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>_action_client<span style="color:#f92672">.</span>send_goal_async(goal_msg, feedback_callback<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>feedback_callback)
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>_send_goal_future<span style="color:#f92672">.</span>add_done_callback(self<span style="color:#f92672">.</span>goal_response_callback)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>(args<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>    action_client<span style="color:#f92672">.</span>send_goal()
+</span></span></code></pre></div><ul>
+<li>goal_response_callback 완료 시, get_result_callback이 실행되며, result를 받았다는 것은 action이 완료되었다는 뜻이므로 종료 로직이 포함됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">goal_response_callback</span>(self, future):
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>goal_handle <span style="color:#f92672">=</span> future<span style="color:#f92672">.</span>result()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> self<span style="color:#f92672">.</span>goal_handle<span style="color:#f92672">.</span>accepted:
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#39;Goal rejected :(&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#39;Goal accepted :)&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>_get_result_future <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>goal_handle<span style="color:#f92672">.</span>get_result_async()
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>_get_result_future<span style="color:#f92672">.</span>add_done_callback(self<span style="color:#f92672">.</span>get_result_callback)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_result_callback</span>(self, future):
+</span></span><span style="display:flex;"><span>    result <span style="color:#f92672">=</span> future<span style="color:#f92672">.</span>result()<span style="color:#f92672">.</span>result
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Result: </span><span style="color:#e6db74">{</span>result<span style="color:#f92672">.</span>message<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>    rclpy<span style="color:#f92672">.</span>shutdown()
+</span></span></code></pre></div><ul>
+<li>cancel 로직은 feedback_callback안에 존재합니다. 피드백을 통해 받은 전방 물체와의 거리가 너무 멀어져버리면 오류로 인지하고 cancel이 이루어지는 것입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">feedback_callback</span>(self, feedback_msg):
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> feedback<span style="color:#f92672">.</span>distance <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">6.0</span>:
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>cancel_goal()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">cancel_goal</span>(self):
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#39;Canceling goal&#39;</span>)
+</span></span><span style="display:flex;"><span>    future <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>goal_handle<span style="color:#f92672">.</span>cancel_goal_async()
+</span></span><span style="display:flex;"><span>    future<span style="color:#f92672">.</span>add_done_callback(self<span style="color:#f92672">.</span>goal_canceled_callback)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">goal_canceled_callback</span>(self, future):
+</span></span><span style="display:flex;"><span>    cancel_response <span style="color:#f92672">=</span> future<span style="color:#f92672">.</span>result()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> len(cancel_response<span style="color:#f92672">.</span>goals_canceling) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#39;Cancelling of goal complete&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>warning(<span style="color:#e6db74">&#39;Goal failed to cancel&#39;</span>)
+</span></span></code></pre></div><p>⇒ 따라서 예시 실행 시 의도적으로 뒤로 가버리면 Action이 종료됩니다.</p>
+<ul>
+<li>main문에서 send_goal을 호출하는 것을 잊지 마세요.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>(args<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>    rclpy<span style="color:#f92672">.</span>init(args<span style="color:#f92672">=</span>args)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    action_client <span style="color:#f92672">=</span> ParkingActionClient()
+</span></span><span style="display:flex;"><span>    action_client<span style="color:#f92672">.</span>send_goal()
+</span></span><span style="display:flex;"><span>    rclpy<span style="color:#f92672">.</span>spin(action_client)
+</span></span></code></pre></div><h3 id="example-3---action-server-dataset-generation">example 3 - Action Server (Dataset Generation)</h3>
+<blockquote>
+<p>이제 Topic, Service, Action을 모두 배워보았습니다. 때문에 이를 모두 사용하는 과제를 내드리고자 합니다.</p>
+</blockquote>
+<ul>
+<li>Dataset Generation</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Terminal1 - gazebo env</span>
+</span></span><span style="display:flex;"><span>ros2 launch rgbd_world depth_world<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal2 - Assignment Node</span>
+</span></span><span style="display:flex;"><span>ros2 run py_action_tutorial dataset_generation_server
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal3 - Action Call</span>
+</span></span><span style="display:flex;"><span>ros2 action send_goal <span style="color:#f92672">/</span>dataset_generation custom_interfaces<span style="color:#f92672">/</span>action<span style="color:#f92672">/</span>DataGen <span style="color:#e6db74">&#34;{x: 1, z: 1, model_name: beer}&#34;</span>
+</span></span></code></pre></div><ul>
+<li>선택한 물체와 위치에 따라 총 6번 spawn, capture, deletion이 반복됩니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images9/action_datasetgen.gif?height=300px" alt="action_datasetgen.gif"></p>
+<p>⇒ 모든 작업이 완료된 후 workspace에는 다음과 같이 사진 dataset이 생성됩니다.</p>
+<p><img src="/kr/ros2_foxy/images9/Untitled3.png?height=300px" alt="Untitled3.png"></p>
+<h3 id="이-node를-개발해보는-것이-이번-시간의-과제입니다">💪 이 Node를 개발해보는 것이 이번 시간의 과제입니다.</h3>
+<ul>
+<li><strong>Hint 1. 필요한 통신 메커니즘</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>create_subscription</td>
+<td>image topic을 받아 저장해야 합니다.</td>
+</tr>
+<tr>
+<td>create_client</td>
+<td>일전 Service Client 때처럼 물성치를 정지시키고, 원하는 위치에 물체를 등장시키고, 또 삭제하는 작업이 필요합니다.</td>
+</tr>
+<tr>
+<td>ActionServer</td>
+<td>Action을 통해 잘 진행되고 있는지 로직을 구현하고, Service들도 핸들링합니다.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Hint 2. action data type</strong></li>
+</ul>
+<p>이번 예시를 위해 사용할 데이터 타입을 미리 준비해두었습니다. 하지만, 직접 여러분만의 interface를 만들어보고, 사용해보기를 추천드립니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#goal definition</span>
+</span></span><span style="display:flex;"><span>string model_name
+</span></span><span style="display:flex;"><span>float32 x
+</span></span><span style="display:flex;"><span>float32 y
+</span></span><span style="display:flex;"><span>float32 z
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#result definition</span>
+</span></span><span style="display:flex;"><span>string message
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#feedback definition</span>
+</span></span><span style="display:flex;"><span>string message
+</span></span></code></pre></div><ul>
+<li><strong>Hint 3. sleep</strong></li>
+</ul>
+<p>사진이 찍히기까지 시간 여유를 주기 위해 create_rate 함수 사용을 권장합니다. (단위는 Hz)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>self<span style="color:#f92672">.</span>rate <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_rate(<span style="color:#ae81ff">0.3</span>)
+</span></span><span style="display:flex;"><span>self<span style="color:#f92672">.</span>rate<span style="color:#f92672">.</span>sleep()
+</span></span></code></pre></div><p>⇒ 해설은 다음 시간에 진행하도록 하겠습니다!!</p>
+<h2 id="ros-2-action-programming---c">ROS 2 Action Programming - C++</h2>
+<h3 id="example-1---action-server-parking-master-1">example 1 - Action Server (Parking Master)</h3>
+<ul>
+<li>바로 예시 실행은 다음과 같습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1</span>
+</span></span><span style="display:flex;"><span>ros2 launch src_gazebo wall_world<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
+</span></span><span style="display:flex;"><span>ros2 run cpp_action_tutorial parking_status_server
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 3</span>
+</span></span><span style="display:flex;"><span>ros2 action send_goal <span style="color:#f92672">/</span>src_parking custom_interfaces<span style="color:#f92672">/</span>action<span style="color:#f92672">/</span>Parking <span style="color:#e6db74">&#34;start_flag: true&#34;</span> <span style="color:#f92672">--</span>feedback
+</span></span></code></pre></div><h3 id="코드-분석-2">코드 분석</h3>
+<ul>
+<li>프로그래밍 중 타이핑을 최소화하기위해 ServerGoalHandle에 대한 키워드를 재정의하였습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#include &#34;rclcpp/rclcpp.hpp&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#include &#34;sensor_msgs/msg/laser_scan.hpp&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#include &#34;rclcpp_action/rclcpp_action.hpp&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#include &#34;custom_interfaces/action/parking.hpp&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>using LaserScan <span style="color:#f92672">=</span> sensor_msgs::msg::LaserScan;
+</span></span><span style="display:flex;"><span>using Parking <span style="color:#f92672">=</span> custom_interfaces::action::Parking;
+</span></span><span style="display:flex;"><span>using GoalHandleParking <span style="color:#f92672">=</span> rclcpp_action::ServerGoalHandle<span style="color:#f92672">&lt;</span>Parking<span style="color:#f92672">&gt;</span>;
+</span></span></code></pre></div><ul>
+<li>파이썬 때와 동일하게 Action Server와 Topic Subscriber가 필요합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  ParkingActionServer() <span style="color:#f92672">:</span> Node(<span style="color:#e6db74">&#34;parking_action_server&#34;</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std<span style="color:#f92672">::</span>placeholders;
+</span></span><span style="display:flex;"><span>    m_action_server <span style="color:#f92672">=</span> rclcpp_action<span style="color:#f92672">::</span>create_server<span style="color:#f92672">&lt;</span>Parking<span style="color:#f92672">&gt;</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>, <span style="color:#e6db74">&#34;src_parking&#34;</span>,
+</span></span><span style="display:flex;"><span>      std<span style="color:#f92672">::</span>bind(<span style="color:#f92672">&amp;</span>ParkingActionServer<span style="color:#f92672">::</span>handle_goal, <span style="color:#66d9ef">this</span>, _1, _2),
+</span></span><span style="display:flex;"><span>      std<span style="color:#f92672">::</span>bind(<span style="color:#f92672">&amp;</span>ParkingActionServer<span style="color:#f92672">::</span>handle_cancel, <span style="color:#66d9ef">this</span>, _1),
+</span></span><span style="display:flex;"><span>      std<span style="color:#f92672">::</span>bind(<span style="color:#f92672">&amp;</span>ParkingActionServer<span style="color:#f92672">::</span>handle_accepted, <span style="color:#66d9ef">this</span>, _1)
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    m_laser_sub <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_subscription<span style="color:#f92672">&lt;</span>LaserScan<span style="color:#f92672">&gt;</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;scan&#34;</span>, <span style="color:#ae81ff">10</span>, std<span style="color:#f92672">::</span>bind(<span style="color:#f92672">&amp;</span>ParkingActionServer<span style="color:#f92672">::</span>laser_callback, <span style="color:#66d9ef">this</span>, _1)
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    RCLCPP_INFO(get_logger(), <span style="color:#e6db74">&#34;Action Ready...&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><ul>
+<li>rclcpp Action Server의 callback들은 다음과 같습니다. 파이썬과 달리 accept에 대한 callback을 갖습니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>handle_goal</td>
+<td>client로부터 첫 goal request 발생 시 실행되는 cb</td>
+</tr>
+<tr>
+<td>handle_cancel</td>
+<td>feedback 도중 cancel request 발생 시 실행되는 cb</td>
+</tr>
+<tr>
+<td>handle_accepted</td>
+<td>goal accept 시 실행되는 cb</td>
+</tr>
+<tr>
+<td>template argument</td>
+<td>action data type</td>
+</tr>
+<tr>
+<td>&ldquo;src_parking&rdquo;</td>
+<td>action name</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><strong>handle_goal</strong>은 goal id, goal 자체를 매개변수로 가지며, REJECT, ACCEPT_AND_EXECUTE, ACCEPT_AND_DEFER을 리턴으로 가질 수 있습니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>rclcpp_action<span style="color:#f92672">::</span>GoalResponse handle_goal(<span style="color:#66d9ef">const</span> rclcpp_action<span style="color:#f92672">::</span>GoalUUID <span style="color:#f92672">&amp;</span>uuid,
+</span></span><span style="display:flex;"><span>            std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">const</span> Parking<span style="color:#f92672">::</span>Goal<span style="color:#f92672">&gt;</span> goal) {
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO(get_logger(), <span style="color:#e6db74">&#34;Got goal request with order %s&#34;</span>, goal<span style="color:#f92672">-&gt;</span>start_flag <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;false&#34;</span>);
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">void</span>)uuid;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> rclcpp_action<span style="color:#f92672">::</span>GoalResponse<span style="color:#f92672">::</span>ACCEPT_AND_EXECUTE;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="2">
+<li><strong>handle_cancel</strong>은 action goal handler object를 매개변수로 받습니다. 파이썬과 동일하게 이 goal_handle 내부에는 여러 API들이 구현되어 있습니다.</li>
+</ol>
+<p>⇒ CancelResponse는 ACCEPT, REJECT 두종류가 가능합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>rclcpp_action<span style="color:#f92672">::</span>CancelResponse handle_cancel(<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>GoalHandleParking<span style="color:#f92672">&gt;</span> goal_handle) {
+</span></span><span style="display:flex;"><span>  RCLCPP_WARN(get_logger(), <span style="color:#e6db74">&#34;Got request to cancel goal&#34;</span>);
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">void</span>)goal_handle;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> rclcpp_action<span style="color:#f92672">::</span>CancelResponse<span style="color:#f92672">::</span>ACCEPT;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="3">
+<li><strong>handle_accepted</strong>에서 feedback을 구현하는 execute로 연결이 됩니다. 이 부분에서 파이썬과 차이를 갖는데, 복습을 해볼 겸 비교를 해보겠습니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">handle_accepted</span>(<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>GoalHandleParking<span style="color:#f92672">&gt;</span> goal_handle) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// this needs to return quickly to avoid blocking the executor, so spin up a
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// new thread
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std<span style="color:#f92672">::</span>placeholders;
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span><span style="color:#66d9ef">thread</span>{std<span style="color:#f92672">::</span>bind(<span style="color:#f92672">&amp;</span>ParkingActionServer<span style="color:#f92672">::</span>execute, <span style="color:#66d9ef">this</span>, _1), goal_handle}.detach();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ParkingActionServer</span>(Node):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>    super()<span style="color:#f92672">.</span>__init__(<span style="color:#e6db74">&#39;parking_action_server&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>laser_sub <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_subscription(
+</span></span><span style="display:flex;"><span>      LaserScan, <span style="color:#e6db74">&#39;scan&#39;</span>, self<span style="color:#f92672">.</span>sub_callback, <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>action_server <span style="color:#f92672">=</span> ActionServer(
+</span></span><span style="display:flex;"><span>      self, Parking, <span style="color:#e6db74">&#39;src_parking&#39;</span>,
+</span></span><span style="display:flex;"><span>      goal_callback<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>goal_callback,
+</span></span><span style="display:flex;"><span>      cancel_callback<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>cancel_callback,
+</span></span><span style="display:flex;"><span>      execute_callback<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>execute_callback,
+</span></span><span style="display:flex;"><span>    )
+</span></span></code></pre></div><ul>
+<li>execute의 로직은 살펴볼 바 있어 간단히 넘어가겠습니다. 다만, cancel 로직이 삽입되는 부분과 구현에 집중하시기 바랍니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (f_obs_distance <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span> <span style="color:#f92672">&amp;&amp;</span> is_done <span style="color:#f92672">==</span> false) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (goal_handle<span style="color:#f92672">-&gt;</span>is_canceling()) {
+</span></span><span style="display:flex;"><span>    result<span style="color:#f92672">-&gt;</span>message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Canceled&#34;</span>;
+</span></span><span style="display:flex;"><span>    goal_handle<span style="color:#f92672">-&gt;</span>canceled(result);
+</span></span><span style="display:flex;"><span>    is_done <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>    RCLCPP_WARN(get_logger(), <span style="color:#e6db74">&#34;Goal Canceled&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  feedback<span style="color:#f92672">-&gt;</span>distance <span style="color:#f92672">=</span> f_obs_distance;
+</span></span><span style="display:flex;"><span>  goal_handle<span style="color:#f92672">-&gt;</span>publish_feedback(feedback);
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO(get_logger(), <span style="color:#e6db74">&#34;Distance from forward obstacle %f&#34;</span>, f_obs_distance);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  loop_rate.sleep();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>rclcpp에서 <strong>MultiThreadedExecutor</strong>를 사용하는 방법은 아래와 같습니다. add_node에 여러 node를 추가할 수 있는 것이지요.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>int main(int argc, char <span style="color:#f92672">*</span> argv[]){
+</span></span><span style="display:flex;"><span>  rclcpp::init(argc, argv);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  rclcpp::executors::MultiThreadedExecutor executor;
+</span></span><span style="display:flex;"><span>  auto server_node <span style="color:#f92672">=</span> std::make_shared<span style="color:#f92672">&lt;</span>ParkingActionServer<span style="color:#f92672">&gt;</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  executor<span style="color:#f92672">.</span>add_node(server_node);
+</span></span><span style="display:flex;"><span>  executor<span style="color:#f92672">.</span>spin();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  rclcpp::shutdown();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="example-2---action-client-parking-master-1">example 2 - Action Client (Parking Master)</h3>
+<blockquote>
+<p>cancel을 포함한 rclcpp Action Client 작성법을 알아봅시다.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>ros2 run cpp_action_tutorial parking_status_client
+</span></span></code></pre></div><h3 id="코드-분석-3">코드 분석</h3>
+<blockquote>
+<p>Action은 자체가 쉽지 않은 개념이어 코딩 시 개념이 잡혀있지 않으면 무척 힘들어집니다. 코드 분석 전, 개요를 먼저 살펴보고 넘어갑시다.</p>
+</blockquote>
+<ul>
+<li>Action Client Logic</li>
+</ul>
+<ol>
+<li>생성자에서 Action Client 생성</li>
+<li>main에서 send_goal 실행</li>
+<li>send_goal에서 여러 callback이 정의되어 있으며 상황에 따라 적절한 callback이 실행됨
+<ol>
+<li>goal_response_callback</li>
+<li>feedback_callback</li>
+<li>result_callback</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li>action server 때와 마찬가지로 rclcpp_action의 include와 편의를 위해 ClientGoalHandle 키워드를 다시 정의하고 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;rclcpp/rclcpp.hpp&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;rclcpp_action/rclcpp_action.hpp&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;custom_interfaces/action/parking.hpp&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std<span style="color:#f92672">::</span>placeholders;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Parking <span style="color:#f92672">=</span> custom_interfaces<span style="color:#f92672">::</span>action<span style="color:#f92672">::</span>Parking;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> GoalHandleParking <span style="color:#f92672">=</span> rclcpp_action<span style="color:#f92672">::</span>ClientGoalHandle<span style="color:#f92672">&lt;</span>Parking<span style="color:#f92672">&gt;</span>;
+</span></span></code></pre></div><ul>
+<li>rclcpp action client는 다음과 같이 생성합니다. (실제 callback들은 send_goal 시 Handler에 의해 바인딩됩니다.)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ParkingActionClient</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> rclcpp<span style="color:#f92672">::</span>Node {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  rclcpp_action<span style="color:#f92672">::</span>Client<span style="color:#f92672">&lt;</span>Parking<span style="color:#f92672">&gt;::</span>SharedPtr m_action_client;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  ParkingActionClient() <span style="color:#f92672">:</span> Node(<span style="color:#e6db74">&#34;parking_action_client&#34;</span>){
+</span></span><span style="display:flex;"><span>    m_action_client <span style="color:#f92672">=</span> rclcpp_action<span style="color:#f92672">::</span>create_client<span style="color:#f92672">&lt;</span>Parking<span style="color:#f92672">&gt;</span>(<span style="color:#66d9ef">this</span>, <span style="color:#e6db74">&#34;src_parking&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parking</td>
+<td>Action data type</td>
+</tr>
+<tr>
+<td>&lsquo;src_parking’</td>
+<td>Action name</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>다시금 이번 예시에서의 callback과 주요 함수를 정리해보았습니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>feedback_callback</td>
+<td>Action Server로부터의 feedback cb</td>
+</tr>
+<tr>
+<td>goal_response_callback</td>
+<td>Action Server로부터의 Response cb</td>
+</tr>
+<tr>
+<td>result_callback</td>
+<td>Action Server로부터의 Result cb</td>
+</tr>
+<tr>
+<td>async_cancel_all_goals</td>
+<td>Action Server로 Cancel call</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>goal_response_callback</strong>은 GoalHandler shared_pointer의 shared_future를 매개변수로 갖습니다. 다소 복잡한데, GoalHandler 자체가 아닌 future이기 때문에 get() 함수를 통해 값을 따로 받아 처리해야 합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">goal_response_callback</span>(std<span style="color:#f92672">::</span>shared_future<span style="color:#f92672">&lt;</span>GoalHandleParking<span style="color:#f92672">::</span>SharedPtr<span style="color:#f92672">&gt;</span> future){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">auto</span> goal_handle <span style="color:#f92672">=</span> future.get();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>goal_handle) {
+</span></span><span style="display:flex;"><span>    RCLCPP_ERROR(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;Goal was rejected by server&#34;</span>);
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    RCLCPP_INFO(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;Goal accepted by server, waiting for result&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><strong>feedback_callback</strong> 내부 cancel 로직에서 이전과 새로운 점을 볼 수 있습니다. 구현의 편의를 위해 async_cancel_all_goals을 사 용하였는데요, 현재 사용중인 action이 하나뿐이라 문제가 없지만 다수의 action이 존재하는 경우 async_cancel_goal 사용을 권장합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">feedback_callback</span>(GoalHandleParking<span style="color:#f92672">::</span>SharedPtr,
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">const</span> Parking<span style="color:#f92672">::</span>Feedback<span style="color:#f92672">&gt;</span> feedback){
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;Received feedback: %f&#34;</span>, feedback<span style="color:#f92672">-&gt;</span>distance);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(feedback<span style="color:#f92672">-&gt;</span>distance <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">6.0</span>)
+</span></span><span style="display:flex;"><span>    m_action_client<span style="color:#f92672">-&gt;</span>async_cancel_all_goals();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>async_cancel_goal(goal_handler)</td>
+<td>async_cancel_goal (typename GoalHandle::SharedPtr goal_handle, CancelCallback cancel_callback=nullptr)</td>
+</tr>
+<tr>
+<td>async_cancel_all_goals()</td>
+<td>async_cancel_all_goals (CancelCallback cancel_callback=nullptr)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>result_callback</strong>은 WrappedResult라는 1개의 매개변수를 갖습니다. goal result를 다루기 위한 별도의 객체이며, ResultCode라는 enum type을 갖고 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">result_callback</span>(<span style="color:#66d9ef">const</span> GoalHandleParking<span style="color:#f92672">::</span>WrappedResult <span style="color:#f92672">&amp;</span> result){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">switch</span> (result.code) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> rclcpp_action<span style="color:#f92672">::</span>ResultCode<span style="color:#f92672">::</span>SUCCEEDED:
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> rclcpp_action<span style="color:#f92672">::</span>ResultCode<span style="color:#f92672">::</span>ABORTED:
+</span></span><span style="display:flex;"><span>      RCLCPP_ERROR(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;Goal was aborted&#34;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> rclcpp_action<span style="color:#f92672">::</span>ResultCode<span style="color:#f92672">::</span>CANCELED:
+</span></span><span style="display:flex;"><span>      RCLCPP_ERROR(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;Goal was canceled&#34;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>      RCLCPP_ERROR(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;Unknown result code&#34;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;Result received: %s&#34;</span>, result.result<span style="color:#f92672">-&gt;</span>message.c_str());
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>shutdown();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th>Enumerator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UNKNOWN </td>
+</tr>
+<tr>
+<td>SUCCEEDED </td>
+</tr>
+<tr>
+<td>CANCELED </td>
+</tr>
+<tr>
+<td>ABORTED </td>
+</tr>
+</tbody>
+</table>
+
+<div class="notices note" ><p>이번 예시에서도 main문에서 send_goal을 호출하는 것을 잊지 마세요.</p>
+</div>
+
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/kr/ros2_foxy/lecture8/" title="Lecture8. ROS 2 Service and Programming"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kr/ros2_foxy/lecture10/" title="Lecture10. TF and ROS 2" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1682765762"></script>
+    <script src="/js/perfect-scrollbar.min.js?1682765762"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1682765762"></script>
+    <script src="/js/jquery.sticky.js?1682765762"></script>
+    <script src="/js/featherlight.min.js?1682765762"></script>
+    <script src="/js/highlight.pack.js?1682765762"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1682765762"></script>
+    <script src="/js/learn.js?1682765762"></script>
+    <script src="/js/hugo-learn.js?1682765762"></script>
+    
+        
+            <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

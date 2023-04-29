@@ -1,0 +1,2998 @@
+<!DOCTYPE html>
+<html lang="kr" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.104.1" />
+    <meta name="description" content="COM2018 OOP Class Lecture Note">
+<meta name="author" content="Soo Young Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Lecture8. ROS 2 Service and Programming - Documentation for Hugo Learn Theme</title>
+
+    
+    <link href="/css/nucleus.css?1682765761" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1682765761" rel="stylesheet">
+    <link href="/css/hybrid.css?1682765761" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1682765761" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1682765761" rel="stylesheet">
+    <link href="/css/auto-complete.css?1682765761" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1682765761" rel="stylesheet">
+    <link href="/css/theme.css?1682765761" rel="stylesheet">
+    <link href="/css/tabs.css?1682765761" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1682765761" rel="stylesheet">
+    
+    <link href="/css/theme-green.css?1682765761" rel="stylesheet">
+    
+    <link href="/css/foo.css?1682765761" rel="stylesheet"><link href="/css/bar.css?1682765761" rel="stylesheet">
+
+    <script src="/js/jquery-3.3.1.min.js?1682765761"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/kr/ros2_foxy/lecture8/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img width="1097" alt="image" src="https://user-images.githubusercontent.com/12381733/209764275-05dcbdbf-cef7-47ad-94a6-6d61febad01e.png">
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1682765761"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1682765761"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/kr";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1682765761"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/kr'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_basic_noetic/" title="ROS Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_basic_noetic/">
+          <b>ROS Noetic. </b>ROS Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture1/" title="Lecture1 - Introduction to ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture1/">
+        Lecture1 - Introduction to ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture2/" title="Lecture2 - Dev Env Setup" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture2/">
+        Lecture2 - Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture3/" title="Lecture3 - Core of ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture3/">
+        Lecture3 - Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture4/" title="Lecture4 - ROS Launch, RViz" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture4/">
+        Lecture4 - ROS Launch, RViz
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture5/" title="Lecture5 - First Programming, ROS Topic" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture5/">
+        Lecture5 - First Programming, ROS Topic
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture6/" title="Lecture6 - ROS Service, Parameter" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture6/">
+        Lecture6 - ROS Service, Parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture7/" title="Lecture7 - Rqt Tools and rosbag, ROS Time" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture7/">
+        Lecture7 - Rqt Tools and rosbag, ROS Time
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture8/" title="Lecture8 - Deal with Open Source Projects, Custom Interfaces" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture8/">
+        Lecture8 - Deal with Open Source Projects, Custom Interfaces
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture9/" title="Lecture9 - ROS TF and Examples" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture9/">
+        Lecture9 - ROS TF and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture10/" title="Lecture10 - TF2 Examples, Outro" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture10/">
+        Lecture10 - TF2 Examples, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/advanced_contents_ros1/" title="ROS" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/advanced_contents_ros1/">
+          <b>Advanced Contents. </b>ROS
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture1/" title="Lecture1 - ROSCPP" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture1/">
+        Lecture1 - ROSCPP
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture2/" title="Lecture2 - More About ROS System" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture2/">
+        Lecture2 - More About ROS System
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture3/" title="Lecture3 - SROS" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture3/">
+        Lecture3 - SROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_basic_foxy/" title="ROS 2 Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros2_basic_foxy/">
+          <b>[Old]ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture1/" title="Lecture1 - Introduction to ROS 2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture1/">
+        Lecture1 - Introduction to ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture2/" title="Lecture2 - ROS 2 Node, Package" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture2/">
+        Lecture2 - ROS 2 Node, Package
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture3/" title="Lecture3 - ROS 2 Node Programming, ROS 2 parameter" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture3/">
+        Lecture3 - ROS 2 Node Programming, ROS 2 parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture4/" title="Lecture4 - ROS 2 Node C&#43;&#43; Programming" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture4/">
+        Lecture4 - ROS 2 Node C&#43;&#43; Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture5/" title="Lecture5 - ROS 2 Topic and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture5/">
+        Lecture5 - ROS 2 Topic and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture6/" title="Lecture6 - ROS 2 Service and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture6/">
+        Lecture6 - ROS 2 Service and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture7/" title="Lecture7 - Useful ROS 2 Example, Navigation2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture7/">
+        Lecture7 - Useful ROS 2 Example, Navigation2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture8/" title="Lecture8 - ROS 2 Action and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture8/">
+        Lecture8 - ROS 2 Action and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture9/" title="Lecture9 - C&#43;&#43; Programming Again, Outro" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture9/">
+        Lecture9 - C&#43;&#43; Programming Again, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_foxy/" title="ROS 2 Basics" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/kr/ros2_foxy/">
+          <b>[New]ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture1/" title="Lecture1. What is ROS?" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture1/">
+        Lecture1. What is ROS?
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture2/" title="Lecture2. Dev Env Setup" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture2/">
+        Lecture2. Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture3/" title="Lecture3. Core of ROS" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture3/">
+        Lecture3. Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture4/" title="Lecture4. ROS 2 Node and Parameter Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture4/">
+        Lecture4. ROS 2 Node and Parameter Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture5/" title="Lecture5. ROS 2 Communication Mechanisms" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture5/">
+        Lecture5. ROS 2 Communication Mechanisms
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture6/" title="Lecture6. ROS 2 Tools" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture6/">
+        Lecture6. ROS 2 Tools
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture7/" title="Lecture7. ROS 2 Topic and Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture7/">
+        Lecture7. ROS 2 Topic and Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture8/" title="Lecture8. ROS 2 Service and Programming" class="dd-item active">
+        <a href="/kr/ros2_foxy/lecture8/">
+        Lecture8. ROS 2 Service and Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture9/" title="Lecture9. ROS 2 Action Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture9/">
+        Lecture9. ROS 2 Action Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture10/" title="Lecture10. TF and ROS 2" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture10/">
+        Lecture10. TF and ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture11/" title="Lecture11. About Gazebo - 1" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture11/">
+        Lecture11. About Gazebo - 1
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture12/" title="Lecture12. About Gazebo - 2" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture12/">
+        Lecture12. About Gazebo - 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture13/" title="Lecture13. Useful ROS 2 Examples (Sensor Part)" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture13/">
+        Lecture13. Useful ROS 2 Examples (Sensor Part)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture14/" title="Lecture14. Useful ROS 2 Examples (Control Part)" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture14/">
+        Lecture14. Useful ROS 2 Examples (Control Part)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture15/" title="Lecture15. Advanced ROS 2, Package Management" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture15/">
+        Lecture15. Advanced ROS 2, Package Management
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture16/" title="Lecture16" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture16/">
+        Lecture16
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture17/" title="Lecture17" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture17/">
+        Lecture17
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture18/" title="Lecture18" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture18/">
+        Lecture18
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture19/" title="Lecture19" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture19/">
+        Lecture19
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture20/" title="Lecture20" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture20/">
+        Lecture20
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/advanced_contents_ros2/" title="ROS 2" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/advanced_contents_ros2/">
+          <b>Advanced Contents. </b>ROS 2
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture1/" title="Lecture1 - About DDS" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture1/">
+        Lecture1 - About DDS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture2/" title="Lecture11 - About DDS (2)" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture2/">
+        Lecture11 - About DDS (2)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture3/" title="Lecture12 - SROS2" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture3/">
+        Lecture12 - SROS2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_and_gazebo/" title="Gazebo and ROS" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_and_gazebo/">
+          <b>Gazebo. </b>Gazebo and ROS
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_and_gazebo/lecture1/" title="Lecture1 - Gazebo and Robot" class="dd-item ">
+        <a href="/kr/ros_and_gazebo/lecture1/">
+        Lecture1 - Gazebo and Robot
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_and_gazebo/lecture2/" title="Lecture2 - Gazebo and Robot(2)" class="dd-item ">
+        <a href="/kr/ros_and_gazebo/lecture2/">
+        Lecture2 - Gazebo and Robot(2)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros1"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 1</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros2"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 2</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="kr" value="/kr/ros2_foxy/lecture8/" selected>Korean</option>
+                    
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='' href="https://github.com/com2018-fa22/hugo-blog/tree/main/content/ros2_foxy/lecture8.kr.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text"></span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                   Lecture8. ROS 2 Service and Programming
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#ros-2-service">ROS 2 Service</a>
+      <ul>
+        <li><a href="#ros-2-service-programming---python">ROS 2 Service Programming - Python</a></li>
+      </ul>
+    </li>
+    <li><a href="#예시-설명">예시 설명</a>
+      <ul>
+        <li><a href="#코드-분석">코드 분석</a></li>
+        <li><a href="#example-2---service-server-example-snapshot">example 2 - Service Server Example (Snapshot)</a></li>
+        <li><a href="#코드-분석-1">코드 분석</a></li>
+        <li><a href="#ros-2-service-programming---c">ROS 2 Service Programming - C++</a></li>
+        <li><a href="#코드-분석-2">코드 분석</a></li>
+        <li><a href="#example-2---service-server-example-snapshot-1">example 2 - Service Server Example (Snapshot)</a></li>
+      </ul>
+    </li>
+    <li><a href="#코드-분석-3">코드 분석</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Lecture8. ROS 2 Service and Programming
+            </h1>
+          
+
+        
+
+
+<h2 id="ros-2-service">ROS 2 Service</h2>
+<blockquote>
+<p>ROS 2 Service의 개념을 다시 복습해봅시다.</p>
+</blockquote>
+<p><img src="/kr/ros2_foxy/images8/service1.gif?height=300px" alt="service1.gif"></p>
+<p>image from : <a href="https://docs.ros.org/en/foxy/Tutorials/Services/Understanding-ROS2-Services.html">docs.ros.org</a></p>
+<p><strong>Service 개념 정리</strong></p>
+<ul>
+<li>Service를 요청하는 주체를 <strong>Service Client</strong>라고 하며, Service 요청 자체를 **Request(혹은 Call)**라고 합니다.</li>
+<li>Service를 요청받는 주체를 <strong>Service Server</strong>라고 하며, Service Server는 Request에 대한 응답, 즉 Service <strong>Response</strong>를 다시 Service Client에게 회답합니다.</li>
+<li>Request와 Response를 위해 사용되는 데이터 타입은 <strong>srv</strong>라고 하며 Request와 Response로 나뉩니다.</li>
+</ul>
+<blockquote>
+<p>Service의 중요한 특징 한 가지 추가하자면, 하나의 Service Server에 여러 Client가 request 할 수 있지만, <strong>Server는 동시에 여러 request를 처리하지 못합니다.</strong></p>
+</blockquote>
+<p><img src="/kr/ros2_foxy/images8/service2.gif?height=300px" alt="service2.gif"></p>
+<p>image from : <a href="https://docs.ros.org/en/foxy/Tutorials/Services/Understanding-ROS2-Services.html">docs.ros.org</a></p>
+<ul>
+<li>Service 통신 시 srv라는 데이터 형식이 사용됩니다. 특정 srv가 어떻게 구성되어 있는지 알고 싶을 때는 ros2 interface show를 사용합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 interface show gazebo_msgs<span style="color:#f92672">/</span>srv<span style="color:#f92672">/</span>SpawnEntity
+</span></span><span style="display:flex;"><span>string name                       <span style="color:#75715e"># Name of the entity to be spawned (optional).</span>
+</span></span><span style="display:flex;"><span>string xml                        <span style="color:#75715e"># Entity XML description as a string, either URDF or SDF.</span>
+</span></span><span style="display:flex;"><span>string robot_namespace            <span style="color:#75715e"># Spawn robot and all ROS interfaces under this namespace</span>
+</span></span><span style="display:flex;"><span>geometry_msgs<span style="color:#f92672">/</span>Pose initial_pose   <span style="color:#75715e"># Initial entity pose.</span>
+</span></span><span style="display:flex;"><span>string reference_frame            <span style="color:#75715e"># initial_pose is defined relative to the frame of this entity.</span>
+</span></span><span style="display:flex;"><span>                                  <span style="color:#75715e"># If left empty or &#34;world&#34; or &#34;map&#34;, then gazebo world frame is</span>
+</span></span><span style="display:flex;"><span>                                  <span style="color:#75715e"># used.</span>
+</span></span><span style="display:flex;"><span>                                  <span style="color:#75715e"># If non-existent entity is specified, an error is returned</span>
+</span></span><span style="display:flex;"><span>                                  <span style="color:#75715e"># and the entity is not spawned.</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>bool success                      <span style="color:#75715e"># Return true if spawned successfully.</span>
+</span></span><span style="display:flex;"><span>string status_message             <span style="color:#75715e"># Comments if available.</span>
+</span></span></code></pre></div>
+<div class="notices note" ><p>서비스 타입 중간에 보이는 <strong>- - -</strong> 부분은 request와 response의 <strong>구분자</strong>라고 생각하시면 됩니다.</p>
+</div>
+
+<ul>
+<li>이번 시간의 실습을 위해, 새로운 Gazebo 환경을 소개하고자 합니다. 해당 환경의 실행을 위해 아래와 같은 작업을 함께해주세요!</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># package clone</span>
+</span></span><span style="display:flex;"><span>cd ~/ros2_ws/src
+</span></span><span style="display:flex;"><span>git clone https://github.com/RB2023ROS/gz_ros2_examples.git
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># package build &amp; sourcing</span>
+</span></span><span style="display:flex;"><span>cd ~/ros2_ws
+</span></span><span style="display:flex;"><span>cbp rgbd_world <span style="color:#f92672">&amp;&amp;</span> source install/setup.bash
+</span></span></code></pre></div><ul>
+<li>ros2 launch를 통해 이번 실습을 위한 환경을 실행해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ros2 launch rgbd_world depth_world.launch.py
+</span></span></code></pre></div><p>⇒ 카메라와 벽이 포함된 간단한 환경을 구성하였습니다. 참고로 PC 성능에 따라 Rviz2 화면이 매우 느릴 수 있으니 불편하시다면 point cloud 시각화는 제거해주세요!!</p>
+<p><img src="/kr/ros2_foxy/images8/Untitled.png?height=400px" alt="Untitled.png"></p>
+<h3 id="ros-2-service-programming---python">ROS 2 Service Programming - Python</h3>
+<h4 id="example-1---service-client-example-spawn-entity">example 1 - Service Client Example (Spawn Entity)</h4>
+<ul>
+<li>이번 예시의 데모를 먼저 보여드리겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Demo package build again for confirmation</span>
+</span></span><span style="display:flex;"><span>cd <span style="color:#f92672">~/</span>ros2_ws<span style="color:#f92672">/</span>src
+</span></span><span style="display:flex;"><span>git clone https:<span style="color:#f92672">//</span>github<span style="color:#f92672">.</span>com<span style="color:#f92672">/</span>RB2023ROS<span style="color:#f92672">/</span>gz_ros2_examples<span style="color:#f92672">.</span>git
+</span></span><span style="display:flex;"><span>cbp rgbd_world
+</span></span><span style="display:flex;"><span>source install<span style="color:#f92672">/</span>local_setup<span style="color:#f92672">.</span>bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1 - gazebo env launch</span>
+</span></span><span style="display:flex;"><span>ros2 launch rgbd_world depth_world<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2 - Execute Service Client</span>
+</span></span><span style="display:flex;"><span>ros2 run py_service_tutorial spawn_object_wo_gravity
+</span></span></code></pre></div><ul>
+<li>Terminal 2에서 아래와 같은 콘솔 로그를 볼 수 있으며, 원하는 물체를 선택하면 gazebo 환경 상에서 해당 물체가 등장하는 것을 확인 가능합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Enter Model name Among Below List
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">1.</span>arm_part	<span style="color:#ae81ff">2.</span>beer         	<span style="color:#ae81ff">3.</span>biscuits
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">4.</span>book     	<span style="color:#ae81ff">5.</span>bowl        	<span style="color:#ae81ff">6.</span>create
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">7.</span>disk_part	<span style="color:#ae81ff">8.</span>eraser      	<span style="color:#ae81ff">9.</span>glue
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">10.</span>hammer  	<span style="color:#ae81ff">11.</span>plastic_cup	<span style="color:#ae81ff">12.</span>snacks
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">13.</span>soap    	<span style="color:#ae81ff">14.</span>soap2      	<span style="color:#ae81ff">15.</span>soda_can
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">16.</span>sticky_notes
+</span></span><span style="display:flex;"><span>        [Type your choice]:
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images8/Untitled1.png?height=300px" alt="Untitled1.png"></p>
+<h2 id="예시-설명">예시 설명</h2>
+<blockquote>
+<p>Gazebo는 개발 초기부터 ROS의 사용을 고려한 시스템입니다. Gazebo와 ROS 사이의 인터페이스는 gazebo_ros_pkg가 담당하고 있습니다.</p>
+</blockquote>
+<p>⇒ <a href="https://github.com/ros-simulation/gazebo_ros_pkgs">https://github.com/ros-simulation/gazebo_ros_pkgs</a></p>
+<p>⇒ <a href="https://classic.gazebosim.org/tutorials?cat=connect_ros">https://classic.gazebosim.org/tutorials?cat=connect_ros</a></p>
+<ul>
+<li>gazebo_ros_pkg를 통해 gazebo를 실행하면 여러 유용한 topic, service가 함께 실행됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1</span>
+</span></span><span style="display:flex;"><span>ros2 launch gazebo_ros_pkg gazebo<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
+</span></span><span style="display:flex;"><span>ros2 topic list
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ros2 servie list
+</span></span></code></pre></div><ul>
+<li>이들 중, 지금 예시에서는 “/spawn” service에 request한 것이며, 이는 xml 문법을 통해 원하는 모델을 Gazebo Client에 등장시켜즙니다. (즉, Service Client를 실행한 것입니다.)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># get info about service</span>
+</span></span><span style="display:flex;"><span>ros2 service type <span style="color:#f92672">/</span>spawn
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># get info about srv</span>
+</span></span><span style="display:flex;"><span>ros2 interface show <span style="color:#f92672">&lt;</span>sth<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><h3 id="코드-분석">코드 분석</h3>
+<ul>
+<li>첫 번째로 분석할 코드는 spawn_object.py 입니다. 사용할 srv를 import하고 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> gazebo_msgs.srv <span style="color:#f92672">import</span> SpawnEntity
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> rclpy
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.node <span style="color:#f92672">import</span> Node
+</span></span></code></pre></div><ul>
+<li>Service Client의 생성은 create_client를 사용합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpawnClientNode</span>(Node):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__(<span style="color:#e6db74">&#39;gazebo_model_spawner&#39;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>client <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_client(SpawnEntity, <span style="color:#e6db74">&#39;spawn_entity&#39;</span>)
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Srv Type</td>
+<td>Service에 사용될 데이터 타입</td>
+</tr>
+<tr>
+<td>Service Name</td>
+<td>Request 대상이 되는 Service 이름</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Client 입장에서 존재하지도 않은 Server를 계속 기다리면 안될 것입니다. 이를 방지하기 위해 일반적으로 특정 시간 동안 대기하는 로직을 사용합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">not</span> self<span style="color:#f92672">.</span>client<span style="color:#f92672">.</span>wait_for_service(timeout_sec<span style="color:#f92672">=</span><span style="color:#ae81ff">1.0</span>):
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>error(<span style="color:#e6db74">&#39;service not available, waiting again...&#39;</span>)
+</span></span></code></pre></div><ul>
+<li>클래스를 더 분석하기 전에 main문을 살펴보겠습니다.</li>
+</ul>
+<ol>
+<li>Node를 생성하며, 해당 Node내부에는 Service Client가 구현되어 있습니다.</li>
+<li>send_req()를 통해 Service Call을 실행합니다. (내부적으로 call_async() 실행) 이에 따른 결과로 future라는 값이 반환됩니다.</li>
+<li>spin_until_future_complete()를 통해 future가 진행되는 동안 비동기로 대기합니다.</li>
+<li>future가 완료 상태가 되면 Response를 출력하게 됩니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>(args<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    rclpy<span style="color:#f92672">.</span>init(args<span style="color:#f92672">=</span>args)
+</span></span><span style="display:flex;"><span>    robot_spawn_node <span style="color:#f92672">=</span> SpawnClientNode()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    future <span style="color:#f92672">=</span> robot_spawn_node<span style="color:#f92672">.</span>send_req()
+</span></span><span style="display:flex;"><span>    rclpy<span style="color:#f92672">.</span>spin_until_future_complete(robot_spawn_node, future)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> future<span style="color:#f92672">.</span>done():
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>            response <span style="color:#f92672">=</span> future<span style="color:#f92672">.</span>result()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">RuntimeError</span>(
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;exception while calling service: </span><span style="color:#e6db74">%r</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> future<span style="color:#f92672">.</span>exception()
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            robot_spawn_node<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#39;==== Service Call Done ====&#39;</span>)
+</span></span><span style="display:flex;"><span>            robot_spawn_node<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Status_message : </span><span style="color:#e6db74">{</span>response<span style="color:#f92672">.</span>status_message<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">finally</span>:
+</span></span><span style="display:flex;"><span>            robot_spawn_node<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>warn(<span style="color:#e6db74">&#39;==== Shutting down node. ====&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    robot_spawn_node<span style="color:#f92672">.</span>destroy_node()
+</span></span><span style="display:flex;"><span>    rclpy<span style="color:#f92672">.</span>shutdown()
+</span></span></code></pre></div><p>Future란 rclpy에서 멀티쓰레딩을 위해 사용되며, task의 상태를 담고 있는 객체입니다.</p>
+<ul>
+<li>다시 클래스로 돌아와서, send_req() 메소드를 살펴봅시다. Srv를 채우고 call_async() 함수를 통해 이를 Service Server에게 전달합니다. 그 결과로 얻게 된 future를 반환하게 됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">send_req</span>(self):
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>debug(<span style="color:#e6db74">&#39;==== Sending service request to `/spawn_entity` ====&#39;</span>)
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>future <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>client<span style="color:#f92672">.</span>call_async(self<span style="color:#f92672">.</span>req)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>future
+</span></span></code></pre></div><ul>
+<li>동기 Request인 call()도 있지만, 이렇게 되는 경우 다른 callback의 사용, 혹은 spin의 동작을 막게 되어 전체 시스템의 deadlock을 유발합니다. 때문에 공식 튜토리얼에서도 비동기 Call을 추천하고 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">send_req</span>(self):
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>debug(<span style="color:#e6db74">&#39;==== Sending service request to `/spawn_entity` ====&#39;</span>)
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>future <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>client<span style="color:#f92672">.</span>call(self<span style="color:#f92672">.</span>req)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>future
+</span></span></code></pre></div><h4 id="service-client-관련-메소드들을-정리해봅시다">Service Client 관련 메소드들을 정리해봅시다.</h4>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>create_client(<!-- raw HTML omitted -->, <!-- raw HTML omitted -->)</td>
+<td>client 생성</td>
+</tr>
+<tr>
+<td>spin_until_future_complete(<!-- raw HTML omitted -->,<!-- raw HTML omitted -->)</td>
+<td>Client Request Task가 완료되기까지 비동기 대기</td>
+</tr>
+<tr>
+<td>future.done(), future.result()</td>
+<td>Future의 상태를 다루는 함수들</td>
+</tr>
+<tr>
+<td>call_async(<!-- raw HTML omitted -->), call(<!-- raw HTML omitted -->)</td>
+<td>비동기, 동기 service call</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>기능상으로, 새로운 물체를 등장시키면 중력에 의해 물체가 바닥으로 떨어져버립니다. 이를 방지하기 위해 gazebo의 물성치 옵션을 꺼줘야 합니다. spawn_object_wo_gravity.py에는 이를 위한 구현이 추가되어 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>self<span style="color:#f92672">.</span>physics_client <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_client(Empty, <span style="color:#e6db74">&#39;pause_physics&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># physics pause request</span>
+</span></span><span style="display:flex;"><span>pause_future <span style="color:#f92672">=</span> robot_spawn_node<span style="color:#f92672">.</span>send_pause_req()
+</span></span><span style="display:flex;"><span>rclpy<span style="color:#f92672">.</span>spin_until_future_complete(robot_spawn_node, pause_future)
+</span></span><span style="display:flex;"><span>future_pending_logic(<span style="color:#e6db74">&#34;Pause&#34;</span>,robot_spawn_node, pause_future)
+</span></span></code></pre></div><h3 id="example-2---service-server-example-snapshot">example 2 - Service Server Example (Snapshot)</h3>
+<blockquote>
+<p>이번에 보여드릴 ROS 2 service 예시는 Gazebo상의 카메라를 통해 사진을 찍는 Service Server입니다.</p>
+</blockquote>
+<ul>
+<li>예시 실행 - rqt를 통해 service call이 성공하면 현재 시간에 해당하는 파일이름으로 카메라가 바라보는 시야 이미지가 저장됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1 - Execute Gazebo World</span>
+</span></span><span style="display:flex;"><span>ros2 launch rgbd_world depth_world<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2 - Execute Service Server</span>
+</span></span><span style="display:flex;"><span>ros2 run py_service_tutorial take_picture_server
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 3 - Execute rqt&#39;s service caller</span>
+</span></span><span style="display:flex;"><span>rqt
+</span></span></code></pre></div><ul>
+<li>Service Caller의 사용법과 결과는 다음과 같습니다.</li>
+</ul>
+<p>⇒ data 필드에 True를 전달하면 사진을 찍어 workspace에 저장해줍니다.</p>
+<p><img src="/kr/ros2_foxy/images8/picture_srv.gif?height=300px" alt="picture_srv.gif"></p>
+<h3 id="코드-분석-1">코드 분석</h3>
+<p>코드를 살펴보기 전에, 이를 어떻게 구현할 수 있을지 같이 생각해봅시다.</p>
+<ol>
+<li>사진 촬영 신호를 받아 수행하는 Service Server</li>
+<li>카메라 image data Subscriber</li>
+</ol>
+
+<div class="notices note" ><p>항상 사진을 찍는 것이 아니라 Service Call이 오는 그 순간에만 사진을 저장해야 합니다.</p>
+</div>
+
+<p>⇒ 위 조건에 따라 작성한 Node의 생성자는 다음과 같습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PictureNode</span>(Node):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__(<span style="color:#e6db74">&#39;turtle_circle_server&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>img_topic_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/rgb_cam/rgb_cam/image_raw&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>server <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_service(
+</span></span><span style="display:flex;"><span>            SetBool, <span style="color:#e6db74">&#39;take_picture&#39;</span>, self<span style="color:#f92672">.</span>take_picture_callback
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>subscriber <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_subscription(
+</span></span><span style="display:flex;"><span>            Image, self<span style="color:#f92672">.</span>img_topic_name, self<span style="color:#f92672">.</span>sub_callback, <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>br <span style="color:#f92672">=</span> CvBridge()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>is_request <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</span></span></code></pre></div><ul>
+<li>Service Server의 생성은 create_service를 사용하며 필요한 매개변수들은 아래와 같습니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SetBool</td>
+<td>Srv Type</td>
+</tr>
+<tr>
+<td>&rsquo;take_picture'</td>
+<td>Service Name</td>
+</tr>
+<tr>
+<td>self.take_picture_callback</td>
+<td>Request 시 실행될 Service Callback</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>참고로 이번에 사용하는 srv는 example_interfaces/srv/SetBool이며, Bool Type의 request와 String response를 갖고 있습니다. (ros2 interface show를 통해 조회 가능합니다.)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ros2 interface show example_interfaces/srv/SetBool
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This is an example of a service to set a boolean value.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This can be used for testing but a semantically meaningful</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># one should be created to be built upon.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>bool data <span style="color:#75715e"># e.g. for hardware enabling / disabling</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>bool success   <span style="color:#75715e"># indicate successful run of triggered service</span>
+</span></span><span style="display:flex;"><span>string message <span style="color:#75715e"># informational, e.g. for error messages</span>
+</span></span></code></pre></div><ul>
+<li>service call에 대한 callback, take_picture_callback()입니다. 이 callback은 request와 response 2개의 매개변수를 필요로 하는 함수로, bool type의 data가 True이면 내부 상태를 변화시킵니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>		<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">take_picture_callback</span>(self, request, response):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> request<span style="color:#f92672">.</span>data <span style="color:#f92672">is</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#39;KimChi~&#39;</span>)
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>is_request <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        response<span style="color:#f92672">.</span>success <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>        response<span style="color:#f92672">.</span>message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Successfully image written&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> response
+</span></span></code></pre></div><ul>
+<li>클래스 내부 is_request의 상태가 변화하면 subscription callback에서 이미지를 저장하는 로직이 실행됩니다. CV Bridge를 통해 ROS topic을 OpenCV 포맷으로 바꿀 수 있으며, imwrite를 통해 이미지를 저장할 수 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sub_callback</span>(self, data):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>is_request:
+</span></span><span style="display:flex;"><span>        current_frame <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>br<span style="color:#f92672">.</span>imgmsg_to_cv2(data, <span style="color:#e6db74">&#34;bgr8&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        file_name <span style="color:#f92672">=</span> str(self<span style="color:#f92672">.</span>get_clock()<span style="color:#f92672">.</span>now()<span style="color:#f92672">.</span>to_msg()<span style="color:#f92672">.</span>sec) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.png&#39;</span>
+</span></span><span style="display:flex;"><span>        cv2<span style="color:#f92672">.</span>imwrite(file_name, current_frame)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Image saved in </span><span style="color:#e6db74">{</span>file_name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>is_request <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</span></span></code></pre></div><h3 id="ros-2-service-programming---c">ROS 2 Service Programming - C++</h3>
+<h4 id="example-1---service-client-example-spawn-entity-1">example 1 - Service Client Example (Spawn Entity)</h4>
+<ul>
+<li>이번에는 동일한 코드를 C++로 구현해 봅시다. 일전 예시와 기능은 동일하므로 실행만 해보겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1 - gazebo env launch</span>
+</span></span><span style="display:flex;"><span>ros2 launch rgbd_world depth_world<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2 - Execute Service Client</span>
+</span></span><span style="display:flex;"><span>ros2 run py_service_tutorial spawn_object_wo_gravity
+</span></span></code></pre></div><h3 id="코드-분석-2">코드 분석</h3>
+<ul>
+<li>이번에 분석할 코드는 spawn_object_wo_gravity.cpp ****입니다. include시 snake case를 사용한다는 점에 유의합니다. (저는 copilot을 통해 손쉽게 개발하고 있습니다.)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;rclcpp/rclcpp.hpp&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;std_srvs/srv/empty.hpp&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;gazebo_msgs/srv/spawn_entity.hpp&#34;</span><span style="color:#75715e">
+</span></span></span></code></pre></div><ul>
+<li>Service Client의 생성은 create_client를 사용합니다. 중력을 정지키시는 service와 모델을 등장시키는 service 총 2가지를 사용합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GZSpawnClient</span> : public rclcpp::Node {
+</span></span><span style="display:flex;"><span>private:
+</span></span><span style="display:flex;"><span>  rclcpp::Client<span style="color:#f92672">&lt;</span>Spawn<span style="color:#f92672">&gt;</span>::SharedPtr spawn_client;
+</span></span><span style="display:flex;"><span>  rclcpp::Client<span style="color:#f92672">&lt;</span>Empty<span style="color:#f92672">&gt;</span>::SharedPtr pause_client;
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>public:
+</span></span><span style="display:flex;"><span>  GZSpawnClient() : Node(<span style="color:#e6db74">&#34;gazebo_model_spawner&#34;</span>){
+</span></span><span style="display:flex;"><span>    pause_client <span style="color:#f92672">=</span> this<span style="color:#f92672">-&gt;</span>create_client<span style="color:#f92672">&lt;</span>Empty<span style="color:#f92672">&gt;</span>(<span style="color:#e6db74">&#34;pause_physics&#34;</span>);
+</span></span><span style="display:flex;"><span>    spawn_client <span style="color:#f92672">=</span> this<span style="color:#f92672">-&gt;</span>create_client<span style="color:#f92672">&lt;</span>Spawn<span style="color:#f92672">&gt;</span>(<span style="color:#e6db74">&#34;spawn_entity&#34;</span>);
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>template argument</td>
+<td>Service에 사용될 데이터 타입</td>
+</tr>
+<tr>
+<td>service name</td>
+<td>Request 대상이 되는 Service 이름</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>python예시와 동일하게 각 Service Client 마다 특정 시간 동안 대기하는 로직을 사용합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (<span style="color:#960050;background-color:#1e0010">!</span>pause_client<span style="color:#f92672">-&gt;</span>wait_for_service(<span style="color:#ae81ff">1</span>s)) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#960050;background-color:#1e0010">!</span>rclcpp::ok()) {
+</span></span><span style="display:flex;"><span>    RCLCPP_ERROR(this<span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;Interrupted while waiting for the service. Exiting.&#34;</span>);
+</span></span><span style="display:flex;"><span>    exit(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO(this<span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;Pause service not available, waiting again...&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>main문을 살펴보겠습니다.</li>
+</ul>
+<ol>
+<li>Node를 생성하며, 해당 Node내부에는 Service Client가 구현되어 있습니다.</li>
+<li>send_pause_request()를 통해 Pause Service Call을 실행합니다. (내부적으로 async_send_request() 실행) 이에 따른 결과로 future가 반환됩니다.</li>
+<li>Pause에 대한 response를 완료합니다.</li>
+<li>Spawn Service를 위해 사용자로부터 등장시킬 물체를 선택받습니다.</li>
+<li>spin_until_future_complete()를 통해 spawn future가 진행되는 동안 비동기로 대기합니다.</li>
+<li>future가 완료 상태가 되면 Response를 출력하게 됩니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>int main(int argc, char <span style="color:#f92672">**</span>argv) {
+</span></span><span style="display:flex;"><span>  rclcpp::init(argc, argv);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  auto node <span style="color:#f92672">=</span> std::make_shared<span style="color:#f92672">&lt;</span>GZSpawnClient<span style="color:#f92672">&gt;</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  auto pause_result <span style="color:#f92672">=</span> node<span style="color:#f92672">-&gt;</span>send_pause_request();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (rclcpp::spin_until_future_complete(node, pause_result) <span style="color:#f92672">==</span> rclcpp::FutureReturnCode::SUCCESS) {
+</span></span><span style="display:flex;"><span>    RCLCPP_INFO(node<span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;Pause Successfully Done.&#34;</span>);
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    RCLCPP_ERROR(node<span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;Failed to pause physics!&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  std::string model_name;
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  auto spawn_result <span style="color:#f92672">=</span> node<span style="color:#f92672">-&gt;</span>send_spawn_request(model_name);
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">//</span> Wait <span style="color:#66d9ef">for</span> the spawn_result<span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (rclcpp::spin_until_future_complete(node, spawn_result) <span style="color:#f92672">==</span> rclcpp::FutureReturnCode::SUCCESS) {
+</span></span><span style="display:flex;"><span>    RCLCPP_INFO(node<span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;Spawn Successfully Done.&#34;</span>);
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    RCLCPP_ERROR(node<span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;Failed to spawn model!&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  rclcpp::shutdown();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>rclcpp::FutureReturnCode는 3가지 상태를 갖는 enum type입니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Enumerator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SUCCESS</td>
+</tr>
+<tr>
+<td>INTERRUPTED</td>
+</tr>
+<tr>
+<td>TIMEOUT</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>물성치를 정지시키는 pause service call은 딱히 추가 작업이 필요 없습니다. (Empty Call이기 때문입니다.)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> <span style="color:#a6e22e">send_pause_request</span>(){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> pause_client<span style="color:#f92672">-&gt;</span>async_send_request(pause_request);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>spawn request에서는 물체의 sdf 파일을 읽어들이고 이를 service srv 데이터 필드에 채운 뒤, 최종 service call이 이루어집니다. 물체의 이름과 번호 매칭을 위해 map 자료구조를 사용합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>auto send_spawn_request(const std::string <span style="color:#f92672">&amp;</span>model_name){
+</span></span><span style="display:flex;"><span>    auto item <span style="color:#f92672">=</span> model_map<span style="color:#f92672">.</span>find(model_name);
+</span></span><span style="display:flex;"><span>    std::string model_path;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    spawn_request<span style="color:#f92672">-&gt;</span>xml  <span style="color:#f92672">=</span> ss<span style="color:#f92672">.</span>str();
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> spawn_client<span style="color:#f92672">-&gt;</span>async_send_request(spawn_request);
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div>
+<div class="notices note" ><p>service call의 동기, 비동기 실행에 대해서는 이후 Advanced 강의에서 좀 더 자세하게 다루어 볼 예정입니다.</p>
+</div>
+
+<h4 id="service-client-관련-메소드들을-정리해봅시다-1">Service Client 관련 메소드들을 정리해봅시다.</h4>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>create_client<!-- raw HTML omitted -->(<!-- raw HTML omitted -->)</td>
+<td>client 생성</td>
+</tr>
+<tr>
+<td>rclcpp::spin_until_future_complete(<!-- raw HTML omitted -->,<!-- raw HTML omitted -->)</td>
+<td>Client Request Task가 완료되기까지 비동기 대기</td>
+</tr>
+<tr>
+<td>rclcpp::FutureReturnCode</td>
+<td>Future의 상태를 담고 있는 enum type</td>
+</tr>
+<tr>
+<td>async_send_request(<a href="std::make_sharedSpawn::Request">std::make_sharedSpawn::Request</a>)</td>
+<td>비동기 service call</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-2---service-server-example-snapshot-1">example 2 - Service Server Example (Snapshot)</h3>
+<ul>
+<li>python 때와 마찬가지로 예시를 실행해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1 - Execute Gazebo World</span>
+</span></span><span style="display:flex;"><span>ros2 launch rgbd_world depth_world<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2 - Execute Service Server</span>
+</span></span><span style="display:flex;"><span>ros2 run cpp_service_tutorial take_picture_server
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 3 - Execute rqt&#39;s service caller</span>
+</span></span><span style="display:flex;"><span>rqt
+</span></span></code></pre></div><ul>
+<li>Service Caller의 사용법과 결과는 다음과 같습니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images8/picture_srv.gif?height=300px" alt="picture_srv.gif"></p>
+<h2 id="코드-분석-3">코드 분석</h2>
+<p>지금, 우리에게 필요한 통신 메커니즘은 2가지 입니다.</p>
+<ol>
+<li>사진 촬영 신호를 받아 수행하는 Service Server</li>
+<li>카메라 image data Subscriber</li>
+</ol>
+<p>복습을 해볼 겸, 이 부분을 직접 코딩해보는 것도 좋은 학습이 될 것입니다.</p>
+<ul>
+<li>Node의 생성자는 다음과 같습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PictureNode</span> : public rclcpp::Node {
+</span></span><span style="display:flex;"><span>private:
+</span></span><span style="display:flex;"><span>  rclcpp::Service<span style="color:#f92672">&lt;</span>SetBool<span style="color:#f92672">&gt;</span>::SharedPtr bool_server;
+</span></span><span style="display:flex;"><span>  rclcpp::Subscription<span style="color:#f92672">&lt;</span>Image<span style="color:#f92672">&gt;</span>::SharedPtr image_subscriber;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>public:
+</span></span><span style="display:flex;"><span>  PictureNode() : Node(<span style="color:#e6db74">&#34;take_picture_server&#34;</span>){
+</span></span><span style="display:flex;"><span>    image_subscriber <span style="color:#f92672">=</span> this<span style="color:#f92672">-&gt;</span>create_subscription<span style="color:#f92672">&lt;</span>Image<span style="color:#f92672">&gt;</span>(
+</span></span><span style="display:flex;"><span>      this<span style="color:#f92672">-&gt;</span>img_topic_name, <span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>      std::bind(<span style="color:#f92672">&amp;</span>PictureNode::img_sub_callback, this, std::placeholders::_1)
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    bool_server <span style="color:#f92672">=</span> this<span style="color:#f92672">-&gt;</span>create_service<span style="color:#f92672">&lt;</span>SetBool<span style="color:#f92672">&gt;</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;take_picture&#34;</span>,
+</span></span><span style="display:flex;"><span>      std::bind(<span style="color:#f92672">&amp;</span>PictureNode::server_callback, this, std::placeholders::_1, std::placeholders::_2)
+</span></span><span style="display:flex;"><span>    );
+</span></span></code></pre></div><blockquote>
+<p>client service 먼저 살펴보겠습니다.</p>
+</blockquote>
+<ul>
+<li>Service Server의 생성은 create_service를 사용하며 필요한 매개변수들은 아래와 같습니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>template argument</td>
+<td>Srv Type</td>
+</tr>
+<tr>
+<td>“take_picture”</td>
+<td>Service Name</td>
+</tr>
+<tr>
+<td>std::bind(Class, Method)</td>
+<td>Request 시 실행될 Service Callback</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>create_service의 callback 함수는 request와 response 2개의 매개변수를 갖습니다. request를 통해 일련의 로직을 실행하고 결과를 response로 리턴하는 방식을 갖고 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">server_callback</span>(<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>SetBool<span style="color:#f92672">::</span>Request<span style="color:#f92672">&gt;</span> request,
+</span></span><span style="display:flex;"><span>                      <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>SetBool<span style="color:#f92672">::</span>Response<span style="color:#f92672">&gt;</span> response){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (request<span style="color:#f92672">-&gt;</span>data) {
+</span></span><span style="display:flex;"><span>    RCLCPP_INFO(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;KimChi~&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>is_request <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  response<span style="color:#f92672">-&gt;</span>success <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>  response<span style="color:#f92672">-&gt;</span>message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Successfully image written&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>subscription callback에서는 이미지를 저장하는 로직이 실행됩니다. CV Bridge를 통해 ROS topic을 OpenCV 포맷으로 바꿀 수 있는데요. OpenCV와 ROS 2를 다루는 내용이 등장했는데 지금은 우선 간단하게 살펴본 뒤, 이후 강의에서 다시 한 번 자세히 다룰 예정입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cv_bridge/cv_bridge.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;image_transport/image_transport.hpp&gt; // Using image_transport allows us to publish and subscribe to compressed image streams in ROS2</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;opencv2/opencv.hpp&gt; // We include everything about OpenCV as we don&#39;t care much about compilation time at the moment.</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;rclcpp/rclcpp.hpp&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;sensor_msgs/msg/image.hpp&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;example_interfaces/srv/set_bool.hpp&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> img_sub_callback(<span style="color:#66d9ef">const</span> Image<span style="color:#f92672">::</span>ConstSharedPtr msg){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>is_request){
+</span></span><span style="display:flex;"><span>    cv<span style="color:#f92672">::</span>Mat img <span style="color:#f92672">=</span> cv_bridge<span style="color:#f92672">::</span>toCvShare(msg, <span style="color:#e6db74">&#34;bgr8&#34;</span>)<span style="color:#f92672">-&gt;</span>image;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>string file_name <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>to_string(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_clock()<span style="color:#f92672">-&gt;</span>now().seconds()) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.jpg&#34;</span>;
+</span></span><span style="display:flex;"><span>    cv<span style="color:#f92672">::</span>imwrite(file_name, img);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    RCLCPP_INFO(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger(), <span style="color:#e6db74">&#34;Image saved as %s&#34;</span>, file_name.c_str());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>is_request <span style="color:#f92672">=</span> false;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>주의할 점으로 빌드 시 OpenCV 종속성을 기입해줘야 합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>find_package(rclcpp REQUIRED)
+</span></span><span style="display:flex;"><span>find_package(std_srvs REQUIRED)
+</span></span><span style="display:flex;"><span>find_package(turtlesim REQUIRED)
+</span></span><span style="display:flex;"><span>find_package(sensor_msgs REQUIRED)
+</span></span><span style="display:flex;"><span>find_package(gazebo_msgs REQUIRED)
+</span></span><span style="display:flex;"><span>find_package(geometry_msgs REQUIRED)
+</span></span><span style="display:flex;"><span>find_package(custom_interfaces REQUIRED)
+</span></span><span style="display:flex;"><span>find_package(example_interfaces REQUIRED)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>find_package(OpenCV REQUIRED)
+</span></span><span style="display:flex;"><span>find_package(cv_bridge REQUIRED)
+</span></span><span style="display:flex;"><span>find_package(image_transport REQUIRED)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_executable(take_picture_server src<span style="color:#f92672">/</span>take_picture_server<span style="color:#f92672">.</span>cpp)
+</span></span><span style="display:flex;"><span>ament_target_dependencies(take_picture_server rclcpp example_interfaces std_msgs sensor_msgs cv_bridge image_transport OpenCV)
+</span></span></code></pre></div><ul>
+<li>참고로 저는 ROS 2를 설치할 시 기본 세팅되는 OpenCV를 사용하였습니다.</li>
+</ul>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/kr/ros2_foxy/lecture7/" title="Lecture7. ROS 2 Topic and Programming"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kr/ros2_foxy/lecture9/" title="Lecture9. ROS 2 Action Programming" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1682765761"></script>
+    <script src="/js/perfect-scrollbar.min.js?1682765761"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1682765761"></script>
+    <script src="/js/jquery.sticky.js?1682765761"></script>
+    <script src="/js/featherlight.min.js?1682765761"></script>
+    <script src="/js/highlight.pack.js?1682765761"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1682765761"></script>
+    <script src="/js/learn.js?1682765761"></script>
+    <script src="/js/hugo-learn.js?1682765761"></script>
+    
+        
+            <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

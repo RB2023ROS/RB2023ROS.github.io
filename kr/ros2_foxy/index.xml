@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ROS 2 Basics on Documentation for Hugo Learn Theme</title>
+    <link>/kr/ros2_foxy/</link>
+    <description>Recent content in ROS 2 Basics on Documentation for Hugo Learn Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 25 Nov 2022 12:26:00 +1000</lastBuildDate><atom:link href="/kr/ros2_foxy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lecture1. What is ROS?</title>
+      <link>/kr/ros2_foxy/lecture1/</link>
+      <pubDate>Fri, 28 Apr 2023 10:51:29 +0900</pubDate>
+      
+      <guid>/kr/ros2_foxy/lecture1/</guid>
+      <description>What is ROS? 강의를 제작하고 있는 현 시점, 세상은 chatgpt로 인해 큰 격변을 맞이하고 있는데요, chatgpt에게 ROS가 무엇인지 한 번 물어보았습니다. 😊
+💡 앞으로 프로그래밍과 실습 시 chatgpt를 적극 활용하여 강의를 이어나가도록 하겠습니다. 😉
+chatgpt가 잘 정리해주었지만, 제가 조금 더 설명을 이어나가보도록 하겠습니다. ROS란, 로봇 소프트웨어 개발에 사용되는 일종의 프레임워크입니다. 프레임워크라는 말은, ROS 나름대로의 실행 시나리오를 갖고 있다는 뜻입니다. 사용자인 우리들은, 이 시나리오를 사용하여 로봇을 다루는 우리만의 Application을 만들게 됩니다. image from : wikimedia</description>
+    </item>
+    
+    <item>
+      <title>Lecture2. Dev Env Setup</title>
+      <link>/kr/ros2_foxy/lecture2/</link>
+      <pubDate>Fri, 28 Apr 2023 10:51:29 +0900</pubDate>
+      
+      <guid>/kr/ros2_foxy/lecture2/</guid>
+      <description>Develpoment Environment Setup 프로젝트 기반의 강의인 만큼, 개발 환경이 구축되지 않으면 앞으로의 실습을 진행할 수 없습니다.
+따라서 이번 파트에 많은 시간을 배정하였고, 힘들 수 있지만 끝까지 따라와주시면 감사합니다.
+준비한 환경은 다음과 같습니다.
+Ubuntu Linux &amp;amp; ROS 2 Setup Windows 11 &amp;amp; WSL 2 Setup Windows 10 &amp;amp; WSL 2 Setup 1,2,3 순서로 추천하는 설정입니다. 강의 컨텐츠를 따라오면서 선호하는 설정에 맞추어 작업하시다가 도저히 해결할 수 없는 문제가 발생한 경우 github issue를 발행하시거나 현장 강의의 경우 저를 불러 주시면 됩니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture3. Core of ROS</title>
+      <link>/kr/ros2_foxy/lecture3/</link>
+      <pubDate>Fri, 28 Apr 2023 10:51:29 +0900</pubDate>
+      
+      <guid>/kr/ros2_foxy/lecture3/</guid>
+      <description>Husky Gazebo 강의에 앞서, Gazebo상에 ClearPath의 Husky라는 로봇을 등장시켜보고자 합니다.
+image from : clearpath robotics
+예제 패키지 설치 sudo apt-get update sudo apt install ros-foxy-husky-gazebo sudo apt install ros-foxy-husky-simulator sudo apt install ros-foxy-husky-viz 시뮬레이션 실행 # Terminal 1 ros2 launch husky_gazebo husky_playpen.launch.py Rviz2 + Controller 실행 (Rviz2상의 interactive marker를 사용하여 로봇을 이동시킬 수 있습니다.) # Terminal 2 ros2 launch husky_viz view_robot.launch.py 다음으로, 새로운 터미널에서 아래 커멘드 라인을 실행시켜 봅시다. rqt_graph 위 그림은 방금 전 실행한 예제 내부적으로 어떠한 동작들이 이루어지고 있었는지를 보여주는 것으로, 강의를 마칠 때면 여러분들은 위 그림이 어떠한 의미를 갖는지 모두 이해하실 수 있을 것입니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture4. ROS 2 Node and Parameter Programming</title>
+      <link>/kr/ros2_foxy/lecture4/</link>
+      <pubDate>Fri, 28 Apr 2023 10:51:29 +0900</pubDate>
+      
+      <guid>/kr/ros2_foxy/lecture4/</guid>
+      <description>지난 시간 살펴본 바와 같이 ROS 2에서 프로그램이 실행되는 단위는 Node라는 이름으로 관리됩니다.
+여러분들께서 원하는 기능을 수행하는 Node를 생성하고, 이를 담은 패키지를 작성하고, 관련된 패키지들을 묶어 메타패키지를 구성하는 식으로 ROS 2 개발이 진행됩니다.
+오늘은 그 시작이 되는 Node의 기초 프로그래밍을 실습해보겠습니다.
+첫 코딩 강의의 시작이므로, 제가 사용하는 환경과 셋업도 공유드릴 예정입니다.
+Python 개발 : VSCode와 Copilot C++ 개발 : Clion과 Copilot ROS 2 프로그래밍의 경우 일반적인 프로그래밍과 더불어 tf, 통신 메커니즘, 멀티 프로세싱 등 실제 동작시켜보지 않으면 알 수 없는 기능들의 구현이 잦습니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture5. ROS 2 Communication Mechanisms</title>
+      <link>/kr/ros2_foxy/lecture5/</link>
+      <pubDate>Fri, 28 Apr 2023 10:51:29 +0900</pubDate>
+      
+      <guid>/kr/ros2_foxy/lecture5/</guid>
+      <description>이번 시간에는 ROS 2의 핵심인 3가지 통신 메커니즘(Topic,Service, Action)에 대해서 개념을 다잡고 넘어가고자 합니다. 프로그래밍은 없지만, 각각의 통신 메커니즘들에 대해 반드시 숙지하고 넘어가시기 바랍니다!
+ROS 2 Topic 3강의 husky 예시 실행 후 살펴보았던 rqt_graph 이미지입니다. ⇒ 위 그림에서 동그라미는 Node를 뜻하고, 화살표는 topic을 뜻하는데요, 첫번째로 이 Topic이라는 것이 무엇인지 배워보고자 합니다.
+Topic은 Node들 사이에 데이터(Message)가 오가는 길(Bus)의 이름이며, 적절한 이름으로 데이터를 송수신하지 않으면 원하는 동작을 수행할 수 없습니다. ROS 2에서 사용하는 DDS는 목적지를 정해두고 통신하는 것이 아니라 통신 매개체의 ID를 통해 송수신하기 때문에 기존 웹 기반 통신과는 다른 개념임을 상기드립니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture6. ROS 2 Tools</title>
+      <link>/kr/ros2_foxy/lecture6/</link>
+      <pubDate>Fri, 28 Apr 2023 10:51:28 +0900</pubDate>
+      
+      <guid>/kr/ros2_foxy/lecture6/</guid>
+      <description>ROS 2는 rqt라는 프로그램의 집합을 제공합니다. rqt의 GUI를 사용하면 데이터 시각화, 코딩 없이 통신 메커니즘과 상호 작용, tf frame의 시각화 등 ROS 2 프로그래밍이 매우 매우 편해집니다.
+이번 시간을 통해 몇가지 자주 사용되는 rqt들을 살펴보고, 약간의 실습도 진행해보겠습니다.
+rqt의 실행은 다음과 같습니다. rqt ⇒ 초기 실행 시 빈 화면이 등장하지만, 상단 탭을 통해 수많은 응용 프로그램들을 확인할 수 있습니다.
+rqt_graph rqt_graph는 node와 topic에 대해 시각화하여 한 장의 이미지를 보여주는 툴로, 가장 많이 사용되는 Rqt Tool입니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture7. ROS 2 Topic and Programming</title>
+      <link>/kr/ros2_foxy/lecture7/</link>
+      <pubDate>Fri, 28 Apr 2023 10:51:28 +0900</pubDate>
+      
+      <guid>/kr/ros2_foxy/lecture7/</guid>
+      <description>ROS 2 Topic and Programming 강의를 열심히 따라오면서 개념을 잊어버렸을 수 있으므로 Topic에 대해서 간단히 개념 복습을 해보겠습니다.
+Topic은 Node들 사이에 데이터(Message)가 오가는 길(Bus)의 이름이며, 적절한 이름으로 데이터를 송수신하지 않으면 원하는 동작을 수행할 수 없습니다. image from : docs.ros.org
+Topic의 중요한 특징으로 Topic은 여러 Node들로부터 데이터를 받을 수 있고, 전송 시에도 여러 Node들에게 전송이 가능한 방식입니다. image from : docs.ros.org
+topic을 통해 데이터가 전달되는 과정은 다음과 같습니다.
+데이터를 보내는 주체인 publisher는 데이터를 받는 주체, subscriber를 지정한 뒤, topic을 통해 원하는 정보를 전달합니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture8. ROS 2 Service and Programming</title>
+      <link>/kr/ros2_foxy/lecture8/</link>
+      <pubDate>Fri, 28 Apr 2023 10:51:28 +0900</pubDate>
+      
+      <guid>/kr/ros2_foxy/lecture8/</guid>
+      <description>ROS 2 Service ROS 2 Service의 개념을 다시 복습해봅시다.
+image from : docs.ros.org
+Service 개념 정리
+Service를 요청하는 주체를 Service Client라고 하며, Service 요청 자체를 **Request(혹은 Call)**라고 합니다. Service를 요청받는 주체를 Service Server라고 하며, Service Server는 Request에 대한 응답, 즉 Service Response를 다시 Service Client에게 회답합니다. Request와 Response를 위해 사용되는 데이터 타입은 srv라고 하며 Request와 Response로 나뉩니다. Service의 중요한 특징 한 가지 추가하자면, 하나의 Service Server에 여러 Client가 request 할 수 있지만, Server는 동시에 여러 request를 처리하지 못합니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture9. ROS 2 Action Programming</title>
+      <link>/kr/ros2_foxy/lecture9/</link>
+      <pubDate>Fri, 28 Apr 2023 10:51:28 +0900</pubDate>
+      
+      <guid>/kr/ros2_foxy/lecture9/</guid>
+      <description>ROS 2 Action Programming 강의를 열심히 따라오면서 개념을 잊어버렸을 수 있으므로 Action에 대해서 간단히 개념 복습을 해보겠습니다.
+image from : https://docs.ros.org/en/foxy/Tutorials/Understanding-ROS2-Actions.html 사진과 같이 Action Client와 Server가 주고받는 내용은 크게 5가지가 있습니다.
+Client ⇒ Server, Goal Request (service request와 유사합니다.) server ⇒ client, Goal Response client ⇒ server, Result Request server ⇒ client, Feedback (topic과 유사합니다.) server ⇒ client, Result Response 만약 4번 도중 cancel이 발생하면 Action은 종료됩니다.
+이렇게 Action은 Topic, Service의 특징을 모두 갖고 있으며 Cancel이라는 추가 기능까지 갖추고 있는 복잡한 통신 메커니즘이었습니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture10. TF and ROS 2</title>
+      <link>/kr/ros2_foxy/lecture10/</link>
+      <pubDate>Fri, 28 Apr 2023 10:51:09 +0900</pubDate>
+      
+      <guid>/kr/ros2_foxy/lecture10/</guid>
+      <description>Introduction to tf2 대부분의 로보틱스 과정들에서 가장 먼저 다루는 것이 바로 좌표계 변환 - Transformation입니다. 로봇은 수많은 joint와 link로 이루어져 있으며, 센서와 움직임을 다루기 때문에 좌표계를 다루는 일이 매우 빈번합니다.
+ROS 2에서는 TF2라는 특수한 형태로 이 좌표계와 시간을 함께 다루고 있습니다. 예시와 설명을 통해 ROS 2의 TF2에 대해 배워봅시다 😊
+image from : eth robot dynamics lecture notes Husky Again 일전 husky 예시를 통해 tf2에 대한 개요을 파악해보고자 합니다.
+# Terminal 1 - husky gazebo ros2 launch husky_gazebo husky_playpen.</description>
+    </item>
+    
+    <item>
+      <title>Lecture11. About Gazebo - 1</title>
+      <link>/kr/ros2_foxy/lecture11/</link>
+      <pubDate>Fri, 28 Apr 2023 10:51:09 +0900</pubDate>
+      
+      <guid>/kr/ros2_foxy/lecture11/</guid>
+      <description>URDF와 Robot Description 로봇에 센서를 부착하고, 외형을 정의하기 위해 가장 기본이 되는 것이 바로 URDF입니다. 이번 시간, 실습을 통해 URDF에 대한 개념과 robot desciption을 실습해 보겠습니다.
+일반적으로, 로봇은 Links와 Joints 두가지 요소로 이루어집니다. Description Link 단단하게 고정된 강체(rigid-body)이며, 사람의 골격에 해당합니다. Joint link 사이를 결합해주고 이들 사이 운동을 결정짓습니다. 사람의 관절에 해당합니다. 다양한 종류의 joint들이 존재하지만, 이론적으로 이들은 결국 prismatic + revolute joint의 결합으로 설명될 수 있습니다.
+Description revolute joint 회전 운동을 갖는 joint prismatic joint 수평 병진 운동을 갖는 joint ⇒ ROS 2에서는 개발 상 편의를 위해 크게 6가지의 joint를 사용하고 있습니다만 그림으로만 보고 넘어가겠습니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture12. About Gazebo - 2</title>
+      <link>/kr/ros2_foxy/lecture12/</link>
+      <pubDate>Fri, 28 Apr 2023 10:51:09 +0900</pubDate>
+      
+      <guid>/kr/ros2_foxy/lecture12/</guid>
+      <description>Gazebo Sensor Plugin Description 예시를 통해 URDF에 대해 습득하였다면, 이제 Gazebo에 로봇을 등장시키고, 이동, 센싱을 구현할 차례입니다. sensor stick을 통해 실습을 진행해보고, fusionbot도 함께 분석해 보겠습니다.
+다뤄볼 센서들은 다음과 같습니다.
+Mono Camera Depth Camera 2D Lidar 3D Lidar 미리 말하자면 sensor plugin을 사용하는 기본 방법만 알면 gazebo_ros pkg wiki를 통해 얼마든지 응용이 가능합니다. 하지만 적어도 한번은 직접 plugin을 적용해보시기 바랍니다.
+⇒ https://github.com/ros-simulation/gazebo_ros_pkgs/wiki
+Sensor Plugin 추가 절차 다음은 일반적으로 제가 Gazebo Model에 센서를 연동할 때 적용하는 절차입니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture13. Useful ROS 2 Examples (Sensor Part)</title>
+      <link>/kr/ros2_foxy/lecture13/</link>
+      <pubDate>Fri, 28 Apr 2023 10:51:09 +0900</pubDate>
+      
+      <guid>/kr/ros2_foxy/lecture13/</guid>
+      <description>Useful ROS 2 Examples (Sensor Part) Topic, Service, Action, Gazebo 예시들을 진행하면서 다양한 센서 데이터들을 다루어보았습니다. 이번 시간에는 예시들과 함께 해당 센서 데이터들의 ROS 2 연동 프로그램을 작성해 보겠습니다.
+CV2 and ROS 2 다양한 컴퓨터 비전 알고리즘을 담고 있는 오픈소스 비전 라이브러리인 OpenCV를 ROS 2와 연동하여 사용해 봅시다.
+cv2 and rclpy 첫번째 시간으로 ROS 2의 이미지 데이터를 OpenCV Python, cv2와 연동하는 방법에 대해 알아보겠습니다.
+Image Publish - Python 우선, 항상 그렇듯이 예시를 실행해 보겠습니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture14. Useful ROS 2 Examples (Control Part)</title>
+      <link>/kr/ros2_foxy/lecture14/</link>
+      <pubDate>Fri, 28 Apr 2023 10:51:09 +0900</pubDate>
+      
+      <guid>/kr/ros2_foxy/lecture14/</guid>
+      <description>Gazebo ROS 2 Control 지난 fusionbot 예시에서, Differential Drive만 예외적으로 gazebo pluin을 제공한다고 하였습니다. 일반적으로 Gazebo내에서 움직이는 (=모터를 가진) 모델을 구현하기 위해서는 gazebo_ros2_control을 사용합니다.
+다만, ROS 2 Control 전체 시스템을 이해하기 위해서는 상당한 배경 지식과 시간이 필요하므로, 이번 예시에서는 딱 하나, 위치 제어를 하는 가이드를 드리도록 하겠습니다.
+일전 sensor_stick의 URDF에는 tilt_joint라는 joint가 있었습니다. 우리의 목표는 이 tilt_joint를 말 그대로 기울여질 수 있게 해보는 것입니다. &amp;lt;joint name=&amp;#34;tilt_joint&amp;#34; type=&amp;#34;revolute&amp;#34;&amp;gt; &amp;lt;origin xyz=&amp;#34;0.05 0 ${length2/2+0.</description>
+    </item>
+    
+    <item>
+      <title>Lecture15. Advanced ROS 2, Package Management</title>
+      <link>/kr/ros2_foxy/lecture15/</link>
+      <pubDate>Fri, 28 Apr 2023 10:51:09 +0900</pubDate>
+      
+      <guid>/kr/ros2_foxy/lecture15/</guid>
+      <description>ROS 2 Launch 심화 Launch arguments ROS 2 launch file은 파이썬 사용함에 따라 다양한 기능을 직접 구현할 수 있습니다. 다수 모델 사용 시 반복 내용을 함수로 만들 수도 있고, 외부 파일이나 패키지를 import 할 수도 있지요. launch 패키지에서는 자주 사용되는 기능들을 미리 제공하고 있습니다. 이러한 기능을 통해 launch file을 좀 더 풍성하게 만들어 봅시다.
+예제 실행 - use_rviz launch 옵션을 사용해봅시다. ros2 launch src_gazebo empty_world.launch.py use_rviz:=true ros2 launch src_gazebo empty_world.launch.py use_rviz:=false ⇒ use_rviz 값에 따라 rviz2 실행 여부가 결정됩니다.</description>
+    </item>
+    
+    <item>
+      <title>Lecture16</title>
+      <link>/kr/ros2_foxy/lecture16/</link>
+      <pubDate>Fri, 28 Apr 2023 10:51:09 +0900</pubDate>
+      
+      <guid>/kr/ros2_foxy/lecture16/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lecture17</title>
+      <link>/kr/ros2_foxy/lecture17/</link>
+      <pubDate>Fri, 28 Apr 2023 10:51:09 +0900</pubDate>
+      
+      <guid>/kr/ros2_foxy/lecture17/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lecture18</title>
+      <link>/kr/ros2_foxy/lecture18/</link>
+      <pubDate>Fri, 28 Apr 2023 10:51:09 +0900</pubDate>
+      
+      <guid>/kr/ros2_foxy/lecture18/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lecture19</title>
+      <link>/kr/ros2_foxy/lecture19/</link>
+      <pubDate>Fri, 28 Apr 2023 10:40:29 +0900</pubDate>
+      
+      <guid>/kr/ros2_foxy/lecture19/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lecture20</title>
+      <link>/kr/ros2_foxy/lecture20/</link>
+      <pubDate>Fri, 28 Apr 2023 10:40:29 +0900</pubDate>
+      
+      <guid>/kr/ros2_foxy/lecture20/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

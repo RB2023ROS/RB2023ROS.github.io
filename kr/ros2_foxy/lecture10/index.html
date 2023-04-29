@@ -1,0 +1,3099 @@
+<!DOCTYPE html>
+<html lang="kr" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.104.1" />
+    <meta name="description" content="COM2018 OOP Class Lecture Note">
+<meta name="author" content="Soo Young Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Lecture10. TF and ROS 2 - Documentation for Hugo Learn Theme</title>
+
+    
+    <link href="/css/nucleus.css?1682765761" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1682765761" rel="stylesheet">
+    <link href="/css/hybrid.css?1682765761" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1682765761" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1682765761" rel="stylesheet">
+    <link href="/css/auto-complete.css?1682765761" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1682765761" rel="stylesheet">
+    <link href="/css/theme.css?1682765761" rel="stylesheet">
+    <link href="/css/tabs.css?1682765761" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1682765761" rel="stylesheet">
+    
+    <link href="/css/theme-green.css?1682765761" rel="stylesheet">
+    
+    <link href="/css/foo.css?1682765761" rel="stylesheet"><link href="/css/bar.css?1682765761" rel="stylesheet">
+
+    <script src="/js/jquery-3.3.1.min.js?1682765761"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/kr/ros2_foxy/lecture10/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img width="1097" alt="image" src="https://user-images.githubusercontent.com/12381733/209764275-05dcbdbf-cef7-47ad-94a6-6d61febad01e.png">
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1682765761"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1682765761"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/kr";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1682765761"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/kr'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_basic_noetic/" title="ROS Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_basic_noetic/">
+          <b>ROS Noetic. </b>ROS Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture1/" title="Lecture1 - Introduction to ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture1/">
+        Lecture1 - Introduction to ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture2/" title="Lecture2 - Dev Env Setup" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture2/">
+        Lecture2 - Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture3/" title="Lecture3 - Core of ROS" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture3/">
+        Lecture3 - Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture4/" title="Lecture4 - ROS Launch, RViz" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture4/">
+        Lecture4 - ROS Launch, RViz
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture5/" title="Lecture5 - First Programming, ROS Topic" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture5/">
+        Lecture5 - First Programming, ROS Topic
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture6/" title="Lecture6 - ROS Service, Parameter" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture6/">
+        Lecture6 - ROS Service, Parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture7/" title="Lecture7 - Rqt Tools and rosbag, ROS Time" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture7/">
+        Lecture7 - Rqt Tools and rosbag, ROS Time
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture8/" title="Lecture8 - Deal with Open Source Projects, Custom Interfaces" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture8/">
+        Lecture8 - Deal with Open Source Projects, Custom Interfaces
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture9/" title="Lecture9 - ROS TF and Examples" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture9/">
+        Lecture9 - ROS TF and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_basic_noetic/lecture10/" title="Lecture10 - TF2 Examples, Outro" class="dd-item ">
+        <a href="/kr/ros_basic_noetic/lecture10/">
+        Lecture10 - TF2 Examples, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/advanced_contents_ros1/" title="ROS" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/advanced_contents_ros1/">
+          <b>Advanced Contents. </b>ROS
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture1/" title="Lecture1 - ROSCPP" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture1/">
+        Lecture1 - ROSCPP
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture2/" title="Lecture2 - More About ROS System" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture2/">
+        Lecture2 - More About ROS System
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros1/lecture3/" title="Lecture3 - SROS" class="dd-item ">
+        <a href="/kr/advanced_contents_ros1/lecture3/">
+        Lecture3 - SROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_basic_foxy/" title="ROS 2 Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros2_basic_foxy/">
+          <b>[Old]ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture1/" title="Lecture1 - Introduction to ROS 2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture1/">
+        Lecture1 - Introduction to ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture2/" title="Lecture2 - ROS 2 Node, Package" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture2/">
+        Lecture2 - ROS 2 Node, Package
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture3/" title="Lecture3 - ROS 2 Node Programming, ROS 2 parameter" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture3/">
+        Lecture3 - ROS 2 Node Programming, ROS 2 parameter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture4/" title="Lecture4 - ROS 2 Node C&#43;&#43; Programming" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture4/">
+        Lecture4 - ROS 2 Node C&#43;&#43; Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture5/" title="Lecture5 - ROS 2 Topic and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture5/">
+        Lecture5 - ROS 2 Topic and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture6/" title="Lecture6 - ROS 2 Service and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture6/">
+        Lecture6 - ROS 2 Service and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture7/" title="Lecture7 - Useful ROS 2 Example, Navigation2" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture7/">
+        Lecture7 - Useful ROS 2 Example, Navigation2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture8/" title="Lecture8 - ROS 2 Action and Examples" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture8/">
+        Lecture8 - ROS 2 Action and Examples
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_basic_foxy/lecture9/" title="Lecture9 - C&#43;&#43; Programming Again, Outro" class="dd-item ">
+        <a href="/kr/ros2_basic_foxy/lecture9/">
+        Lecture9 - C&#43;&#43; Programming Again, Outro
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros2_foxy/" title="ROS 2 Basics" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/kr/ros2_foxy/">
+          <b>[New]ROS 2 Foxy. </b>ROS 2 Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture1/" title="Lecture1. What is ROS?" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture1/">
+        Lecture1. What is ROS?
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture2/" title="Lecture2. Dev Env Setup" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture2/">
+        Lecture2. Dev Env Setup
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture3/" title="Lecture3. Core of ROS" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture3/">
+        Lecture3. Core of ROS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture4/" title="Lecture4. ROS 2 Node and Parameter Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture4/">
+        Lecture4. ROS 2 Node and Parameter Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture5/" title="Lecture5. ROS 2 Communication Mechanisms" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture5/">
+        Lecture5. ROS 2 Communication Mechanisms
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture6/" title="Lecture6. ROS 2 Tools" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture6/">
+        Lecture6. ROS 2 Tools
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture7/" title="Lecture7. ROS 2 Topic and Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture7/">
+        Lecture7. ROS 2 Topic and Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture8/" title="Lecture8. ROS 2 Service and Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture8/">
+        Lecture8. ROS 2 Service and Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture9/" title="Lecture9. ROS 2 Action Programming" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture9/">
+        Lecture9. ROS 2 Action Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture10/" title="Lecture10. TF and ROS 2" class="dd-item active">
+        <a href="/kr/ros2_foxy/lecture10/">
+        Lecture10. TF and ROS 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture11/" title="Lecture11. About Gazebo - 1" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture11/">
+        Lecture11. About Gazebo - 1
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture12/" title="Lecture12. About Gazebo - 2" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture12/">
+        Lecture12. About Gazebo - 2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture13/" title="Lecture13. Useful ROS 2 Examples (Sensor Part)" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture13/">
+        Lecture13. Useful ROS 2 Examples (Sensor Part)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture14/" title="Lecture14. Useful ROS 2 Examples (Control Part)" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture14/">
+        Lecture14. Useful ROS 2 Examples (Control Part)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture15/" title="Lecture15. Advanced ROS 2, Package Management" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture15/">
+        Lecture15. Advanced ROS 2, Package Management
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture16/" title="Lecture16" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture16/">
+        Lecture16
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture17/" title="Lecture17" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture17/">
+        Lecture17
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture18/" title="Lecture18" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture18/">
+        Lecture18
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture19/" title="Lecture19" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture19/">
+        Lecture19
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros2_foxy/lecture20/" title="Lecture20" class="dd-item ">
+        <a href="/kr/ros2_foxy/lecture20/">
+        Lecture20
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/advanced_contents_ros2/" title="ROS 2" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/advanced_contents_ros2/">
+          <b>Advanced Contents. </b>ROS 2
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture1/" title="Lecture1 - About DDS" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture1/">
+        Lecture1 - About DDS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture2/" title="Lecture11 - About DDS (2)" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture2/">
+        Lecture11 - About DDS (2)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/advanced_contents_ros2/lecture3/" title="Lecture12 - SROS2" class="dd-item ">
+        <a href="/kr/advanced_contents_ros2/lecture3/">
+        Lecture12 - SROS2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/kr/ros_and_gazebo/" title="Gazebo and ROS" class="dd-item
+        
+        
+        
+        ">
+      <a href="/kr/ros_and_gazebo/">
+          <b>Gazebo. </b>Gazebo and ROS
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_and_gazebo/lecture1/" title="Lecture1 - Gazebo and Robot" class="dd-item ">
+        <a href="/kr/ros_and_gazebo/lecture1/">
+        Lecture1 - Gazebo and Robot
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/kr/ros_and_gazebo/lecture2/" title="Lecture2 - Gazebo and Robot(2)" class="dd-item ">
+        <a href="/kr/ros_and_gazebo/lecture2/">
+        Lecture2 - Gazebo and Robot(2)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros1"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 1</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://github.com/RB2023ROS/du2023-ros2"><i class='fab fa-fw fa-github'></i> GitHub repo - ROS 2</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="kr" value="/kr/ros2_foxy/lecture10/" selected>Korean</option>
+                    
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='' href="https://github.com/com2018-fa22/hugo-blog/tree/main/content/ros2_foxy/lecture10.kr.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text"></span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                   Lecture10. TF and ROS 2
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction-to-tf2">Introduction to tf2</a>
+      <ul>
+        <li><a href="#husky-again">Husky Again</a></li>
+      </ul>
+    </li>
+    <li><a href="#tf2-tree">TF2 Tree</a>
+      <ul>
+        <li><a href="#static-broadcaster">static broadcaster</a></li>
+        <li><a href="#static-transform-publisher">static transform publisher</a></li>
+        <li><a href="#tf2-broadcaster--lisenter--add-frame">TF2 Broadcaster &amp; Lisenter &amp; Add frame</a></li>
+      </ul>
+    </li>
+    <li><a href="#tf2-python-programming">TF2 Python Programming</a>
+      <ul>
+        <li><a href="#tf2-broadcaster-python">TF2 Broadcaster (Python)</a></li>
+        <li><a href="#코드-분석">코드 분석</a></li>
+        <li><a href="#tf2-listener-python">TF2 Listener [Python]</a></li>
+        <li><a href="#tf2-add-frame-python">TF2 Add Frame (Python)</a></li>
+        <li><a href="#tf2-c-programming">TF2 C++ Programming</a></li>
+        <li><a href="#코드-분석-1">코드 분석</a></li>
+        <li><a href="#tf2-listener-c">TF2 Listener (C++)</a></li>
+        <li><a href="#tf2-add-frame-c">TF2 Add Frame (C++)</a></li>
+      </ul>
+    </li>
+    <li><a href="#tf2-example">TF2 Example</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Lecture10. TF and ROS 2
+            </h1>
+          
+
+        
+
+
+<h2 id="introduction-to-tf2">Introduction to tf2</h2>
+<blockquote>
+<p>대부분의 로보틱스 과정들에서 가장 먼저 다루는 것이 바로 <strong>좌표계 변환 - Transformation</strong>입니다. 로봇은 수많은 joint와 link로 이루어져 있으며, 센서와 움직임을 다루기 때문에 좌표계를 다루는 일이 매우 빈번합니다.</p>
+</blockquote>
+<p>ROS 2에서는 TF2라는 특수한 형태로 이 좌표계와 시간을 함께 다루고 있습니다. 예시와 설명을 통해 ROS 2의 TF2에 대해 배워봅시다 😊</p>
+<p><img src="/kr/ros2_foxy/images10/Untitled.png?height=300px" alt="Untitled.png"></p>
+<ul>
+<li>image from : <a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/robotics-n-intelligent-systems/rsl-dam/documents/RobotDynamics2017/RD_HS2017script.pdf">eth robot dynamics lecture notes</a></li>
+</ul>
+<h3 id="husky-again">Husky Again</h3>
+<blockquote>
+<p>일전 husky 예시를 통해 tf2에 대한 개요을 파악해보고자 합니다.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1 - husky gazebo</span>
+</span></span><span style="display:flex;"><span>ros2 launch husky_gazebo husky_playpen<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2 - rviz</span>
+</span></span><span style="display:flex;"><span>rviz2
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images10/Untitled1.png?height=400px" alt="Untitled1.png"></p>
+<p>⇒ rviz에서 보이는 세가지 색상의 막대가 바로 tf2 입니다. x,y,z의 각 축을 각기 다른 색으로 표현하였으며, 연관된 좌표계끼리는 노란 선을 통해 연결한 모습이 보입니다.</p>
+<p><img src="/kr/ros2_foxy/images10/Untitled2.png?height=300px" alt="Untitled2.png"></p>
+<ul>
+<li>rviz2 화면에서 fixed frame을 변경해보면, 모든 데이터, 좌표들의 원점이 바뀌는 것을 볼 수 있습니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images10/Untitled3.png?height=300px" alt="Untitled3.png"></p>
+<p>⇒ 이렇게 좌표변환에 따른 데이터 시각화가 가능하려면 모든 좌표계들 사이의 회전, 평행 이동 변환 정보를 알고 있어야 할 것입니다. ROS 2에서 이를 어떻게 다룰 수 있는지 또 하나의 예시를 살펴보겠습니다.</p>
+<h2 id="tf2-tree">TF2 Tree</h2>
+<ul>
+<li>tf2 view frame - 이전 husky는 실행 상태로 유지합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Terminal1 - husky gazebo</span>
+</span></span><span style="display:flex;"><span>ros2 launch husky_gazebo husky_playpen.launch.py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal2 - tf2 view frame</span>
+</span></span><span style="display:flex;"><span>cd ~/ros2_ws
+</span></span><span style="display:flex;"><span>ros2 run tf2_tools view_frames.py
+</span></span></code></pre></div><ul>
+<li>약 5초간 대기 후, 폴더를 조회해보면 아래와 같은 tree 사진이 저장된 것을 확인할 수 있습니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images10/frames.png?height=300px" alt="frames.png"></p>
+<p>tree를 확대해서 살펴봅시다.</p>
+<ul>
+<li>모든 node들끼리는 하나의 연결 상태를 갖습니다.</li>
+<li>rviz2의 fixed frame에서는 바로 이 node를 선택했던 것입니다.</li>
+<li>해당 연결을 담당하는 Broadcaster 정보, 평균 rate, buffer length 등의 정보를 확인 가능합니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images10/Untitled4.png?height=300px" alt="Untitled4.png"></p>
+
+<div class="notices note" ><p>만약 tf tree가 온전히 연결되어 있지 않다면 어떤 일이 발생할까요?</p>
+</div>
+
+<p><img src="/kr/ros2_foxy/images10/Untitled5.png?height=300px" alt="Untitled5.png"></p>
+<p>⇒ tf2간 연결이 끊어지게 되면, 끊어진 아래 시점에 대해서는 그 어떠한 정보도 알 수 없습니다. 따라서 rviz2에서의 시각화나, SLAM, 자율주행 시 이는 큰 문제가 됩니다.</p>
+<ul>
+<li>더불어, tf2가 제대로 연결되어 있더라고 정확한 시간과 정확한 좌표 변환을 갖는 것이 매우 중요합니다. 예를 들어, 라이다의 tf를 180도 반대로 설정해버리면 후방에 있는 장애물을 전방 장애물로 잘못 인식할 수 있습니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images10/Untitled6.png?height=300px" alt="Untitled6.png"></p>
+<p>image from : <a href="https://answers.ros.org/question/265846/how-to-build-tf-topic-frame-tree-for-hector_slam-or-gmapping/">answers.ros.org</a></p>
+<ul>
+<li>때문에 sensor topic message들은 공통적으로 tf2 정보를 포함하고 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ros2 interface show sensor_msgs/msg/PointCloud2
+</span></span><span style="display:flex;"><span>**std_msgs/Header header**
+</span></span><span style="display:flex;"><span>uint32 height
+</span></span><span style="display:flex;"><span>uint32 width
+</span></span><span style="display:flex;"><span>sensor_msgs/PointField<span style="color:#f92672">[]</span> fields
+</span></span><span style="display:flex;"><span>bool is_bigendian
+</span></span><span style="display:flex;"><span>uint32 point_step
+</span></span><span style="display:flex;"><span>uint32 row_step
+</span></span><span style="display:flex;"><span>uint8<span style="color:#f92672">[]</span> data
+</span></span><span style="display:flex;"><span>bool is_dense
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ ros2 interface show std_msgs/msg/Header
+</span></span><span style="display:flex;"><span>uint32 seq
+</span></span><span style="display:flex;"><span>time stamp
+</span></span><span style="display:flex;"><span>string frame_id
+</span></span></code></pre></div><p>⇒ frame_id와 stamp이 바로 tf2와 관련된 데이터로 이렇게 센서 데이터들은 대부분 좌표와 시간에 대한 정보를 포함하게 됩니다.</p>
+<p>이번 시간에는 크게 3가지 예시를 통해 tf2에 대해 학습할 예정입니다.</p>
+<ul>
+<li>static transform ⇒ 움직이지 않는 좌표계</li>
+<li>tf2 broadcast ⇒ tf2 데이터의 송신</li>
+<li>tf2 listen ⇒ tf2 데이터의 수신</li>
+</ul>
+
+<div class="notices note" ><p>topic publish를 하는데 왜 또 tf2 boradcast가 필요할까요?</p>
+</div>
+
+<p>⇒ 바로 위 예시처럼 topic에 담긴 정보는 실제 좌표변환이 아닌, frame id입니다. 이는 topic data를 받은 subscriber node 입장에서 센서 데이터를 다루는 상황을 생각해보면 이해하기 쉽습니다.</p>
+<ol>
+<li>topic sub</li>
+<li>sub msg내 frame id 확인</li>
+<li>tf2 데이터에서 해당 frame의 변환 listen</li>
+<li>이후 로직 구현</li>
+</ol>
+<p>그럼, 예시와 코드를 통해 tf2를 마스터해봅시다!</p>
+<h3 id="static-broadcaster">static broadcaster</h3>
+<h4 id="orbit-world">Orbit World</h4>
+<blockquote>
+<p>tf2의 학습을 위해 gazebo 환경을 만들어 두었습니다. 함께 실행해봅시다.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>cd <span style="color:#f92672">~/</span>ros2_ws
+</span></span><span style="display:flex;"><span>cbp tf2_world <span style="color:#f92672">&amp;&amp;</span> source install<span style="color:#f92672">/</span>local_setup<span style="color:#f92672">.</span>bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ros2 launch tf2_world tf2_world<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span></code></pre></div><blockquote>
+<p>마치 행성과 위성 같은 환경을 볼 수 있습니다.</p>
+</blockquote>
+<p><img src="/kr/ros2_foxy/images10/orbit.gif?height=300px" alt="orbit.gif"></p>
+<ul>
+<li>현 상황에서 tf2 tree를 조회해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ros2 run tf2_tools view_frame.py
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images10/Untitled7.png?height=200px" alt="Untitled7.png"></p>
+
+<div class="notices note" ><p>tf2 데이터는 아무것도 없지요? 이번 시간의 목표는 우리가 직접 코딩과 launch file을 통해 tree를 구성해 보는 것입니다.</p>
+</div>
+
+<ul>
+<li>launch file 실행 터미널을 자세히 살펴보면, 아래와 같은 문구를 볼 수 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>[gzserver<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] [INFO] [<span style="color:#ae81ff">1681981785.437867364</span>] [gazebo_ros_state]: Publishing states of gazebo models at [<span style="color:#f92672">/</span>model_states]
+</span></span><span style="display:flex;"><span>[gzserver<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] [INFO] [<span style="color:#ae81ff">1681981785.438120429</span>] [gazebo_ros_state]: Publishing states of gazebo links at [<span style="color:#f92672">/</span>link_states]
+</span></span></code></pre></div><ul>
+<li>현 gazebo 환경에서의 존재하는 모든 모델의 state를 /model_state topic을 통해 알 수 있습니다. topic monitor를 통해 살펴봅시다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images10/Untitled8.png?height=300px" alt="Untitled8.png"></p>
+<h3 id="static-transform-publisher">static transform publisher</h3>
+<p><img src="/kr/ros2_foxy/images10/Untitled9.png?height=200px" alt="Untitled9.png"></p>
+<ul>
+<li>image from : <a href="https://theegeek.com/static-members-and-static-concept/">theegeek</a></li>
+</ul>
+<blockquote>
+<p>움직이지 않는 static object의 tf2 데이터는 static transform publisher가 담당합니다. 덕분에 우리는 굳이 코딩을 하지 않아도 미리 준비된 node를 실행하기만 하면 됩니다.</p>
+</blockquote>
+<ul>
+<li>launch file을 통해 static transform publisher를 사용해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    static_transform_publisher <span style="color:#f92672">=</span> Node<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>        package <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;tf2_ros&#34;</span>,
+</span></span><span style="display:flex;"><span>        executable <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;static_transform_publisher&#34;</span>,
+</span></span><span style="display:flex;"><span>        arguments <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;0&#34;</span>, <span style="color:#e6db74">&#34;0&#34;</span>, <span style="color:#e6db74">&#34;0.5&#34;</span>, <span style="color:#e6db74">&#34;0&#34;</span>, <span style="color:#e6db74">&#34;0&#34;</span>, <span style="color:#e6db74">&#34;0&#34;</span>, <span style="color:#e6db74">&#34;world&#34;</span>, <span style="color:#e6db74">&#34;unit_sphere&#34;</span><span style="color:#f92672">]</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> LaunchDescription<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>            static_transform_publisher,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">)</span>
+</span></span></code></pre></div><ul>
+<li>arguments에 들어가는 매개변수들은 순서대로 (x y z roll pitch yaw parent_frame child_frame)이 됩니다.</li>
+</ul>
+<p>⇒ world frame 기준 unit_sphere frame를 z축으로 0.5만큼 떨어뜨려 tf2 data가 생성됩니다.</p>
+
+<div class="notices note" ><p>로봇 개발자들은 암묵적으로 모든 상황의 원점이 되는 절대 좌표계를 world frame이라고 정합니다.</p>
+</div>
+
+<ul>
+<li>다시 한 번 tf2 tree를 살펴봅시다</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>ros2 run tf2_tools view_frame<span style="color:#f92672">.</span>py
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images10/Untitled10.png?height=300px" alt="Untitled10.png"></p>
+<p>⇒ world to unit_sphere tf가 성공적으로 생성되었습니다!</p>
+<ul>
+<li>이제 rviz2 화면을 통해서도 tf2를 시각화 할 수 있습니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images10/Untitled11.png?height=400px" alt="Untitled11.png"></p>
+
+<div class="notices note" ><p>움직이지 않는 물체 뿐만 아니라, 로봇 내부에서 고정된 부분에서도 static_transform_publisher를 사용할 수 있습니다. 자주 탈부착되는 센서 frame이 대표적인 예시입니다.</p>
+</div>
+
+<p><img src="/kr/ros2_foxy/images10/Untitled12.png?height=300px" alt="Untitled12.png"></p>
+<ul>
+<li>image from : <a href="https://articulatedrobotics.xyz/ready-for-ros-6-tf/">articulatedrobotics</a></li>
+</ul>
+<h3 id="tf2-broadcaster--lisenter--add-frame">TF2 Broadcaster &amp; Lisenter &amp; Add frame</h3>
+<blockquote>
+<p>지난 강의에서 고정된 물체에 대한 tf2 데이터를 다루는 방법을 알아보았습니다. 이번 시간부터 tf2를 다루는 코드를 작성해 보겠으며, 최종적으로 아래와 같은 시스템을 만들어보겠습니다.</p>
+</blockquote>
+<p><img src="/kr/ros2_foxy/images10/orbit_frame.gif?height=400px" alt="orbit_frame.gif"></p>
+<h2 id="tf2-python-programming">TF2 Python Programming</h2>
+<h3 id="tf2-broadcaster-python">TF2 Broadcaster (Python)</h3>
+<blockquote>
+<p>topic에서는 publish/subscribe라는 용어를 사용하였지만 tf2에서는 broadcast/listen이라는 용어를 사용합니다. topic과 tf2는 완전 별개의 개념입니다! 혼란되지 않도록 주의하세요.</p>
+</blockquote>
+<ul>
+<li>우선, 예시를 실행해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Terminal1 - gazebo</span>
+</span></span><span style="display:flex;"><span>ros2 launch tf2_world tf2_world.launch.py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal2 - tf2 broadcaster</span>
+</span></span><span style="display:flex;"><span>ros2 run py_tf2_tutorial tf2_broadcaster
+</span></span></code></pre></div><ul>
+<li>rviz2를 통해 움직이는 구의 tf2를 확인할 수 있습니다. 이를 구현하는 것이 이번 예제의 목표입니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images10/tf2_bc.gif?height=400px" alt="tf2_bc.gif"></p>
+<h3 id="코드-분석">코드 분석</h3>
+<ul>
+<li>이전 강의에서 gazebo 내 모든 물체들의 정보를 담은 /model_state topic을 살펴본 바 있습니다. 이를 코드 구현에 사용하기 위해 정보를 조회해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 interface show gazebo_msgs<span style="color:#f92672">/</span>msg<span style="color:#f92672">/</span>ModelStates
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># broadcast all model states in world frame</span>
+</span></span><span style="display:flex;"><span>string[] name                 <span style="color:#75715e"># model names</span>
+</span></span><span style="display:flex;"><span>geometry_msgs<span style="color:#f92672">/</span>Pose[] pose     <span style="color:#75715e"># desired pose in world frame</span>
+</span></span><span style="display:flex;"><span>geometry_msgs<span style="color:#f92672">/</span>Twist[] twist   <span style="color:#75715e"># desired twist in world frame</span>
+</span></span></code></pre></div><p>⇒ 이 모양을 기억하면서 코드로 진입해보겠습니다.</p>
+<ul>
+<li>더불어, tf2의 데이터 타입은 geometry_msgs/msg/TransformStamped 입니다. ⇒ <a href="http://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/TransformStamped.html">link</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 interface show geometry_msgs<span style="color:#f92672">/</span>msg<span style="color:#f92672">/</span>TransformStamped
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This expresses a transform from coordinate frame header.frame_id</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># to the coordinate frame child_frame_id</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This message is mostly used by the</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># tf package.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># See its documentation for more information.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Header header
+</span></span><span style="display:flex;"><span>string child_frame_id <span style="color:#75715e"># the frame id of the child frame</span>
+</span></span><span style="display:flex;"><span>Transform transform
+</span></span></code></pre></div><ul>
+<li>코드로 돌아와 import 부분입니다. tf2 데이터를 다루기 위한 패키지인 tf2_ros, ModelStates 데이터 타입을 import합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> rclpy
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.node <span style="color:#f92672">import</span> Node
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> tf2_ros <span style="color:#f92672">import</span> TransformBroadcaster
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> gazebo_msgs.msg <span style="color:#f92672">import</span> ModelStates
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> geometry_msgs.msg <span style="color:#f92672">import</span> TransformStamped
+</span></span></code></pre></div><ul>
+<li>우리의 목표를 정리해봅시다.</li>
+</ul>
+<ol>
+<li>model_state topic에서 움직이는 물체의 정보를 조회합니다.</li>
+<li>해당 데이터를 정제하여 TF2의 형태로 변형한 뒤 broadcast 합니다.</li>
+</ol>
+<p>⇒ 따라서 topic sub과 tf2 broadcast가 필요한 상황입니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OrbitBroadcaster</span>(Node):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>    super()<span style="color:#f92672">.</span>__init__(<span style="color:#e6db74">&#39;tf2_frame_broadcaster&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Initialize the transform broadcaster</span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>tf_broadcaster <span style="color:#f92672">=</span> TransformBroadcaster(self)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Subscribe to a turtle{1}{2}/pose topic and call handle_turtle_pose</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># callback function on each message</span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>m_model_state_sub <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_subscription(
+</span></span><span style="display:flex;"><span>        ModelStates, <span style="color:#e6db74">&#34;model_states&#34;</span>, self<span style="color:#f92672">.</span>handle_turtle_pose, <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span></code></pre></div><ul>
+<li>코드의 핵심은 sub callback에 담겨 있습니다. model_state msg중 우리가 원하는 animated_sphere의 정보를 파싱하여 TransformStamped msg에 집어넣은 뒤, broadcast 합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">handle_turtle_pose</span>(self, msg):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    index <span style="color:#f92672">=</span> [i <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(msg<span style="color:#f92672">.</span>name)) <span style="color:#66d9ef">if</span> msg<span style="color:#f92672">.</span>name[i] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;animated_sphere&#34;</span>][<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    t <span style="color:#f92672">=</span> TransformStamped()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Read message content and assign it to</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># corresponding tf variables</span>
+</span></span><span style="display:flex;"><span>    t<span style="color:#f92672">.</span>header<span style="color:#f92672">.</span>stamp <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>get_clock()<span style="color:#f92672">.</span>now()<span style="color:#f92672">.</span>to_msg()
+</span></span><span style="display:flex;"><span>    t<span style="color:#f92672">.</span>header<span style="color:#f92672">.</span>frame_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;world&#39;</span>
+</span></span><span style="display:flex;"><span>    t<span style="color:#f92672">.</span>child_frame_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;animated_sphere&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    t<span style="color:#f92672">.</span>transform<span style="color:#f92672">.</span>translation<span style="color:#f92672">.</span>x <span style="color:#f92672">=</span> msg<span style="color:#f92672">.</span>pose[index]<span style="color:#f92672">.</span>position<span style="color:#f92672">.</span>x
+</span></span><span style="display:flex;"><span>    t<span style="color:#f92672">.</span>transform<span style="color:#f92672">.</span>translation<span style="color:#f92672">.</span>y <span style="color:#f92672">=</span> msg<span style="color:#f92672">.</span>pose[index]<span style="color:#f92672">.</span>position<span style="color:#f92672">.</span>y
+</span></span><span style="display:flex;"><span>    t<span style="color:#f92672">.</span>transform<span style="color:#f92672">.</span>translation<span style="color:#f92672">.</span>z <span style="color:#f92672">=</span> msg<span style="color:#f92672">.</span>pose[index]<span style="color:#f92672">.</span>position<span style="color:#f92672">.</span>z
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    t<span style="color:#f92672">.</span>transform<span style="color:#f92672">.</span>rotation<span style="color:#f92672">.</span>x <span style="color:#f92672">=</span> msg<span style="color:#f92672">.</span>pose[index]<span style="color:#f92672">.</span>orientation<span style="color:#f92672">.</span>x
+</span></span><span style="display:flex;"><span>    t<span style="color:#f92672">.</span>transform<span style="color:#f92672">.</span>rotation<span style="color:#f92672">.</span>y <span style="color:#f92672">=</span> msg<span style="color:#f92672">.</span>pose[index]<span style="color:#f92672">.</span>orientation<span style="color:#f92672">.</span>y
+</span></span><span style="display:flex;"><span>    t<span style="color:#f92672">.</span>transform<span style="color:#f92672">.</span>rotation<span style="color:#f92672">.</span>z <span style="color:#f92672">=</span> msg<span style="color:#f92672">.</span>pose[index]<span style="color:#f92672">.</span>orientation<span style="color:#f92672">.</span>z
+</span></span><span style="display:flex;"><span>    t<span style="color:#f92672">.</span>transform<span style="color:#f92672">.</span>rotation<span style="color:#f92672">.</span>w <span style="color:#f92672">=</span> msg<span style="color:#f92672">.</span>pose[index]<span style="color:#f92672">.</span>orientation<span style="color:#f92672">.</span>w
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Send the transformation</span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>tf_broadcaster<span style="color:#f92672">.</span>sendTransform(t)
+</span></span></code></pre></div><ul>
+<li>tf2 broadcastt를 위한 API를 정리하고 넘어갑시다. 다시 한 번 말하지만 topic과 헷갈리면 안됩니다!</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TransformBroadcaster()</td>
+<td>broadcaster 생성</td>
+</tr>
+<tr>
+<td>TransformStamped()</td>
+<td>tf2 msg 생성</td>
+</tr>
+<tr>
+<td>sendTransform(msg)</td>
+<td>tf2 broadcast</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tf2-listener-python">TF2 Listener [Python]</h3>
+<ul>
+<li>rqt_monitor를 통해 model_state topic을 조회한 결과입니다. pose는 잘 보이는데, 속도 데이터인 twist는 비어있는 모습을 볼 수 있습니다.</li>
+</ul>
+<p>⇒ TF2 Listener를 사용하여 이를 구현해봅시다!</p>
+<p><img src="/kr/ros2_foxy/images10/Untitled13.png?height=300px" alt="Untitled13.png"></p>
+<ul>
+<li>예시 실행 ⇒ 선속도와 각속도를 콘솔에서 확인할 수 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Terminal1 - gazebo</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 launch tf2_world tf2_world<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal2 - tf2 broadcaster</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run py_tf2_tutorial tf2_broadcast
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal3 - tf2 listener</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run py_tf2_tutorial tf2_listener
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1681998128.822169076</span>] [tf2_frame_listener]: linear vel : <span style="color:#ae81ff">2.542703</span>, angular vel : <span style="color:#ae81ff">1.810120</span>
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1681998128.922124745</span>] [tf2_frame_listener]: linear vel : <span style="color:#ae81ff">2.501199</span>, angular vel : <span style="color:#ae81ff">1.610775</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span></code></pre></div><ul>
+<li>코드의 import 부분입니다. tf2 listen을 위해 TransformListener와 Buffer를 import하고 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> math
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> geometry_msgs.msg <span style="color:#f92672">import</span> Twist
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> rclpy
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.node <span style="color:#f92672">import</span> Node
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> tf2_ros <span style="color:#f92672">import</span> TransformException
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> tf2_ros.buffer <span style="color:#f92672">import</span> Buffer
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> tf2_ros.transform_listener <span style="color:#f92672">import</span> TransformListener
+</span></span></code></pre></div><ul>
+<li>현재 우리가 구현해야 하는 작업은 다음과 같습니다.</li>
+</ul>
+<ol>
+<li>tf2 데이터 listen ⇒ 이를 통해 움직이는 물체의 좌표 변화를 감지합니다.</li>
+<li>속도 계산 ⇒ 위치를 통해 선속도와 각속도를 계산합니다.</li>
+<li>topic publish</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TF2Listener</span>(Node):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>    super()<span style="color:#f92672">.</span>__init__(<span style="color:#e6db74">&#39;tf2_frame_listener&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>tf_buffer <span style="color:#f92672">=</span> Buffer()
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>tf_listener <span style="color:#f92672">=</span> TransformListener(self<span style="color:#f92672">.</span>tf_buffer, self)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Create turtle2 velocity publisher</span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>publisher <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_publisher(Twist, <span style="color:#e6db74">&#39;sphere_vel&#39;</span>, <span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Call timer_cb function every 10 seconds</span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>timer <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_timer(<span style="color:#ae81ff">0.1</span>, self<span style="color:#f92672">.</span>timer_cb)
+</span></span></code></pre></div><p>⇒ TransformListener의 생성 이후, 모든 tf2의 listen을 시작하면 이를 Buffer에 담아두는 식입니다.</p>
+<p>⇒ 주기적으로 listen, publish를 위해 timer를 사용합니다.</p>
+<p>다음으로, timer_cb 함수를 뜯어봅시다.</p>
+<ul>
+<li>tf2 listen을 위해 lookup_transform이라는 함수를 사용하며 3개의 매개변수를 필요로 합니다.
+<ol>
+<li><strong>Target frame</strong></li>
+<li><strong>Source frame</strong></li>
+<li><strong>time</strong></li>
+</ol>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    from_frame_rel <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;animated_sphere&#39;</span>
+</span></span><span style="display:flex;"><span>    to_frame_rel <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;world&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        t <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>tf_buffer<span style="color:#f92672">.</span>lookup_transform(
+</span></span><span style="display:flex;"><span>            from_frame_rel, to_frame_rel, rclpy<span style="color:#f92672">.</span>time<span style="color:#f92672">.</span>Time())
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> TransformException <span style="color:#66d9ef">as</span> ex:
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Could not transform </span><span style="color:#e6db74">{</span>to_frame_rel<span style="color:#e6db74">}</span><span style="color:#e6db74"> to </span><span style="color:#e6db74">{</span>from_frame_rel<span style="color:#e6db74">}</span><span style="color:#e6db74">: </span><span style="color:#e6db74">{</span>ex<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>
+</span></span></code></pre></div><ul>
+<li>tf2 데이터에서 우리가 원하는 속도를 계산하기 위해 간단한 연산을 추가하였습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    msg <span style="color:#f92672">=</span> Twist()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    scale_rotation_rate <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>    msg<span style="color:#f92672">.</span>angular<span style="color:#f92672">.</span>z <span style="color:#f92672">=</span> scale_rotation_rate <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>atan2(
+</span></span><span style="display:flex;"><span>        t<span style="color:#f92672">.</span>transform<span style="color:#f92672">.</span>translation<span style="color:#f92672">.</span>y,
+</span></span><span style="display:flex;"><span>        t<span style="color:#f92672">.</span>transform<span style="color:#f92672">.</span>translation<span style="color:#f92672">.</span>x)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    scale_forward_speed <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>    msg<span style="color:#f92672">.</span>linear<span style="color:#f92672">.</span>x <span style="color:#f92672">=</span> scale_forward_speed <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>sqrt(
+</span></span><span style="display:flex;"><span>        t<span style="color:#f92672">.</span>transform<span style="color:#f92672">.</span>translation<span style="color:#f92672">.</span>x <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>        t<span style="color:#f92672">.</span>transform<span style="color:#f92672">.</span>translation<span style="color:#f92672">.</span>y <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>)
+</span></span></code></pre></div><ul>
+<li>최종 완성된 Twist msg를 publish 합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;linear_vel: </span><span style="color:#e6db74">{</span>msg<span style="color:#f92672">.</span>linear<span style="color:#f92672">.</span>x<span style="color:#e6db74">}</span><span style="color:#e6db74">, angular_vel: </span><span style="color:#e6db74">{</span>msg<span style="color:#f92672">.</span>angular<span style="color:#f92672">.</span>z<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    self<span style="color:#f92672">.</span>publisher<span style="color:#f92672">.</span>publish(msg)
+</span></span></code></pre></div><p>⇒ 현재 예시이므로 정확한 3차원 속도를 계산하지는 않았지만, gazebo의 model_state 데이터에 기반하여 환경의 ground_truth로 사용할 수 있습니다.</p>
+<h3 id="tf2-add-frame-python">TF2 Add Frame (Python)</h3>
+<ul>
+<li>tf2 구현의 마지막 예시입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Terminal1 - gazebo</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 launch tf2_world tf2_world<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal2 - tf2 broadcaster</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run py_tf2_tutorial tf2_broadcast
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal3 - tf2 add frame</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run py_tf2_tutorial tf2_add_frame
+</span></span></code></pre></div><ul>
+<li>animated_sphere의 주위를 위성처럼 궤도 운동하는 새로운 frame이 보입니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images10/orbit_frame.gif?height=400px" alt="orbit_frame.gif"></p>
+<p>⇒ 이번 예시는 새로운 dynamic frame을 추가하는 것입니다. 일전 정적 frame은 일전 launch file에서 static_transform_publisher를 사용하였지요? dynamics frame은 코드로 구현해보겠습니다.</p>
+<ul>
+<li>tf2 데이터를 broadcast해야 하는 것은 일전 예시와 동일합니다. 따라서 import와 생성자 부분에 대한 설명은 생략하겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> rclpy
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rclpy.node <span style="color:#f92672">import</span> Node
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> tf2_ros <span style="color:#f92672">import</span> TransformBroadcaster
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> geometry_msgs.msg <span style="color:#f92672">import</span> TransformStamped
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">InverOrbitFrame</span>(Node):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>      super()<span style="color:#f92672">.</span>__init__(<span style="color:#e6db74">&#39;inverse_orbit_frame_tf2_broadcaster&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      self<span style="color:#f92672">.</span>count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>      self<span style="color:#f92672">.</span>freq_factor <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>pi <span style="color:#f92672">/</span> <span style="color:#ae81ff">20</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      self<span style="color:#f92672">.</span>tf_broadcaster <span style="color:#f92672">=</span> TransformBroadcaster(self)
+</span></span><span style="display:flex;"><span>      self<span style="color:#f92672">.</span>timer <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>create_timer(<span style="color:#ae81ff">0.1</span>, self<span style="color:#f92672">.</span>broadcast_timer_callback)
+</span></span></code></pre></div><ul>
+<li>timer에 의해 반복 실행되는 callback 함수를 살펴봅시다.</li>
+</ul>
+<p>⇒ animated_sphere을 기준으로 원 운동을 하는 새로운 frame을 만드는 것이 목표입니다. 따라서 (cos(theta), sin(theta))의 좌표를 갖는 tf2 data를 구축하고 이를 시간에 따라 broadcast 하였습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">broadcast_timer_callback</span>(self):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   t <span style="color:#f92672">=</span> TransformStamped()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   t<span style="color:#f92672">.</span>header<span style="color:#f92672">.</span>stamp <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>get_clock()<span style="color:#f92672">.</span>now()<span style="color:#f92672">.</span>to_msg()
+</span></span><span style="display:flex;"><span>   t<span style="color:#f92672">.</span>header<span style="color:#f92672">.</span>frame_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;animated_sphere&#39;</span>
+</span></span><span style="display:flex;"><span>   t<span style="color:#f92672">.</span>child_frame_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;inverse_orbit_frame&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   t<span style="color:#f92672">.</span>transform<span style="color:#f92672">.</span>translation<span style="color:#f92672">.</span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>cos(<span style="color:#f92672">-</span>self<span style="color:#f92672">.</span>count <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>freq_factor)
+</span></span><span style="display:flex;"><span>   t<span style="color:#f92672">.</span>transform<span style="color:#f92672">.</span>translation<span style="color:#f92672">.</span>y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sin(<span style="color:#f92672">-</span>self<span style="color:#f92672">.</span>count <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>freq_factor)
+</span></span><span style="display:flex;"><span>   t<span style="color:#f92672">.</span>transform<span style="color:#f92672">.</span>translation<span style="color:#f92672">.</span>z <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   t<span style="color:#f92672">.</span>transform<span style="color:#f92672">.</span>rotation<span style="color:#f92672">.</span>x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>   t<span style="color:#f92672">.</span>transform<span style="color:#f92672">.</span>rotation<span style="color:#f92672">.</span>y <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>   t<span style="color:#f92672">.</span>transform<span style="color:#f92672">.</span>rotation<span style="color:#f92672">.</span>z <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>   t<span style="color:#f92672">.</span>transform<span style="color:#f92672">.</span>rotation<span style="color:#f92672">.</span>w <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   self<span style="color:#f92672">.</span>tf_broadcaster<span style="color:#f92672">.</span>sendTransform(t)
+</span></span><span style="display:flex;"><span>   self<span style="color:#f92672">.</span>count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>count <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">20</span>:
+</span></span><span style="display:flex;"><span>       self<span style="color:#f92672">.</span>count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><h3 id="tf2-c-programming">TF2 C++ Programming</h3>
+<h4 id="tf2-broadcaster-c">TF2 Broadcaster (C++)</h4>
+<blockquote>
+<p>실제 개발에서 tf2 데이터는 실시간성이 무척 중요한 좌표변환을 다루므로, c++ 코드를 사용하는 비중이 더 큽니다. 따라서, 우선 모든 예시를 살펴보고 센서 패키지에 기반하여 실 사용 사례도 확인해보겠습니다.</p>
+</blockquote>
+<ul>
+<li>예시를 실행해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Terminal1 - gazebo</span>
+</span></span><span style="display:flex;"><span>ros2 launch tf2_world tf2_world.launch.py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal2 - tf2 broadcaster</span>
+</span></span><span style="display:flex;"><span>ros2 run cpp_tf2_tutorial tf2_broadcaster
+</span></span></code></pre></div><ul>
+<li>rviz2를 통해 움직이는 구의 tf2를 확인할 수 있습니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images10/tf2_bc.gif?height=400px" alt="tf2_bc.gif"></p>
+<h3 id="코드-분석-1">코드 분석</h3>
+<ul>
+<li>코드로 돌아와 include 부분입니다. tf2 데이터를 다루기 위한 패키지인 tf2_ros, ModelStates 데이터 타입을 import합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;rclcpp/rclcpp.hpp&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;tf2/LinearMath/Quaternion.h&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;tf2_ros/transform_broadcaster.h&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;gazebo_msgs/msg/model_states.hpp&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;geometry_msgs/msg/transform_stamped.hpp&#34;</span><span style="color:#75715e">
+</span></span></span></code></pre></div><ul>
+<li>tf_broadcaster를 초기화하는 코드 API에서 unique_ptr이 사용됩니다. 개발자의 실수로 tf2_broadcaster가 여러개 생길 시 이를 디버깅하기 힘들어 사전에 방지한 경우입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OrbitBroadcaster</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> rclcpp<span style="color:#f92672">::</span>Node
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>Subscription<span style="color:#f92672">&lt;</span>ModelStates<span style="color:#f92672">&gt;::</span>SharedPtr m_model_state_sub;
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>unique_ptr<span style="color:#f92672">&lt;</span>tf2_ros<span style="color:#f92672">::</span>TransformBroadcaster<span style="color:#f92672">&gt;</span> m_tf_broadcaster;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  OrbitBroadcaster() <span style="color:#f92672">:</span> Node(<span style="color:#e6db74">&#34;tf2_frame_broadcaster&#34;</span>){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    m_model_state_sub <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_subscription<span style="color:#f92672">&lt;</span>ModelStates<span style="color:#f92672">&gt;</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;model_states&#34;</span>, <span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>      std<span style="color:#f92672">::</span>bind(<span style="color:#f92672">&amp;</span>OrbitBroadcaster<span style="color:#f92672">::</span>model_state_sub_cb, <span style="color:#66d9ef">this</span>, std<span style="color:#f92672">::</span>placeholders<span style="color:#f92672">::</span>_1)
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Initialize the transform broadcaster
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    m_tf_broadcaster <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>      std<span style="color:#f92672">::</span>make_unique<span style="color:#f92672">&lt;</span>tf2_ros<span style="color:#f92672">::</span>TransformBroadcaster<span style="color:#f92672">&gt;</span>(<span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><ul>
+<li>model_states 타입은 3개의 std::vector로 구성됩니다. 따라서 우리가 원하는 값, animated_sphere의 index를 먼저 알아낸 뒤, pose 데이터를 파싱합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> model_state_sub_cb(<span style="color:#66d9ef">const</span> ModelStates<span style="color:#f92672">::</span>ConstSharedPtr msg)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    geometry_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>TransformStamped t;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>string model_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;animated_sphere&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> it <span style="color:#f92672">=</span> find(msg<span style="color:#f92672">-&gt;</span>name.begin(), msg<span style="color:#f92672">-&gt;</span>name.end(), model_name);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> index <span style="color:#f92672">=</span> it <span style="color:#f92672">-</span> msg<span style="color:#f92672">-&gt;</span>name.begin();
+</span></span></code></pre></div><ul>
+<li>이번 코드에서 다루지는 않지만, tf2는 기본적으로 오일러 각도 체계가 아닌 쿼터니언을 사용합니다. 오일러 각도 ⇒ 쿼터니언의 변환과 같은 API는 tf2 패키지에 구현되어 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;tf2/LinearMath/Quaternion.h&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// tf2::Quaternion q;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// q.setRPY(0, 0, msg-&gt;theta);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    t.transform.rotation.x <span style="color:#f92672">=</span> msg<span style="color:#f92672">-&gt;</span>pose[index].orientation.x;
+</span></span><span style="display:flex;"><span>    t.transform.rotation.y <span style="color:#f92672">=</span> msg<span style="color:#f92672">-&gt;</span>pose[index].orientation.y;
+</span></span><span style="display:flex;"><span>    t.transform.rotation.z <span style="color:#f92672">=</span> msg<span style="color:#f92672">-&gt;</span>pose[index].orientation.z;
+</span></span><span style="display:flex;"><span>    t.transform.rotation.w <span style="color:#f92672">=</span> msg<span style="color:#f92672">-&gt;</span>pose[index].orientation.w;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Send the transformation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    m_tf_broadcaster<span style="color:#f92672">-&gt;</span>sendTransform(t);
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><ul>
+<li>cpp 코드인만큼 CMakeLists.txt도 살펴보겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>find_package(tf2 REQUIRED)
+</span></span><span style="display:flex;"><span>find_package(tf2_ros REQUIRED)
+</span></span><span style="display:flex;"><span>find_package(gazebo_msgs REQUIRED)
+</span></span><span style="display:flex;"><span>find_package(geometry_msgs REQUIRED)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_executable(tf2_broadcast src<span style="color:#f92672">/</span>tf2_broadcast<span style="color:#f92672">.</span>cpp)
+</span></span><span style="display:flex;"><span>ament_target_dependencies(tf2_broadcast tf2 tf2_ros gazebo_msgs geometry_msgs)
+</span></span></code></pre></div><ul>
+<li>tf2 broadcast를 위한 API를 정리하고 넘어갑시다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>std::make_unique&lt;tf2_ros::TransformBroadcaster&gt;</td>
+<td>broadcaster 생성</td>
+</tr>
+<tr>
+<td>geometry_msgs::msg::TransformStamped</td>
+<td>tf2 msg 생성</td>
+</tr>
+<tr>
+<td>tf_broadcaster-&gt;sendTransform(t)</td>
+<td>tf2 broadcast</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tf2-listener-c">TF2 Listener (C++)</h3>
+<ul>
+<li>animated_sphere의 tf2 listen을 통해 속도 topic을 publish하는 예시였습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Terminal1 - gazebo</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 launch tf2_world tf2_world<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal2 - tf2 broadcaster</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run py_tf2_tutorial tf2_broadcast
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal3 - tf2 listener</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run py_tf2_tutorial tf2_listener
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1681998128.822169076</span>] [tf2_frame_listener]: linear vel : <span style="color:#ae81ff">2.542703</span>, angular vel : <span style="color:#ae81ff">1.810120</span>
+</span></span><span style="display:flex;"><span>[INFO] [<span style="color:#ae81ff">1681998128.922124745</span>] [tf2_frame_listener]: linear vel : <span style="color:#ae81ff">2.501199</span>, angular vel : <span style="color:#ae81ff">1.610775</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span></code></pre></div><ul>
+<li>코드의 include 부분입니다. tf2 listen을 위해 tf2_ros/transform_listener.h를 사용합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;rclcpp/rclcpp.hpp&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;tf2/exceptions.h&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;tf2_ros/transform_listener.h&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;tf2_ros/buffer.h&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;geometry_msgs/msg/twist.hpp&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;geometry_msgs/msg/transform_stamped.hpp&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std<span style="color:#f92672">::</span>chrono_literals;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Twist <span style="color:#f92672">=</span> geometry_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>Twist;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> TransformStamped <span style="color:#f92672">=</span> geometry_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>TransformStamped;
+</span></span></code></pre></div><ul>
+<li>listener의 생성 시 Buffer가 필요한 부분도 동일하며, 대신, buffer가 unique_ptr 타입을 취하고 있어 pointer가 아닌 value를 전달함에 유의합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>  TF2Listener()<span style="color:#f92672">:</span> Node(<span style="color:#e6db74">&#34;tf2_frame_listener&#34;</span>){
+</span></span><span style="display:flex;"><span>    m_tf_buffer <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_unique<span style="color:#f92672">&lt;</span>tf2_ros<span style="color:#f92672">::</span>Buffer<span style="color:#f92672">&gt;</span>(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_clock());
+</span></span><span style="display:flex;"><span>    m_tf_listener <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>tf2_ros<span style="color:#f92672">::</span>TransformListener<span style="color:#f92672">&gt;</span>(<span style="color:#f92672">*</span>m_tf_buffer);
+</span></span></code></pre></div><ul>
+<li>python과 동일하게 lookupTransform은 3가지 매개변수를 필요로 합니다.
+<ol>
+<li>Target frame</li>
+<li>Source frame</li>
+<li>time</li>
+</ol>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">timer_cb</span>(){
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Store frame names in variables that will be used to
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// compute transformations
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  TransformStamped t;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>    t <span style="color:#f92672">=</span> m_tf_buffer<span style="color:#f92672">-&gt;</span>lookupTransform(
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;animated_sphere&#34;</span>, <span style="color:#e6db74">&#34;world&#34;</span>, tf2<span style="color:#f92672">::</span>TimePointZero
+</span></span><span style="display:flex;"><span>    );
+</span></span></code></pre></div><h3 id="tf2-add-frame-c">TF2 Add Frame (C++)</h3>
+<ul>
+<li>tf2 구현의 마지막 예시입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Terminal1 - gazebo</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 launch tf2_world tf2_world<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal2 - tf2 broadcaster</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run cpp_tf2_tutorial tf2_broadcast
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal3 - tf2 add frame</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 run cpp_tf2_tutorial tf2_add_frame
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images10/orbit_frame.gif?height=300px" alt="orbit_frame.gif"></p>
+<p>⇒ tf2 broadcaster와 큰 차이가 없으므로, 구체적인 설명은 생략하겠습니다.</p>
+<h2 id="tf2-example">TF2 Example</h2>
+<p>이번 시간에는 실제 센서 데이터 ROS 2 패키지에서 tf2가 사용된 모습을 확인해보겠습니다.</p>
+<p><img src="/kr/ros2_foxy/images10/Untitled14.png?height=300px" alt="Untitled14.png"></p>
+<p>두 센서 패키지를 참고해보려 합니다.</p>
+<ol>
+<li><a href="https://github.com/IntelRealSense/realsense-ros/tree/f18ca43483f216a02d1f1ea010ad52c9999e6c97">intel realsense ros2 package</a></li>
+<li><a href="https://github.com/CLOBOT-Co-Ltd/myahrs_ros2_driver/tree/master">my ahrs imu package</a></li>
+</ol>
+<ul>
+<li>우선, my ahrs 코드입니다. publish<em>tf</em>라는 매개변수에 따라 tf2 데이터의 broadcast 여부가 달라집니다. 이렇게 해둔 이유는, 센서 자체를 통한 개발 시에는 tf2의 사용이 필요 없기 때문입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// publish tf
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (publish_tf_) {
+</span></span><span style="display:flex;"><span>  geometry_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>TransformStamped tf;
+</span></span><span style="display:flex;"><span>  tf.header.stamp <span style="color:#f92672">=</span> now;
+</span></span><span style="display:flex;"><span>  tf.header.frame_id <span style="color:#f92672">=</span> parent_frame_id_;
+</span></span><span style="display:flex;"><span>  tf.child_frame_id <span style="color:#f92672">=</span> frame_id_;
+</span></span><span style="display:flex;"><span>  tf.transform.translation.x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>;
+</span></span><span style="display:flex;"><span>  tf.transform.translation.y <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>;
+</span></span><span style="display:flex;"><span>  tf.transform.translation.z <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>;
+</span></span><span style="display:flex;"><span>  tf.transform.rotation <span style="color:#f92672">=</span> imu_data_msg.orientation;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  broadcaster_<span style="color:#f92672">-&gt;</span>sendTransform(tf);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>⇒ <a href="https://github.com/CLOBOT-Co-Ltd/myahrs_ros2_driver/blob/d6a48f5121984aaa5ab850960eb363134c5f3ac9/myahrs_ros2_driver/src/myahrs_ros2_driver.cpp#L199">link1</a></p>
+<ul>
+<li>다음으로, realsense-ros 패키지입니다. 이번에도 마찬가지로, 상황에 따라 statics tf / odom tf를 구별하여 구현해둔 모습을 볼 수 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> BaseRealSenseNode<span style="color:#f92672">::</span>publish_static_tf(<span style="color:#66d9ef">const</span> rclcpp<span style="color:#f92672">::</span>Time<span style="color:#f92672">&amp;</span> t,
+</span></span><span style="display:flex;"><span>                                          <span style="color:#66d9ef">const</span> float3<span style="color:#f92672">&amp;</span> trans,
+</span></span><span style="display:flex;"><span>                                          <span style="color:#66d9ef">const</span> tf2<span style="color:#f92672">::</span>Quaternion<span style="color:#f92672">&amp;</span> q,
+</span></span><span style="display:flex;"><span>                                          <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string<span style="color:#f92672">&amp;</span> from,
+</span></span><span style="display:flex;"><span>                                          <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string<span style="color:#f92672">&amp;</span> to)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    geometry_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>TransformStamped msg;
+</span></span><span style="display:flex;"><span>    msg.header.stamp <span style="color:#f92672">=</span> t;
+</span></span><span style="display:flex;"><span>    msg.header.frame_id <span style="color:#f92672">=</span> from;
+</span></span><span style="display:flex;"><span>    msg.child_frame_id <span style="color:#f92672">=</span> to;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Convert x,y,z (taken from camera extrinsics)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// from optical cooridnates to ros coordinates
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    msg.transform.translation.x <span style="color:#f92672">=</span> trans.z;
+</span></span><span style="display:flex;"><span>    msg.transform.translation.y <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>trans.x;
+</span></span><span style="display:flex;"><span>    msg.transform.translation.z <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>trans.y;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    msg.transform.rotation.x <span style="color:#f92672">=</span> q.getX();
+</span></span><span style="display:flex;"><span>    msg.transform.rotation.y <span style="color:#f92672">=</span> q.getY();
+</span></span><span style="display:flex;"><span>    msg.transform.rotation.z <span style="color:#f92672">=</span> q.getZ();
+</span></span><span style="display:flex;"><span>    msg.transform.rotation.w <span style="color:#f92672">=</span> q.getW();
+</span></span><span style="display:flex;"><span>    _static_tf_msgs.push_back(msg);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> BaseRealSenseNode<span style="color:#f92672">::</span>publishStaticTransforms(std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>rs2<span style="color:#f92672">::</span>stream_profile<span style="color:#f92672">&gt;</span> profiles)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Publish static transforms
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (_publish_tf)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> <span style="color:#f92672">&amp;</span>profile : profiles)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            calcAndPublishStaticTransform(profile, _base_profile);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (_static_tf_broadcaster)
+</span></span><span style="display:flex;"><span>            _static_tf_broadcaster<span style="color:#f92672">-&gt;</span>sendTransform(_static_tf_msgs);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> BaseRealSenseNode<span style="color:#f92672">::</span>pose_callback(rs2<span style="color:#f92672">::</span>frame frame)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    geometry_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>PoseStamped pose_msg;
+</span></span><span style="display:flex;"><span>    pose_msg.pose.position.x <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>pose.translation.z;
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> tf2_ros<span style="color:#f92672">::</span>TransformBroadcaster br(_node);
+</span></span><span style="display:flex;"><span>    geometry_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>TransformStamped msg;
+</span></span><span style="display:flex;"><span>    msg.header.stamp <span style="color:#f92672">=</span> t;
+</span></span><span style="display:flex;"><span>    msg.header.frame_id <span style="color:#f92672">=</span> DEFAULT_ODOM_FRAME_ID;
+</span></span><span style="display:flex;"><span>    msg.child_frame_id <span style="color:#f92672">=</span> FRAME_ID(POSE);
+</span></span><span style="display:flex;"><span>    msg.transform.translation.x <span style="color:#f92672">=</span> pose_msg.pose.position.x;
+</span></span><span style="display:flex;"><span>    msg.transform.translation.y <span style="color:#f92672">=</span> pose_msg.pose.position.y;
+</span></span><span style="display:flex;"><span>    msg.transform.translation.z <span style="color:#f92672">=</span> pose_msg.pose.position.z;
+</span></span><span style="display:flex;"><span>    msg.transform.rotation.x <span style="color:#f92672">=</span> pose_msg.pose.orientation.x;
+</span></span><span style="display:flex;"><span>    msg.transform.rotation.y <span style="color:#f92672">=</span> pose_msg.pose.orientation.y;
+</span></span><span style="display:flex;"><span>    msg.transform.rotation.z <span style="color:#f92672">=</span> pose_msg.pose.orientation.z;
+</span></span><span style="display:flex;"><span>    msg.transform.rotation.w <span style="color:#f92672">=</span> pose_msg.pose.orientation.w;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (_publish_odom_tf) br.sendTransform(msg);
+</span></span></code></pre></div><p>⇒ <a href="https://github.com/IntelRealSense/realsense-ros/blob/f18ca43483f216a02d1f1ea010ad52c9999e6c97/realsense2_camera/src/base_realsense_node.cpp#L994">참고 링크 1</a></p>
+<p>⇒ <a href="https://github.com/IntelRealSense/realsense-ros/blob/f18ca43483f216a02d1f1ea010ad52c9999e6c97/realsense2_camera/src/base_realsense_node.cpp#L511">참고 링크 2</a></p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/kr/ros2_foxy/lecture9/" title="Lecture9. ROS 2 Action Programming"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kr/ros2_foxy/lecture11/" title="Lecture11. About Gazebo - 1" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1682765761"></script>
+    <script src="/js/perfect-scrollbar.min.js?1682765761"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1682765761"></script>
+    <script src="/js/jquery.sticky.js?1682765761"></script>
+    <script src="/js/featherlight.min.js?1682765761"></script>
+    <script src="/js/highlight.pack.js?1682765761"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1682765761"></script>
+    <script src="/js/learn.js?1682765761"></script>
+    <script src="/js/hugo-learn.js?1682765761"></script>
+    
+        
+            <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+
