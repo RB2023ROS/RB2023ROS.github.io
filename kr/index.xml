@@ -184,12 +184,15 @@ Image Publish - Python 우선, 항상 그렇듯이 예시를 실행해 보겠습
     </item>
     
     <item>
-      <title>Lecture16</title>
+      <title>Lecture16. Useful ROS 2 Examples (Misc)</title>
       <link>/kr/ros2_foxy/lecture16/</link>
       <pubDate>Fri, 28 Apr 2023 10:51:09 +0900</pubDate>
       
       <guid>/kr/ros2_foxy/lecture16/</guid>
-      <description></description>
+      <description>ROS 1 Bridge 단순 개발을 위해서는 최신 스택을 사용하면 좋지만, 제품 개발을 생각하면 이전 버전의 소스들도 유지보수할 줄 알아야 합니다. ROS 개발은 특히 오픈소스에 기반하기 때문에 어느 정도 레벨에 오르면 레거시를 읽고 새로운 버전으로 관리도 할 줄 알아야 합니다.
+⇒ 그런 의미에서 이번 시간에는 코드 작업이 전혀 없어도 ROS와 ROS 2를 연동시킬 수 있는 ROS bridge라는 것을 실습해 보겠습니다.
+image from : swri.org
+강의 초반 저의 설정을 잘 따라오셨다면 여러분의 시스템에는 이미 ROS noetic이 설치되어 있습니다.</description>
     </item>
     
     <item>
@@ -202,16 +205,17 @@ Image Publish - Python 우선, 항상 그렇듯이 예시를 실행해 보겠습
     </item>
     
     <item>
-      <title>Lecture18</title>
+      <title>Lecture18. Point Cloud Deep Learning Example (PointNet)</title>
       <link>/kr/ros2_foxy/lecture18/</link>
       <pubDate>Fri, 28 Apr 2023 10:51:09 +0900</pubDate>
       
       <guid>/kr/ros2_foxy/lecture18/</guid>
-      <description></description>
+      <description>Special Part - Point Cloud Deep Learning Example (PointNet) 이번 시간에는 ROS 2와 딥러닝 모델을 결합하여 Application을 구현해보는 예시를 준비했습니다. 사실 제가 딥러닝 분야에 지식은 매우 얕은지라 모델에 대한 설명은 불가합니다. PyTorch를 통해 구현된 오픈소스에 기반하여 동작하는 ROS 2 코드를 개발하는 맥락에 집중해주시면 감사하겠습니다!
+이번 시간 사용할 모델은 스탠포드의 PointNet으로, 3D PointCloud의 feature를 추출하는 가장 대표적인 네트워크입니다. reference : PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation</description>
     </item>
     
     <item>
-      <title>Lecture19</title>
+      <title>Lecture19. NVIDIA Isaac Sim</title>
       <link>/kr/ros2_foxy/lecture19/</link>
       <pubDate>Fri, 28 Apr 2023 10:40:29 +0900</pubDate>
       
@@ -220,7 +224,7 @@ Image Publish - Python 우선, 항상 그렇듯이 예시를 실행해 보겠습
     </item>
     
     <item>
-      <title>Lecture20</title>
+      <title>Lecture20. NVIDIA Jetson Platform</title>
       <link>/kr/ros2_foxy/lecture20/</link>
       <pubDate>Fri, 28 Apr 2023 10:40:29 +0900</pubDate>
       

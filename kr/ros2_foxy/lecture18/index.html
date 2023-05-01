@@ -9,25 +9,25 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Lecture18 - Documentation for Hugo Learn Theme</title>
+    <title>Lecture18. Point Cloud Deep Learning Example (PointNet) - Documentation for Hugo Learn Theme</title>
 
     
-    <link href="/css/nucleus.css?1682765761" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1682765761" rel="stylesheet">
-    <link href="/css/hybrid.css?1682765761" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1682765761" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1682765761" rel="stylesheet">
-    <link href="/css/auto-complete.css?1682765761" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1682765761" rel="stylesheet">
-    <link href="/css/theme.css?1682765761" rel="stylesheet">
-    <link href="/css/tabs.css?1682765761" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1682765761" rel="stylesheet">
+    <link href="/css/nucleus.css?1682980326" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1682980326" rel="stylesheet">
+    <link href="/css/hybrid.css?1682980326" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1682980326" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1682980326" rel="stylesheet">
+    <link href="/css/auto-complete.css?1682980326" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1682980326" rel="stylesheet">
+    <link href="/css/theme.css?1682980326" rel="stylesheet">
+    <link href="/css/tabs.css?1682980326" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1682980326" rel="stylesheet">
     
-    <link href="/css/theme-green.css?1682765761" rel="stylesheet">
+    <link href="/css/theme-green.css?1682980326" rel="stylesheet">
     
-    <link href="/css/foo.css?1682765761" rel="stylesheet"><link href="/css/bar.css?1682765761" rel="stylesheet">
+    <link href="/css/foo.css?1682980326" rel="stylesheet"><link href="/css/bar.css?1682980326" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1682765761"></script>
+    <script src="/js/jquery-3.3.1.min.js?1682980326"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1682765761"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1682765761"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1682980326"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1682980326"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/kr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1682765761"></script>
+<script type="text/javascript" src="/js/search.js?1682980326"></script>
 
     
   </div>
@@ -993,9 +993,9 @@
  
   
     
-      <li data-nav-id="/kr/ros2_foxy/lecture16/" title="Lecture16" class="dd-item ">
+      <li data-nav-id="/kr/ros2_foxy/lecture16/" title="Lecture16. Useful ROS 2 Examples (Misc)" class="dd-item ">
         <a href="/kr/ros2_foxy/lecture16/">
-        Lecture16
+        Lecture16. Useful ROS 2 Examples (Misc)
         
         </a>
     </li>
@@ -1035,9 +1035,9 @@
  
   
     
-      <li data-nav-id="/kr/ros2_foxy/lecture18/" title="Lecture18" class="dd-item active">
+      <li data-nav-id="/kr/ros2_foxy/lecture18/" title="Lecture18. Point Cloud Deep Learning Example (PointNet)" class="dd-item active">
         <a href="/kr/ros2_foxy/lecture18/">
-        Lecture18
+        Lecture18. Point Cloud Deep Learning Example (PointNet)
         
         </a>
     </li>
@@ -1056,9 +1056,9 @@
  
   
     
-      <li data-nav-id="/kr/ros2_foxy/lecture19/" title="Lecture19" class="dd-item ">
+      <li data-nav-id="/kr/ros2_foxy/lecture19/" title="Lecture19. NVIDIA Isaac Sim" class="dd-item ">
         <a href="/kr/ros2_foxy/lecture19/">
-        Lecture19
+        Lecture19. NVIDIA Isaac Sim
         
         </a>
     </li>
@@ -1077,9 +1077,9 @@
  
   
     
-      <li data-nav-id="/kr/ros2_foxy/lecture20/" title="Lecture20" class="dd-item ">
+      <li data-nav-id="/kr/ros2_foxy/lecture20/" title="Lecture20. NVIDIA Jetson Platform" class="dd-item ">
         <a href="/kr/ros2_foxy/lecture20/">
-        Lecture20
+        Lecture20. NVIDIA Jetson Platform
         
         </a>
     </li>
@@ -1375,14 +1375,25 @@
                   <span class="links">
                  
                  
-                   Lecture18
+                   Lecture18. Point Cloud Deep Learning Example (PointNet)
                  
                   </span>
                 </div>
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#special-part---point-cloud-deep-learning-example-pointnet">Special Part - Point Cloud Deep Learning Example (PointNet)</a>
+      <ul>
+        <li><a href="#model-training">Model Training</a></li>
+        <li><a href="#confirm-trained-parameters">Confirm Trained Parameters</a></li>
+        <li><a href="#pointnet-ros-2-연동">PointNet ROS 2 연동</a></li>
+        <li><a href="#코드-분석">코드 분석</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -1398,13 +1409,246 @@
           
             <h1>
               
-              Lecture18
+              Lecture18. Point Cloud Deep Learning Example (PointNet)
             </h1>
           
 
         
 
 
+<h2 id="special-part---point-cloud-deep-learning-example-pointnet">Special Part - Point Cloud Deep Learning Example (PointNet)</h2>
+<p><img src="/kr/ros2_foxy/images18/Untitled.png?height=300px" alt="Untitled.png"></p>
+<p>이번 시간에는 ROS 2와 딥러닝 모델을 결합하여 Application을 구현해보는 예시를 준비했습니다. 사실 제가 딥러닝 분야에 지식은 매우 얕은지라 모델에 대한 설명은 불가합니다. PyTorch를 통해 구현된 오픈소스에 기반하여 동작하는 ROS 2 코드를 개발하는 맥락에 집중해주시면 감사하겠습니다!</p>
+<ul>
+<li>이번 시간 사용할 모델은 스탠포드의 <strong>PointNet</strong>으로, 3D PointCloud의 feature를 추출하는 가장 대표적인 네트워크입니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images18/Untitled1.png?height=200px" alt="Untitled1.png"></p>
+<p>reference : <a href="https://arxiv.org/abs/1612.00593">PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation</a></p>
+<ul>
+<li>pointnet 오픈소스에서 제공하는 기능은 classification과 segmentation으로 이번 예시에서는 classification에 집중해 보겠습니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images18/Untitled2.png?height=300px" alt="Untitled2.png"></p>
+<h3 id="model-training">Model Training</h3>
+
+<div class="notices note" ><p>참고로, Anaconda와 같이 파이썬 가상환경을 사용하고 있다면 ROS 2 python 시스템과 호환이 불가할 수 있습니다. 파이썬 가상환경에 ROS 2 관련 패키지를 설치하시거나, ROS 2 python 환경에 torch 등 필요 패키지를 설치하시기 바랍니다.</p>
+</div>
+
+<ul>
+<li>Model 코드를 clone하고 학습을 위해 필요한 dataset을 다운로드합니다. shapenet dataset의 일부가 다운로드됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/fxia22/pointnet.pytorch
+</span></span><span style="display:flex;"><span>cd pointnet.pytorch
+</span></span><span style="display:flex;"><span>pip install -e .
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cd scripts
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># build C++ code for visualization</span>
+</span></span><span style="display:flex;"><span>bash build.sh
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># download dataset</span>
+</span></span><span style="display:flex;"><span>bash download.sh
+</span></span></code></pre></div>
+<div class="notices note" ><p>현재 데모에서 사용하는 dataset은 약 1.1GB로 매우 적은 종류의 물체를 담고 있습니다. 단지 빠른 데모를 위해 이렇게 적용하는 점에 유의하세요!</p>
+</div>
+
+<ul>
+<li>PointNet을 학습 시켜봅시다. segmentation과 classification 중 원하는 상황에 맞추어 training을 진행합니다. dataset이 약 1GB이기 때문에 epoch을 25로 하여도 시간은 오래 걸리지 않습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd utils
+</span></span><span style="display:flex;"><span>python train_classification.py --dataset &lt;dataset path&gt; --nepoch<span style="color:#f92672">=</span>&lt;number epochs&gt; --dataset_type &lt;modelnet40 | shapenet&gt;
+</span></span><span style="display:flex;"><span>python train_segmentation.py --dataset &lt;dataset path&gt; --nepoch<span style="color:#f92672">=</span>&lt;number epochs&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># example</span>
+</span></span><span style="display:flex;"><span>python3 train_segmentation.py --dataset /home/kimsooyoung/Downloads/pointnet.pytorch/shapenetcore_partanno_segmentation_benchmark_v0 --nepoch<span style="color:#f92672">=</span><span style="color:#ae81ff">24</span>
+</span></span><span style="display:flex;"><span>python3 train_classification.py --dataset /home/kimsooyoung/Downloads/pointnet.pytorch/shapenetcore_partanno_segmentation_benchmark_v0 --nepoch<span style="color:#f92672">=</span><span style="color:#ae81ff">24</span> --dataset_type shapenet
+</span></span></code></pre></div><ul>
+<li>Training 결과로 cls, seg 폴더 내 pth 파일이 생성됩니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images18/Untitled3.png?height=300px" alt="Untitled3.png"></p>
+<h3 id="confirm-trained-parameters">Confirm Trained Parameters</h3>
+<blockquote>
+<p>ROS 2 연동 전 학습된 pth 모델을 검증해봅시다. 별도의 clone은 필요 없으며 오픈 소스의 수정으로 제가 미리 준비한 코드를 사용하겠습니다.</p>
+</blockquote>
+
+<div class="notices note" ><p>해당 코드는 isl-org의 오픈소스에 기반하였습니다. ⇒ <a href="https://github.com/isl-org/Open3D-PointNet">https://github.com/isl-org/Open3D-PointNet</a></p>
+</div>
+
+<ul>
+<li>검증 프로그램을 실행하기 위한 추가 패키지를 다운로드 받습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install torchvision
+</span></span><span style="display:flex;"><span>pip install open3d
+</span></span><span style="display:flex;"><span>pip install --upgrade numpy
+</span></span></code></pre></div><ul>
+<li>제공된 검증 코드 내부 모델 경로와 dataset 경로를 수정한 뒤, 예시 프로그램을 실행합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>cd Open3D<span style="color:#f92672">-</span>PointNet
+</span></span><span style="display:flex;"><span>pip install <span style="color:#f92672">-</span>r requirements<span style="color:#f92672">.</span>txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 코드 중 아래 내용 수정</span>
+</span></span><span style="display:flex;"><span>NUM_POINTS <span style="color:#f92672">=</span> <span style="color:#ae81ff">10000</span>
+</span></span><span style="display:flex;"><span>MODEL_PATH <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/home/kimsooyoung/Downloads/pointnet.pytorch/utils/cls/cls_model_23.pth&#39;</span>
+</span></span><span style="display:flex;"><span>DATA_FOLDER <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/home/kimsooyoung/Downloads/pointnet.pytorch/shapenetcore_partanno_segmentation_benchmark_v0&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 데모 실행</span>
+</span></span><span style="display:flex;"><span>python3 pointnet_test<span style="color:#f92672">.</span>py
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images18/Untitled4.png?height=300px" alt="Untitled4.png"></p>
+
+<div class="notices note" ><p>prediction 결과 vector와 pointcloud 데이터를 시각화해서 보여줍니다.</p>
+</div>
+
+<ul>
+<li>현재 dataset으로 구분할 수 있는 항목들은 다음과 같습니다. 계속해서 이야기하지만 dataset 자체의 한계로 검출할 수 있는 객체가 많지는 않습니다. 😅</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Problem ontology</span>
+</span></span><span style="display:flex;"><span>classes_dict <span style="color:#f92672">=</span> <span style="color:#f92672">{</span><span style="color:#e6db74">&#39;Airplane&#39;</span>: 0, <span style="color:#e6db74">&#39;Bag&#39;</span>: 1, <span style="color:#e6db74">&#39;Cap&#39;</span>: 2, <span style="color:#e6db74">&#39;Car&#39;</span>: 3, <span style="color:#e6db74">&#39;Chair&#39;</span>: 4,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Earphone&#39;</span>: 5, <span style="color:#e6db74">&#39;Guitar&#39;</span>: 6, <span style="color:#e6db74">&#39;Knife&#39;</span>: 7, <span style="color:#e6db74">&#39;Lamp&#39;</span>: 8, <span style="color:#e6db74">&#39;Laptop&#39;</span>: 9,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Motorbike&#39;</span>: 10, <span style="color:#e6db74">&#39;Mug&#39;</span>: 11, <span style="color:#e6db74">&#39;Pistol&#39;</span>: 12, <span style="color:#e6db74">&#39;Rocket&#39;</span>: 13,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;Skateboard&#39;</span>: 14, <span style="color:#e6db74">&#39;Table&#39;</span>: 15<span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="pointnet-ros-2-연동">PointNet ROS 2 연동</h3>
+<blockquote>
+<p>드디어 ROS 2와 PointNet을 연동시켜보려 합니다. 개발의 시작 전, 항상 어떠한 기능을 구현해야 하는지, 이미 개발 가능한 것을 무엇이고 새롭게 구현해야 하는 것은 무엇인지 습관적으로 구체화시키시길 바랍니다.</p>
+</blockquote>
+<p><img src="/kr/ros2_foxy/images18/Untitled5.png?height=200px" alt="Untitled5.png"></p>
+<ul>
+<li>shapenet dataset이 아닌, Gazebo로부터의 Raw PointCloud를 subscribe하여 물체 인식을 하고자 합니다. 이를 위한 Gazebo 환경은 일전의 rgbd world를 사용하겠습니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images18/Untitled6.png?height=350px" alt="Untitled6.png"></p>
+<ul>
+<li>센서로부터의 raw Point Cloud에서 바닥을 제거하고 물체별로 clustering을 하는 작업 또한 일전 구현한 바 있습니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images18/Untitled7.png?height=400px" alt="Untitled7.png"></p>
+<ul>
+<li>따라서 우리는 약간의 수정과 마지막 Node, Clustering된 pointcloud를 받아 어떤 물체인지 판단하는 기능만 구현하면 됩니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images18/Untitled8.png?height=200px" alt="Untitled8.png"></p>
+<ul>
+<li>앞선 내용들을 잘 생각하면서, 예시부터 실행해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1 - gazebo launch</span>
+</span></span><span style="display:flex;"><span>ros2 launch rgbd_world pointnet_world<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2 - object spawn</span>
+</span></span><span style="display:flex;"><span>ros2 run py_service_tutorial pointnet_object_wo_gravity
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 3 - clustering</span>
+</span></span><span style="display:flex;"><span>ros2 run py_pcl_tutorial pointnet_cluster_pub
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 4 - torch classification</span>
+</span></span><span style="display:flex;"><span>ros2 run pointnet_torch pointnet_torch
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images18/Untitled9.png?height=400px" alt="Untitled9.png"></p>
+
+<div class="notices note" ><p>마지막 터미널에서 검출된 물체와 정확도를 확인할 수 있습니다.</p>
+</div>
+
+<ul>
+<li>예제 실행 시 gpu 메모리 제한에 따른 오류가 발생할 수 있습니다. 아래 명령어를 통해 gpu 점유율을 확인하며 실행을 추천드립니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#a6e22e">nvidia</span><span style="color:#f92672">-</span><span style="color:#a6e22e">smi</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">l</span> <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><h3 id="코드-분석">코드 분석</h3>
+<ul>
+<li>학습된 dataset과 3DGEMS를 통해 확보한 gazebo model 중 겹치는 것들을 먼저 확인해보았습니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images18/Untitled10.png?height=400px" alt="Untitled10.png"></p>
+<ul>
+<li>확인된 모델들이 등장하도록 Model spawn service client의 코드를 수정합니다</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">send_spawn_req</span>(self):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># model_name = &#34;beer&#34;</span>
+</span></span><span style="display:flex;"><span>    model_id <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;&#34;&#34;Enter Model name Among Below List
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    1.chair_1            </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">2.chair_2           </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">3.chair_3
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    4.labtop_mac_1       </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">5.labtop_mac_2      </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">6.labtop_mac_3
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    7.cup_green          </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">8.cup_blue          </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">9.cup_yellow
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    10.cup_paper         </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">11.lamp_table_large </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">12.lamp_table_small
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    13.side_table_1      </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">14.side_table_3     </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">15.side_table_set_1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    16.side_table_set_2  </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">17.table_dining     </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">18.cafe_table
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    [Type your choice]: &#34;&#34;&#34;</span>)
+</span></span></code></pre></div><ul>
+<li>다음으로 Clustering 코드를 수정해보겠습니다. Topic 이름 변경과 더불어 전처리 과정 중 Voxel grid와 RANSAC만 적용하도록 수정했습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#75715e"># RANSAC plane segmentation</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Create the segmentation object</span>
+</span></span><span style="display:flex;"><span>    seg <span style="color:#f92672">=</span> cloud_voxed<span style="color:#f92672">.</span>make_segmenter()
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Extract inliers</span>
+</span></span><span style="display:flex;"><span>    extracted_inliers <span style="color:#f92672">=</span> cloud_voxed<span style="color:#f92672">.</span>extract(inliers, negative<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># inliers into list for ROS 2 Conversion</span>
+</span></span><span style="display:flex;"><span>    color_cluster_point_list <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># cloud size color generator</span>
+</span></span><span style="display:flex;"><span>    color <span style="color:#f92672">=</span> size_color_gen(extracted_inliers)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i, indices <span style="color:#f92672">in</span> enumerate(extracted_inliers):
+</span></span><span style="display:flex;"><span>        color_cluster_point_list<span style="color:#f92672">.</span>append([extracted_inliers[i][<span style="color:#ae81ff">0</span>],
+</span></span><span style="display:flex;"><span>                                        extracted_inliers[i][<span style="color:#ae81ff">1</span>],
+</span></span><span style="display:flex;"><span>                                        extracted_inliers[i][<span style="color:#ae81ff">2</span>],
+</span></span><span style="display:flex;"><span>                                        rgb_to_float(color)])
+</span></span></code></pre></div>
+<div class="notices note" ><p>카메라가 한쪽 방향만을 인지하여 아래와 같이 객체가 분리되는 상황이 발생하기 때문에 알고리즘을 간소화하였습니다.</p>
+</div>
+
+<p><img src="/kr/ros2_foxy/images18/Untitled11.png?height=400px" alt="Untitled11.png"></p>
+<blockquote>
+<p>마지막으로 PointCloud2 topic을 통해 Inference를 실행하는 코드입니다.</p>
+</blockquote>
+<ul>
+<li>생성자에서 Tuning된 parameter를 upload하여 classifier를 생성합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PointNetNode</span>(Node):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__(<span style="color:#e6db74">&#39;pointnet_cls_node&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>declare_parameter(<span style="color:#e6db74">&#39;model_path&#39;</span>, <span style="color:#e6db74">&#39;/home/kimsooyoung/Downloads/pointnet/pointnet.pytorch/utils/cls/cls_model_23.pth&#39;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>declare_parameter(<span style="color:#e6db74">&#39;num_points&#39;</span>, <span style="color:#ae81ff">10000</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        MODEL_PATH <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>get_parameter(<span style="color:#e6db74">&#39;model_path&#39;</span>)<span style="color:#f92672">.</span>value
+</span></span><span style="display:flex;"><span>        NUM_POINTS <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>get_parameter(<span style="color:#e6db74">&#39;num_points&#39;</span>)<span style="color:#f92672">.</span>value
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Create the classification network from pre-trained model</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>classifier <span style="color:#f92672">=</span> PointNetCls(k<span style="color:#f92672">=</span>len(classes_dict<span style="color:#f92672">.</span>items()), num_points<span style="color:#f92672">=</span>NUM_POINTS)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> torch<span style="color:#f92672">.</span>cuda<span style="color:#f92672">.</span>is_available():
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>classifier<span style="color:#f92672">.</span>cuda()
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>classifier<span style="color:#f92672">.</span>load_state_dict(torch<span style="color:#f92672">.</span>load(MODEL_PATH))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>classifier<span style="color:#f92672">.</span>load_state_dict(torch<span style="color:#f92672">.</span>load(MODEL_PATH, map_location<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;cpu&#39;</span>))
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>classifier<span style="color:#f92672">.</span>eval()
+</span></span></code></pre></div><ul>
+<li>callback에서는 PointCloud2 형식의 데이터를 subscribe 한 뒤 numpy.asarray로 변형하여 pytorch에게 넘길 준비를 합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>		<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">obj_callback</span>(self, msg):
+</span></span><span style="display:flex;"><span>		    <span style="color:#75715e"># 1. Convert PointCloud2 message to numpy array</span>
+</span></span><span style="display:flex;"><span>		    points_list <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>		    <span style="color:#66d9ef">for</span> data <span style="color:#f92672">in</span> pc2<span style="color:#f92672">.</span>read_points(msg, skip_nans<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>):
+</span></span><span style="display:flex;"><span>		        points_list<span style="color:#f92672">.</span>append([data[<span style="color:#ae81ff">0</span>], data[<span style="color:#ae81ff">1</span>], data[<span style="color:#ae81ff">2</span>]])
+</span></span><span style="display:flex;"><span>		    points <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>asarray(points_list, dtype<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>float32)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		    <span style="color:#75715e"># 2. numpy resample</span>
+</span></span><span style="display:flex;"><span>		    m, n <span style="color:#f92672">=</span> points<span style="color:#f92672">.</span>shape
+</span></span><span style="display:flex;"><span>		    choice <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(m, <span style="color:#ae81ff">10000</span>, replace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>		    point_set <span style="color:#f92672">=</span> points[choice, :]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		    <span style="color:#75715e"># 3. numpy to torch</span>
+</span></span><span style="display:flex;"><span>		    point_set <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>from_numpy(point_set)
+</span></span></code></pre></div><ul>
+<li>classifier를 통한 Interence후 검출 결과는 다시 cpu로 넘어온 뒤 콘솔 출력됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>		<span style="color:#75715e"># 4. perform inference in GPU</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>cb_flag <span style="color:#f92672">==</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>        points <span style="color:#f92672">=</span> Variable(point_set<span style="color:#f92672">.</span>unsqueeze(<span style="color:#ae81ff">0</span>))
+</span></span><span style="display:flex;"><span>        points <span style="color:#f92672">=</span> points<span style="color:#f92672">.</span>transpose(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> torch<span style="color:#f92672">.</span>cuda<span style="color:#f92672">.</span>is_available():
+</span></span><span style="display:flex;"><span>            points <span style="color:#f92672">=</span> points<span style="color:#f92672">.</span>cuda()
+</span></span><span style="display:flex;"><span>        pred_logsoft, _ <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>classifier(points)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># move data back to cpu</span>
+</span></span><span style="display:flex;"><span>        pred_logsoft_cpu <span style="color:#f92672">=</span> pred_logsoft<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>cpu()<span style="color:#f92672">.</span>numpy()<span style="color:#f92672">.</span>squeeze()
+</span></span><span style="display:flex;"><span>        pred_soft_cpu <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>exp(pred_logsoft_cpu)
+</span></span><span style="display:flex;"><span>        pred_class <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>argmax(pred_soft_cpu)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Your object is a [</span><span style="color:#e6db74">{</span>list(classes_dict<span style="color:#f92672">.</span>keys())[pred_class]<span style="color:#e6db74">}</span><span style="color:#e6db74">]&#39;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>get_logger()<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#39;Probability is a [</span><span style="color:#e6db74">{:0.3}</span><span style="color:#e6db74">]&#39;</span><span style="color:#f92672">.</span>format(pred_soft_cpu[pred_class]))
+</span></span></code></pre></div><ul>
+<li>전체 시스템을 rqt graph로 살펴보면 다음과 같습니다. 앞서 개요로 설명했던 Node들에 유의하며 차근차근 분석해보세요!!</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images18/Untitled12.png?height=450px" alt="Untitled12.png"></p>
 
 
 <footer class="footline">
@@ -2308,7 +2552,7 @@
 			<a class="nav nav-prev" href="/kr/ros2_foxy/lecture17/" title="Lecture17"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/kr/ros2_foxy/lecture19/" title="Lecture19" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/kr/ros2_foxy/lecture19/" title="Lecture19. NVIDIA Isaac Sim" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -2318,16 +2562,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1682765761"></script>
-    <script src="/js/perfect-scrollbar.min.js?1682765761"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1682765761"></script>
-    <script src="/js/jquery.sticky.js?1682765761"></script>
-    <script src="/js/featherlight.min.js?1682765761"></script>
-    <script src="/js/highlight.pack.js?1682765761"></script>
+    <script src="/js/clipboard.min.js?1682980326"></script>
+    <script src="/js/perfect-scrollbar.min.js?1682980326"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1682980326"></script>
+    <script src="/js/jquery.sticky.js?1682980326"></script>
+    <script src="/js/featherlight.min.js?1682980326"></script>
+    <script src="/js/highlight.pack.js?1682980326"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1682765761"></script>
-    <script src="/js/learn.js?1682765761"></script>
-    <script src="/js/hugo-learn.js?1682765761"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1682980326"></script>
+    <script src="/js/learn.js?1682980326"></script>
+    <script src="/js/hugo-learn.js?1682980326"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
