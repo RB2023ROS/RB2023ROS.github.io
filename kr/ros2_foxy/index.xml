@@ -196,12 +196,14 @@ image from : swri.org
     </item>
     
     <item>
-      <title>Lecture17</title>
+      <title>Lecture17. Real Hardware Examples</title>
       <link>/kr/ros2_foxy/lecture17/</link>
       <pubDate>Fri, 28 Apr 2023 10:51:09 +0900</pubDate>
       
       <guid>/kr/ros2_foxy/lecture17/</guid>
-      <description></description>
+      <description>이번 시간에는 실제 센서 하드웨어를 실행하는 ROS 2 package들을 실행해보고, 코드 분석을 진행해보려합니다. 준비된 예시들은 다음과 같습니다.
+Intel Realsense2 D455 Camera Velodyne VLP16 3D lidar Orbbec Astra+ Camera Intel realsense2 camera ROS 2 real hardware 강의의 두번째 시간으로 Intel의 realsense2 카메라 패키지를 실행하고, 분석해 보겠습니다.
+예제 실행을 위해 필요한 종속성들을 설치하고 realsense sdk인 librealsense를 설치합니다. sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade # Register the server&amp;#39;s public key sudo apt-key adv --keyserver keyserver.</description>
     </item>
     
     <item>
