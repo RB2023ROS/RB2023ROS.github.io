@@ -12,22 +12,22 @@
     <title>Lecture17. Real Hardware Examples - Documentation for Hugo Learn Theme</title>
 
     
-    <link href="/css/nucleus.css?1683853056" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1683853056" rel="stylesheet">
-    <link href="/css/hybrid.css?1683853056" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1683853056" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1683853056" rel="stylesheet">
-    <link href="/css/auto-complete.css?1683853056" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1683853056" rel="stylesheet">
-    <link href="/css/theme.css?1683853056" rel="stylesheet">
-    <link href="/css/tabs.css?1683853056" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1683853056" rel="stylesheet">
+    <link href="/css/nucleus.css?1684148580" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1684148580" rel="stylesheet">
+    <link href="/css/hybrid.css?1684148580" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1684148580" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1684148580" rel="stylesheet">
+    <link href="/css/auto-complete.css?1684148580" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1684148580" rel="stylesheet">
+    <link href="/css/theme.css?1684148580" rel="stylesheet">
+    <link href="/css/tabs.css?1684148580" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1684148580" rel="stylesheet">
     
-    <link href="/css/theme-green.css?1683853056" rel="stylesheet">
+    <link href="/css/theme-green.css?1684148580" rel="stylesheet">
     
-    <link href="/css/foo.css?1683853056" rel="stylesheet"><link href="/css/bar.css?1683853056" rel="stylesheet">
+    <link href="/css/foo.css?1684148580" rel="stylesheet"><link href="/css/bar.css?1684148580" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1683853056"></script>
+    <script src="/js/jquery-3.3.1.min.js?1684148580"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1683853056"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1683853056"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1684148580"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1684148580"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/kr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1683853056"></script>
+<script type="text/javascript" src="/js/search.js?1684148580"></script>
 
     
   </div>
@@ -1414,6 +1414,11 @@
         <li><a href="#개발환경-설정">개발환경 설정</a></li>
         <li><a href="#getting-started">Getting started</a></li>
         <li><a href="#코드-분석-1">코드 분석</a></li>
+      </ul>
+    </li>
+    <li><a href="#orbbec-gemini-2-ros-2-패키지-분석">orbbec gemini 2 ROS 2 패키지 분석</a>
+      <ul>
+        <li><a href="#코드-분석-2">코드 분석</a></li>
       </ul>
     </li>
   </ul>
@@ -3199,7 +3204,272 @@ image_rcl_publisher의 publish 메소드에서 드디어 실질적인 publish가
 <blockquote>
 <p>orbbec astra plus model의 ROS 2 패키지 분석을 끝으로 모든 예시 분석을 마쳤습니다. 실제 ROS 2 package 개발에 대한 안목이 생기셨으리라 생각합니다.</p>
 </blockquote>
+<h2 id="orbbec-gemini-2-ros-2-패키지-분석">orbbec gemini 2 ROS 2 패키지 분석</h2>
+<blockquote>
+<p>이번에는 Orbbec의 또다른 rgbd camera인 Gemini 2를 ROS 2 연동해보겠습니다.</p>
+</blockquote>
 
+<div class="notices note" ><p>일전 Astra Plus를 분석하며 종속성 설치 등 많은 부분을 이미 해두었으므로 중복되는 설정은 제외하였습니다.</p>
+</div>
+
+<p><img src="/kr/ros2_foxy/images17/Untitled22.png?height=400px" alt="Untitled22.png"></p>
+<ul>
+<li>Astra Plus package와 Gemini 2 package의 이름이 동일합니다! 따라서 새로운 Workspace를 생성한 뒤 별도 빌드를 해주겠습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>cd <span style="color:#f92672">~/</span>
+</span></span><span style="display:flex;"><span>mkdir <span style="color:#f92672">-</span>p gemini_ws<span style="color:#f92672">/</span>src
+</span></span><span style="display:flex;"><span>cd <span style="color:#f92672">~/</span>gemini_ws
+</span></span><span style="display:flex;"><span>colon build
+</span></span></code></pre></div>
+<div class="notices note" ><p>만약 두 package를 같은 workspace에서 사용하고 싶다면 소스코드에서 패키지 이름을 모조리 찾아내 변경하면 됩니다.</p>
+</div>
+
+<ul>
+<li>Gemini2의 인식을 위해 udev-rules를 다시 수정해야 합니다. udev-rules에 대한 설명은 <a href="https://chhanz.github.io/linux/2022/09/19/udev-rule/">링크</a>로 대체하겠으며, 여러분들께서는 하단 터미널 명령어를 따라하시기만 하면 됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>cd <span style="color:#f92672">/</span>etc<span style="color:#f92672">/</span>udev<span style="color:#f92672">/</span>rules.d
+</span></span><span style="display:flex;"><span>sudo rm <span style="color:#f92672">-</span>rf <span style="color:#ae81ff">99</span><span style="color:#f92672">-</span>obsensor<span style="color:#f92672">-</span>libusb.rules
+</span></span></code></pre></div><ul>
+<li>이제 새로운 udev-rules를 추가해야 합니다. 하지만 Orbbec에서 제공하는 rule이 적절치 않아 이번 예시를 위해 일부 제가 수정하였습니다. ⇒ <code>OrbbecSDK_ROS2/orbbec_camera/scripts99-obsensor-libusb.rules</code> 수정</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span># UVC Modules
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>SUBSYSTEMS==&#34;usb&#34;, ATTRS{idVendor}==&#34;2bc5&#34;, ATTRS{idProduct}==&#34;0670&#34;, MODE:=&#34;0666&#34;,  OWNER:=&#34;root&#34;, GROUP:=&#34;video&#34;, SYMLINK+=&#34;orbbec_gemini_2&#34;
+</span></span></code></pre></div><ul>
+<li>새로운 rule을 로컬 환경에 적용합시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>cd <span style="color:#f92672">&lt;your-ws&gt;</span>/OrbbecSDK_ROS2/orbbec_camera/scripts
+</span></span><span style="display:flex;"><span>sudo bash install.sh
+</span></span><span style="display:flex;"><span>sudo udevadm control --reload-rules <span style="color:#960050;background-color:#1e0010">&amp;&amp;</span> sudo udevadm trigger
+</span></span></code></pre></div><ul>
+<li>이제 Gemini2를 연결하면 아래와 같이 인식되는 모습을 볼 수 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>cd <span style="color:#f92672">/</span>dev
+</span></span><span style="display:flex;"><span>ls <span style="color:#f92672">|</span> grep gem
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;</span> result
+</span></span><span style="display:flex;"><span>orbbec_gemini_2
+</span></span></code></pre></div><ul>
+<li>예시 실행 전, color point cloud를 보고 싶다면 <code>gemini2.launch.xml</code> 파일의 parameter를 아래와 같이 수정해야 합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;launch&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- unique camera name--&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;camera_name&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;camera&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- Hardware depth registration --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;depth_registration&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;false&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;serial_number&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;device_num&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;1&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;vendor_id&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;0x2bc5&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;product_id&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;enable_point_cloud&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- from --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- &lt;arg name=&#34;enable_colored_point_cloud&#34; default=&#34;false&#34;/&gt; --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- to --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;enable_colored_point_cloud&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;True&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;point_cloud_qos&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;default&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span></code></pre></div><ul>
+<li>패키지를 빌드하고 소싱합시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>colcon build <span style="color:#f92672">--</span>event<span style="color:#f92672">-</span>handlers  console_direct<span style="color:#f92672">+</span>  <span style="color:#f92672">--</span>cmake<span style="color:#f92672">-</span>args  <span style="color:#f92672">-</span>DCMAKE_BUILD_TYPE<span style="color:#f92672">=</span>Release
+</span></span><span style="display:flex;"><span>source install<span style="color:#f92672">/</span>local_setup.bash
+</span></span></code></pre></div><ul>
+<li>gemini2 launch를 실행하고, rviz2로 시각화해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span># Terminal 1
+</span></span><span style="display:flex;"><span>ros2 launch orbbec_camera gemini2.launch.xml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Terminal 2
+</span></span><span style="display:flex;"><span>rviz2
+</span></span></code></pre></div><blockquote>
+<p>여러분들이 직접 rviz2 구성을 해보셔도 좋고, 제가 제공드리는 파일을 사용하셔도 됩니다!</p>
+</blockquote>
+<p>📁<a href="https://drive.google.com/file/d/1XA9re1yk86zNvH3NNx1boL68eAVhVWom/view?usp=share_link">gemini2.rviz</a></p>
+<p><img src="/kr/ros2_foxy/images17/Untitled23.png?height=400px" alt="Untitled23.png"></p>
+
+<div class="notices note" ><p>노트북, Edge Device 사용 시, color point cloud 시각화를 실행하면 급격히 성능이 저하될 수 있습니다. (우측 하단 frame rate를 확인해보세요!)</p>
+</div>
+
+<p><img src="/kr/ros2_foxy/images17/Untitled24.png?height=500px" alt="Untitled24.png"></p>
+<ul>
+<li>예제 실행 시 동작하는 topic list, tf2 tree는 다음과 같습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 topic list
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>color<span style="color:#f92672">/</span>camera_info
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>color<span style="color:#f92672">/</span>image_raw
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>depth<span style="color:#f92672">/</span>camera_info
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>depth<span style="color:#f92672">/</span>color<span style="color:#f92672">/</span>points
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>depth<span style="color:#f92672">/</span>image_raw
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>depth<span style="color:#f92672">/</span>points
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>ir<span style="color:#f92672">/</span>camera_info
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>ir<span style="color:#f92672">/</span>image_raw
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>parameter_events
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>rosout
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>tf
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>tf_static
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images17/Untitled25.png?height=300px" alt="Untitled25.png"></p>
+
+<div class="notices note" ><p>IMU에 대한 tf2와 topic이 없는 점은 많이 아쉽습니다.</p>
+</div>
+
+<ul>
+<li>혹시나 parameter로 IMU on/off를 제어하는가 싶었지만 param list 결과 없었습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> ros2 param list
+</span></span><span style="display:flex;"><span><span style="color:#f92672">/</span>camera:
+</span></span><span style="display:flex;"><span>  camera_link_frame_id
+</span></span><span style="display:flex;"><span>  color_camera_info_qos
+</span></span><span style="display:flex;"><span>  color_format
+</span></span><span style="display:flex;"><span>  color_fps
+</span></span><span style="display:flex;"><span>  color_frame_id
+</span></span><span style="display:flex;"><span>  color_height
+</span></span><span style="display:flex;"><span>  color_info_url
+</span></span><span style="display:flex;"><span>  color_optical_frame_id
+</span></span><span style="display:flex;"><span>  color_qos
+</span></span><span style="display:flex;"><span>  color_width
+</span></span><span style="display:flex;"><span>  depth_camera_info_qos
+</span></span><span style="display:flex;"><span>  depth_format
+</span></span><span style="display:flex;"><span>  depth_fps
+</span></span><span style="display:flex;"><span>  depth_frame_id
+</span></span><span style="display:flex;"><span>  depth_height
+</span></span><span style="display:flex;"><span>  depth_optical_frame_id
+</span></span><span style="display:flex;"><span>  depth_qos
+</span></span><span style="display:flex;"><span>  depth_registration
+</span></span><span style="display:flex;"><span>  depth_width
+</span></span><span style="display:flex;"><span>  device_num
+</span></span><span style="display:flex;"><span>  enable_color
+</span></span><span style="display:flex;"><span>  enable_colored_point_cloud
+</span></span><span style="display:flex;"><span>  enable_depth
+</span></span><span style="display:flex;"><span>  enable_ir
+</span></span><span style="display:flex;"><span>  enable_point_cloud
+</span></span><span style="display:flex;"><span>  enable_publish_extrinsic
+</span></span><span style="display:flex;"><span>  ir_camera_info_qos
+</span></span><span style="display:flex;"><span>  ir_format
+</span></span><span style="display:flex;"><span>  ir_fps
+</span></span><span style="display:flex;"><span>  ir_frame_id
+</span></span><span style="display:flex;"><span>  ir_height
+</span></span><span style="display:flex;"><span>  ir_info_url
+</span></span><span style="display:flex;"><span>  ir_optical_frame_id
+</span></span><span style="display:flex;"><span>  ir_qos
+</span></span><span style="display:flex;"><span>  ir_width
+</span></span><span style="display:flex;"><span>  log_level
+</span></span><span style="display:flex;"><span>  point_cloud_qos
+</span></span><span style="display:flex;"><span>  publish_tf
+</span></span><span style="display:flex;"><span>  serial_number
+</span></span><span style="display:flex;"><span>  tf_publish_rate
+</span></span><span style="display:flex;"><span>  use_sim_time
+</span></span></code></pre></div><h3 id="코드-분석-2">코드 분석</h3>
+<blockquote>
+<p>코드 분석에 앞서, launch file을 먼저 언급하자면, 일전 astra plus package와 두드러진 차이를 보이고 있습니다. 이러한 xml 문법은 ROS 1 시절 사용되었던 문법으로 사실 자주 사용되지는 않습니다.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;launch&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- unique camera name--&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;camera_name&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;camera&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;group&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;node</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;camera&#34;</span> <span style="color:#a6e22e">pkg=</span><span style="color:#e6db74">&#34;orbbec_camera&#34;</span> <span style="color:#a6e22e">exec=</span><span style="color:#e6db74">&#34;orbbec_camera_node&#34;</span> <span style="color:#a6e22e">output=</span><span style="color:#e6db74">&#34;screen&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;param</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;camera_name&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(var camera_name)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>            ...
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;remap</span> <span style="color:#a6e22e">from=</span><span style="color:#e6db74">&#34;/$(var camera_name)/depth/color/points&#34;</span> <span style="color:#a6e22e">to=</span><span style="color:#e6db74">&#34;/$(var camera_name)/depth_registered/points&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/node&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/group&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/launch&gt;</span>
+</span></span></code></pre></div>
+<div class="notices note" ><p>더불어 한눈에 보아도 parameter들이 지저분하게 나열되어 있는 모습이 확인됩니다. 저라면 <strong>yaml file</strong>로 분리했을 것 같습니다!</p>
+</div>
+
+<blockquote>
+<p>대부분의 코드들은 이미 분석하였기 때문에 이번에는 새롭게 추가되거나 변경된 내용을 위주로 분석해보겠습니다.</p>
+</blockquote>
+<ul>
+<li>각 File별 기능은 다음과 같습니다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>list_devices_node.cpp</td>
+<td>실행중인 모든 디바이스들을 조회합니다. multi camera를 위한 디버깅 툴로 유추됩니다.</td>
+</tr>
+<tr>
+<td>main.cpp</td>
+<td>일반적인 Node / Spin 구조의 main문으로 사실 ob_camera_node_factory를 통해 Composition으로 구현해두었기 때문에 불필요하다고 생각합니다.</td>
+</tr>
+<tr>
+<td>ob_cleanup_shm.cpp</td>
+<td>Astra에서 Node / SDK 사이 프로세싱을 thread로 처리한 것과 달리 Gemini에서는 세마포어를 사용합니다. 이에 따른 유틸리티 코드입니다.</td>
+</tr>
+<tr>
+<td>ob_camera_node.cpp</td>
+<td>실질적인 topic publish, service server들이 구현되어 있던 코드입니다. 기능은 동일하지만 구조에서 차이가 발생하였습니다.</td>
+</tr>
+<tr>
+<td>ob_camera_node_factory.cpp</td>
+<td>세마포어를 사용함에 따른 구현상의 작은 변화가 발생하였습니다.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="notices note" ><p>list_devices_node.cpp의 빌드 결과물인 list_devices_node의 실행 결과입니다.</p>
+</div>
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>ros2 run orbbec_camera list_devices_node
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>[I20230510 19:48:22.675072 28664 DeviceManager.cpp:375] Orbbec Gemini 2 Depth Camera
+</span></span><span style="display:flex;"><span>[I20230510 19:48:22.675125 28664 DeviceManager.cpp:375] Orbbec Gemini 2 IR Camera
+</span></span><span style="display:flex;"><span>[I20230510 19:48:22.675169 28664 DeviceManager.cpp:375] Orbbec Gemini 2 RGB Camera
+</span></span><span style="display:flex;"><span>[I20230510 19:48:22.675212 28664 DeviceManager.cpp:375] Orbbec Gemini Data Channel
+</span></span><span style="display:flex;"><span>[I20230510 19:48:22.675287 28664 DeviceManager.cpp:375] Orbbec Gemini 2 IMU
+</span></span></code></pre></div><blockquote>
+<p>ob_camera_node.cpp의 구조를 분석해보겠습니다. 대부분의 구조는 동일하며 이름의 변경과 구현상의 차이만 있을 뿐 Astra plus와 일맥상통합니다.</p>
+</blockquote>
+<ul>
+<li>
+<p>OBCameraNode</p>
+<ul>
+<li>setupDefaultImageFormat</li>
+<li>setupTopics
+<ul>
+<li>getParameters (몇가지 parameter가 추가되었습니다.)</li>
+<li>setupDevices</li>
+<li>setupProfiles</li>
+<li><del>setupDefaultStreamCalibData</del></li>
+<li>setupCameraCtrlServices</li>
+<li>setupPublishers</li>
+<li>publishStaticTransforms</li>
+</ul>
+</li>
+<li><del>startPipeline</del> ⇒ startStreams
+<ul>
+<li>setupPipelineConfig</li>
+<li>onNewFrameSetCallback
+<ul>
+<li>color_frame</li>
+<li>depth_frame</li>
+<li>ir_frame</li>
+<li>publishPointCloud</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>onNewFrameSetCallback에서 구현상 변경이 발생하였으며, Orbbec SDK와 ROS 2 Topic을 연동하는 onNewFrameCallback 매핑이 이루어졌습니다.</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> color_frame <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>dynamic_pointer_cast<span style="color:#f92672">&lt;</span>ob<span style="color:#f92672">::</span>Frame<span style="color:#f92672">&gt;</span>(frame_set<span style="color:#f92672">-&gt;</span>colorFrame());
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> depth_frame <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>dynamic_pointer_cast<span style="color:#f92672">&lt;</span>ob<span style="color:#f92672">::</span>Frame<span style="color:#f92672">&gt;</span>(frame_set<span style="color:#f92672">-&gt;</span>depthFrame());
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> ir_frame <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>dynamic_pointer_cast<span style="color:#f92672">&lt;</span>ob<span style="color:#f92672">::</span>Frame<span style="color:#f92672">&gt;</span>(frame_set<span style="color:#f92672">-&gt;</span>irFrame());
+</span></span><span style="display:flex;"><span>onNewFrameCallback(color_frame, COLOR);
+</span></span><span style="display:flex;"><span>onNewFrameCallback(depth_frame, DEPTH);
+</span></span><span style="display:flex;"><span>onNewFrameCallback(ir_frame, INFRA0);
+</span></span><span style="display:flex;"><span>publishPointCloud(frame_set);
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -4112,16 +4382,16 @@ image_rcl_publisher의 publish 메소드에서 드디어 실질적인 publish가
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1683853057"></script>
-    <script src="/js/perfect-scrollbar.min.js?1683853057"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1683853057"></script>
-    <script src="/js/jquery.sticky.js?1683853057"></script>
-    <script src="/js/featherlight.min.js?1683853057"></script>
-    <script src="/js/highlight.pack.js?1683853057"></script>
+    <script src="/js/clipboard.min.js?1684148580"></script>
+    <script src="/js/perfect-scrollbar.min.js?1684148580"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1684148580"></script>
+    <script src="/js/jquery.sticky.js?1684148580"></script>
+    <script src="/js/featherlight.min.js?1684148580"></script>
+    <script src="/js/highlight.pack.js?1684148580"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1683853057"></script>
-    <script src="/js/learn.js?1683853057"></script>
-    <script src="/js/hugo-learn.js?1683853057"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1684148580"></script>
+    <script src="/js/learn.js?1684148580"></script>
+    <script src="/js/hugo-learn.js?1684148580"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
