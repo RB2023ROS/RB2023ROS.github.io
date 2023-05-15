@@ -12,22 +12,22 @@
     <title>Lecture12. About Gazebo - 2 - Documentation for Hugo Learn Theme</title>
 
     
-    <link href="/css/nucleus.css?1684148580" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1684148580" rel="stylesheet">
-    <link href="/css/hybrid.css?1684148580" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1684148580" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1684148580" rel="stylesheet">
-    <link href="/css/auto-complete.css?1684148580" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1684148580" rel="stylesheet">
-    <link href="/css/theme.css?1684148580" rel="stylesheet">
-    <link href="/css/tabs.css?1684148580" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1684148580" rel="stylesheet">
+    <link href="/css/nucleus.css?1684160152" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1684160152" rel="stylesheet">
+    <link href="/css/hybrid.css?1684160152" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1684160152" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1684160152" rel="stylesheet">
+    <link href="/css/auto-complete.css?1684160152" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1684160152" rel="stylesheet">
+    <link href="/css/theme.css?1684160152" rel="stylesheet">
+    <link href="/css/tabs.css?1684160152" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1684160152" rel="stylesheet">
     
-    <link href="/css/theme-green.css?1684148580" rel="stylesheet">
+    <link href="/css/theme-green.css?1684160152" rel="stylesheet">
     
-    <link href="/css/foo.css?1684148580" rel="stylesheet"><link href="/css/bar.css?1684148580" rel="stylesheet">
+    <link href="/css/foo.css?1684160152" rel="stylesheet"><link href="/css/bar.css?1684160152" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1684148580"></script>
+    <script src="/js/jquery-3.3.1.min.js?1684160152"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1684148580"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1684148580"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1684160152"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1684160152"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/kr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1684148580"></script>
+<script type="text/javascript" src="/js/search.js?1684160152"></script>
 
     
   </div>
@@ -1396,6 +1396,8 @@
       </ul>
     </li>
     <li><a href="#gazebo-state-plugin">Gazebo State Plugin</a></li>
+    <li><a href="#multi-object-spawning">Multi Object Spawning</a></li>
+    <li><a href="#다른-world-가져와서-써보기">다른 World 가져와서 써보기</a></li>
   </ul>
 </nav>
     </div>
@@ -2054,6 +2056,218 @@
 </span></span></code></pre></div><ul>
 <li>이러한 topic들을 사용하고 싶다면, gazebo world file에 libgazebo_ros_state plugin을 추가하면 됩니다.</li>
 </ul>
+<h2 id="multi-object-spawning">Multi Object Spawning</h2>
+<blockquote>
+<p>여러대의 로봇, 여러개의 동일한 센서를 시뮬레이션하고 싶은 경우를 다뤄봅시다.</p>
+</blockquote>
+<ul>
+<li>준비된 예시의 역분석을 통해 학습해보고자 합니다. 우선 예시를 실행해봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>ros2 launch chess_world chess_world.launch.py
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images12/Untitled6.png?height=350px" alt="Untitled6.png"></p>
+<blockquote>
+<p>체스보드 양쪽으로 동일한 realsense camera가 등장한 것을 볼 수 있습니다.</p>
+</blockquote>
+<ul>
+<li>이 예시를 역으르 해석해가면서 multi object 상황에 대한 gazebo환경에 대해 학습해보겠습니다.</li>
+</ul>
+<ol>
+<li>launch file 분석</li>
+<li>urdf 분석</li>
+<li>gazebo plugin 분석</li>
+</ol>
+<ul>
+<li>launch file 분석 - chess_world.launch.py</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>cam1_spawn <span style="color:#f92672">=</span> robot_spawn_nodes(<span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;camera_left.urdf.xacro&#34;</span>, pkg_path)
+</span></span><span style="display:flex;"><span>cam2_spawn <span style="color:#f92672">=</span> robot_spawn_nodes(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;camera_right.urdf.xacro&#34;</span>, pkg_path)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> LaunchDescription(
+</span></span><span style="display:flex;"><span>    [
+</span></span><span style="display:flex;"><span>        arg_show_rviz,
+</span></span><span style="display:flex;"><span>        start_gazebo_server_cmd,
+</span></span><span style="display:flex;"><span>        start_gazebo_client_cmd,
+</span></span><span style="display:flex;"><span>        static_transform_publisher,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">*</span>cam1_spawn,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">*</span>cam2_spawn,
+</span></span><span style="display:flex;"><span>        rviz_node,
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>⇒ 하나의 object 시뮬레이션을 위해 필요한 node들을 묶어 함수화하고, 이를 통해 cam1_spawn, cam2_spawn을 만들었습니다.</p>
+<ul>
+<li>다시 robot_spawn_nodes 함수를 살펴봅시다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">return</span> [
+</span></span><span style="display:flex;"><span>    robot_state_publisher,
+</span></span><span style="display:flex;"><span>    spawn_entity,
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div>
+<div class="notices note" ><p>서로 다른 urdf file을 사용하기 때문에 robot_state_publisher가, 로봇을 등장시키는 과정이 반복되어야 하기 때문에 spawn_entity가 포함되어 있습니다.</p>
+</div>
+
+<ul>
+<li>사용할 xacro file과 spawn 위치를 매개변수로 받아 실행되는 구조입니다. 더욱이, 여기서 주목해야 할 점은 <strong>namespace</strong>를 사용하였다는 점입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">robot_spawn_nodes</span>(id, xacro_name, pkg_path):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Get URDF via xacro</span>
+</span></span><span style="display:flex;"><span>    robot_description_content <span style="color:#f92672">=</span> Command(
+</span></span><span style="display:flex;"><span>        [
+</span></span><span style="display:flex;"><span>            PathJoinSubstitution([FindExecutable(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xacro&#34;</span>)]),
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34; &#34;</span>,
+</span></span><span style="display:flex;"><span>            PathJoinSubstitution(
+</span></span><span style="display:flex;"><span>                [FindPackageShare(<span style="color:#e6db74">&#34;chess_world&#34;</span>), <span style="color:#e6db74">&#34;urdf&#34;</span>, xacro_name]
+</span></span><span style="display:flex;"><span>            ),
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    robot_description <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;robot_description&#34;</span>: robot_description_content}
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Spawn Robot</span>
+</span></span><span style="display:flex;"><span>    spawn_entity <span style="color:#f92672">=</span> Node(
+</span></span><span style="display:flex;"><span>        package<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;gazebo_ros&#39;</span>,
+</span></span><span style="display:flex;"><span>        executable<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;spawn_entity.py&#39;</span>,
+</span></span><span style="display:flex;"><span>        namespace<span style="color:#f92672">=</span><span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;camera_</span><span style="color:#e6db74">{</span>id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>,
+</span></span><span style="display:flex;"><span>        arguments<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;-topic&#39;</span>, <span style="color:#e6db74">&#39;robot_description&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;-entity&#39;</span>, <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;d435_camera_</span><span style="color:#e6db74">{</span>id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;-x&#39;</span>, str(<span style="color:#ae81ff">0</span>),
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;-y&#39;</span>, str(<span style="color:#ae81ff">0.0</span>),
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;-Y&#39;</span>, str(<span style="color:#ae81ff">0.0</span>),
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        output<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;screen&#39;</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span></code></pre></div><ul>
+<li><strong>camera_right.urdf.xacro &amp; camera_left.urdf.xacro</strong></li>
+</ul>
+<p>⇒ 링크를 통해 이 둘을 비교해봅시다. ⇒ <strong><a href="https://github.com/RB2023ROS/gz_ros2_examples/blob/main/chess_world/urdf/camera_right.urdf.xacro">camera_right.urdf.xacro</a> / <a href="https://github.com/RB2023ROS/gz_ros2_examples/blob/main/chess_world/urdf/camera_left.urdf.xacro">camera_left.urdf.xacro</a></strong></p>
+<p>⇒ xacro의 사용이 아주 빛나는 상황입니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;robot</span> <span style="color:#a6e22e">xmlns:xacro=</span><span style="color:#e6db74">&#34;http://ros.org/wiki/xacro&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;camera_&lt;&gt;&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;xacro:include</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;$(find chess_world)/urdf/sensors/_d415.urdf.xacro&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;xacro:include</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;$(find chess_world)/urdf/sensors/cam_holder.urdf.xacro&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;link</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;chess_frame&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- sets camera frame w.r.t. to chess frame--&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- set only the color camera and a slow frame rate - an image each 5 seconds)--&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;xacro:sensor_d415</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;camera_&lt;&gt;&#34;</span> <span style="color:#a6e22e">parent=</span><span style="color:#e6db74">&#34;chess_frame&#34;</span> <span style="color:#a6e22e">flag_color=</span><span style="color:#e6db74">&#34;1&#34;</span> <span style="color:#a6e22e">flag_ir=</span><span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#a6e22e">flag_depth=</span><span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#a6e22e">updaterate=</span><span style="color:#e6db74">&#34;10&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;origin</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;? ? ?&#34;</span> <span style="color:#a6e22e">rpy=</span><span style="color:#e6db74">&#34;? ? ?&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/xacro:sensor_d415&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- result from calib --&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- sets cam holder w.r.t to camera--&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;xacro:cam_holder</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;camera_&lt;&gt;_holder&#34;</span> <span style="color:#a6e22e">parent=</span><span style="color:#e6db74">&#34;camera_&lt;&gt;_link&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;origin</span> <span style="color:#a6e22e">xyz=</span><span style="color:#e6db74">&#34;0.0 -0.020 0.0115&#34;</span> <span style="color:#a6e22e">rpy=</span><span style="color:#e6db74">&#34;0 -1.161379 0&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/xacro:cam_holder&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/robot&gt;</span>
+</span></span></code></pre></div><ul>
+<li>각각의 xacro file내에는 변화하는 부분을 변수로 두어 상위 xacro에서 매개변수를 전달하기만 하면 언제든 독립된 모델을 만들 수 있도록 설계되었습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;robot</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;cam_holder&#34;</span> <span style="color:#a6e22e">xmlns:xacro=</span><span style="color:#e6db74">&#34;http://ros.org/wiki/xacro&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:macro</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;cam_holder&#34;</span> <span style="color:#a6e22e">params=</span><span style="color:#e6db74">&#34;name parent *origin&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;robot</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;sensor_d415&#34;</span> <span style="color:#a6e22e">xmlns:xacro=</span><span style="color:#e6db74">&#34;http://ros.org/wiki/xacro&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;xacro:macro</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;sensor_d415&#34;</span> <span style="color:#a6e22e">params=</span><span style="color:#e6db74">&#34;name parent flag_color flag_ir flag_depth updaterate *origin&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><p>⇒ 이러한 이유에서 xacro의 사용이 권장됩니다.</p>
+<ul>
+<li>실제 에시를 실행하여 topic list를 조회해보아도 겹치는 이름 없이 잘 실행되는 모습을 확인 가능합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>$ ros2 topic list
+</span></span><span style="display:flex;"><span>/camera_0/joint_states
+</span></span><span style="display:flex;"><span>/camera_0/robot_description
+</span></span><span style="display:flex;"><span>/camera_1/joint_states
+</span></span><span style="display:flex;"><span>/camera_1/robot_description
+</span></span><span style="display:flex;"><span>/camera_left/color/camera_info
+</span></span><span style="display:flex;"><span>/camera_left/color/image_raw
+</span></span><span style="display:flex;"><span>/camera_right/color/camera_info
+</span></span><span style="display:flex;"><span>/camera_right/color/image_raw
+</span></span><span style="display:flex;"><span>/clicked_point
+</span></span><span style="display:flex;"><span>/clock
+</span></span><span style="display:flex;"><span>/goal_pose
+</span></span><span style="display:flex;"><span>/initialpose
+</span></span><span style="display:flex;"><span>/parameter_events
+</span></span><span style="display:flex;"><span>/performance_metrics
+</span></span><span style="display:flex;"><span>/rosout
+</span></span><span style="display:flex;"><span>/tf
+</span></span><span style="display:flex;"><span>/tf_static
+</span></span></code></pre></div><ul>
+<li>더욱이 tf2 tree도 완벽하게 구성되어 rviz2에서의 시각화도 문제없습니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images12/Untitled7.png?height=350px" alt="Untitled7.png"></p>
+<h2 id="다른-world-가져와서-써보기">다른 World 가져와서 써보기</h2>
+<blockquote>
+<p>이번에는, 오픈소스 프로젝트를 활용하여 나만의 world를 만드는 방법에 대해 학습해보겠습니다.</p>
+</blockquote>
+<ul>
+<li>예시 실행</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>$ ros2 launch lidar_world lidar_world.launch.py
+</span></span></code></pre></div><p>⇒ 해당 world는 제가 youtube 검색을 통해 괜찮다고 생각되어 직접 수정해본 것입니다. (물론 라이센스는 지켜야 합니다.) <a href="https://www.youtube.com/watch?v=NNR9RUNz5Pg&amp;t=3s">youtube link</a></p>
+<ul>
+<li>우선 해당 프로젝트를 분석해봅시다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images12/Untitled8.png?height=250px" alt="Untitled8.png"></p>
+<p>⇒ 사용된 패키지는 총 5개 입니다. 이들 중 gazebo와 관련이 깊을 것 같은 robot_gazebo 패키지에서 launch file을 분석합니다.</p>
+<ul>
+<li>robot_sim.launch.py</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">return</span> LaunchDescription([
+</span></span><span style="display:flex;"><span>    IncludeLaunchDescription(
+</span></span><span style="display:flex;"><span>        PythonLaunchDescriptionSource(
+</span></span><span style="display:flex;"><span>            os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(pkg_gazebo_ros, <span style="color:#e6db74">&#39;launch&#39;</span>, <span style="color:#e6db74">&#39;gzserver.launch.py&#39;</span>)
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>        launch_arguments<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;world&#39;</span>: world}<span style="color:#f92672">.</span>items(),
+</span></span><span style="display:flex;"><span>    ),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    IncludeLaunchDescription(
+</span></span><span style="display:flex;"><span>        PythonLaunchDescriptionSource(
+</span></span><span style="display:flex;"><span>            os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(pkg_gazebo_ros, <span style="color:#e6db74">&#39;launch&#39;</span>, <span style="color:#e6db74">&#39;gzclient.launch.py&#39;</span>)
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>    ),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    IncludeLaunchDescription(
+</span></span><span style="display:flex;"><span>        PythonLaunchDescriptionSource(
+</span></span><span style="display:flex;"><span>            os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(pkg_cart_pole_control, <span style="color:#e6db74">&#39;launch&#39;</span>, <span style="color:#e6db74">&#39;robot_control.launch.py&#39;</span>)
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>    ),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    IncludeLaunchDescription(
+</span></span><span style="display:flex;"><span>        PythonLaunchDescriptionSource([launch_file_dir, <span style="color:#e6db74">&#39;/robot_state_publisher.launch.py&#39;</span>]),
+</span></span><span style="display:flex;"><span>        launch_arguments<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;use_sim_time&#39;</span>: use_sim_time}<span style="color:#f92672">.</span>items(),
+</span></span><span style="display:flex;"><span>    ),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Node(
+</span></span><span style="display:flex;"><span>    package <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;joy&#34;</span>,
+</span></span><span style="display:flex;"><span>    executable <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;joy_node&#34;</span>
+</span></span><span style="display:flex;"><span>    ),
+</span></span><span style="display:flex;"><span>])
+</span></span></code></pre></div><ul>
+<li>우리가 관심있는 것은 world file의 위치이며, 이렇게 찾은 lio_world.model을 gazebo_ros가 아닌 일반 Gazebo로 로컬 실행시켜봅니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>gazebo lio_world<span style="color:#f92672">.</span>model
+</span></span></code></pre></div><p>⇒ 아마 실행되지 않을 것입니다. lio_world.model에서는 gazebo 기본 model이 아닌 커스텀 모델들이 사용되고 있는데, 이들을 Gazebo 환경변수에 추가해주어야 하기 때문입니다.</p>
+<p><img src="/kr/ros2_foxy/images12/Untitled9.png?height=250px" alt="Untitled9.png"></p>
+<ul>
+<li>따라서 나만의 패키지를 구성하고, 이 world를 다시 실행시켜봅니다.</li>
+</ul>
+<ol>
+<li>패키지 생성</li>
+<li>launch file 생성, world file, models file 복사</li>
+<li>CMakeLists.txt 수정</li>
+<li>패키지 빌드 후, 실행</li>
+</ol>
+<p><img src="/kr/ros2_foxy/images12/Untitled10.png?height=350px" alt="Untitled10.png"></p>
+
+<div class="notices note" ><p>이전에 배운 sensor plugin, urdf, sensor stick, moving stick을 모두 활용해서 여러분만의 camera &amp; lidar world를 만들어 보세요!! - <strong>과제입니다.</strong></p>
+</div>
+
+<p>⇒ 제가 만든 World를 참고하셔도 좋지만 직접 해보시기를 권장드립니다.</p>
+<p>⇒ object animation은 다음 링크를 참고합니다. <a href="https://classic.gazebosim.org/tutorials?tut=actor&amp;cat=build_robot">link</a></p>
+<p><img src="/kr/ros2_foxy/images12/lidar_world_gz.gif?height=350px" alt="lidar_world_gz.gif"></p>
 
 
 <footer class="footline">
@@ -2967,16 +3181,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1684148580"></script>
-    <script src="/js/perfect-scrollbar.min.js?1684148580"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1684148580"></script>
-    <script src="/js/jquery.sticky.js?1684148580"></script>
-    <script src="/js/featherlight.min.js?1684148580"></script>
-    <script src="/js/highlight.pack.js?1684148580"></script>
+    <script src="/js/clipboard.min.js?1684160152"></script>
+    <script src="/js/perfect-scrollbar.min.js?1684160152"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1684160152"></script>
+    <script src="/js/jquery.sticky.js?1684160152"></script>
+    <script src="/js/featherlight.min.js?1684160152"></script>
+    <script src="/js/highlight.pack.js?1684160152"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1684148580"></script>
-    <script src="/js/learn.js?1684148580"></script>
-    <script src="/js/hugo-learn.js?1684148580"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1684160152"></script>
+    <script src="/js/learn.js?1684160152"></script>
+    <script src="/js/hugo-learn.js?1684160152"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
