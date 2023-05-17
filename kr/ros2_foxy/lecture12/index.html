@@ -12,22 +12,22 @@
     <title>Lecture12. About Gazebo - 2 - Documentation for Hugo Learn Theme</title>
 
     
-    <link href="/css/nucleus.css?1684160413" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1684160413" rel="stylesheet">
-    <link href="/css/hybrid.css?1684160413" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1684160413" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1684160413" rel="stylesheet">
-    <link href="/css/auto-complete.css?1684160413" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1684160413" rel="stylesheet">
-    <link href="/css/theme.css?1684160413" rel="stylesheet">
-    <link href="/css/tabs.css?1684160413" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1684160413" rel="stylesheet">
+    <link href="/css/nucleus.css?1684331159" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1684331159" rel="stylesheet">
+    <link href="/css/hybrid.css?1684331159" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1684331159" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1684331159" rel="stylesheet">
+    <link href="/css/auto-complete.css?1684331159" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1684331159" rel="stylesheet">
+    <link href="/css/theme.css?1684331159" rel="stylesheet">
+    <link href="/css/tabs.css?1684331159" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1684331159" rel="stylesheet">
     
-    <link href="/css/theme-green.css?1684160413" rel="stylesheet">
+    <link href="/css/theme-green.css?1684331159" rel="stylesheet">
     
-    <link href="/css/foo.css?1684160413" rel="stylesheet"><link href="/css/bar.css?1684160413" rel="stylesheet">
+    <link href="/css/foo.css?1684331159" rel="stylesheet"><link href="/css/bar.css?1684331159" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1684160413"></script>
+    <script src="/js/jquery-3.3.1.min.js?1684331159"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1684160413"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1684160413"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1684331159"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1684331159"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/kr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1684160413"></script>
+<script type="text/javascript" src="/js/search.js?1684331159"></script>
 
     
   </div>
@@ -1392,6 +1392,9 @@
     <li><a href="#sensor-plugin-추가-절차">Sensor Plugin 추가 절차</a>
       <ul>
         <li></li>
+        <li><a href="#depth-camera">Depth Camera</a></li>
+        <li><a href="#2d-lidar-plugin">2D lidar plugin</a></li>
+        <li><a href="#3d-lidar-plugin">3D Lidar plugin</a></li>
         <li><a href="#gazebo-movement-plugin">Gazebo Movement Plugin</a></li>
       </ul>
     </li>
@@ -1591,9 +1594,7 @@
 </ol>
 <p><img src="/kr/ros2_foxy/images12/Untitled1.png?height=350px" alt="Untitled1.png"></p>
 <p>위 과정은 반복되므로, 센서 plugin 예시와 매개변수들을 위주로 살펴보겠습니다.</p>
-<ul>
-<li>Depth Camera</li>
-</ul>
+<h3 id="depth-camera">Depth Camera</h3>
 <p>⇒ Depth Camera 사용 시 주의해야 할 점이 있습니다. Depth Camera의 좌표계가 ROS 2 좌표계와 일치하지 않아 해당 joint angle을 통해 offset해야 합니다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;link</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;camera_rgb_optical_frame&#34;</span> <span style="color:#f92672">/&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;joint</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;camera_rgb_optical_joint&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;fixed&#34;</span><span style="color:#f92672">&gt;</span>
@@ -1660,14 +1661,13 @@
 <ul>
 <li>xacro 파일 변경 후 Gazebo 예제 실행</li>
 </ul>
+<p><code>sensor_stick.xacro</code>의 line 13을 보면 다른 plugin들을 사용하는 추가 xacro file들을 나눠둔 것을 확인할 수 있습니다. <em>sensor_stick_mono ⇒ sensor_stick_depth</em>로 토글링한 뒤 다시 launch 해봅시다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>ros2 launch basic_stick sensor_stick.launch.py
 </span></span></code></pre></div><p><img src="/kr/ros2_foxy/images12/Untitled2.png?height=350px" alt="Untitled2.png"></p>
 <blockquote>
-<p>다음으로 2D/3D 라이다 데이터를 연동해봅시다.</p>
+<p>다음으로 2D/3D 라이다 데이터를 연동해봅시다. 라이다는 바퀴를 가진 fusionbot으로 실습해 보겠습니다.</p>
 </blockquote>
-<ul>
-<li>2D lidar plugin</li>
-</ul>
+<h3 id="2d-lidar-plugin">2D lidar plugin</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;gazebo</span> <span style="color:#a6e22e">reference=</span><span style="color:#e6db74">&#34;lidar&#34;</span><span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;sensor</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;lidar&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;ray&#34;</span><span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;pose&gt;</span>0 0 0 0 0 0<span style="color:#f92672">&lt;/pose&gt;</span>
@@ -1746,9 +1746,7 @@
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>ros2 launch fusionbot_description sensor_gz.launch.py
 </span></span></code></pre></div><p><img src="/kr/ros2_foxy/images12/Untitled3.png?height=350px" alt="Untitled3.png"></p>
-<ul>
-<li>3D Lidar plugin</li>
-</ul>
+<h3 id="3d-lidar-plugin">3D Lidar plugin</h3>
 <p>⇒ 2D lidar와 plugin은 같지만, vertical이라는 속성이 추가됩니다.</p>
 
 <div class="notices note" ><p>이 센서는 연산량이 많아 gpu 버전을 별도로 제공하고 있습니다.</p>
@@ -1848,7 +1846,7 @@
 <p>로봇 청소기와 같이 제자리 회전이 가능하며, 양쪽 바퀴 회전수 차이로 로봇을 이동시키는 타입을 DD Type이라고 부릅니다. 일전 fusionbot이 여기에 해당합니다. 이 모델이 하도 많이 사용되어서 그런지 gazebo_ros 차원에서 plugin을 제공하고 있습니다.</p>
 <p><img src="https://rb2023ros.github.io/kr/ros_and_gazebo/images1/gz7.png?height=300px" alt="https://rb2023ros.github.io/kr/ros_and_gazebo/images1/gz7.png?height=300px"></p>
 <ul>
-<li>예시 실행 전 plugin 적용을 위해 fusionbot.gazebo include line 주석을 해제합니다.</li>
+<li>예시 실행 전 plugin 적용을 위해 fusionbot_description/urdf/fusionbot.urdf.xacro 파일에서 line 5, include line 주석을 해제합니다.</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;robot</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;fusionbot&#34;</span> <span style="color:#a6e22e">xmlns:xacro=</span><span style="color:#e6db74">&#34;http://www.ros.org/wiki/xacro&#34;</span><span style="color:#f92672">&gt;</span>
@@ -1856,7 +1854,7 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;xacro:include</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;$(find fusionbot_description)/urdf/materials.xacro&#34;</span> <span style="color:#f92672">/&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;xacro:include</span> <span style="color:#a6e22e">filename=</span><span style="color:#e6db74">&#34;$(find fusionbot_description)/urdf/fusionbot.gazebo&#34;</span> <span style="color:#f92672">/&gt;</span>
 </span></span></code></pre></div><ul>
-<li>예시 실행</li>
+<li>수정, 저장 후 예시를 다시 실행해봅시다.</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>ros2 launch fusionbot_description gz.launch.py
 </span></span></code></pre></div><ul>
@@ -2140,7 +2138,7 @@
 <li><strong>camera_right.urdf.xacro &amp; camera_left.urdf.xacro</strong></li>
 </ul>
 <p>⇒ 링크를 통해 이 둘을 비교해봅시다. ⇒ <strong><a href="https://github.com/RB2023ROS/gz_ros2_examples/blob/main/chess_world/urdf/camera_right.urdf.xacro">camera_right.urdf.xacro</a> / <a href="https://github.com/RB2023ROS/gz_ros2_examples/blob/main/chess_world/urdf/camera_left.urdf.xacro">camera_left.urdf.xacro</a></strong></p>
-<p>⇒ xacro의 사용이 아주 빛나는 상황입니다.</p>
+<p>⇒ 반복되는 구문을 함수화하고, 기능상의 on/off를 변수화하여 별도 관리하고 있습니다. xacro의 사용이 아주 빛나는 상황입니다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;robot</span> <span style="color:#a6e22e">xmlns:xacro=</span><span style="color:#e6db74">&#34;http://ros.org/wiki/xacro&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;camera_&lt;&gt;&#34;</span><span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>
@@ -2208,7 +2206,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>$ ros2 launch lidar_world lidar_world.launch.py
 </span></span></code></pre></div><p>⇒ 해당 world는 제가 youtube 검색을 통해 괜찮다고 생각되어 직접 수정해본 것입니다. (물론 라이센스는 지켜야 합니다.) <a href="https://www.youtube.com/watch?v=NNR9RUNz5Pg&amp;t=3s">youtube link</a></p>
 <ul>
-<li>우선 해당 프로젝트를 분석해봅시다.</li>
+<li>youtube link를 통해 접근할 수 있는 해당 프로젝트 코드를 분석해봅시다.</li>
 </ul>
 <p><img src="/kr/ros2_foxy/images12/Untitled8.png?height=250px" alt="Untitled8.png"></p>
 <p>⇒ 사용된 패키지는 총 5개 입니다. 이들 중 gazebo와 관련이 깊을 것 같은 robot_gazebo 패키지에서 launch file을 분석합니다.</p>
@@ -3181,16 +3179,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1684160413"></script>
-    <script src="/js/perfect-scrollbar.min.js?1684160413"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1684160413"></script>
-    <script src="/js/jquery.sticky.js?1684160413"></script>
-    <script src="/js/featherlight.min.js?1684160413"></script>
-    <script src="/js/highlight.pack.js?1684160413"></script>
+    <script src="/js/clipboard.min.js?1684331159"></script>
+    <script src="/js/perfect-scrollbar.min.js?1684331159"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1684331159"></script>
+    <script src="/js/jquery.sticky.js?1684331159"></script>
+    <script src="/js/featherlight.min.js?1684331159"></script>
+    <script src="/js/highlight.pack.js?1684331159"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1684160413"></script>
-    <script src="/js/learn.js?1684160413"></script>
-    <script src="/js/hugo-learn.js?1684160413"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1684331159"></script>
+    <script src="/js/learn.js?1684331159"></script>
+    <script src="/js/hugo-learn.js?1684331159"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
