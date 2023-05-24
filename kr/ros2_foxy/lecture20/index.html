@@ -12,22 +12,22 @@
     <title>Lecture20. NVIDIA Jetson Platform - Documentation for Hugo Learn Theme</title>
 
     
-    <link href="/css/nucleus.css?1684930996" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1684930996" rel="stylesheet">
-    <link href="/css/hybrid.css?1684930996" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1684930996" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1684930996" rel="stylesheet">
-    <link href="/css/auto-complete.css?1684930996" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1684930996" rel="stylesheet">
-    <link href="/css/theme.css?1684930996" rel="stylesheet">
-    <link href="/css/tabs.css?1684930996" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1684930996" rel="stylesheet">
+    <link href="/css/nucleus.css?1684950311" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1684950311" rel="stylesheet">
+    <link href="/css/hybrid.css?1684950311" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1684950311" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1684950311" rel="stylesheet">
+    <link href="/css/auto-complete.css?1684950311" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1684950311" rel="stylesheet">
+    <link href="/css/theme.css?1684950311" rel="stylesheet">
+    <link href="/css/tabs.css?1684950311" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1684950311" rel="stylesheet">
     
-    <link href="/css/theme-green.css?1684930996" rel="stylesheet">
+    <link href="/css/theme-green.css?1684950311" rel="stylesheet">
     
-    <link href="/css/foo.css?1684930996" rel="stylesheet"><link href="/css/bar.css?1684930996" rel="stylesheet">
+    <link href="/css/foo.css?1684950311" rel="stylesheet"><link href="/css/bar.css?1684950311" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1684930996"></script>
+    <script src="/js/jquery-3.3.1.min.js?1684950311"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1684930996"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1684930996"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1684950311"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1684950311"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/kr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1684930996"></script>
+<script type="text/javascript" src="/js/search.js?1684950311"></script>
 
     
   </div>
@@ -1382,7 +1382,15 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#데모-시연">데모 시연</a></li>
+    <li><a href="#gazebo-시뮬레이션-데모---fusionbot-slam">Gazebo 시뮬레이션 데모 - Fusionbot SLAM</a></li>
+    <li><a href="#real-world와-시뮬레이션-연동">Real World와 시뮬레이션 연동</a></li>
+    <li><a href="#실물-센서의-ros-2-연동">실물 센서의 ROS 2 연동</a></li>
+    <li><a href="#소형-로봇-데모를-통해-살펴보는-로봇-시스템">소형 로봇 데모를 통해 살펴보는 로봇 시스템</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -1405,6 +1413,151 @@
         
 
 
+<h2 id="데모-시연">데모 시연</h2>
+<blockquote>
+<p>이번 시간에는 지금까지 학습한 내용들을 다시 한 번 되짚어보면서 ROS 2를 사용하고자 하는 고객들 측면에서의 개발, 기능들을 이야기해보겠습니다.</p>
+</blockquote>
+<ul>
+<li>Gazebo 시뮬레이션 데모</li>
+<li>Real World와 시뮬레이션 연동</li>
+<li>실물 센서의 ROS 2 연동</li>
+<li>소형 로봇 데모를 통해 살펴보는 로봇 시스템</li>
+</ul>
+<h2 id="gazebo-시뮬레이션-데모---fusionbot-slam">Gazebo 시뮬레이션 데모 - Fusionbot SLAM</h2>
+<p>지금까지 학습한 내용들을 통해 구현할 수 있는 Application을 데모해보고자 합니다.</p>
+<ul>
+<li>Gazebo World 생성</li>
+<li>URDF를 통한 로봇 Structure 구성</li>
+<li>Gazebo Control Plugin과 Sensor Plugin</li>
+</ul>
+<p>처음 마주친 환경에서, 우리는 현재 자신의 위치와 주변 환경의 Mapping을 동시에 진행합니다. 이와 같이 SLAM이란, Localization과 Mapping을 Simultaneously 실행하는 것으로 로봇의 자율주행에 사용되는 지도 생성에 주로 사용됩니다.</p>
+<p><img src="/kr/ros2_foxy/images20/Untitled.png?height=300px" alt="Untitled.png"></p>
+<p>2D Lidar를 통해 Gazebo 상의 Fusionbot을 통해 환경의 지도를 생성해보는 실습을 진행해보겠습니다.</p>
+
+<div class="notices tip" ><p>SLAM은 사용하는 센서, 방식에 따라 여러 종류의 구현이 가능합니다. 반드시 2D Lidar SLAM만 존재하는 것이 아님을 밝힙니다.</p>
+</div>
+
+<ul>
+<li>Fusionbot SLAM</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Terminal 1 - gazebo world launch</span>
+</span></span><span style="display:flex;"><span>ros2 launch fusionbot_description office_construction<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2 - slam toolbox launch</span>
+</span></span><span style="display:flex;"><span>cbp fusionbot_slam <span style="color:#f92672">&amp;&amp;</span> source install<span style="color:#f92672">/</span>local_setup<span style="color:#f92672">.</span>bash
+</span></span><span style="display:flex;"><span>ros2 launch fusionbot_slam online_async_launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2 - control node</span>
+</span></span><span style="display:flex;"><span>rqt_robot_steering
+</span></span></code></pre></div><p><img src="/kr/ros2_foxy/images20/Untitled1.png?height=300px" alt="Untitled1.png"></p>
+<p>⇒ rqt_robot_steering을 통해 로봇을 움직임에 따라 rviz2 상에서 완성되는 지도를 확인할 수 있습니다.</p>
+<ul>
+<li>생성된 지도를 저장하고 싶다면 rviz2에서 경로를 입력한 뒤, Save Map 버튼을 클릭합니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images20/Untitled2.png?height=300px" alt="Untitled2.png"></p>
+<p>⇒ 이렇게 생성된 지도는 이후 자율주행, world 생성, 3D reconstruction등 다양한 Application에 사용됩니다.</p>
+<h2 id="real-world와-시뮬레이션-연동">Real World와 시뮬레이션 연동</h2>
+<blockquote>
+<p>이번 데모는 SLAMTEC의 Rplidar를 사용하여 사무실을 Mapping하고, 이를 바탕으로 Gazebo World를 만들어보겠습니다.</p>
+</blockquote>
+<ul>
+<li>rplidar a3</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images20/Untitled3.png?height=400px" alt="Untitled3.png"></p>
+<p>2D 라이다 제품군 중 비교적 저렴한 가격에 최대 25m라는 합리적인 탐지거리와 해상도를 갖고 있어 로봇 프로젝트에서 널리 사용되는 제품 중 하나입니다.</p>
+<ul>
+<li>실제 실외 배송로봇에 이러한 형태의 라이다가 사용된 바 있습니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images20/Untitled4.png?height=300px" alt="Untitled4.png"></p>
+<ul>
+<li>rplidar a3를 통해 실제 사무실을 SLAM 해보겠습니다. (하단 로그는 제가 데모하기 위한 명령어입니다.)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># rplidar a3</span>
+</span></span><span style="display:flex;"><span>cd <span style="color:#f92672">/</span>dev
+</span></span><span style="display:flex;"><span>sudo chmod <span style="color:#ae81ff">777</span> ttyUSB0
+</span></span><span style="display:flex;"><span>ros2 launch rplidar_ros view_rplidar_a3_launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 2</span>
+</span></span><span style="display:flex;"><span>ros2 launch demo_pkg rf2o_odom<span style="color:#f92672">.</span>launch<span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminal 3</span>
+</span></span><span style="display:flex;"><span>ros2 launch demo_pkg online_async_launch_real<span style="color:#f92672">.</span>py
+</span></span></code></pre></div><ul>
+<li>실시간으로 그려지는 지도를 볼 수 있습니다. 지도 작성을 마쳤다면, 이제 Gazebo에서 이 지도를 활용해 Building을 만들어 보겠습니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images20/Untitled5.png?height=300px" alt="Untitled5.png"></p>
+<p>SLAM map은 pgm 포맷을 가지므로 png로 변환이 필요합니다. <a href="https://convertio.co/pgm-png/">https://convertio.co/pgm-png/</a></p>
+<ul>
+<li>이제 Gazebo의 building Editor를 사용하여 사무실과 동일한 크기의 시뮬레이션 환경을 제작합니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images20/Untitled6.png?height=300px" alt="Untitled6.png"></p>
+<p>⇒ 지금까지 학습한 내용을 바탕으로 이제 여러분만의 로봇, Object를 추가하여 풍성한 시뮬레이션을 만들 수 있을 것입니다.</p>
+<h2 id="실물-센서의-ros-2-연동">실물 센서의 ROS 2 연동</h2>
+<blockquote>
+<p>아무리 시뮬레이션에서 완벽하게 동작하더라도 실제 센서를 사용하는 것과는 큰 차이를 갖습니다. 이번 데모에서는 다양한 센서들을 ROS 2 연동하여 실행해보고, 성능을 비교해보겠습니다. (하단 로그는 제가 데모하기 위한 명령어입니다.)</p>
+</blockquote>
+<ul>
+<li>Orbbec Astra+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~/gemini_ws/
+</span></span><span style="display:flex;"><span>source install/local_setup.bash
+</span></span><span style="display:flex;"><span>ros2 launch orbbec_camera astra_pro_plus.launch.xml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>rviz2 &amp; rqt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>top
+</span></span></code></pre></div><ul>
+<li>Orbbec Gemini2</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ros2 launch orbbec_camera gemini2.launch.xml
+</span></span></code></pre></div><ul>
+<li>Intel Realsense2 D455</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~/realsense_ws/
+</span></span><span style="display:flex;"><span>source install/local_setup.bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ros2 launch realsense2_camera rs_launch.py pointcloud.enable:<span style="color:#f92672">=</span>true
+</span></span></code></pre></div><h2 id="소형-로봇-데모를-통해-살펴보는-로봇-시스템">소형 로봇 데모를 통해 살펴보는 로봇 시스템</h2>
+<ul>
+<li>nanosaur 소개</li>
+</ul>
+<p>Nanosaur는 탱크 타입의 로봇으로 NVIDIA의 개발자 <strong>Raffaello Bonghi</strong>가 배포한 오픈소스에 기반하여 Road Balance가 교육용 키트로 재설계한 로봇입니다. 자세한 스펙과 기능은 링크를 통해 확인할 수 있습니다. - <a href="https://nanosaur.ai/">link</a></p>
+<p><img src="/kr/ros2_foxy/images20/Untitled7.png?height=300px" alt="Untitled7.png"></p>
+<ul>
+<li>nanosaur 제어</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>ROS_DOMAIN_ID<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span> ros2 run nanosaur_hardware nanosaur
+</span></span><span style="display:flex;"><span>rqt_robot_steering
+</span></span></code></pre></div><ul>
+<li>nanosaur 카메라</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>ROS_DOMAIN_ID<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span> ros2 run nanosaur_camera nanosaur_camera
+</span></span><span style="display:flex;"><span>ros2 run rqt_image_view rqt_image_view
+</span></span></code></pre></div><ul>
+<li>이번 데모를 통해 ROS 2의 장점을 엿볼 수 있는데요. ROS 2는 DDS라는 표준 프로토콜을 사용하기 때문에 동일한 네트워크를 사용하는 시스템 내부에서 동작하는 시스템들끼리는 자동으로 상호 인지가 가능합니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images20/Untitled8.png?height=300px" alt="Untitled8.png"></p>
+<ul>
+<li>이러한 장점을 가진 ROS 2는 로봇 뿐만 아니라 자율주행 분야로 확대되어 현재 다양한 도메인에서 수요가 많은 상황입니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images20/Untitled9.png?height=300px" alt="Untitled9.png"></p>
+<ul>
+<li>비롯 지금은 매우 작은 Nanosaur를 살펴보았지만 실제 로봇을 만들기까지 로봇 공학자들은 다양한 과정을 거치고 수정, 검증을 반복합니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images20/Untitled10.png?height=300px" alt="Untitled10.png"></p>
+<p>설계와 검증까지 구현하기도 벅찬 와중, 센서 연동까지 개발하는 것은 매우 힘들기에 대부분 ROS 개발자들은 검증된 코드와 예시를 제공하는 제품들을 사용합니다.</p>
+<ul>
+<li><a href="https://dev.intelrealsense.com/docs/ros-wrapper">Intel Realsense</a></li>
+<li><a href="https://www.stereolabs.com/docs/ros2/">ZED Stereo Camera</a></li>
+<li><a href="https://docs.luxonis.com/en/latest/">Oak-D AI Camera</a></li>
+<li><a href="https://github.com/Livox-SDK/livox_ros_driver">Livox 3D Lidar</a></li>
+</ul>
+<p>단순 ROS 2 패키지가 존재하는 것 뿐만 아니라, 카메라와 같이 메모리와 처리 속도에 민감한 센서는 효율적인 코드를 제공하는지 여부가 무척 중요합니다.</p>
+<p><img src="/kr/ros2_foxy/images20/Untitled11.png?height=300px" alt="Untitled11.png"></p>
+<p>NVIDIA에서 제공하는 ROS 2 카메라 코드 페이지를 살펴보면 예시와 함께 사용된 환경, 해상도 별 성능을 제시하고 있습니다.</p>
+<p><img src="/kr/ros2_foxy/images20/Untitled12.png?height=300px" alt="Untitled12.png"></p>
+<blockquote>
+<p>따라서 센서를 개발하거나, 로봇을 개발하는 입장 모두 사용자 호환성을 고려하여 설계하고, 수많은 시행착오를 통해 올바른 제품에 대한 척도를 깨우쳐야 합니다.</p>
+</blockquote>
 
 
 <footer class="footline">
@@ -2318,16 +2471,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1684930996"></script>
-    <script src="/js/perfect-scrollbar.min.js?1684930996"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1684930996"></script>
-    <script src="/js/jquery.sticky.js?1684930996"></script>
-    <script src="/js/featherlight.min.js?1684930996"></script>
-    <script src="/js/highlight.pack.js?1684930996"></script>
+    <script src="/js/clipboard.min.js?1684950311"></script>
+    <script src="/js/perfect-scrollbar.min.js?1684950311"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1684950311"></script>
+    <script src="/js/jquery.sticky.js?1684950311"></script>
+    <script src="/js/featherlight.min.js?1684950311"></script>
+    <script src="/js/highlight.pack.js?1684950311"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1684930996"></script>
-    <script src="/js/learn.js?1684930996"></script>
-    <script src="/js/hugo-learn.js?1684930996"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1684950311"></script>
+    <script src="/js/learn.js?1684950311"></script>
+    <script src="/js/hugo-learn.js?1684950311"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>

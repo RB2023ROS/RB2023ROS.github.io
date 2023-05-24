@@ -231,7 +231,9 @@ Intel Realsense2 D455 Camera Velodyne VLP16 3D lidar Orbbec Astra+ Camera Intel 
       <pubDate>Fri, 28 Apr 2023 10:40:29 +0900</pubDate>
       
       <guid>/kr/ros2_foxy/lecture20/</guid>
-      <description></description>
+      <description>데모 시연 이번 시간에는 지금까지 학습한 내용들을 다시 한 번 되짚어보면서 ROS 2를 사용하고자 하는 고객들 측면에서의 개발, 기능들을 이야기해보겠습니다.
+Gazebo 시뮬레이션 데모 Real World와 시뮬레이션 연동 실물 센서의 ROS 2 연동 소형 로봇 데모를 통해 살펴보는 로봇 시스템 Gazebo 시뮬레이션 데모 - Fusionbot SLAM 지금까지 학습한 내용들을 통해 구현할 수 있는 Application을 데모해보고자 합니다.
+Gazebo World 생성 URDF를 통한 로봇 Structure 구성 Gazebo Control Plugin과 Sensor Plugin 처음 마주친 환경에서, 우리는 현재 자신의 위치와 주변 환경의 Mapping을 동시에 진행합니다.</description>
     </item>
     
   </channel>
