@@ -25,7 +25,7 @@
 	"title": "ROS 2 Basics",
 	"tags": [],
 	"description": "",
-	"content": "\nLecture1. What is ROS? Lecture2. Dev Env Setup Lecture3. Core of ROS Lecture4. ROS 2 Node and Parameter Programming Lecture5. ROS 2 Communication Mechanisms Lecture6. ROS 2 Tools Lecture7. ROS 2 Topic and Programming Lecture8. ROS 2 Service and Programming Lecture9. ROS 2 Action Programming Lecture10. TF2 and ROS 2 Lecture11. About Gazebo - 1 Lecture12. About Gazebo - 2 Lecture13. Useful ROS 2 Examples (Sensor Part) Lecture14. Useful ROS 2 Examples (Control Part) Lecture15. Advanced ROS 2, Package Management Lecture16. Useful ROS 2 Examples (Misc) Lecture17. Real Hardware Examples Lecture18. Point Cloud Deep Learning Example (PointNet) Lecture19. NVIDIA Isaac Sim Lecture20. NVIDIA Jetson Platform "
+	"content": "\nLecture1. What is ROS? Lecture2. Dev Env Setup Lecture3. Core of ROS Lecture4. ROS 2 Node and Parameter Programming Lecture5. ROS 2 Communication Mechanisms Lecture6. ROS 2 Tools Lecture7. ROS 2 Topic and Programming Lecture8. ROS 2 Service and Programming Lecture9. ROS 2 Action Programming Lecture10. TF2 and ROS 2 Lecture11. About Gazebo - 1 Lecture12. About Gazebo - 2 Lecture13. Useful ROS 2 Examples (Sensor Part) Lecture14. Useful ROS 2 Examples (Control Part) Lecture15. Advanced ROS 2, Package Management Lecture16. Useful ROS 2 Examples (Misc) Lecture17. Real Hardware Examples Lecture18. Point Cloud Deep Learning Example (PointNet) Lecture19. Orbbec ROS 2 Package - Final Lecture20. NVIDIA Jetson Platform "
 },
 {
 	"uri": "/kr/advanced_contents_ros2/",
