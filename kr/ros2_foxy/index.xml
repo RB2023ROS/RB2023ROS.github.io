@@ -217,12 +217,15 @@ Intel Realsense2 D455 Camera Velodyne VLP16 3D lidar Orbbec Astra+ Camera Intel 
     </item>
     
     <item>
-      <title>Lecture19. NVIDIA Isaac Sim</title>
+      <title>Lecture19. Orbbec ROS 2 Package - Final</title>
       <link>/kr/ros2_foxy/lecture19/</link>
       <pubDate>Fri, 28 Apr 2023 10:40:29 +0900</pubDate>
       
       <guid>/kr/ros2_foxy/lecture19/</guid>
-      <description></description>
+      <description>강의 도중 (2022년 5월) Orbbec ROS 2 SDK가 업데이트됨에 따라 새롭게 분석을 진행해보았습니다.
+강의에서 사용되는 패키지 버전은 아래 사진과 같이 2023-05-15 버전입니다.
+새롭게 분석한다는 마음으로 launch file부터 차근차근 분석해나가겠습니다. 😂
+gemini2.launch.xml - xml 문법으로 구성된 launch file로 실질적으로 실행시키는 것은 orbbec_camera_node라는 이름의 단일 Node입니다. &amp;lt;node name=&amp;#34;camera&amp;#34; pkg=&amp;#34;orbbec_camera&amp;#34; exec=&amp;#34;orbbec_camera_node&amp;#34; output=&amp;#34;screen&amp;#34;&amp;gt; orbbec_camera_node가 생성되는 코드를 분석하기 위해 CMakeLists.txt를 살펴봅시다. main.cpp를 사용하고 있음이 확인 가능합니다. add_executable(${PROJECT_NAME}_node src/main.cpp ) main.cpp에서는 SingleThreaded Executor와 OBCameraNodeDriver라는 Node를 spin하고 있습니다.</description>
     </item>
     
     <item>

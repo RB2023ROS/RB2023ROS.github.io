@@ -9,25 +9,25 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Lecture19. NVIDIA Isaac Sim - Documentation for Hugo Learn Theme</title>
+    <title>Lecture19. Orbbec ROS 2 Package - Final - Documentation for Hugo Learn Theme</title>
 
     
-    <link href="/css/nucleus.css?1684950311" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1684950311" rel="stylesheet">
-    <link href="/css/hybrid.css?1684950311" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1684950311" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1684950311" rel="stylesheet">
-    <link href="/css/auto-complete.css?1684950311" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1684950311" rel="stylesheet">
-    <link href="/css/theme.css?1684950311" rel="stylesheet">
-    <link href="/css/tabs.css?1684950311" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1684950311" rel="stylesheet">
+    <link href="/css/nucleus.css?1685267036" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1685267036" rel="stylesheet">
+    <link href="/css/hybrid.css?1685267036" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1685267036" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1685267036" rel="stylesheet">
+    <link href="/css/auto-complete.css?1685267036" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1685267036" rel="stylesheet">
+    <link href="/css/theme.css?1685267036" rel="stylesheet">
+    <link href="/css/tabs.css?1685267036" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1685267036" rel="stylesheet">
     
-    <link href="/css/theme-green.css?1684950311" rel="stylesheet">
+    <link href="/css/theme-green.css?1685267036" rel="stylesheet">
     
-    <link href="/css/foo.css?1684950311" rel="stylesheet"><link href="/css/bar.css?1684950311" rel="stylesheet">
+    <link href="/css/foo.css?1685267036" rel="stylesheet"><link href="/css/bar.css?1685267036" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1684950311"></script>
+    <script src="/js/jquery-3.3.1.min.js?1685267036"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1684950311"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1684950311"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1685267036"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1685267036"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/kr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1684950311"></script>
+<script type="text/javascript" src="/js/search.js?1685267036"></script>
 
     
   </div>
@@ -1056,9 +1056,9 @@
  
   
     
-      <li data-nav-id="/kr/ros2_foxy/lecture19/" title="Lecture19. NVIDIA Isaac Sim" class="dd-item active">
+      <li data-nav-id="/kr/ros2_foxy/lecture19/" title="Lecture19. Orbbec ROS 2 Package - Final" class="dd-item active">
         <a href="/kr/ros2_foxy/lecture19/">
-        Lecture19. NVIDIA Isaac Sim
+        Lecture19. Orbbec ROS 2 Package - Final
         
         </a>
     </li>
@@ -1375,14 +1375,24 @@
                   <span class="links">
                  
                  
-                   Lecture19. NVIDIA Isaac Sim
+                   Lecture19. Orbbec ROS 2 Package - Final
                  
                   </span>
                 </div>
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#obcameranodedriver">OBCameraNodeDriver</a></li>
+        <li><a href="#obcameranode">OBCameraNode</a></li>
+        <li><a href="#imu-test">IMU Test?!</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -1398,14 +1408,785 @@
           
             <h1>
               
-              Lecture19. NVIDIA Isaac Sim
+              Lecture19. Orbbec ROS 2 Package - Final
             </h1>
           
 
         
 
 
+<blockquote>
+<p>강의 도중 (2022년 5월) Orbbec ROS 2 SDK가 업데이트됨에 따라 새롭게 분석을 진행해보았습니다.</p>
+</blockquote>
 
+<div class="notices note" ><p>강의에서 사용되는 패키지 버전은 아래 사진과 같이 2023-05-15 버전입니다.</p>
+</div>
+
+<p><img src="/kr/ros2_foxy/images19/Untitled.png?height=200px" alt="Untitled.png"></p>
+<blockquote>
+<p>새롭게 분석한다는 마음으로 launch file부터 차근차근 분석해나가겠습니다. 😂</p>
+</blockquote>
+<ul>
+<li><code>gemini2.launch.xml</code> - xml 문법으로 구성된 launch file로 실질적으로 실행시키는 것은 orbbec_camera_node라는 이름의 단일 Node입니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;node name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;camera&#34;</span> pkg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;orbbec_camera&#34;</span> exec<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;orbbec_camera_node&#34;</span> output<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;screen&#34;</span>&gt;
+</span></span></code></pre></div><ul>
+<li>orbbec_camera_node가 생성되는 코드를 분석하기 위해 <code>CMakeLists.txt</code>를 살펴봅시다. main.cpp를 사용하고 있음이 확인 가능합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>add_executable<span style="color:#f92672">(</span><span style="color:#e6db74">${</span>PROJECT_NAME<span style="color:#e6db74">}</span>_node
+</span></span><span style="display:flex;"><span>  src/main.cpp
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">)</span>
+</span></span></code></pre></div><ul>
+<li><code>main.cpp</code>에서는 SingleThreaded Executor와 OBCameraNodeDriver라는 Node를 spin하고 있습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;rclcpp/rclcpp.hpp&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;orbbec_camera/ob_camera_node_driver.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span><span style="color:#f92672">**</span> argv) {
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>init(argc, argv);
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>NodeOptions options;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> orbbec_camera;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">auto</span> node <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>OBCameraNodeDriver<span style="color:#f92672">&gt;</span>(options);
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>spin(node);
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>shutdown();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>OBCameraNodeDriver를 분석해보기 위해 해당 구현을 담고 있는 <code>ob_camera_node_driver.cpp</code> 파일을 살펴봅시다.</li>
+</ul>
+<p>config file을 Node내에서 직접 불러오는 모습과, <code>init()</code> 메소드를 호출하고 있음이 확인됩니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> orbbec_camera {
+</span></span><span style="display:flex;"><span>OBCameraNodeDriver<span style="color:#f92672">::</span>OBCameraNodeDriver(<span style="color:#66d9ef">const</span> rclcpp<span style="color:#f92672">::</span>NodeOptions <span style="color:#f92672">&amp;</span>node_options)
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">:</span> Node(<span style="color:#e6db74">&#34;orbbec_camera_node&#34;</span>, <span style="color:#e6db74">&#34;/&#34;</span>, node_options),
+</span></span><span style="display:flex;"><span>      config_path_(ament_index_cpp<span style="color:#f92672">::</span>get_package_share_directory(<span style="color:#e6db74">&#34;orbbec_camera&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#e6db74">&#34;/config/OrbbecSDKConfig_v1.0.xml&#34;</span>),
+</span></span><span style="display:flex;"><span>      ctx_(std<span style="color:#f92672">::</span>make_unique<span style="color:#f92672">&lt;</span>ob<span style="color:#f92672">::</span>Context<span style="color:#f92672">&gt;</span>(config_path_.c_str())),
+</span></span><span style="display:flex;"><span>      logger_(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>get_logger()) {
+</span></span><span style="display:flex;"><span>  init();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><code>OrbbecSDKConfig_v1.0.xml</code>은 중국어로 주석이 되어있어 정확히 분석할 수는 없었지만, 각종 카메라들의 기본 설정값을 담고 있는 파일로 추측됩니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;Gemini&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;Depth&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!--默认分辨率的宽，int类型--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Width&gt;</span>640<span style="color:#f92672">&lt;/Width&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!--默认分辨率的高，int类型--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Height&gt;</span>400<span style="color:#f92672">&lt;/Height&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!--默认帧率，int类型--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;FPS&gt;</span>30<span style="color:#f92672">&lt;/FPS&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!--默认帧格式--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>Y11<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!--开流失败后是否需要进行重试，0-不重试，&gt;=1-重试并重试多少次--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;StreamFailedRetry&gt;</span>0<span style="color:#f92672">&lt;/StreamFailedRetry&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/Depth&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;Color&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!--默认分辨率的宽，int类型--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Width&gt;</span>640<span style="color:#f92672">&lt;/Width&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!--默认分辨率的高，int类型--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Height&gt;</span>480<span style="color:#f92672">&lt;/Height&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!--默认帧率，int类型--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;FPS&gt;</span>30<span style="color:#f92672">&lt;/FPS&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!--默认帧格式--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>MJPG<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!--开流失败后是否需要进行重试，0-不重试，&gt;=1-重试并重试多少次--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;StreamFailedRetry&gt;</span>0<span style="color:#f92672">&lt;/StreamFailedRetry&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/Color&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;IR&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!--默认分辨率的宽，int类型--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Width&gt;</span>640<span style="color:#f92672">&lt;/Width&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!--默认分辨率的高，int类型--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Height&gt;</span>400<span style="color:#f92672">&lt;/Height&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!--默认帧率，int类型--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;FPS&gt;</span>30<span style="color:#f92672">&lt;/FPS&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!--默认帧格式--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Format&gt;</span>Y10<span style="color:#f92672">&lt;/Format&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!--开流失败后是否需要进行重试，0-不重试，&gt;=1-重试并重试多少次--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;StreamFailedRetry&gt;</span>0<span style="color:#f92672">&lt;/StreamFailedRetry&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/IR&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/Gemini&gt;</span>
+</span></span></code></pre></div><blockquote>
+<p>init()으로 부터 시작되는 OBCameraNodeDriver의 로직은 아래와 같습니다.</p>
+</blockquote>
+<h3 id="obcameranodedriver">OBCameraNodeDriver</h3>
+<ul>
+<li>
+<p>init()</p>
+<ul>
+<li>setDeviceChangedCallback - orbbec 디바이스의 연결, 해제 시 실행되는 callback을 binding합니다.</li>
+<li>디바이스의 연결을 지속 탐지하는 check<em>connect_timer</em>를 생성하고 checkConnectTimer callback을 binding합니다.</li>
+</ul>
+<p>다음으로, 디바이스의 연결 확인 시 실행되는 두개의 callback을 추가로 실행하는데요. 이는 ROS 2가 아닌 thread를 사용하고 있습니다.</p>
+<ul>
+<li>queryDevice thread - thead를 통해 디바이스 연결 상태와 ROS 2 실행 상태를 지속 확인합니다.
+<ul>
+<li>디바이스 연결 시 onDeviceConnected 메소드가 실행되며 내부에서는 try-catch로 예외처리를 구현하였습니다.
+<ul>
+<li>startDevice - 어떠한 디바이스가 연결되었는지, 인식한 숫자와 일치하는 디바이스가 존재하는지를 검사한 뒤, 디바이스를 초기화합니다.
+<ul>
+<li>initializeDevice - 각종 디바이스의 정보를 조회하고 사용자에게 콘솔 출력으로 알려줌과 동시에 OBCameraNode를 생성합니다. ⇒ OBCameraNode는 다음 분석할 파일인 ob_camera_node에서 살펴봅시다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>deviceCountUpdate thread
+<ul>
+<li>updateConnectedDeviceCount - 연결되어 있는 디바이스의 개수를 갱신하고 이 값은 일전 분석했던 예외처리에서 사용됩니다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>init() 메소드부터 상세하게 살펴봅시다.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>std<span style="color:#f92672">::</span>unique_ptr<span style="color:#f92672">&lt;</span>ob<span style="color:#f92672">::</span>Context<span style="color:#f92672">&gt;</span> ctx_ <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>ctx_<span style="color:#f92672">-&gt;</span>setDeviceChangedCallback([<span style="color:#66d9ef">this</span>](std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>ob<span style="color:#f92672">::</span>DeviceList<span style="color:#f92672">&gt;</span> removed_list,
+</span></span><span style="display:flex;"><span>                                      std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>ob<span style="color:#f92672">::</span>DeviceList<span style="color:#f92672">&gt;</span> added_list) {
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">void</span>)added_list;
+</span></span><span style="display:flex;"><span>  onDeviceDisconnected(removed_list);
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>check_connect_timer_ <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>create_wall_timer(std<span style="color:#f92672">::</span>chrono<span style="color:#f92672">::</span>milliseconds(<span style="color:#ae81ff">1000</span>), [<span style="color:#66d9ef">this</span>]() { checkConnectTimer(); });
+</span></span><span style="display:flex;"><span>CHECK_NOTNULL(check_connect_timer_);
+</span></span><span style="display:flex;"><span>query_thread_ <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span><span style="color:#66d9ef">thread</span><span style="color:#f92672">&gt;</span>([<span style="color:#66d9ef">this</span>]() { queryDevice(); });
+</span></span><span style="display:flex;"><span>device_count_update_thread_ <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span><span style="color:#66d9ef">thread</span><span style="color:#f92672">&gt;</span>([<span style="color:#66d9ef">this</span>]() { deviceCountUpdate(); });
+</span></span><span style="display:flex;"><span>CHECK_NOTNULL(device_count_update_thread_);
+</span></span></code></pre></div><ul>
+<li>checkConnectTimer</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> OBCameraNodeDriver<span style="color:#f92672">::</span>checkConnectTimer() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>device_connected_.load()) {
+</span></span><span style="display:flex;"><span>    RCLCPP_ERROR_STREAM(logger_,
+</span></span><span style="display:flex;"><span>                        <span style="color:#e6db74">&#34;checkConnectTimer: device &#34;</span> <span style="color:#f92672">&lt;&lt;</span> serial_number_ <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; not connected&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">if</span> (<span style="color:#f92672">!</span>ob_camera_node_) {
+</span></span><span style="display:flex;"><span>    device_connected_.store(false);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>queryDevice</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> OBCameraNodeDriver<span style="color:#f92672">::</span>queryDevice() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (is_alive_ <span style="color:#f92672">&amp;&amp;</span> rclcpp<span style="color:#f92672">::</span>ok()) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>device_connected_.load()) {
+</span></span><span style="display:flex;"><span>      RCLCPP_INFO_STREAM_THROTTLE(logger_, <span style="color:#f92672">*</span>get_clock(), <span style="color:#ae81ff">1000</span>, <span style="color:#e6db74">&#34;Waiting for device connection...&#34;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">auto</span> device_list <span style="color:#f92672">=</span> ctx_<span style="color:#f92672">-&gt;</span>queryDeviceList();
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (device_list<span style="color:#f92672">-&gt;</span>deviceCount() <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>this_thread<span style="color:#f92672">::</span>sleep_for(std<span style="color:#f92672">::</span>chrono<span style="color:#f92672">::</span>milliseconds(<span style="color:#ae81ff">10</span>));
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      onDeviceConnected(device_list);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      std<span style="color:#f92672">::</span>this_thread<span style="color:#f92672">::</span>sleep_for(std<span style="color:#f92672">::</span>chrono<span style="color:#f92672">::</span>milliseconds(<span style="color:#ae81ff">1000</span>));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>onDeviceConnected</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> OBCameraNodeDriver<span style="color:#f92672">::</span>onDeviceConnected(<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>ob<span style="color:#f92672">::</span>DeviceList<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&amp;</span>device_list) {
+</span></span><span style="display:flex;"><span>  CHECK_NOTNULL(device_list);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (device_list<span style="color:#f92672">-&gt;</span>deviceCount() <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO_STREAM_THROTTLE(logger_, <span style="color:#f92672">*</span>get_clock(), <span style="color:#ae81ff">1000</span>, <span style="color:#e6db74">&#34;onDeviceConnected&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>device_) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>      startDevice(device_list);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (ob<span style="color:#f92672">::</span>Error <span style="color:#f92672">&amp;</span>e) {
+</span></span><span style="display:flex;"><span>      RCLCPP_ERROR_STREAM(logger_, <span style="color:#e6db74">&#34;startDevice failed: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> e.getMessage());
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>exception <span style="color:#f92672">&amp;</span>e) {
+</span></span><span style="display:flex;"><span>      RCLCPP_ERROR_STREAM(logger_, <span style="color:#e6db74">&#34;startDevice failed: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> e.what());
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (...) {
+</span></span><span style="display:flex;"><span>      RCLCPP_ERROR_STREAM(logger_, <span style="color:#e6db74">&#34;startDevice failed&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>startDevice</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> OBCameraNodeDriver<span style="color:#f92672">::</span>startDevice(<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>ob<span style="color:#f92672">::</span>DeviceList<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&amp;</span>list) {
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>scoped_lock<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">decltype</span>(device_lock_)<span style="color:#f92672">&gt;</span> lock(device_lock_);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (device_connected_) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (list<span style="color:#f92672">-&gt;</span>deviceCount() <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>    RCLCPP_WARN(logger_, <span style="color:#e6db74">&#34;No device found&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (device_) {
+</span></span><span style="display:flex;"><span>    device_.reset();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">auto</span> device <span style="color:#f92672">=</span> selectDevice(list);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (device <span style="color:#f92672">==</span> <span style="color:#66d9ef">nullptr</span>) {
+</span></span><span style="display:flex;"><span>    RCLCPP_WARN_THROTTLE(logger_, <span style="color:#f92672">*</span>get_clock(), <span style="color:#ae81ff">1000</span>, <span style="color:#e6db74">&#34;Device with serial number %s not found&#34;</span>,
+</span></span><span style="display:flex;"><span>                         serial_number_.c_str());
+</span></span><span style="display:flex;"><span>    device_connected_ <span style="color:#f92672">=</span> false;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  initializeDevice(device);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>initializeDevice</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> OBCameraNodeDriver<span style="color:#f92672">::</span>initializeDevice(<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>ob<span style="color:#f92672">::</span>Device<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&amp;</span>device) {
+</span></span><span style="display:flex;"><span>  device_ <span style="color:#f92672">=</span> device;
+</span></span><span style="display:flex;"><span>  CHECK_NOTNULL(device_);
+</span></span><span style="display:flex;"><span>  CHECK_NOTNULL(device_.get());
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (ob_camera_node_) {
+</span></span><span style="display:flex;"><span>    ob_camera_node_.reset();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  ob_camera_node_ <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_unique<span style="color:#f92672">&lt;</span>OBCameraNode<span style="color:#f92672">&gt;</span>(<span style="color:#66d9ef">this</span>, device_, parameters_);
+</span></span><span style="display:flex;"><span>  device_connected_ <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>  device_info_ <span style="color:#f92672">=</span> device_<span style="color:#f92672">-&gt;</span>getDeviceInfo();
+</span></span><span style="display:flex;"><span>  CHECK_NOTNULL(device_info_.get());
+</span></span><span style="display:flex;"><span>  device_unique_id_ <span style="color:#f92672">=</span> device_info_<span style="color:#f92672">-&gt;</span>uid();
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO_STREAM(logger_, <span style="color:#e6db74">&#34;Device &#34;</span> <span style="color:#f92672">&lt;&lt;</span> device_info_<span style="color:#f92672">-&gt;</span>name() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; connected&#34;</span>);
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO_STREAM(logger_, <span style="color:#e6db74">&#34;Serial number: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> device_info_<span style="color:#f92672">-&gt;</span>serialNumber());
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO_STREAM(logger_, <span style="color:#e6db74">&#34;Firmware version: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> device_info_<span style="color:#f92672">-&gt;</span>firmwareVersion());
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO_STREAM(logger_, <span style="color:#e6db74">&#34;Hardware version: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> device_info_<span style="color:#f92672">-&gt;</span>hardwareVersion());
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO_STREAM(logger_, <span style="color:#e6db74">&#34;device type: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> ObDeviceTypeToString(device_info_<span style="color:#f92672">-&gt;</span>deviceType()));
+</span></span><span style="display:flex;"><span>  RCLCPP_INFO_STREAM(logger_, <span style="color:#e6db74">&#34;device unique id: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> device_unique_id_);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p>다음으로, initializeDevice에서 생성되었던 OBCameraNode에 대해 분석해보았습니다.</p>
+</blockquote>
+<h3 id="obcameranode">OBCameraNode</h3>
+<ul>
+<li>
+<p>OBCameraNode</p>
+<ul>
+<li>setupDefaultImageFormat</li>
+<li>setupTopics
+<ul>
+<li>getParameters - 각종 매개변수들이 잔뜩 선언, 초기화되고 있습니다.</li>
+<li>setupDevices - <code>getParameters</code>에서 설정한 parameter에 따라 Orbbec device를 셋업하면서 다시금 오류 상황에 대한 처리를 진행합니다.</li>
+<li>setupProfiles - data stream의 구체적인 profile을 조회하면서 올바른 설정을 확인합니다.</li>
+<li>setupCameraCtrlServices - <code>ros_service.cpp</code> 파일에 각종 service들이 구현되어 있는데요. 이에 대한 초기화를 담당합니다.</li>
+<li>setupPublishers - color image, depth image, imu, ir 등 각종 publisher들에 대한 초기화를 진행합니다.</li>
+<li>publishStaticTransforms - <code>static_tf_broadcaster_</code>와 <code>dynamic_tf_broadcaster_</code> 설정합니다.
+<ul>
+<li>calcAndPublishStaticTransform - imu, camera, optical frame 등 orbbec camera 내부의 센서들간 위치 offset를 고려하여 각종 tf frame을 계산합니다.
+<ul>
+<li>publishStaticTF - <code>std::vector</code> 타입의 클래스 변수인 <code>static_tf_msgs_</code>에 tf data들을 push_back 합니다.</li>
+</ul>
+</li>
+<li>publishDynamicTransforms - 실제 <code>sendTransform</code>이 동작하는 부분인데요. 그렇지만 사실상 static broadcast가 실행됩니다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>startStreams - <code>ob::Pipeline</code> 타입의 클래스 변수를 초기화한 뒤, pipeline을 시작시키고 <code>onNewFrameSetCallback</code>를 callback으로 binding 합니다.
+<ul>
+<li>setupPipelineConfig - 사전 정의된 parameter들에 따라 orbbec SDK에 구현된 <code>setAlignMode</code>, <code>enableStream</code> 등의 메소드를 호출합니다.</li>
+<li>onNewFrameSetCallback - pipeline으로부터 새로운 data가 유입될 때마다 실행되는 callback입니다.
+<ul>
+<li>publishPointCloud - depth_frame과 color_frame data를 받아 ob::PointCloudFilter를 통해 필터링하고 상황에 맞는 topic data를 준비한 뒤, 최종 publish합니다.
+<ul>
+<li>publishColoredPointCloud</li>
+<li>publishDepthPointCloud</li>
+</ul>
+</li>
+<li>onNewFrameCallback - pointcloud가 아닌 rgb, depth, ir 카메라 publisher들에 대해 ROS 2 Conversion을 적용한 뒤 publish합니다.</li>
+</ul>
+</li>
+<li>startIMU
+<ul>
+<li>onNewIMUFrameCallback
+<ul>
+<li>setDefaultIMUMessage</li>
+<li>publish</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>OBCameraNode 생성자부터 상세 분석을 해봅시다.</p>
+</blockquote>
+<p>이 부분에서 사용된 <code>is_running_</code>과 같은 클래스 변수는 atomic type인데요. 아마 Thread간 상태 변환 로직에 사용되는 것 같습니다. 저였다면 Thread가 아닌, Composition을 사용하여 여러 코드로 나누고, 이런 복잡한 구현을 피하려고 하지 않았을까 생각해봅니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>OBCameraNode<span style="color:#f92672">::</span>OBCameraNode(rclcpp<span style="color:#f92672">::</span>Node<span style="color:#f92672">*</span> node, std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>ob<span style="color:#f92672">::</span>Device<span style="color:#f92672">&gt;</span> device,
+</span></span><span style="display:flex;"><span>                           std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Parameters<span style="color:#f92672">&gt;</span> parameters)
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">:</span> node_(node),
+</span></span><span style="display:flex;"><span>      device_(std<span style="color:#f92672">::</span>move(device)),
+</span></span><span style="display:flex;"><span>      parameters_(std<span style="color:#f92672">::</span>move(parameters)),
+</span></span><span style="display:flex;"><span>      logger_(node<span style="color:#f92672">-&gt;</span>get_logger()) {
+</span></span><span style="display:flex;"><span>  is_running_.store(true);
+</span></span><span style="display:flex;"><span>  stream_name_[COLOR] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;color&#34;</span>;
+</span></span><span style="display:flex;"><span>  stream_name_[DEPTH] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;depth&#34;</span>;
+</span></span><span style="display:flex;"><span>  stream_name_[INFRA0] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ir&#34;</span>;
+</span></span><span style="display:flex;"><span>  stream_name_[INFRA1] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ir2&#34;</span>;
+</span></span><span style="display:flex;"><span>  stream_name_[ACCEL] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;accel&#34;</span>;
+</span></span><span style="display:flex;"><span>  stream_name_[GYRO] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gyro&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  compression_params_.push_back(cv<span style="color:#f92672">::</span>IMWRITE_PNG_COMPRESSION);
+</span></span><span style="display:flex;"><span>  compression_params_.push_back(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>  compression_params_.push_back(cv<span style="color:#f92672">::</span>IMWRITE_PNG_STRATEGY);
+</span></span><span style="display:flex;"><span>  compression_params_.push_back(cv<span style="color:#f92672">::</span>IMWRITE_PNG_STRATEGY_DEFAULT);
+</span></span><span style="display:flex;"><span>  setupDefaultImageFormat();
+</span></span><span style="display:flex;"><span>  setupTopics();
+</span></span><span style="display:flex;"><span>  startStreams();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (enable_d2c_viewer_) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> rgb_qos <span style="color:#f92672">=</span> getRMWQosProfileFromString(image_qos_[COLOR]);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> depth_qos <span style="color:#f92672">=</span> getRMWQosProfileFromString(image_qos_[DEPTH]);
+</span></span><span style="display:flex;"><span>    d2c_viewer_ <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_unique<span style="color:#f92672">&lt;</span>D2CViewer<span style="color:#f92672">&gt;</span>(node_, rgb_qos, depth_qos);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>OBCameraNode에서 정의된 ROS 2 메커니즘들은 다음과 같습니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// Topic publisher
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>map<span style="color:#f92672">&lt;</span>stream_index_pair, image_transport<span style="color:#f92672">::</span>Publisher<span style="color:#f92672">&gt;</span> image_publishers_;
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>map<span style="color:#f92672">&lt;</span>stream_index_pair, rclcpp<span style="color:#f92672">::</span>Publisher<span style="color:#f92672">&lt;</span>sensor_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>CameraInfo<span style="color:#f92672">&gt;::</span>SharedPtr<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    camera_info_publishers_;
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>rclcpp<span style="color:#f92672">::</span>Publisher<span style="color:#f92672">&lt;</span>sensor_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>PointCloud2<span style="color:#f92672">&gt;::</span>SharedPtr depth_registration_cloud_pub_;
+</span></span><span style="display:flex;"><span>rclcpp<span style="color:#f92672">::</span>Publisher<span style="color:#f92672">&lt;</span>sensor_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>PointCloud2<span style="color:#f92672">&gt;::</span>SharedPtr depth_cloud_pub_;
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>rclcpp<span style="color:#f92672">::</span>Publisher<span style="color:#f92672">&lt;</span>Extrinsics<span style="color:#f92672">&gt;::</span>SharedPtr extrinsics_publisher_;
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>map<span style="color:#f92672">&lt;</span>stream_index_pair, rclcpp<span style="color:#f92672">::</span>Publisher<span style="color:#f92672">&lt;</span>sensor_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>Imu<span style="color:#f92672">&gt;::</span>SharedPtr<span style="color:#f92672">&gt;</span> imu_publishers_;
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// TF broadcaster
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>tf2_ros<span style="color:#f92672">::</span>StaticTransformBroadcaster<span style="color:#f92672">&gt;</span> static_tf_broadcaster_ <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>tf2_ros<span style="color:#f92672">::</span>TransformBroadcaster<span style="color:#f92672">&gt;</span> dynamic_tf_broadcaster_ <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
+</span></span></code></pre></div><ul>
+<li>setupDefaultImageFormat</li>
+</ul>
+<pre tabindex="0"><code>void OBCameraNode::setupDefaultImageFormat() {
+  format_[DEPTH] = OB_FORMAT_Y16;
+  format_str_[DEPTH] = &#34;Y16&#34;;
+  image_format_[DEPTH] = CV_16UC1;
+  encoding_[DEPTH] = sensor_msgs::image_encodings::TYPE_16UC1;
+  unit_step_size_[DEPTH] = sizeof(uint16_t);
+  format_[INFRA0] = OB_FORMAT_Y16;
+  format_str_[INFRA0] = &#34;Y16&#34;;
+  image_format_[INFRA0] = CV_16UC1;
+  encoding_[INFRA0] = sensor_msgs::image_encodings::MONO16;
+  unit_step_size_[INFRA0] = sizeof(uint8_t);
+
+  image_format_[COLOR] = CV_8UC3;
+  encoding_[COLOR] = sensor_msgs::image_encodings::RGB8;
+  unit_step_size_[COLOR] = 3 * sizeof(uint8_t);
+}
+</code></pre><ul>
+<li>setupTopics</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> OBCameraNode<span style="color:#f92672">::</span>setupTopics() {
+</span></span><span style="display:flex;"><span>  getParameters();
+</span></span><span style="display:flex;"><span>  setupDevices();
+</span></span><span style="display:flex;"><span>  setupProfiles();
+</span></span><span style="display:flex;"><span>  setupCameraCtrlServices();
+</span></span><span style="display:flex;"><span>  setupPublishers();
+</span></span><span style="display:flex;"><span>  publishStaticTransforms();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>getParameters</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> OBCameraNode<span style="color:#f92672">::</span>getParameters() {
+</span></span><span style="display:flex;"><span>  setAndGetNodeParameter<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>string<span style="color:#f92672">&gt;</span>(camera_name_, <span style="color:#e6db74">&#34;camera_name&#34;</span>, <span style="color:#e6db74">&#34;camera&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> stream_index : IMAGE_STREAMS) {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>string param_name <span style="color:#f92672">=</span> stream_name_[stream_index] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;_width&#34;</span>;
+</span></span><span style="display:flex;"><span>    setAndGetNodeParameter(width_[stream_index], param_name, IMAGE_WIDTH);
+</span></span><span style="display:flex;"><span>    param_name <span style="color:#f92672">=</span> stream_name_[stream_index] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;_height&#34;</span>;
+</span></span><span style="display:flex;"><span>    setAndGetNodeParameter(height_[stream_index], param_name, IMAGE_HEIGHT);
+</span></span><span style="display:flex;"><span>    param_name <span style="color:#f92672">=</span> stream_name_[stream_index] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;_fps&#34;</span>;
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	setAndGetNodeParameter(publish_tf_, <span style="color:#e6db74">&#34;publish_tf&#34;</span>, true);
+</span></span><span style="display:flex;"><span>  setAndGetNodeParameter(tf_publish_rate_, <span style="color:#e6db74">&#34;tf_publish_rate&#34;</span>, <span style="color:#ae81ff">10.0</span>);
+</span></span><span style="display:flex;"><span>  setAndGetNodeParameter(depth_registration_, <span style="color:#e6db74">&#34;depth_registration&#34;</span>, false);
+</span></span><span style="display:flex;"><span>  setAndGetNodeParameter(enable_point_cloud_, <span style="color:#e6db74">&#34;enable_point_cloud&#34;</span>, true);
+</span></span><span style="display:flex;"><span>  setAndGetNodeParameter<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>string<span style="color:#f92672">&gt;</span>(ir_info_url_, <span style="color:#e6db74">&#34;ir_info_url&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>);
+</span></span><span style="display:flex;"><span>  setAndGetNodeParameter<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>string<span style="color:#f92672">&gt;</span>(color_info_url_, <span style="color:#e6db74">&#34;color_info_url&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>);
+</span></span><span style="display:flex;"><span>  ...
+</span></span></code></pre></div><ul>
+<li>setupDevices</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> OBCameraNode<span style="color:#f92672">::</span>setupDevices() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">auto</span> sensor_list <span style="color:#f92672">=</span> device_<span style="color:#f92672">-&gt;</span>getSensorList();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (size_t i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> sensor_list<span style="color:#f92672">-&gt;</span>count(); i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> sensor <span style="color:#f92672">=</span> sensor_list<span style="color:#f92672">-&gt;</span>getSensor(i);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> profiles <span style="color:#f92672">=</span> sensor<span style="color:#f92672">-&gt;</span>getStreamProfileList();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (size_t j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> profiles<span style="color:#f92672">-&gt;</span>count(); j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">auto</span> profile <span style="color:#f92672">=</span> profiles<span style="color:#f92672">-&gt;</span>getProfile(j);
+</span></span><span style="display:flex;"><span>      stream_index_pair sip{profile<span style="color:#f92672">-&gt;</span>type(), <span style="color:#ae81ff">0</span>};
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (sensors_.find(sip) <span style="color:#f92672">!=</span> sensors_.end()) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      sensors_[sip] <span style="color:#f92672">=</span> sensor;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  device_<span style="color:#f92672">-&gt;</span>setBoolProperty(OB_PROP_DEPTH_SOFT_FILTER_BOOL, enable_soft_filter_);
+</span></span><span style="display:flex;"><span>  device_<span style="color:#f92672">-&gt;</span>setBoolProperty(OB_PROP_COLOR_AUTO_EXPOSURE_BOOL, enable_color_auto_exposure_);
+</span></span><span style="display:flex;"><span>  device_<span style="color:#f92672">-&gt;</span>setBoolProperty(OB_PROP_IR_AUTO_EXPOSURE_BOOL, enable_ir_auto_exposure_);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">auto</span> default_soft_filter_max_diff <span style="color:#f92672">=</span> device_<span style="color:#f92672">-&gt;</span>getIntProperty(OB_PROP_DEPTH_MAX_DIFF_INT);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (soft_filter_max_diff_ <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> default_soft_filter_max_diff <span style="color:#f92672">!=</span> soft_filter_max_diff_) {
+</span></span><span style="display:flex;"><span>    device_<span style="color:#f92672">-&gt;</span>setIntProperty(OB_PROP_DEPTH_MAX_DIFF_INT, soft_filter_max_diff_);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">auto</span> default_soft_filter_speckle_size <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>      device_<span style="color:#f92672">-&gt;</span>getIntProperty(OB_PROP_DEPTH_MAX_SPECKLE_SIZE_INT);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (soft_filter_speckle_size_ <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>      default_soft_filter_speckle_size <span style="color:#f92672">!=</span> soft_filter_speckle_size_) {
+</span></span><span style="display:flex;"><span>    device_<span style="color:#f92672">-&gt;</span>setIntProperty(OB_PROP_DEPTH_MAX_SPECKLE_SIZE_INT, soft_filter_speckle_size_);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">catch</span> (<span style="color:#66d9ef">const</span> ob<span style="color:#f92672">::</span>Error<span style="color:#f92672">&amp;</span> e) {
+</span></span><span style="display:flex;"><span>  RCLCPP_ERROR_STREAM(logger_, <span style="color:#e6db74">&#34;Failed to setup devices: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> e.getMessage());
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">catch</span> (<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>exception<span style="color:#f92672">&amp;</span> e) {
+</span></span><span style="display:flex;"><span>  RCLCPP_ERROR_STREAM(logger_, <span style="color:#e6db74">&#34;Failed to setup devices: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> e.what());
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>setupProfiles</li>
+</ul>
+<pre tabindex="0"><code>void OBCameraNode::setupProfiles() {
+  for (const auto&amp; elem : IMAGE_STREAMS) {
+    if (enable_stream_[elem]) {
+      const auto&amp; sensor = sensors_[elem];
+      CHECK_NOTNULL(sensor.get());
+      auto profiles = sensor-&gt;getStreamProfileList();
+      CHECK_NOTNULL(profiles.get());
+      CHECK(profiles-&gt;count() &gt; 0);
+      for (size_t i = 0; i &lt; profiles-&gt;count(); i++) {
+        auto profile = profiles-&gt;getProfile(i)-&gt;as&lt;ob::VideoStreamProfile&gt;();
+        RCLCPP_DEBUG_STREAM(
+            logger_, &#34;Sensor profile: &#34;
+                         &lt;&lt; &#34;stream_type: &#34; &lt;&lt; magic_enum::enum_name(profile-&gt;type())
+                         &lt;&lt; &#34;Format: &#34; &lt;&lt; profile-&gt;format() &lt;&lt; &#34;, Width: &#34; &lt;&lt; profile-&gt;width()
+                         &lt;&lt; &#34;, Height: &#34; &lt;&lt; profile-&gt;height() &lt;&lt; &#34;, FPS: &#34; &lt;&lt; profile-&gt;fps());
+        supported_profiles_[elem].emplace_back(profile);
+      }
+</code></pre><ul>
+<li>setupPublisher</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> OBCameraNode<span style="color:#f92672">::</span>setupPublishers() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">using</span> PointCloud2 <span style="color:#f92672">=</span> sensor_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>PointCloud2;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">using</span> CameraInfo <span style="color:#f92672">=</span> sensor_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>CameraInfo;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">auto</span> point_cloud_qos_profile <span style="color:#f92672">=</span> getRMWQosProfileFromString(point_cloud_qos_);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (enable_colored_point_cloud_) {
+</span></span><span style="display:flex;"><span>    depth_registration_cloud_pub_ <span style="color:#f92672">=</span> node_<span style="color:#f92672">-&gt;</span>create_publisher<span style="color:#f92672">&lt;</span>PointCloud2<span style="color:#f92672">&gt;</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;depth/color/points&#34;</span>,
+</span></span><span style="display:flex;"><span>        rclcpp<span style="color:#f92672">::</span>QoS(rclcpp<span style="color:#f92672">::</span>QoSInitialization<span style="color:#f92672">::</span>from_rmw(point_cloud_qos_profile),
+</span></span><span style="display:flex;"><span>                    point_cloud_qos_profile));
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (enable_point_cloud_) {
+</span></span><span style="display:flex;"><span>    depth_cloud_pub_ <span style="color:#f92672">=</span> node_<span style="color:#f92672">-&gt;</span>create_publisher<span style="color:#f92672">&lt;</span>PointCloud2<span style="color:#f92672">&gt;</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;depth/points&#34;</span>, rclcpp<span style="color:#f92672">::</span>QoS(rclcpp<span style="color:#f92672">::</span>QoSInitialization<span style="color:#f92672">::</span>from_rmw(point_cloud_qos_profile),
+</span></span><span style="display:flex;"><span>                                    point_cloud_qos_profile));
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> stream_index : IMAGE_STREAMS) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>enable_stream_[stream_index]) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>string name <span style="color:#f92672">=</span> stream_name_[stream_index];
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>string topic <span style="color:#f92672">=</span> name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/image_raw&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> image_qos <span style="color:#f92672">=</span> image_qos_[stream_index];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> image_qos_profile <span style="color:#f92672">=</span> getRMWQosProfileFromString(image_qos);
+</span></span><span style="display:flex;"><span>    image_publishers_[stream_index] <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>        image_transport<span style="color:#f92672">::</span>create_publisher(node_, topic, image_qos_profile);
+</span></span><span style="display:flex;"><span>    topic <span style="color:#f92672">=</span> name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/camera_info&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> camera_info_qos <span style="color:#f92672">=</span> camera_info_qos_[stream_index];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> camera_info_qos_profile <span style="color:#f92672">=</span> getRMWQosProfileFromString(camera_info_qos);
+</span></span><span style="display:flex;"><span>    camera_info_publishers_[stream_index] <span style="color:#f92672">=</span> node_<span style="color:#f92672">-&gt;</span>create_publisher<span style="color:#f92672">&lt;</span>CameraInfo<span style="color:#f92672">&gt;</span>(
+</span></span><span style="display:flex;"><span>        topic, rclcpp<span style="color:#f92672">::</span>QoS(rclcpp<span style="color:#f92672">::</span>QoSInitialization<span style="color:#f92672">::</span>from_rmw(camera_info_qos_profile),
+</span></span><span style="display:flex;"><span>                           camera_info_qos_profile));
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (enable_publish_extrinsic_) {
+</span></span><span style="display:flex;"><span>    extrinsics_publisher_ <span style="color:#f92672">=</span> node_<span style="color:#f92672">-&gt;</span>create_publisher<span style="color:#f92672">&lt;</span>orbbec_camera_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>Extrinsics<span style="color:#f92672">&gt;</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;extrinsic/depth_to_color&#34;</span>, rclcpp<span style="color:#f92672">::</span>QoS{<span style="color:#ae81ff">1</span>}.transient_local());
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>publishStaticTransforms</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> OBCameraNode<span style="color:#f92672">::</span>publishStaticTransforms() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>publish_tf_) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  static_tf_broadcaster_ <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>tf2_ros<span style="color:#f92672">::</span>StaticTransformBroadcaster<span style="color:#f92672">&gt;</span>(node_);
+</span></span><span style="display:flex;"><span>  dynamic_tf_broadcaster_ <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>tf2_ros<span style="color:#f92672">::</span>TransformBroadcaster<span style="color:#f92672">&gt;</span>(node_);
+</span></span><span style="display:flex;"><span>  calcAndPublishStaticTransform();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (tf_publish_rate_ <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>    tf_thread_ <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span><span style="color:#66d9ef">thread</span><span style="color:#f92672">&gt;</span>([<span style="color:#66d9ef">this</span>]() { publishDynamicTransforms(); });
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    static_tf_broadcaster_<span style="color:#f92672">-&gt;</span>sendTransform(static_tf_msgs_);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>calcAndPublishStaticTransform</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> OBCameraNode<span style="color:#f92672">::</span>calcAndPublishStaticTransform() {
+</span></span><span style="display:flex;"><span>  tf2<span style="color:#f92672">::</span>Quaternion quaternion_optical, zero_rot, Q;
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">float</span><span style="color:#f92672">&gt;</span> trans(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>  zero_rot.setRPY(<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>);
+</span></span><span style="display:flex;"><span>  quaternion_optical.setRPY(<span style="color:#f92672">-</span>M_PI <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#f92672">-</span>M_PI <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">float</span><span style="color:#f92672">&gt;</span> zero_trans <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>};
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">auto</span> camera_param <span style="color:#f92672">=</span> findDefaultCameraParam();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (enable_publish_extrinsic_ <span style="color:#f92672">&amp;&amp;</span> extrinsics_publisher_ <span style="color:#f92672">&amp;&amp;</span> camera_param.has_value()) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> ex <span style="color:#f92672">=</span> camera_param<span style="color:#f92672">-&gt;</span>transform;
+</span></span><span style="display:flex;"><span>    Q <span style="color:#f92672">=</span> rotationMatrixToQuaternion(ex.rot);
+</span></span><span style="display:flex;"><span>    Q <span style="color:#f92672">=</span> quaternion_optical <span style="color:#f92672">*</span> Q <span style="color:#f92672">*</span> quaternion_optical.inverse();
+</span></span><span style="display:flex;"><span>    extrinsics_publisher_<span style="color:#f92672">-&gt;</span>publish(obExtrinsicsToMsg(ex, <span style="color:#e6db74">&#34;depth_to_color_extrinsics&#34;</span>));
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    Q.setRPY(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  rclcpp<span style="color:#f92672">::</span>Time tf_timestamp <span style="color:#f92672">=</span> node_<span style="color:#f92672">-&gt;</span>now();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  publishStaticTF(tf_timestamp, trans, Q, frame_id_[DEPTH], frame_id_[COLOR]);
+</span></span><span style="display:flex;"><span>  publishStaticTF(tf_timestamp, trans, Q, camera_link_frame_id_, frame_id_[COLOR]);
+</span></span><span style="display:flex;"><span>  publishStaticTF(tf_timestamp, zero_trans, quaternion_optical, frame_id_[COLOR],
+</span></span><span style="display:flex;"><span>                  optical_frame_id_[COLOR]);
+</span></span><span style="display:flex;"><span>  publishStaticTF(tf_timestamp, zero_trans, quaternion_optical, frame_id_[DEPTH],
+</span></span><span style="display:flex;"><span>                  optical_frame_id_[DEPTH]);
+</span></span><span style="display:flex;"><span>  publishStaticTF(tf_timestamp, zero_trans, zero_rot, camera_link_frame_id_, frame_id_[DEPTH]);
+</span></span><span style="display:flex;"><span>  publishStaticTF(tf_timestamp, zero_trans, zero_rot, camera_link_frame_id_, frame_id_[ACCEL]);
+</span></span><span style="display:flex;"><span>  publishStaticTF(tf_timestamp, zero_trans, zero_rot, camera_link_frame_id_, frame_id_[GYRO]);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>publishStaticTF</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> OBCameraNode<span style="color:#f92672">::</span>publishStaticTF(<span style="color:#66d9ef">const</span> rclcpp<span style="color:#f92672">::</span>Time<span style="color:#f92672">&amp;</span> t, <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">float</span><span style="color:#f92672">&gt;&amp;</span> trans,
+</span></span><span style="display:flex;"><span>                                   <span style="color:#66d9ef">const</span> tf2<span style="color:#f92672">::</span>Quaternion<span style="color:#f92672">&amp;</span> q, <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string<span style="color:#f92672">&amp;</span> from,
+</span></span><span style="display:flex;"><span>                                   <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string<span style="color:#f92672">&amp;</span> to) {
+</span></span><span style="display:flex;"><span>  CHECK_EQ(trans.size(), <span style="color:#ae81ff">3u</span>);
+</span></span><span style="display:flex;"><span>  geometry_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>TransformStamped msg;
+</span></span><span style="display:flex;"><span>  msg.header.stamp <span style="color:#f92672">=</span> t;
+</span></span><span style="display:flex;"><span>  msg.header.frame_id <span style="color:#f92672">=</span> from;
+</span></span><span style="display:flex;"><span>  msg.child_frame_id <span style="color:#f92672">=</span> to;
+</span></span><span style="display:flex;"><span>  msg.transform.translation.x <span style="color:#f92672">=</span> trans.at(<span style="color:#ae81ff">2</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">1000.0</span>;
+</span></span><span style="display:flex;"><span>  msg.transform.translation.y <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>trans.at(<span style="color:#ae81ff">0</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">1000.0</span>;
+</span></span><span style="display:flex;"><span>  msg.transform.translation.z <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>trans.at(<span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">1000.0</span>;
+</span></span><span style="display:flex;"><span>  msg.transform.rotation.x <span style="color:#f92672">=</span> q.getX();
+</span></span><span style="display:flex;"><span>  msg.transform.rotation.y <span style="color:#f92672">=</span> q.getY();
+</span></span><span style="display:flex;"><span>  msg.transform.rotation.z <span style="color:#f92672">=</span> q.getZ();
+</span></span><span style="display:flex;"><span>  msg.transform.rotation.w <span style="color:#f92672">=</span> q.getW();
+</span></span><span style="display:flex;"><span>  static_tf_msgs_.push_back(msg);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>publishDynamicTransforms</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> OBCameraNode<span style="color:#f92672">::</span>publishDynamicTransforms() {
+</span></span><span style="display:flex;"><span>  RCLCPP_WARN(logger_, <span style="color:#e6db74">&#34;Publishing dynamic camera transforms (/tf) at %g Hz&#34;</span>, tf_publish_rate_);
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>mutex mu;
+</span></span><span style="display:flex;"><span>  std<span style="color:#f92672">::</span>unique_lock<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>mutex<span style="color:#f92672">&gt;</span> lock(mu);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (rclcpp<span style="color:#f92672">::</span>ok() <span style="color:#f92672">&amp;&amp;</span> is_running_) {
+</span></span><span style="display:flex;"><span>    tf_cv_.wait_for(lock, std<span style="color:#f92672">::</span>chrono<span style="color:#f92672">::</span>milliseconds((<span style="color:#66d9ef">int</span>)(<span style="color:#ae81ff">1000.0</span> <span style="color:#f92672">/</span> tf_publish_rate_)),
+</span></span><span style="display:flex;"><span>                    [<span style="color:#66d9ef">this</span>] { <span style="color:#66d9ef">return</span> (<span style="color:#f92672">!</span>(is_running_)); });
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      rclcpp<span style="color:#f92672">::</span>Time t <span style="color:#f92672">=</span> node_<span style="color:#f92672">-&gt;</span>now();
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> msg : static_tf_msgs_) {
+</span></span><span style="display:flex;"><span>        msg.header.stamp <span style="color:#f92672">=</span> t;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      dynamic_tf_broadcaster_<span style="color:#f92672">-&gt;</span>sendTransform(static_tf_msgs_);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>startStreams</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> OBCameraNode<span style="color:#f92672">::</span>startStreams() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (pipeline_ <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span>) {
+</span></span><span style="display:flex;"><span>    pipeline_.reset();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  pipeline_ <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_unique<span style="color:#f92672">&lt;</span>ob<span style="color:#f92672">::</span>Pipeline<span style="color:#f92672">&gt;</span>(device_);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>    setupPipelineConfig();
+</span></span><span style="display:flex;"><span>    pipeline_<span style="color:#f92672">-&gt;</span>start(pipeline_config_, [<span style="color:#66d9ef">this</span>](std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>ob<span style="color:#f92672">::</span>FrameSet<span style="color:#f92672">&gt;</span> frame_set) {
+</span></span><span style="display:flex;"><span>      onNewFrameSetCallback(frame_set);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">catch</span> (<span style="color:#66d9ef">const</span> ob<span style="color:#f92672">::</span>Error<span style="color:#f92672">&amp;</span> e) {
+</span></span><span style="display:flex;"><span>    RCLCPP_ERROR_STREAM(logger_, <span style="color:#e6db74">&#34;Failed to start pipeline: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> e.getMessage());
+</span></span><span style="display:flex;"><span>    RCLCPP_INFO_STREAM(logger_, <span style="color:#e6db74">&#34;try to disable ir stream and try again&#34;</span>);
+</span></span><span style="display:flex;"><span>    enable_stream_[INFRA0] <span style="color:#f92672">=</span> false;
+</span></span><span style="display:flex;"><span>    setupPipelineConfig();
+</span></span><span style="display:flex;"><span>    pipeline_<span style="color:#f92672">-&gt;</span>start(pipeline_config_, [<span style="color:#66d9ef">this</span>](std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>ob<span style="color:#f92672">::</span>FrameSet<span style="color:#f92672">&gt;</span> frame_set) {
+</span></span><span style="display:flex;"><span>      onNewFrameSetCallback(frame_set);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  pipeline_started_.store(true);
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// startIMU();
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><ul>
+<li>setupPipelineConfig</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> OBCameraNode<span style="color:#f92672">::</span>setupPipelineConfig() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (pipeline_config_) {
+</span></span><span style="display:flex;"><span>    pipeline_config_.reset();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  pipeline_config_ <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>ob<span style="color:#f92672">::</span>Config<span style="color:#f92672">&gt;</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (depth_registration_ <span style="color:#f92672">&amp;&amp;</span> enable_stream_[COLOR] <span style="color:#f92672">&amp;&amp;</span> enable_stream_[DEPTH]) {
+</span></span><span style="display:flex;"><span>    pipeline_config_<span style="color:#f92672">-&gt;</span>setAlignMode(ALIGN_D2C_HW_MODE);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> stream_index : IMAGE_STREAMS) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (enable_stream_[stream_index]) {
+</span></span><span style="display:flex;"><span>      RCLCPP_INFO_STREAM(logger_, <span style="color:#e6db74">&#34;Enable &#34;</span> <span style="color:#f92672">&lt;&lt;</span> stream_name_[stream_index] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; stream&#34;</span>);
+</span></span><span style="display:flex;"><span>      RCLCPP_INFO_STREAM(
+</span></span><span style="display:flex;"><span>          logger_, <span style="color:#e6db74">&#34;Stream &#34;</span> <span style="color:#f92672">&lt;&lt;</span> stream_name_[stream_index] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; width: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> width_[stream_index]
+</span></span><span style="display:flex;"><span>                             <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; height: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> height_[stream_index] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; fps: &#34;</span>
+</span></span><span style="display:flex;"><span>                             <span style="color:#f92672">&lt;&lt;</span> fps_[stream_index] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; format: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> format_str_[stream_index]);
+</span></span><span style="display:flex;"><span>      pipeline_config_<span style="color:#f92672">-&gt;</span>enableStream(stream_profile_[stream_index]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>onNewFrameSetCallback</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> OBCameraNode<span style="color:#f92672">::</span>onNewFrameSetCallback(<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>ob<span style="color:#f92672">::</span>FrameSet<span style="color:#f92672">&gt;&amp;</span> frame_set) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (frame_set <span style="color:#f92672">==</span> <span style="color:#66d9ef">nullptr</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>    publishPointCloud(frame_set);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> color_frame <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>dynamic_pointer_cast<span style="color:#f92672">&lt;</span>ob<span style="color:#f92672">::</span>Frame<span style="color:#f92672">&gt;</span>(frame_set<span style="color:#f92672">-&gt;</span>colorFrame());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> depth_frame <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>dynamic_pointer_cast<span style="color:#f92672">&lt;</span>ob<span style="color:#f92672">::</span>Frame<span style="color:#f92672">&gt;</span>(frame_set<span style="color:#f92672">-&gt;</span>depthFrame());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> ir_frame <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>dynamic_pointer_cast<span style="color:#f92672">&lt;</span>ob<span style="color:#f92672">::</span>Frame<span style="color:#f92672">&gt;</span>(frame_set<span style="color:#f92672">-&gt;</span>irFrame());
+</span></span><span style="display:flex;"><span>    onNewFrameCallback(color_frame, COLOR);
+</span></span><span style="display:flex;"><span>    onNewFrameCallback(depth_frame, DEPTH);
+</span></span><span style="display:flex;"><span>    onNewFrameCallback(ir_frame, INFRA0);
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">catch</span> (<span style="color:#66d9ef">const</span> ob<span style="color:#f92672">::</span>Error<span style="color:#f92672">&amp;</span> e) {
+</span></span><span style="display:flex;"><span>    RCLCPP_ERROR_STREAM(logger_, <span style="color:#e6db74">&#34;onNewFrameSetCallback error: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> e.getMessage());
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">catch</span> (<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>exception<span style="color:#f92672">&amp;</span> e) {
+</span></span><span style="display:flex;"><span>    RCLCPP_ERROR_STREAM(logger_, <span style="color:#e6db74">&#34;onNewFrameSetCallback error: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> e.what());
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">catch</span> (...) {
+</span></span><span style="display:flex;"><span>    RCLCPP_ERROR_STREAM(logger_, <span style="color:#e6db74">&#34;onNewFrameSetCallback error: unknown error&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>startIMU</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> OBCameraNode<span style="color:#f92672">::</span>startIMU() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> stream_index : HID_STREAMS) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (enable_stream_[stream_index]) {
+</span></span><span style="display:flex;"><span>      CHECK(sensors_.count(stream_index));
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">auto</span> profile_list <span style="color:#f92672">=</span> sensors_[stream_index]<span style="color:#f92672">-&gt;</span>getStreamProfileList();
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">for</span> (size_t i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> profile_list<span style="color:#f92672">-&gt;</span>count(); i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">auto</span> item <span style="color:#f92672">=</span> profile_list<span style="color:#f92672">-&gt;</span>getProfile(i);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (stream_index <span style="color:#f92672">==</span> ACCEL) {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">auto</span> profile <span style="color:#f92672">=</span> item<span style="color:#f92672">-&gt;</span>as<span style="color:#f92672">&lt;</span>ob<span style="color:#f92672">::</span>AccelStreamProfile<span style="color:#f92672">&gt;</span>();
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">auto</span> accel_rate <span style="color:#f92672">=</span> sampleRateFromString(imu_rate_[stream_index]);
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">auto</span> accel_range <span style="color:#f92672">=</span> fullAccelScaleRangeFromString(imu_range_[stream_index]);
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">if</span> (profile<span style="color:#f92672">-&gt;</span>fullScaleRange() <span style="color:#f92672">==</span> accel_range <span style="color:#f92672">&amp;&amp;</span> profile<span style="color:#f92672">-&gt;</span>sampleRate() <span style="color:#f92672">==</span> accel_rate) {
+</span></span><span style="display:flex;"><span>            sensors_[stream_index]<span style="color:#f92672">-&gt;</span>start(profile,
+</span></span><span style="display:flex;"><span>                                          [<span style="color:#66d9ef">this</span>, stream_index](std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>ob<span style="color:#f92672">::</span>Frame<span style="color:#f92672">&gt;</span> frame) {
+</span></span><span style="display:flex;"><span>                                            onNewIMUFrameCallback(frame, stream_index);
+</span></span><span style="display:flex;"><span>                                          });
+</span></span><span style="display:flex;"><span>            imu_started_[stream_index] <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>            RCLCPP_INFO_STREAM(logger_, <span style="color:#e6db74">&#34;start accel stream with &#34;</span>
+</span></span><span style="display:flex;"><span>                                            <span style="color:#f92672">&lt;&lt;</span> magic_enum<span style="color:#f92672">::</span>enum_name(accel_range) <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; range and &#34;</span>
+</span></span><span style="display:flex;"><span>                                            <span style="color:#f92672">&lt;&lt;</span> magic_enum<span style="color:#f92672">::</span>enum_name(accel_rate) <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; rate&#34;</span>);
+</span></span><span style="display:flex;"><span>          }
+</span></span></code></pre></div><h3 id="imu-test">IMU Test?!</h3>
+<blockquote>
+<p>소스 코드 확인 시, 주석되어 있는 IMU publisher와 관련된 부분들을 확인할 수 있는데요. 과연 IMU data를 사용할 수 있는지 확인해보겠습니다.</p>
+</blockquote>
+<ul>
+<li>주석 해제 - <code>ob_camera_node.cpp</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> OBCameraNode<span style="color:#f92672">::</span>startStreams() {
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 주석 해제
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  pipeline_started_.store(true);
+</span></span><span style="display:flex;"><span>  startIMU();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> OBCameraNode<span style="color:#f92672">::</span>setupPublishers() {
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 주석 해제
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> stream_index : HID_STREAMS) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>enable_stream_[stream_index]) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>string data_topic_name <span style="color:#f92672">=</span> stream_name_[stream_index] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/sample&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> data_qos <span style="color:#f92672">=</span> getRMWQosProfileFromString(imu_qos_[stream_index]);
+</span></span><span style="display:flex;"><span>    imu_publishers_[stream_index] <span style="color:#f92672">=</span> node_<span style="color:#f92672">-&gt;</span>create_publisher<span style="color:#f92672">&lt;</span>sensor_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>Imu<span style="color:#f92672">&gt;</span>(
+</span></span><span style="display:flex;"><span>      data_topic_name, rclcpp<span style="color:#f92672">::</span>QoS(rclcpp<span style="color:#f92672">::</span>QoSInitialization<span style="color:#f92672">::</span>from_rmw(data_qos), data_qos));
+</span></span><span style="display:flex;"><span>    RCLCPP_INFO_STREAM(logger_, <span style="color:#e6db74">&#34;IMU Publisher created&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (enable_publish_extrinsic_) {
+</span></span><span style="display:flex;"><span>    extrinsics_publisher_ <span style="color:#f92672">=</span> node_<span style="color:#f92672">-&gt;</span>create_publisher<span style="color:#f92672">&lt;</span>orbbec_camera_msgs<span style="color:#f92672">::</span>msg<span style="color:#f92672">::</span>Extrinsics<span style="color:#f92672">&gt;</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;extrinsic/depth_to_color&#34;</span>, rclcpp<span style="color:#f92672">::</span>QoS{<span style="color:#ae81ff">1</span>}.transient_local());
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>주석 해제 - <code>gemini2.launch.xml</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>	<span style="color:#75715e">&lt;!-- imu --&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;enable_accel&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;accel_rate&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;100hz&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;accel_range&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;4g&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;enable_gyro&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;gyro_rate&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;100hz&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;gyro_range&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;1000dps&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;liner_accel_cov&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;0.01&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;angular_vel_cov&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;0.01&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;group&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;push-ros-namespace</span> <span style="color:#a6e22e">namespace=</span><span style="color:#e6db74">&#34;$(var camera_name)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>	    <span style="color:#f92672">&lt;node</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;camera&#34;</span> <span style="color:#a6e22e">pkg=</span><span style="color:#e6db74">&#34;orbbec_camera&#34;</span> <span style="color:#a6e22e">exec=</span><span style="color:#e6db74">&#34;orbbec_camera_node&#34;</span> <span style="color:#a6e22e">output=</span><span style="color:#e6db74">&#34;screen&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>          ...
+</span></span><span style="display:flex;"><span>	        <span style="color:#75715e">&lt;!-- imu --&gt;</span>
+</span></span><span style="display:flex;"><span>	        <span style="color:#f92672">&lt;param</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;enable_accel&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(var enable_accel)&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>	        <span style="color:#f92672">&lt;param</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;accel_rate&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(var accel_rate)&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>	        <span style="color:#f92672">&lt;param</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;accel_range&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(var accel_range)&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>	        <span style="color:#f92672">&lt;param</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;enable_gyro&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(var enable_gyro)&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>	        <span style="color:#f92672">&lt;param</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;gyro_rate&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(var gyro_rate)&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>	        <span style="color:#f92672">&lt;param</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;gyro_range&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(var gyro_range)&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>	        <span style="color:#f92672">&lt;param</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;liner_accel_cov&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(var liner_accel_cov)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>	        <span style="color:#f92672">&lt;param</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;angular_vel_cov&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;$(var angular_vel_cov)&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span></code></pre></div><ul>
+<li>마지막으로 imu data의 시각화를 위해 <code>rviz2 plugin</code>을 설치합니다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>sudo apt install ros<span style="color:#f92672">-</span>foxy<span style="color:#f92672">-</span>rviz<span style="color:#f92672">-</span>imu<span style="color:#f92672">-</span>plugin <span style="color:#f92672">-</span>y
+</span></span></code></pre></div><ul>
+<li>launch file을 다시 실행시킨 뒤 rviz2를 확인해보면 다음과 같이 /gyro/sample/imu라는 데이터를 확인할 수 있습니다.</li>
+</ul>
+<p><img src="/kr/ros2_foxy/images19/Untitled1.png?height=400px" alt="Untitled1.png"></p>
+<ul>
+<li>하지만 Topic 시각화를 추가하면 아래와 같이 tf2관련 에러들이 확인됩니다. <strong>topic은 만들어두고, tf2는 broadcast하고 있지 않기 때문입니다.</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>[INFO] [1685265445.144163057] [rviz]: Message Filter dropping message: frame &#39;camera_gyro_optical_frame&#39; at time 1685265444.622 for reason &#39;Unknown&#39;
+</span></span><span style="display:flex;"><span>[INFO] [1685265445.179582316] [rviz]: Message Filter dropping message: frame &#39;camera_gyro_optical_frame&#39; at time 1685265444.652 for reason &#39;Unknown&#39;
+</span></span><span style="display:flex;"><span>[INFO] [1685265445.214360819] [rviz]: Message Filter dropping message: frame &#39;camera_gyro_optical_frame&#39; at time 1685265444.712 for reason &#39;Unknown&#39;
+</span></span><span style="display:flex;"><span>[INFO] [1685265445.244405298] [rviz]: Message Filter dropping message: frame &#39;camera_gyro_optical_frame&#39; at time 1685265444.751 for reason &#39;Unknown&#39;
+</span></span></code></pre></div><ul>
+<li>실제 topic data를 살펴보아도 frame*id는 camera_gyro_optical_frame로 되어있는 반면, tf2 tree에서 해당 tf2는 확인되지 않습니다. 더불어 angular_velocity만 갱신될 뿐 제일 중요한 orientation data를 얻을 수 없습니다. *(orbbec측의 빠른 업데이트를 기대해봅시다.)_</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>header:
+</span></span><span style="display:flex;"><span>  stamp:
+</span></span><span style="display:flex;"><span>    sec: 1685265428
+</span></span><span style="display:flex;"><span>    nanosec: 750000128
+</span></span><span style="display:flex;"><span>  frame_id: camera_gyro_optical_frame
+</span></span><span style="display:flex;"><span>orientation:
+</span></span><span style="display:flex;"><span>  x: 0.0
+</span></span><span style="display:flex;"><span>  y: 0.0
+</span></span><span style="display:flex;"><span>  z: 0.0
+</span></span><span style="display:flex;"><span>  w: 0.0
+</span></span><span style="display:flex;"><span>orientation_covariance:
+</span></span><span style="display:flex;"><span>- -1.0
+</span></span><span style="display:flex;"><span>- 0.0
+</span></span><span style="display:flex;"><span>- 0.0
+</span></span><span style="display:flex;"><span>- 0.0
+</span></span><span style="display:flex;"><span>- 0.0
+</span></span><span style="display:flex;"><span>- 0.0
+</span></span><span style="display:flex;"><span>- 0.0
+</span></span><span style="display:flex;"><span>- 0.0
+</span></span><span style="display:flex;"><span>- 0.0
+</span></span><span style="display:flex;"><span>angular_velocity:
+</span></span><span style="display:flex;"><span>  x: 0.002128450432792306
+</span></span><span style="display:flex;"><span>  y: -0.006385351065546274
+</span></span><span style="display:flex;"><span>  z: 0.0026605629827827215
+</span></span><span style="display:flex;"><span>angular_velocity_covariance:
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -2318,16 +3099,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1684950311"></script>
-    <script src="/js/perfect-scrollbar.min.js?1684950311"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1684950311"></script>
-    <script src="/js/jquery.sticky.js?1684950311"></script>
-    <script src="/js/featherlight.min.js?1684950311"></script>
-    <script src="/js/highlight.pack.js?1684950311"></script>
+    <script src="/js/clipboard.min.js?1685267036"></script>
+    <script src="/js/perfect-scrollbar.min.js?1685267036"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1685267036"></script>
+    <script src="/js/jquery.sticky.js?1685267036"></script>
+    <script src="/js/featherlight.min.js?1685267036"></script>
+    <script src="/js/highlight.pack.js?1685267036"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1684950311"></script>
-    <script src="/js/learn.js?1684950311"></script>
-    <script src="/js/hugo-learn.js?1684950311"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1685267036"></script>
+    <script src="/js/learn.js?1685267036"></script>
+    <script src="/js/hugo-learn.js?1685267036"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
