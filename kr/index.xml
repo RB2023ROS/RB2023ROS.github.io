@@ -213,7 +213,8 @@ Intel Realsense2 D455 Camera Velodyne VLP16 3D lidar Orbbec Astra+ Camera Intel 
       
       <guid>/kr/ros2_foxy/lecture18/</guid>
       <description>Special Part - Point Cloud Deep Learning Example (PointNet) 이번 시간에는 ROS 2와 딥러닝 모델을 결합하여 Application을 구현해보는 예시를 준비했습니다. 사실 제가 딥러닝 분야에 지식은 매우 얕은지라 모델에 대한 설명은 불가합니다. PyTorch를 통해 구현된 오픈소스에 기반하여 동작하는 ROS 2 코드를 개발하는 맥락에 집중해주시면 감사하겠습니다!
-이번 시간 사용할 모델은 스탠포드의 PointNet으로, 3D PointCloud의 feature를 추출하는 가장 대표적인 네트워크입니다. reference : PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation</description>
+이번 예시는 cuda, cudnn 등 GPU를 활용하는 부분이 많습니다. 사용하시는 노트북이 GPU 드라이버를 지원한다면 괜찮지만 그렇지 않은 경우 학습 시 매우 많은 시간이 요구됩니다.
+이번 시간 사용할 모델은 스탠포드의 PointNet으로, 3D PointCloud의 feature를 추출하는 가장 대표적인 네트워크입니다.</description>
     </item>
     
     <item>
